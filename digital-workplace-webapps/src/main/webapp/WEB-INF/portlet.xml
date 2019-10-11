@@ -1,0 +1,94 @@
+<portlet-app version="2.0" xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
+
+	<portlet>
+		<portlet-name>digitalWorkplaceSlider</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+      <name>portlet-view-dispatched-file-path</name>
+      <value>/slider.html</value>
+     </init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace Slider</title>
+		</portlet-info>
+	</portlet>
+
+	<portlet>
+		<portlet-name>digitalWorkplaceNews</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/news.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace News</title>
+		</portlet-info>
+	</portlet>
+
+	<portlet>
+		<portlet-name>digitalWorkplaceProfileStats</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/profileStats.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace Profile Stats</title>
+		</portlet-info>
+	</portlet>
+
+	<portlet>
+		<portlet-name>digitalWorkplaceDocuments</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/documents.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace Documents</title>
+		</portlet-info>
+	</portlet>
+
+	<portlet>
+		<portlet-name>digitalWorkplaceEvents</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/events.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace Events</title>
+		</portlet-info>
+	</portlet>
+
+	<portlet>
+		<portlet-name>digitalWorkplaceTasks</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/tasks.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace Tasks</title>
+		</portlet-info>
+	</portlet>
+
+</portlet-app>
