@@ -20,7 +20,7 @@
 	</parent>
 	<groupId>org.exoplatform.addons.digital-workplace</groupId>
 	<artifactId>digital-workplace</artifactId>
-	<version>1.0.x-SNAPSHOT</version>
+	<version>1.0.x-dw-homepage-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>eXo Add-on:: Digital Workplace - Parent POM</name>
 	<description>Digital Workplace Addon</description>
@@ -31,7 +31,7 @@
 	</modules>
 	<properties>
 		<!-- 3rd party libraries versions -->
-		<org.exoplatform.platform.version>6.0.x-SNAPSHOT</org.exoplatform.platform.version>
+		<org.exoplatform.platform.version>6.0.x-dw-homepage-SNAPSHOT</org.exoplatform.platform.version>
 		<!-- Maven Plugin for JS and CSS bundling and Unit Test execution -->
 		<com.github.eirslett.frontend.version>1.6</com.github.eirslett.frontend.version>
 	</properties>
