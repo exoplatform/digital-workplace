@@ -32,6 +32,8 @@
 	<properties>
 		<!-- 3rd party libraries versions -->
 		<org.exoplatform.platform.version>6.0.x-SNAPSHOT</org.exoplatform.platform.version>
+		<!-- Maven Plugin for JS and CSS bundling and Unit Test execution -->
+		<com.github.eirslett.frontend.version>1.6</com.github.eirslett.frontend.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -59,4 +61,16 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	<build>
+		<pluginManagement>
+			<plugins>
+			<!-- Maven Plugin for JS and CSS bundling and Unit Test execution -->
+				<plugin>
+					<groupId>com.github.eirslett</groupId>
+					<artifactId>frontend-maven-plugin</artifactId>
+					<version>${com.github.eirslett.frontend.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 </project>
