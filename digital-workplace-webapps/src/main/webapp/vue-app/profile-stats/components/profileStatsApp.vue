@@ -1,7 +1,7 @@
 <template>
   <v-app
     id="digital-workplace-profile-stats"
-    class="VuetifyApp ml-3"
+    class="VuetifyApp ml-md-3"
     flat
     dark>
     <main>
@@ -10,7 +10,7 @@
           row 
           wrap 
           mx-0
-          class="white"
+          class="white elevation-1"
           mb-2>
           <v-flex 
             d-flex 
@@ -136,67 +136,70 @@
                   mx-0>
                   <v-flex
                     xs12
-                    sm7
+                    lg7
                     d-flex>
                     <v-layout 
                       row 
-                      ml-0 
-                      mr-2 
-                      class="white" >
+                      ml-0
+                      mr-lg-2
+                      mb-lg-0
+                      mr-0
+                      mb-2
+                      class="white elevation-1">
                       <v-flex d-flex xs12>
                         <v-card flat>
-                          <v-card-text class="subtitle-1 grey--text pt-2">Perkstore</v-card-text>
+                          <v-card-text class="subtitle-1 grey--text pa-1">Perkstore</v-card-text>
                         </v-card>
                       </v-flex>
                       <v-flex 
                         d-flex 
                         xs12 
                         pb-2>
-                        <v-layout row mx-0>
+                        <v-layout 
+                          wrap 
+                          row 
+                          mx-0>
                           <v-flex
-                            xs12
-                            sm6
                             d-flex>
                             <v-layout row mx-0>
                               <v-flex 
                                 d-flex 
-                                xs12 
-                                sm4>
+                                xs12
+                                xs2
+                                md4>
                                 <v-card flat>
-                                  <v-card-text class="py-0 pl-2 display-2 font-weight-bold">3</v-card-text>
+                                  <v-card-text class="py-0 pl-1 display-2 font-weight-bold">3</v-card-text>
                                 </v-card>
                               </v-flex>
                               <v-flex 
-                                d-flex 
-                                xs12 
-                                sm8>
+                                d-flex
+                                xs10
+                                md8>
                                 <v-card flat>
-                                  <v-card-text class="pa-0 body-2 green--text darken-2">New</v-card-text>
-                                  <v-card-text class="pa-0 body-2">Products</v-card-text>
+                                  <v-card-text class="pa-0 caption green--text darken-2 mt-1">New</v-card-text>
+                                  <v-card-text class="pa-0 caption">Products</v-card-text>
                                 </v-card>
                               </v-flex>
                             </v-layout>
                           </v-flex>
                           <v-flex
-                            xs12
-                            sm6
                             d-flex>
                             <v-layout row mx-0>
                               <v-flex 
-                                d-flex 
-                                xs12 
-                                sm4>
+                                d-flex
+                                md4
+                                xs2>
                                 <v-card flat>
-                                  <v-card-text class="py-0 pl-2 display-2 font-weight-bold">2</v-card-text>
+                                  <v-card-text class="py-0 pl-1 display-2 font-weight-bold">2</v-card-text>
                                 </v-card>
                               </v-flex>
                               <v-flex 
-                                d-flex 
-                                xs12 
-                                sm8>
+                                d-flex
+                                md8
+                                xs10>
                                 <v-card flat>
-                                  <v-card-text class="pa-0 body-2 orange--text darken-1">Pending</v-card-text>
-                                  <v-card-text class="pa-0 body-2">Orders</v-card-text>
+                                  <v-card-text class="pa-0 caption orange--text darken-1 mt-1">Pending</v-card-text>
+                                  <v-card-text class="pa-0 caption">Orders</v-card-text>
                                 </v-card>
                               </v-flex>
                             </v-layout>
@@ -208,14 +211,14 @@
                   <v-flex
                     d-flex
                     sx12
-                    sm5>
+                    lg5>
                     <v-layout 
                       row 
                       ma-0 
-                      class="white">
+                      class="white elevation-1">
                       <v-flex d-flex xs12>
                         <v-card flat>
-                          <v-card-text class="subtitle-1 grey--text pt-2">Wallet Balance</v-card-text>
+                          <v-card-text class="subtitle-1 grey--text pa-1">Wallet Balance</v-card-text>
                         </v-card>
                       </v-flex>
                       <v-flex d-flex xs12>
