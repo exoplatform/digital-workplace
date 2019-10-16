@@ -68,8 +68,8 @@
               def flexClass= "";
               switch(i) {
                 case 0: flexClass = "xs12 mb-3 white"; break;
-                case 1: flexClass = "md8 xs12 mb-3 pr-3"; break;
-                case 2: flexClass = "md4 xs12 mb-3"; break;
+                case 1: flexClass = "md9 xs12 mb-3 pr-3 white"; break;
+                case 2: flexClass = "md3 xs12 mb-3"; break;
                 case 3: flexClass = "md4 xs12"; break;
                 case 4: flexClass = "md4 xs12"; break;
                 case 5: flexClass = "md4 xs12"; break;

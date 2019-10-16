@@ -5,7 +5,10 @@
     class="VuetifyApp"
     flat>
     <v-container pa-0>
-      <v-layout row mx-0 class="white">
+      <v-layout 
+        row 
+        mx-0 
+        class="white">
         <v-flex
           d-flex
           xs12
