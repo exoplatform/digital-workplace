@@ -40,10 +40,19 @@
                 transition="scale-transition"
                 offset-y>
                 <template v-slot:activator="{ on }">
-                  <v-text-field
-                    v-model="date"
-                    append-outer-icon="event"
-                    v-on="on"/>
+                  <v-btn 
+                    class="pr-0"
+                    outlined 
+                    color="#568DC9"
+                    style="height: 50px"
+                    v-on="on">{{ date }}</v-btn>
+                  <v-btn 
+                    class="ma-2" 
+                    color="#568DC9"
+                    icon 
+                    v-on="on">
+                  <v-icon>event</v-icon></v-btn>
+                  <!--</v-btn><v-icon color="#568DC9" class="ml-2">event</v-icon>-->
                 </template>
                 <v-date-picker
                   v-model="date"
@@ -72,9 +81,12 @@
           <v-flex
             d-flex
             xs12
-            sm2><v-avatar color="#568DC9" size="36">
+            sm2><v-layout column><v-avatar color="#568DC9" size="36">
               <span class="white--text headline">19</span>
-          </v-avatar></v-flex>
+            </v-avatar>
+              <span style="font-size: 20px">MU</span>
+            </v-layout>
+          </v-flex>
           <v-flex
             d-flex
             xs12
@@ -119,9 +131,14 @@
             d-flex
             xs12
             sm2>
-            <v-avatar size="36">
-              <span class="headline">20</span>
-          </v-avatar></v-flex>
+            <v-layout column>
+              <v-avatar size="36">
+                <span class="headline">20</span>
+              </v-avatar>
+              <v-avatar size="36">
+                <span style="font-size: 20px">TU</span>
+              </v-avatar>
+          </v-layout></v-flex>
           <v-flex
             d-flex
             xs12
