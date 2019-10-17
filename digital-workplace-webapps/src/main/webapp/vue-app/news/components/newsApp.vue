@@ -119,6 +119,7 @@
     data () {
       return {
         news: {},
+      }
     },
     created() {
       this.getLatestNews();
