@@ -55,12 +55,12 @@
               md6
               pb-3>
               <v-img
-                aspect-ratio="2.3"
-                src="https://cdn.vuetifyjs.com/images/parallax/material.jpg">
+                :src="news[0].illustration"
+                aspect-ratio="2.3">
                 <v-row align="end" class="lightbox white--text pa-2 fill-height">
                   <v-col>
-                    <div class="subtitle-1 font-weight-bold text-uppercase">Lorem ipsum dolor sit amet</div>
-                    <div class="body-2">Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem,</div>
+                    <div class="subtitle-1 font-weight-bold text-uppercase">{{ news[0].title }}</div>
+                    <div class="body-2">{{ news[0].summary }}</div>
                   </v-col>
                 </v-row>
               </v-img>
@@ -73,19 +73,24 @@
                 row 
                 wrap 
                 mx-0
-                pl-3>
+                pl-md-3>
                 <v-flex
-                  v-for="n in 3"
-                  :key="n"
-                  mb-3>
-                  <v-layout row mx-0>
+                  v-for="(item, index) of news.slice(1)"
+                  :key="index"
+                  mb-3
+                  md12
+                  sm4>
+                  <v-layout 
+                    row 
+                    mx-0 
+                    mr-sm-2>
                     <v-flex
                       d-flex
                       xs12
                       md3>
                       <v-img
-                        aspect-ratio="2"
-                        src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"/>
+                        :src="item.illustration"
+                        aspect-ratio="2"/>
                     </v-flex>
                     <v-flex
                       d-flex
@@ -94,8 +99,8 @@
                       <v-card
                         flat
                         color="transparent">
-                        <v-card-title class="subtitle-1 font-weight-bold text-uppercase pt-2">I'm a title</v-card-title>
-                        <v-card-text class="pb-2">{{ lorem.slice(0, 70) }}</v-card-text>
+                        <v-card-title class="subtitle-2 font-weight-bold text-uppercase pt-2">{{ item.title }}</v-card-title>
+                        <v-card-text class="pb-2">{{ item.summary }}</v-card-text>
                       </v-card>
                     </v-flex>
                   </v-layout>
@@ -109,13 +114,24 @@
   </v-app>
 </template>
 <script>
+  import * as newsAPI from '../newsApi'
   export default {
-    data: () => ({
-      lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem,
-      explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.
-      Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem,
-      explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`
-    })
+    data () {
+      return {
+        news: {},
+    },
+    created() {
+      this.getLatestNews();
+    },
+    methods: {
+      getLatestNews() {
+        newsAPI.getLatestNews().then(
+            (data) => {
+               this.news = data;
+            }
+        )
+      }
+    }
   }
 </script>
 <style scoped>
