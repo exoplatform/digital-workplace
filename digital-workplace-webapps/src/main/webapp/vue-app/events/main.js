@@ -1,4 +1,4 @@
-import eventsApp from './components/eventsApp.vue';
+import eventsApp from './components/EventsApp.vue';
 
 import '../../css/main.less';
 
