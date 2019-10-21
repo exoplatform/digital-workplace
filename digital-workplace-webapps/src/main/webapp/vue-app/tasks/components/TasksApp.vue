@@ -23,9 +23,9 @@
               <v-card
                 flat
                 color="transparent">
-                <v-card-text class="body-1 text-uppercase grey--text px-0">
+                <a href="#"><v-card-text class="body-1 text-uppercase grey--text px-0">
                   Tasks
-                </v-card-text>
+                </v-card-text></a>
               </v-card>
             </v-flex>
           </v-layout>
@@ -143,58 +143,57 @@
             row
             mx-0>
             <v-flex
-              d-flex
               xs12>
               <v-list>
-                <v-list-item
-                  v-for="item in items"
-                  :key="item.title"
-                  class="px-0">
-                  <v-layout
-                    row
-                    mx-0
-                    class="white">
-                    <v-flex
-                      d-flex
-                      xs12
-                      px-3>
-                      <v-layout
-                        row
-                        mx-0>
-                        <v-flex
-                          d-flex
-                          xs12
-                          sm6>
-                          <v-list-item-content>
-                            <v-tooltip bottom>
-                              <template v-slot:activator="{ on }">
-                                <v-list-item-title v-on="on" v-text="item.title"/><br>
-                                <v-list-item-subtitle v-text="item.date"/>
-                              </template>
-                              <span>{{ item.title }}</span>
-                            </v-tooltip>
-                          </v-list-item-content>
-                        </v-flex>
-                        <v-flex
-                          d-flex
-                          xs12
-                          sm6
-                          justify-end>
-                          <v-tooltip right>
-                            <template v-slot:activator="{ on }">
-                              <v-btn
+                <v-list-item-group>
+                  <v-list-item
+                    v-for="item in items"
+                    :key="item.title"
+                    class="px-0">
+                    <v-layout
+                      row
+                      mx-0
+                      class="white">
+                      <v-flex
+                        d-flex
+                        xs12
+                        px-3>
+                        <v-layout
+                          row
+                          mx-0>
+                          <v-flex
+                            d-flex
+                            xs12
+                            sm8>
+                            <v-list-item-content>
+                              <v-tooltip bottom>
+                                <template v-slot:activator="{ on }">
+                                  <v-list-item-title v-on="on" v-text="item.title"/><br>
+                                  <v-list-item-subtitle v-text="item.date"/>
+                                </template>
+                                <span>{{ item.title }}</span>
+                              </v-tooltip>
+                            </v-list-item-content>
+                          </v-flex>
+                          <v-flex
+                            d-flex
+                            xs12
+                            sm4
+                            justify-end><v-tooltip bottom>
+                              <template v-slot:activator="{ on }"><v-card 
                                 :color="item.color"
-                                style="width: 150px"
-                                class="mt-2"
-                                v-on="on"
-                                v-text="item.project.slice(0,12)"/>              </template>
-                            <span>{{ item.project }}</span>
-                          </v-tooltip>
-                        </v-flex>
-                      </v-layout>
-                    </v-flex>
-                  </v-layout>
-                </v-list-item>
+                                height="30"
+                                class="my-3"
+                                width="150" 
+                                v-on="on">
+                                <v-card-text class="justify-center py-0 ">{{ item.project }}</v-card-text>
+                              </v-card></template><span>{{ item.title }}</span>
+                          </v-tooltip></v-flex>
+                        </v-layout>
+                      </v-flex>
+                    </v-layout>
+                  </v-list-item>
+                </v-list-item-group>
               </v-list>
         </v-flex></v-layout></v-flex>
       </v-layout>
