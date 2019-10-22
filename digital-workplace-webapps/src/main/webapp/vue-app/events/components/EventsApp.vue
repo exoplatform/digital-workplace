@@ -42,23 +42,25 @@
               <v-flex
                 d-flex
                 xs12
-                sm2>
+                sm1>
                 <v-layout column><v-avatar 
-                  color="#568DC9" 
+                  color="#568DC9"
+                  class="pa-6"
                   size="36">
                   <span class="white--text headline">19</span>
                 </v-avatar>
                   <v-avatar size="20">
-                    <span class="ml-4" style="font-size: 15px;color: #568DC9">OCT</span>
+                    <span class="ml-6 blueText">OCT</span>
                   </v-avatar>            
               </v-layout></v-flex>
               <v-flex
                 d-flex
                 xs12
-                sm10><v-list-item>
+                sm11><v-list-item>
                   <v-list-item-content class="pt-0">
                     <v-card
-                      class="mb-3"
+                      flat
+                      class="mb-3 py-1"
                       dark
                       color="#52B68D">
                       <v-list-item-title class="ml-2">Training Javascript</v-list-item-title>
@@ -68,14 +70,16 @@
                       color="black"
                       class="mb-3 mt-0"/>
                     <v-card
-                      class="mb-3"
+                      flat
+                      class="mb-3 py-1"
                       dark
                       color="#D07B7B">
                       <v-list-item-title class="ml-2">Home page Meeting</v-list-item-title>
                       <v-list-item-title class="ml-2">12:00 - 13:30</v-list-item-title>
                     </v-card>
                     <v-card
-                      class="mb-3"
+                      flat
+                      class="mb-3 py-1"
                       dark
                       color="#FBB340">
                       <v-list-item-title class="ml-2">Product meeting</v-list-item-title>
@@ -91,29 +95,31 @@
               <v-flex
                 d-flex
                 xs12
-                sm2>
+                sm1>
                 <v-layout column>
-                  <v-avatar size="36">
+                  <v-avatar size="36" class="pa-6">
                     <span class="headline" style="color: #568DC9">20</span>
                   </v-avatar>
                   <v-avatar size="20">
-                    <span class="ml-4" style="font-size: 15px;color: #568DC9">OCT</span>
+                    <span class="ml-6 blueText">OCT</span>
                   </v-avatar>
               </v-layout></v-flex>
               <v-flex
                 d-flex
                 xs12
-                sm10><v-list-item>
+                sm11><v-list-item>
                   <v-list-item-content class="pt-0">
                     <v-card
+                      flat
                       dark
-                      class="mb-3"
+                      class="mb-3 py-1"
                       color="#999999">
                       <v-list-item-title class="ml-2">Feature Team Gamification</v-list-item-title>
                       <v-list-item-title class="ml-2">11:00 - 11:15</v-list-item-title>
                     </v-card>
                     <v-card
-                      class="mb-3"
+                      flat
+                      class="mb-3 py-1"
                       dark
                       color="#A7B3C5">
                       <v-list-item-title class="ml-2">Feature Team News</v-list-item-title>
