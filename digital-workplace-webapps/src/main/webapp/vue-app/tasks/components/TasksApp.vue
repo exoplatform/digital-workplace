@@ -55,7 +55,10 @@
                           <v-flex
                             xs12
                             d-flex>
-                            <v-layout mx-0 justify-center>
+                            <v-layout 
+                              mx-0 
+                              justify-center 
+                              class="pa-2">
                               <v-flex
                                 d-flex
                                 xs12
@@ -103,7 +106,10 @@
                                 d-flex
                                 xs12
                                 sm5>
-                                <v-layout mx-0 justify-center>
+                                <v-layout 
+                                  mx-0 
+                                  justify-center 
+                                  class="pa-2">
                                   <template>
                                     <div class="text-center">
                                       <v-avatar tile color="#F7FAFD">
@@ -120,7 +126,10 @@
                                 d-flex
                                 xs12
                                 sm7>
-                                <v-card flat color="#F7FAFD">
+                                <v-card 
+                                  flat 
+                                  color="#F7FAFD" 
+                                  class="pt-1">
                                   <div style="font-size: large">6 Tasks</div>
                                   <div class="caption grey--text">en retard</div>
                                 </v-card>
@@ -164,7 +173,7 @@
                           <v-flex
                             d-flex
                             xs12
-                            sm8>
+                            sm6>
                             <v-list-item-content>
                               <v-tooltip bottom>
                                 <template v-slot:activator="{ on }">
@@ -178,16 +187,29 @@
                           <v-flex
                             d-flex
                             xs12
-                            sm4
-                            justify-end><v-tooltip bottom>
-                              <template v-slot:activator="{ on }"><v-card 
-                                :color="item.color"
-                                height="30"
-                                class="my-3"
-                                width="150" 
-                                v-on="on">
-                                <v-card-text class="justify-center py-0 ">{{ item.project }}</v-card-text>
-                              </v-card></template><span>{{ item.title }}</span>
+                            sm6
+                            justify-end
+                            align><v-tooltip bottom>
+                              <template v-slot:activator="{ on }">
+                                <v-card
+                                  :color="item.color"
+                                  height="35"
+                                  width="200"
+                                  class="pa-2 my-3 Rectangular-card"
+                                  flat
+                                  v-on="on" >
+                                  <span class="px-4">{{ item.project }}</span>
+                                </v-card>
+                                <v-card
+                                  height="35"
+                                  class="pa-2 my-3 Rectangular-card"
+                                  flat
+                                  outlined
+                                  style="border: 2px solid;border-color: #FFF0D8;"
+                                  center>
+                                  <v-icon class="mt-n2" color="red">mdi-flag-variant</v-icon>
+                                </v-card>
+                              </template><span>{{ item.project }}</span>
                           </v-tooltip></v-flex>
                         </v-layout>
                       </v-flex>
@@ -208,7 +230,7 @@
         { title: 'Create new composer', project: 'New Feature ' ,color:'#FFF0D8',status:'en cours',date:"14-10-2019"},
         { title: 'Design new Home', project: 'Home page',color:'#E1E1E1',status: 'en retard',date:"14-10-2019"},
         { title: 'New Badges', project: 'Gamification',color:'#ECC8C8',status:'en cours' ,date:"14-10-2019"},
-        { title: 'My currencies', project: 'Wallet Feauture',color:'#CEDEEF',status:'en cours' ,date:"14-10-2019"},
+        { title: 'My currencies', project: 'Wallet Feature',color:'#CEDEEF',status:'en cours' ,date:"14-10-2019"},
         { title: 'File Activity design', project: 'Only Office',color:'#D4F0E7',status:'en cours' ,date:"14-10-2019"},
         { title: 'Add domains', project: 'Gamification',color:'deep-orange lighten-3',status:'en cours' ,date:"14-10-2019"},
       ],
