@@ -42,25 +42,25 @@
               <v-flex
                 d-flex
                 xs12
-                sm1>
+                sm2>
                 <v-layout column><v-avatar 
                   color="#568DC9"
-                  class="pa-6"
+                  class="pa-6 ml-2"
                   size="36">
                   <span class="white--text headline">19</span>
                 </v-avatar>
                   <v-avatar size="20">
-                    <span class="ml-6 blueText">OCT</span>
+                    <span class="ml-10 blueText">OCT</span>
                   </v-avatar>            
               </v-layout></v-flex>
               <v-flex
                 d-flex
                 xs12
-                sm11><v-list-item>
+                sm10><v-list-item>
                   <v-list-item-content class="pt-0">
                     <v-card
                       flat
-                      class="mb-3 py-1"
+                      class="mb-3 py-1 pl-0"
                       dark
                       color="#52B68D">
                       <v-list-item-title class="ml-2">Training Javascript</v-list-item-title>
@@ -71,7 +71,7 @@
                       class="mb-3 mt-0"/>
                     <v-card
                       flat
-                      class="mb-3 py-1"
+                      class="mb-3 py-1 pl-0"
                       dark
                       color="#D07B7B">
                       <v-list-item-title class="ml-2">Home page Meeting</v-list-item-title>
@@ -79,7 +79,7 @@
                     </v-card>
                     <v-card
                       flat
-                      class="mb-3 py-1"
+                      class="mb-3 py-1 pl-0"
                       dark
                       color="#FBB340">
                       <v-list-item-title class="ml-2">Product meeting</v-list-item-title>
@@ -95,19 +95,19 @@
               <v-flex
                 d-flex
                 xs12
-                sm1>
+                sm2>
                 <v-layout column>
-                  <v-avatar size="36" class="pa-6">
+                  <v-avatar size="36" class="ml-2">
                     <span class="headline" style="color: #568DC9">20</span>
                   </v-avatar>
                   <v-avatar size="20">
-                    <span class="ml-6 blueText">OCT</span>
+                    <span class="ml-10 blueText">OCT</span>
                   </v-avatar>
               </v-layout></v-flex>
               <v-flex
                 d-flex
                 xs12
-                sm11><v-list-item>
+                sm10><v-list-item>
                   <v-list-item-content class="pt-0">
                     <v-card
                       flat
