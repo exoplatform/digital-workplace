@@ -195,14 +195,14 @@
                                   :color="item.color"
                                   height="35"
                                   width="200"
-                                  class="pa-2 my-3 Rectangular-card"
+                                  class="pa-2 my-3 Rectangular-card text-center"
                                   flat
                                   v-on="on" >
-                                  <span class="px-4">{{ item.project }}</span>
+                                  <span>{{ item.project }}</span>
                                 </v-card>
                                 <v-card
                                   height="35"
-                                  class="pa-2 my-3 Rectangular-card"
+                                  class="pa-2 my-3 Rectangular-card "
                                   flat
                                   outlined
                                   style="border: 2px solid;border-color: #FFF0D8;"
