@@ -23,7 +23,7 @@
               <v-card
                 flat
                 color="transparent">
-                <a href="#"><v-card-text class="body-1 text-uppercase grey--text px-0">
+                <a href="#"><v-card-text class="body-1 text-uppercase color-title px-0">
                   Tasks
                 </v-card-text></a>
               </v-card>
@@ -55,20 +55,22 @@
                           <v-flex
                             xs12
                             d-flex>
-                            <v-layout 
-                              mx-0 
-                              justify-center 
-                              class="pa-2">
+                            <v-layout mx-0>
                               <v-flex
                                 d-flex
                                 xs12
                                 sm5>
-                                <v-layout mx-0 justify-center>
-                                  <v-avatar tile color="#F7FAFD">
-                                    <i
-                                      style ="font-size: 50px;color:#6CCBAE;font-size: 40px"
-                                      class="uiIconEcmsViewTimeline"></i>
-                                  </v-avatar>  
+                                <v-layout
+                                  mx-0
+                                  justify-center
+                                  class="pa-2">
+                                  <template>
+                                    <div class="text-center">
+                                      <v-avatar tile color="#F7FAFD">
+                                        <i class="uiIconEcmsViewTimeline iconlarge"></i>
+                                      </v-avatar>
+                                    </div>
+                                  </template>
                                 </v-layout>
                               </v-flex>
                               <v-flex
@@ -76,8 +78,8 @@
                                 xs12
                                 sm7>
                                 <v-card flat color="#F7FAFD">
-                                  <div style="font-size: large">12 Tasks</div>
-                                  <div class="caption grey--text">en cours</div>
+                                  <div class="title">12 Tasks</div>
+                                  <div class="caption color-title">en cours</div>
                                 </v-card>
                               </v-flex>
                             </v-layout>
@@ -116,7 +118,7 @@
                                         <v-icon
                                           size="50"
                                           class="mb-1"
-                                          style="color: #D07B7B">mdi-alarm</v-icon>
+                                          color="#D07B7B">mdi-alarm</v-icon>
                                       </v-avatar>
                                     </div>
                                   </template>      
@@ -126,12 +128,9 @@
                                 d-flex
                                 xs12
                                 sm7>
-                                <v-card 
-                                  flat 
-                                  color="#F7FAFD" 
-                                  class="pt-1">
-                                  <div style="font-size: large">6 Tasks</div>
-                                  <div class="caption grey--text">en retard</div>
+                                <v-card flat color="#F7FAFD">
+                                  <div class="title">6 Tasks</div>
+                                  <div class="caption color-title">en retard</div>
                                 </v-card>
                               </v-flex>
                             </v-layout>
@@ -178,7 +177,7 @@
                               <v-tooltip bottom>
                                 <template v-slot:activator="{ on }">
                                   <v-list-item-title v-on="on" v-text="item.title"/><br>
-                                  <v-list-item-subtitle v-text="item.date"/>
+                                  <v-list-item-subtitle><div class="color-title">{{ item.date }}</div></v-list-item-subtitle>
                                 </template>
                                 <span>{{ item.title }}</span>
                               </v-tooltip>
@@ -201,11 +200,11 @@
                                   <span>{{ item.project }}</span>
                                 </v-card>
                                 <v-card
+                                  :style="{borderColor:item.color}"
                                   height="35"
                                   class="pa-2 my-3 Rectangular-card "
                                   flat
                                   outlined
-                                  style="border: 2px solid;border-color: #FFF0D8;"
                                   center>
                                   <v-icon class="mt-n2" color="red">mdi-flag-variant</v-icon>
                                 </v-card>
@@ -232,7 +231,7 @@
         { title: 'New Badges', project: 'Gamification',color:'#ECC8C8',status:'en cours' ,date:"14-10-2019"},
         { title: 'My currencies', project: 'Wallet Feature',color:'#CEDEEF',status:'en cours' ,date:"14-10-2019"},
         { title: 'File Activity design', project: 'Only Office',color:'#D4F0E7',status:'en cours' ,date:"14-10-2019"},
-        { title: 'Add domains', project: 'Gamification',color:'deep-orange lighten-3',status:'en cours' ,date:"14-10-2019"},
+        { title: 'Add domains', project: 'Gamification',color:'#ECC8C8',status:'en cours' ,date:"14-10-2019"},
       ],
     }),
   }
