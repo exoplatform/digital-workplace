@@ -23,7 +23,7 @@
               <v-card
                 flat
                 color="transparent">
-                <a href="#"><v-card-text class="body-1 text-uppercase grey--text px-0">
+                <a href="#"><v-card-text class="body-1 text-uppercase color-title px-0">
                   Events
                 </v-card-text></a>
               </v-card>
@@ -45,12 +45,12 @@
                 sm2>
                 <v-layout column><v-avatar 
                   color="#568DC9"
-                  class="pa-6 ml-2"
+                  class="pa-6"
                   size="36">
                   <span class="white--text headline">19</span>
                 </v-avatar>
                   <v-avatar size="20">
-                    <span class="ml-10 blueText">OCT</span>
+                    <span class="ml-7 blueText">OCT</span>
                   </v-avatar>            
               </v-layout></v-flex>
               <v-flex
@@ -97,11 +97,11 @@
                 xs12
                 sm2>
                 <v-layout column>
-                  <v-avatar size="36" class="ml-2">
-                    <span class="headline" style="color: #568DC9">20</span>
+                  <v-avatar size="36" class="px-6">
+                    <span class="headline blueText">20</span>
                   </v-avatar>
                   <v-avatar size="20">
-                    <span class="ml-10 blueText">OCT</span>
+                    <span class="ml-7 blueText">OCT</span>
                   </v-avatar>
               </v-layout></v-flex>
               <v-flex

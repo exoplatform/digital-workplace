@@ -22,7 +22,7 @@
               <v-card
                 flat
                 color="transparent">
-                <a href="#"><v-card-text class="body-1 text-uppercase grey--text px-0">
+                <a href="#"><v-card-text class="body-1 text-uppercase color-title px-0">
                   Documents
                 </v-card-text>
                 </a>
@@ -62,7 +62,7 @@
                       </v-list-item-icon>
                       <v-list-item-content>
                         <v-list-item-title v-text="item.text"/>
-                        <v-list-item-subtitle>{{ item.date }}<v-icon>mdi-menu-right</v-icon>{{ item.space }}</v-list-item-subtitle>
+                        <v-list-item-subtitle><div class="color-title">{{ item.date }}<v-icon color="#a8b3c5">mdi-menu-right</v-icon>{{ item.space }}</div></v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                   </v-list-item-group>
