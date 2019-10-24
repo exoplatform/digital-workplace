@@ -16,12 +16,6 @@
     color: @greyColor!important;
   }
 
-  #digital-workplace-events {
-    margin-right: 12px;
-  }
-  #digital-workplace-tasks {
-    margin-right: 12px;
-  }
   .color-title {
     color: #a8b3c5;
   }
@@ -66,4 +60,39 @@
   .blueText{font-size: 15px;color: #568DC9}
   .iconlarge{font-size: 50px;color:#6CCBAE;font-size: 40px;}
 
+}
+
+/* HomePage Containers Structure */
+
+#digitalWorkplaceHomePage {
+	margin: 12px;
+}
+
+#SliderContainer, #MiddleContainer {
+	margin-bottom: 12px;
+}
+
+#LatestNewsContainer {
+	margin-right: 12px;
+}
+
+.LatestNewsContainerTDContainer {
+	width: 75%;
+}
+
+.EventsContainerTDContainer, .TasksContainerTDContainer {
+	width: 33.3333333333%;
+}
+
+#EventsContainer, #TasksContainer {
+	margin-right: 12px;
+}
+
+@media (max-width: 480px) {
+	.TRContainer .TDResponsiveContainer {
+	    width: 100%;
+	    float: left;
+	    margin-right: 0;
+	    margin-bottom: 12px;
+	}
 }
