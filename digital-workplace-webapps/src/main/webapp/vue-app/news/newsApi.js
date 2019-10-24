@@ -1,5 +1,5 @@
-export function getSliderItems() {
-    return fetch(`https://www.json-generator.com/api/json/get/cbEwqEAAHS?indent=2`, {
+export function getLatestNews() {
+    return fetch(`https://www.json-generator.com/api/json/get/bUsggXSgde?indent=2`, {
         method: 'GET',
     }).then((resp) => {
         if(resp && resp.ok) {

@@ -1,4 +1,4 @@
-import profileStatsApp from './components/profileStatsApp.vue';
+import UserProfileApp from './components/UserProfile.vue';
 
 import '../../css/main.less';
 
@@ -20,7 +20,7 @@ exoi18n.loadLanguageAsync(lang, url)
     .then(i18n => {
         // init Vue app when locale ressources are ready
         new Vue({
-            render: h => h(profileStatsApp),
+            render: h => h(UserProfileApp),
             i18n,
             vuetify,
         }).$mount('#digital-workplace-profile-stats');

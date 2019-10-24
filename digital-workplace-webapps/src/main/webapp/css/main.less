@@ -1,7 +1,21 @@
+// Variables
+@primaryColor: #578DC9;
+@greyColor: #a8b3c5;
+
 .VuetifyApp {
-    #digital-workplace-news {
-      //background: white;
+  .primary-color {
+    background-color: @primaryColor!important;
+    border-color: @primaryColor!important;
   }
+  .primary-color--text {
+    color: @primaryColor !important;
+    caret-color: @primaryColor !important;
+  }
+
+  .grey-color {
+    color: @greyColor!important;
+  }
+
   #digital-workplace-events {
     margin-right: 12px;
   }
@@ -9,12 +23,47 @@
     margin-right: 12px;
   }
   .color-title {
-    color: #A7B3C5;
+    color: #a8b3c5;
   }
-  .rounded-card {
-    border-radius: .3rem;
+  .Rectangular-card {
+    border-radius: 0em;
   }
   #digital-workplace-profile-stats {
     background: transparent;
+    .profileCard {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transform-origin: center right;
+      transition: transform 1s;
+    }
+
+    .profileCard.is-flipped {
+      transform: translateX(-100%) rotateY(-180deg);
+    }
+    .profileStats{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+    }
+
+    .ConnexionsRequests {
+      background: white;
+      transform: rotateY(180deg);
+    }
+    .caption-1 {
+      font-size: 0.7rem!important;
+    }
+    .v-badge.badge-color .v-badge__badge {
+      background-color: @primaryColor!important;
+      border-color: @primaryColor!important;
+    }
   }
+  .blueText{font-size: 15px;color: #568DC9}
+  .iconlarge{font-size: 50px;color:#6CCBAE;font-size: 40px;}
+
 }
