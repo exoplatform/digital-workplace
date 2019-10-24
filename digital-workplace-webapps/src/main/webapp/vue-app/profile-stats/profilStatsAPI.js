@@ -1,5 +1,5 @@
 export function getConnectionsRequests() {
-    return fetch(`http://www.json-generator.com/api/json/get/bVdbihgfxe?indent=2`, {
+    return fetch(`https://www.json-generator.com/api/json/get/bVdbihgfxe?indent=2`, {
         method: 'GET',
     }).then((resp) => {
         if(resp && resp.ok) {
@@ -11,7 +11,7 @@ export function getConnectionsRequests() {
 }
 
 export function getSpacesRequests() {
-    return fetch(`http://www.json-generator.com/api/json/get/cgkLBKPYQy?indent=2`, {
+    return fetch(`https://www.json-generator.com/api/json/get/cgkLBKPYQy?indent=2`, {
         method: 'GET',
     }).then((resp) => {
         if(resp && resp.ok) {
@@ -23,7 +23,7 @@ export function getSpacesRequests() {
 }
 
 export function getGamificationRank() {
-    return fetch( `http://www.json-generator.com/api/json/get/cqoXpWOBxK?indent=2`, {
+    return fetch( `https://www.json-generator.com/api/json/get/cqoXpWOBxK?indent=2`, {
         method: 'GET',
     }).then((resp) => {
         if(resp && resp.ok) {

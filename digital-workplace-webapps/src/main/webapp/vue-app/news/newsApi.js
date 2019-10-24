@@ -1,5 +1,5 @@
 export function getLatestNews() {
-    return fetch(`http://www.json-generator.com/api/json/get/bUsggXSgde?indent=2`, {
+    return fetch(`https://www.json-generator.com/api/json/get/bUsggXSgde?indent=2`, {
         method: 'GET',
     }).then((resp) => {
         if(resp && resp.ok) {
