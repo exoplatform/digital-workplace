@@ -23,7 +23,7 @@ export function getSpacesRequests() {
 }
 
 export function getGamificationRank() {
-    return fetch( `http://www.json-generator.com/api/json/get/cqTKGYSgLC?indent=2`, {
+    return fetch( `http://www.json-generator.com/api/json/get/cqoXpWOBxK?indent=2`, {
         method: 'GET',
     }).then((resp) => {
         if(resp && resp.ok) {

@@ -37,13 +37,15 @@
             align-center>
             <v-card
               flat>
-              <v-badge>
-                <template v-slot:badge>
-                  <a class="white--text" @click="getSpecificCard('SpacesRequests')">4</a>
-                </template>
-                <span class="headline blue-grey--text font-weight-bold pa-1">53</span>
-              </v-badge>
-              <v-card-text class="pa-1 subtitle-1">Spaces</v-card-text>
+              <a class="white--text" @click="getSpecificCard('SpacesRequests')">
+                <v-badge class="badge-color">
+                  <template v-slot:badge>
+                    <span>4</span>
+                  </template>
+                  <span class="headline blue-grey--text font-weight-bold pa-1">53</span>
+                </v-badge>
+              </a>
+              <v-card-text class="pa-1 subtitle-1 blue-grey--text">Spaces</v-card-text>
             </v-card>
           </v-flex>
           <v-flex
@@ -55,13 +57,15 @@
             <v-card
               tile
               flat>
-              <v-badge pa-0>
-                <template v-slot:badge>
-                  <a class="white--text" @click="getSpecificCard('ConnectionsRequests')">3</a>
-                </template>
-                <span class="headline blue-grey--text font-weight-bold pa-1">53</span>
-              </v-badge>
-              <v-card-text class="pa-1 subtitle-1">Connections</v-card-text>
+              <a class="white--text" @click="getSpecificCard('ConnectionsRequests')">
+                <v-badge pa-0 class="badge-color">
+                  <template v-slot:badge>
+                    <span>3</span>
+                  </template>
+                  <span class="headline blue-grey--text font-weight-bold pa-1">53</span>
+                </v-badge>
+              </a>
+              <v-card-text class="pa-1 subtitle-1 blue-grey--text">Connections</v-card-text>
             </v-card>
           </v-flex>
         </v-layout>
@@ -81,7 +85,7 @@
               flat>
               <a @click="getSpecificCard('LeaderBoard')">
                 <v-card-text class="headline blue-grey--text font-weight-bold pa-1">53</v-card-text>
-                <v-card-text class="pa-1 subtitle-1">Total points</v-card-text>
+                <v-card-text class="pa-1 subtitle-1 blue-grey--text">Total points</v-card-text>
               </a>
             </v-card>
           </v-flex>
@@ -97,7 +101,7 @@
               align-center>
               <a @click="getSpecificCard('GamificationRank')">
                 <v-card-text class="headline blue-grey--text font-weight-bold pa-1">53</v-card-text>
-                <v-card-text class="pa-1 subtitle-1">Total Rank</v-card-text>
+                <v-card-text class="pa-1 subtitle-1 blue-grey--text">Total Rank</v-card-text>
               </a>
             </v-card>
           </v-flex>

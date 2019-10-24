@@ -1,4 +1,21 @@
+// Variables
+@primaryColor: #578DC9;
+@greyColor: #a8b3c5;
+
 .VuetifyApp {
+  .primary-color {
+    background-color: @primaryColor!important;
+    border-color: @primaryColor!important;
+  }
+  .primary-color--text {
+    color: @primaryColor !important;
+    caret-color: @primaryColor !important;
+  }
+
+  .grey-color {
+    color: @greyColor!important;
+  }
+
   #digital-workplace-events {
     margin-right: 12px;
   }
@@ -41,7 +58,12 @@
     .caption-1 {
       font-size: 0.7rem!important;
     }
+    .v-badge.badge-color .v-badge__badge {
+      background-color: @primaryColor!important;
+      border-color: @primaryColor!important;
+    }
   }
   .blueText{font-size: 15px;color: #568DC9}
   .iconlarge{font-size: 50px;color:#6CCBAE;font-size: 40px;}
+
 }

@@ -10,7 +10,7 @@
           row
           wrap
           mx-0
-          class="white elevation-1 profileCard"
+          class="white profileCard"
           mb-2>
           <profile-stats
             v-if="!isFlipped"
@@ -52,7 +52,7 @@
                       mb-lg-0
                       mr-0
                       mb-2
-                      class="white elevation-1">
+                      class="white">
                       <v-flex d-flex xs12>
                         <v-card flat>
                           <v-card-text class="subtitle-2 grey--text pa-1">Perkstore</v-card-text>
@@ -124,7 +124,7 @@
                     <v-layout
                       row
                       ma-0
-                      class="white elevation-1">
+                      class="white">
                       <v-flex d-flex xs12>
                         <v-card flat>
                           <v-card-text class="subtitle-2 grey--text pa-1">Wallet Balance</v-card-text>

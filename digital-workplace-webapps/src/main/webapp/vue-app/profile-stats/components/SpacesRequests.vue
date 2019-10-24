@@ -53,7 +53,7 @@
             </v-list-item-avatar>
 
             <v-list-item-content class="py-0">
-              <v-list-item-title class="font-weight-bold subtitle-2 primary--text darken-2" v-text="item.userName"/>
+              <v-list-item-title class="font-weight-bold subtitle-2 primary-color--text darken-2" v-text="item.userName"/>
               <v-list-item-subtitle class="body-2 grey--text darken-1" v-text="item.spaceName"/>
             </v-list-item-content>
             <v-list-item-action>
@@ -66,7 +66,7 @@
                   small
                   min-width="auto"
                   class="px-0">
-                  <v-icon color="primary">mdi-checkbox-marked-circle</v-icon>
+                  <v-icon color="primary-color">mdi-checkbox-marked-circle</v-icon>
                 </v-btn>
                 <v-btn 
                   text

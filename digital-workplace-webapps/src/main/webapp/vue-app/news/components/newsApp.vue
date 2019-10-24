@@ -100,7 +100,7 @@
                         flat
                         color="transparent">
                         <v-card-title class="subtitle-2 font-weight-bold text-uppercase pt-2">{{ item.title }}</v-card-title>
-                        <v-card-text class="pb-2">{{ item.summary }}</v-card-text>
+                        <v-card-text class="pb-2 grey-color">{{ item.summary }}</v-card-text>
                       </v-card>
                     </v-flex>
                   </v-layout>

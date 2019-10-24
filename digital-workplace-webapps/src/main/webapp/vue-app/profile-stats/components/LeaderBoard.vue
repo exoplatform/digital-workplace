@@ -34,19 +34,19 @@
     <v-flex
       xs12>
       <v-list>
-        <template v-for="item in leaderBoardArray">
+        <template v-for="item in leaderBoardArray.slice(0,5)">
           <v-list-item
             :key="item.id"
-            class="py-0 px-2">
+            class="py-0 px-4 mt-n3">
             <span class="mr-2">{{ item.rank }}</span>
-            <v-list-item-avatar size="30" class="my-1 mr-2">
+            <v-list-item-avatar size="25" class="my-0 mr-2">
               <v-img :src="item.avatar"/>
             </v-list-item-avatar>
 
             <v-list-item-content class="py-0">
               <v-list-item-title class="body-2 " v-html="item.userName"/>
             </v-list-item-content>
-            <v-list-item-action>
+            <v-list-item-action class="my-0">
               <span>{{ item.totalPoints }}</span>
             </v-list-item-action>
           </v-list-item>

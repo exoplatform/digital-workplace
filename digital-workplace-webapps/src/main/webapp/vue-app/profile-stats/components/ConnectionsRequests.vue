@@ -27,14 +27,14 @@
           justify-center>
           <div>
             <span class="pr-2 text-uppercase subtitle-2">Connections requests</span>
-            <v-btn 
-              color="primary" 
+            <v-btn
+              color="primary-color"
               fab
               depressed
               dark
               height="20"
               width="20"
-              class="mb-1">
+              class="mb-1 badge-color">
               <span class="white--text caption">3</span>
             </v-btn>
           </div>
@@ -53,7 +53,7 @@
             </v-list-item-avatar>
 
             <v-list-item-content class="py-0">
-              <v-list-item-title class="font-weight-bold subtitle-2 primary--text darken-2" v-html="item.userName"/>
+              <v-list-item-title class="font-weight-bold subtitle-2 primary-color--text darken-2" v-html="item.userName"/>
               <v-list-item-subtitle class="body-2 grey--text darken-1" v-text="item.communConnections + ' Commun connections'"/>
             </v-list-item-content>
             <v-list-item-action>
@@ -66,7 +66,7 @@
                   small
                   min-width="auto"
                   class="px-0">
-                  <v-icon color="primary">mdi-checkbox-marked-circle</v-icon>
+                  <v-icon color="primary-color">mdi-checkbox-marked-circle</v-icon>
                 </v-btn>
                 <v-btn
                   text
