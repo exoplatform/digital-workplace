@@ -1,4 +1,9 @@
 <div class="VuetifyApp">
-    <div id="digital-workplace-documents">
-    </div>
+	<div id="digital-workplace-documents">
+		<script>
+			require(['SHARED/digitalWorkplaceDocumentsBundle'], function(documentsApp) {
+				documentsApp.init();
+			});
+		</script>
+	</div>
 </div>

@@ -18,7 +18,7 @@
             <application-ref>digital-workplace</application-ref>
             <portlet-ref>digitalWorkplaceSlider</portlet-ref>
           </portlet>
-          <title>Digital Workplace Slider</title>
+          <title>Slider</title>
           <access-permissions>*:/platform/users</access-permissions>
           <show-info-bar>false</show-info-bar>
         </portlet-application>
@@ -34,7 +34,7 @@
               <application-ref>digital-workplace</application-ref>
               <portlet-ref>digitalWorkplaceNews</portlet-ref>
             </portlet>
-            <title>Digital Workplace News</title>
+            <title>News</title>
             <access-permissions>*:/platform/users</access-permissions>
             <show-info-bar>false</show-info-bar>
           </portlet-application>
@@ -50,7 +50,7 @@
                 <application-ref>digital-workplace</application-ref>
                 <portlet-ref>digitalWorkplaceProfileStats</portlet-ref>
               </portlet>
-              <title>Digital Workplace Profile stats</title>
+              <title>Profile stats</title>
               <access-permissions>*:/platform/users</access-permissions>
               <show-info-bar>false</show-info-bar>
             </portlet-application>
@@ -66,7 +66,7 @@
               <!-- <application-ref>digital-workplace</application-ref> -->
               <!-- <portlet-ref>digitalWorkplacePerkstore</portlet-ref> -->
               <!-- </portlet> -->
-              <!-- <title>Digital Workplace Perkstore</title> -->
+              <!-- <title>Perkstore</title> -->
               <!-- <access-permissions>*:/platform/users</access-permissions> -->
               <!-- <show-info-bar>false</show-info-bar> -->
               <!-- </portlet-application> -->
@@ -79,7 +79,7 @@
               <!-- <application-ref>digital-workplace</application-ref> -->
               <!-- <portlet-ref>digitalWorkplaceWallet</portlet-ref> -->
               <!-- </portlet> -->
-              <!-- <title>Digital Workplace Wallet</title> -->
+              <!-- <title>Wallet</title> -->
               <!-- <access-permissions>*:/platform/users</access-permissions> -->
               <!-- <show-info-bar>false</show-info-bar> -->
               <!-- </portlet-application> -->
@@ -99,7 +99,7 @@
               <application-ref>digital-workplace</application-ref>
               <portlet-ref>digitalWorkplaceEvents</portlet-ref>
             </portlet>
-            <title>Digital Workplace Events</title>
+            <title>Events</title>
             <access-permissions>*:/platform/users</access-permissions>
             <show-info-bar>false</show-info-bar>
           </portlet-application>
@@ -112,7 +112,7 @@
               <application-ref>digital-workplace</application-ref>
               <portlet-ref>digitalWorkplaceTasks</portlet-ref>
             </portlet>
-            <title>Digital Workplace Tasks</title>
+            <title>Tasks</title>
             <access-permissions>*:/platform/users</access-permissions>
             <show-info-bar>false</show-info-bar>
           </portlet-application>
@@ -125,7 +125,7 @@
               <application-ref>digital-workplace</application-ref>
               <portlet-ref>digitalWorkplaceDocuments</portlet-ref>
             </portlet>
-            <title>Digital Workplace Documents</title>
+            <title>Documents</title>
             <access-permissions>*:/platform/users</access-permissions>
             <show-info-bar>false</show-info-bar>
           </portlet-application>
