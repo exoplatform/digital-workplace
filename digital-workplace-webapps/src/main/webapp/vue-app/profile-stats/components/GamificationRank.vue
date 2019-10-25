@@ -19,7 +19,7 @@
           mt-n2
           justify-center>
           <div>
-            <span class="pr-2 text-uppercase subtitle-2">Rank</span>
+            <span class="pr-2 text-uppercase subtitle-2">Rank (Weekly) </span>
           </div>
         </v-flex>
         <v-flex
