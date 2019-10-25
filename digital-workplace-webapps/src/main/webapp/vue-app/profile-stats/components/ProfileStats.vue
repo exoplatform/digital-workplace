@@ -44,8 +44,9 @@
                   </template>
                   <span class="headline blue-grey--text font-weight-bold pa-1">53</span>
                 </v-badge>
+
+                <v-card-text class="pa-1 subtitle-1 blue-grey--text">Spaces</v-card-text>
               </a>
-              <v-card-text class="pa-1 subtitle-1 blue-grey--text">Spaces</v-card-text>
             </v-card>
           </v-flex>
           <v-flex
@@ -64,8 +65,8 @@
                   </template>
                   <span class="headline blue-grey--text font-weight-bold pa-1">53</span>
                 </v-badge>
+                <v-card-text class="pa-1 subtitle-1 blue-grey--text">Connections</v-card-text>
               </a>
-              <v-card-text class="pa-1 subtitle-1 blue-grey--text">Connections</v-card-text>
             </v-card>
           </v-flex>
         </v-layout>
@@ -75,20 +76,6 @@
         xs12 
         align-center>
         <v-layout row mx-0>
-          <v-flex
-            xs12
-            sm6
-            d-flex
-            justify-center
-            align-center>
-            <v-card
-              flat>
-              <a @click="getSpecificCard('LeaderBoard')">
-                <v-card-text class="headline blue-grey--text font-weight-bold pa-1">53</v-card-text>
-                <v-card-text class="pa-1 subtitle-1 blue-grey--text">Total points</v-card-text>
-              </a>
-            </v-card>
-          </v-flex>
           <v-flex
             d-flex
             xs12
@@ -100,8 +87,22 @@
               color="transparent"
               align-center>
               <a @click="getSpecificCard('GamificationRank')">
-                <v-card-text class="headline blue-grey--text font-weight-bold pa-1">53</v-card-text>
+                <v-card-text class="headline blue-grey--text font-weight-bold pa-1">5</v-card-text>
                 <v-card-text class="pa-1 subtitle-1 blue-grey--text">Total Rank</v-card-text>
+              </a>
+            </v-card>
+          </v-flex>
+          <v-flex
+            xs12
+            sm6
+            d-flex
+            justify-center
+            align-center>
+            <v-card
+              flat>
+              <a @click="getSpecificCard('LeaderBoard')">
+                <v-card-text class="headline blue-grey--text font-weight-bold pa-1">3520</v-card-text>
+                <v-card-text class="pa-1 subtitle-1 blue-grey--text">Total points</v-card-text>
               </a>
             </v-card>
           </v-flex>

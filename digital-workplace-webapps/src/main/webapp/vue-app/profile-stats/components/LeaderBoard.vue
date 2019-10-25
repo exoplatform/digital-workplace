@@ -10,24 +10,26 @@
       <v-layout
         row
         wrap
-        mx-0
+        mx-2
         align-start
         px-2>
         <v-flex
           d-flex
-          md2>
-          <v-icon
-            color="grey darken-2"
-            size="20"
-            @click="toProfileStats()">mdi-arrow-left</v-icon>
-        </v-flex>
-        <v-flex
-          d-flex
-          md10
+          xs12
+          mt-n2
           justify-center>
           <div>
             <span class="pr-2 text-uppercase subtitle-2">LeaderBoard</span>
           </div>
+        </v-flex>
+        <v-flex
+          d-flex
+          xs12
+          mt-n6>
+          <v-icon
+            color="grey darken-2"
+            size="20"
+            @click="toProfileStats()">mdi-arrow-left</v-icon>
         </v-flex>
       </v-layout>
     </v-flex>

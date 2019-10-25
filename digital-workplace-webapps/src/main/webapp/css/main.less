@@ -22,21 +22,21 @@
   .Rectangular-card {
     border-radius: 0em;
   }
+
   #digital-workplace-profile-stats {
     background: transparent;
     .profileCard {
       position: relative;
       width: 100%;
       height: 100%;
-      min-height: 280px;
+      min-height: 320px;
       cursor: pointer;
       transform-style: preserve-3d;
-      transform-origin: center right;
       transition: transform 1s;
     }
 
     .profileCard.is-flipped {
-      transform: translateX(-100%) rotateY(-180deg);
+      transform: rotateY(-180deg);
     }
     .profileStats{
       position: absolute;
@@ -56,13 +56,38 @@
       background-color: @primaryColor!important;
       border-color: @primaryColor!important;
     }
+
+    .top1 {
+      -webkit-animation-duration: 1.5s;
+      animation-duration: 1.5s;
+      -webkit-animation-name: toTop1;
+      animation-name: toTop1;
+    }
+
+    .top2 {
+      -webkit-animation-duration: 1.5s;
+      animation-duration: 1.5s;
+      -webkit-animation-name: toTop2;
+      animation-name: toTop2;
+    }
+
+    .top3 {
+      -webkit-animation-duration: 1.5s;
+      animation-duration: 1.5s;
+      -webkit-animation-name: toTop3;
+      animation-name: toTop3;
+    }
+
+    .podium-layout {
+      min-height: 100px;
+    }
   }
   .blueText{font-size: 15px;color: #568DC9}
   .iconlarge{font-size: 50px;color:#6CCBAE;font-size: 40px;}
 
 }
 
-/* HomePage Containers Structure */
+/*--------------- HomePage Containers Structure ---------------------------*/
 
 #digitalWorkplaceHomePage {
 	margin: 12px;
@@ -95,4 +120,41 @@
 	    margin-right: 0;
 	    margin-bottom: 12px;
 	}
+}
+
+/*--------------- Podium Animation ---------------------------*/
+@keyframes fadeIn {
+  0% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes toTop1 {
+  0% {
+    height: 0;
+  }
+  100% {
+    height:60px;
+  }
+}
+
+@keyframes toTop2 {
+  0% {
+    height: 0;
+  }
+  100% {
+    height:45px;
+  }
+}
+
+@keyframes toTop3 {
+  0% {
+    height: 0;
+  }
+  100% {
+    height:30px;
+  }
 }

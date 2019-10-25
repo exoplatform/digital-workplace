@@ -10,25 +10,28 @@
       <v-layout
         row
         wrap
-        mx-0
+        mx-2
         align-start
-        px-2>
+        px12>
         <v-flex
           d-flex
-          md2>
-          <v-icon
-            color="grey darken-2"
-            size="20"
-            @click="toProfileStats()">mdi-arrow-left</v-icon>
-        </v-flex>
-        <v-flex
-          d-flex
-          md10
+          xs12
+          mt-n2
           justify-center>
           <div>
             <span class="pr-2 text-uppercase subtitle-2">Rank</span>
           </div>
         </v-flex>
+        <v-flex
+          d-flex
+          xs12
+          mt-n6>
+          <v-icon
+            color="grey darken-2"
+            size="20"
+            @click="toProfileStats()">mdi-arrow-left</v-icon>
+        </v-flex>
+
       </v-layout>
     </v-flex>
     <v-flex
@@ -37,48 +40,46 @@
       <v-layout
         row
         wrap
-        mx-0>
+        mx-0
+        class="podium-layout">
         <v-flex
           d-flex
           justify-center
-          align-end
-          max-height="20">
-
-          <v-card flat class="transparent mx-1 align-center">
-            <v-avatar size="35">
+          align-end>
+          <div class="transparent mx-1 align-center">
+            <v-avatar size="35" class="mb-1 elevation-1">
               <img
-                :src="leaderBoardArray[2].avatar"
-                alt="John">
+                :src="leaderBoardArray[2].avatar">
             </v-avatar>
-            <v-card-text class="primary px-3 py-2 flex d-flex white--text align-center" style="height: 30px">
+            <v-card-text class="top3 grey lighten-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold" style="height: 30px">
               {{ leaderBoardArray[2].totalPoints }}
             </v-card-text>
 
-          </v-card>
+          </div>
 
-          <v-card flat class="transparent mx-1 align-center">
-            <v-avatar size="35">
+          <div class="transparent mx-1 align-center">
+            <v-avatar size="35" class="mb-1 elevation-1">
               <img
                 :src="leaderBoardArray[0].avatar"
                 alt="John">
             </v-avatar>
-            <v-card-text class="primary px-3 py-2 flex d-flex white--text align-center" style="height: 60px">
+            <v-card-text class="top1 yellow darken-1 px-3 py-2 flex d-flex white--text  align-center font-weight-bold" style="height: 60px">
               {{ leaderBoardArray[0].totalPoints }}
             </v-card-text>
 
-          </v-card>
+          </div>
 
-          <v-card flat class="transparent mx-1 align-center">
-            <v-avatar size="35">
+          <div class="transparent mx-1 align-center">
+            <v-avatar size="35" class="mb-1 elevation-1">
               <img
                 :src="leaderBoardArray[1].avatar"
                 alt="John">
             </v-avatar>
-            <v-card-text class="primary px-3 py-2 flex d-flex white--text align-center" style="height: 45px">
+            <v-card-text class="top2 amber darken-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold" style="height: 45px">
               {{ leaderBoardArray[1].totalPoints }}
             </v-card-text>
 
-          </v-card>
+          </div>
         </v-flex>
       </v-layout>
     </v-flex>
