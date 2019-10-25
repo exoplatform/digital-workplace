@@ -1,4 +1,4 @@
-import profileStatsApp from './components/ProfileStats.vue';
+import perkstoreApp from './components/Perkstore.vue';
 
 import '../../css/main.less';
 
@@ -16,14 +16,14 @@ const resourceBundleName = 'locale.addon.DigitalWorkplace';
 const url = `${eXo.env.portal.context}/${eXo.env.portal.rest}/i18n/bundle/${resourceBundleName}-${lang}.json`;
 
 export function init() {
-//getting locale ressources
+// getting locale ressources
 exoi18n.loadLanguageAsync(lang, url)
     .then(i18n => {
         // init Vue app when locale ressources are ready
         new Vue({
-            render: h => h(profileStatsApp),
+            render: h => h(perkstoreApp),
             i18n,
             vuetify,
-        }).$mount('#digital-workplace-profile-stats');
+        }).$mount('#digital-workplace-perkstore');
     });
 }

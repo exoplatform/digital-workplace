@@ -11,7 +11,9 @@ let config = {
     profileStats: './src/main/webapp/vue-app/profile-stats/main.js',
     tasks: './src/main/webapp/vue-app/tasks/main.js',
     events: './src/main/webapp/vue-app/events/main.js',
-    documents: './src/main/webapp/vue-app/documents/main.js'
+    documents: './src/main/webapp/vue-app/documents/main.js',
+    wallet: './src/main/webapp/vue-app/wallet/main.js',
+    perkstore: './src/main/webapp/vue-app/perkstore/main.js'
   },
   output: {
     filename: 'js/[name].bundle.js',

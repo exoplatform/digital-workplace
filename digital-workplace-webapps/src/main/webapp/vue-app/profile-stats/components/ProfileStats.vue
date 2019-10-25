@@ -1,124 +1,67 @@
 <template>
-  <v-flex 
-    d-flex 
-    xs12 
-    sm12>
-    <v-layout 
-      row 
-      wrap 
-      mx-0>
-      <v-flex 
-        d-flex 
-        justify-center
-        pt-4
-        xs12>
-        <v-card
-          flat>
-          <v-list-item>
-            <v-list-item-avatar>
-              <v-img
-                src="https://images.unsplash.com/photo-1524593689594-aae2f26b75ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"/>
-            </v-list-item-avatar>
-            <v-list-item-content>
-              <v-list-item-title class="text-uppercase">Welcome back Sara</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-card>
-      </v-flex>
-      <v-flex d-flex xs12>
+  <v-app
+    id="digital-workplace-profile-stats"
+    class="VuetifyApp ml-md-2"
+    flat
+    dark>
+    <main>
+      <v-container pa-0>
         <v-layout
           row
-          mx-0>
+          wrap
+          mx-0
+          class="white profileCard"
+          mb-2>
+          <user-dashboard
+            v-if="!isFlipped"
+            class="profileFlippedCard profileStats"
+            @specificCard="setFlippedCard"/>
           <v-flex
+            v-if="isFlipped"
+            :is="currentComponent"
+            d-flex
             xs12
-            sm6
-            d-flex
-            justify-center
-            align-center>
-            <v-card
-              flat>
-              <a class="white--text" @click="getSpecificCard('SpacesRequests')">
-                <v-badge class="badge-color">
-                  <template v-slot:badge>
-                    <span>4</span>
-                  </template>
-                  <span class="headline blue-grey--text font-weight-bold pa-1">53</span>
-                </v-badge>
-
-                <v-card-text class="pa-1 subtitle-1 blue-grey--text">Spaces</v-card-text>
-              </a>
-            </v-card>
-          </v-flex>
-          <v-flex
-            d-flex
-            sx12
-            sm6
-            justify-center
-            align-center>
-            <v-card
-              tile
-              flat>
-              <a class="white--text" @click="getSpecificCard('ConnectionsRequests')">
-                <v-badge pa-0 class="badge-color">
-                  <template v-slot:badge>
-                    <span>3</span>
-                  </template>
-                  <span class="headline blue-grey--text font-weight-bold pa-1">53</span>
-                </v-badge>
-                <v-card-text class="pa-1 subtitle-1 blue-grey--text">Connections</v-card-text>
-              </a>
-            </v-card>
-          </v-flex>
+            sm12
+            class="profileFlippedCard ConnexionsRequests"
+            @isProfileStats="setFlippedCard"/>
         </v-layout>
-      </v-flex>
-      <v-flex 
-        d-flex 
-        xs12 
-        align-center>
-        <v-layout row mx-0>
-          <v-flex
-            d-flex
-            xs12
-            sm6
-            justify-center
-            align-center>
-            <v-card
-              flat
-              color="transparent"
-              align-center>
-              <a @click="getSpecificCard('GamificationRank')">
-                <v-card-text class="headline blue-grey--text font-weight-bold pa-1">5</v-card-text>
-                <v-card-text class="pa-1 subtitle-1 blue-grey--text">Total Rank</v-card-text>
-              </a>
-            </v-card>
-          </v-flex>
-          <v-flex
-            xs12
-            sm6
-            d-flex
-            justify-center
-            align-center>
-            <v-card
-              flat>
-              <a @click="getSpecificCard('LeaderBoard')">
-                <v-card-text class="headline blue-grey--text font-weight-bold pa-1">3520</v-card-text>
-                <v-card-text class="pa-1 subtitle-1 blue-grey--text">Total points</v-card-text>
-              </a>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-    </v-layout>
-  </v-flex>
+      </v-container>
+    </main>
+  </v-app>
 </template>
 <script>
-  export default {
-    methods: {
-      getSpecificCard(component) {
-        this.$emit('specificCard',component);
-      }
+    import UserDashboard from './UserDashbord.vue';
+    import ConnectionsRequests from './ConnectionsRequests.vue';
+    import LeaderBoard from './LeaderBoard.vue';
+    import SpacesRequests from './SpacesRequests.vue';
+    import GamificationRank from "./GamificationRank.vue";
+    export default {
+        components: {
+            UserDashboard,
+            ConnectionsRequests,
+            LeaderBoard,
+            SpacesRequests,
+            GamificationRank
+        },
+
+        data: function() {
+          return {
+            currentComponent: null,
+            isFlipped: false
+          };
+        },
+
+        methods: {
+            setFlippedCard(component) {
+                const profileWrapper = document.querySelector('.profileCard');
+                profileWrapper.classList.toggle('is-flipped');
+                this.currentComponent = component;
+                this.isFlipped = !this.isFlipped;
+            },
+            testMethod() {
+                this.currentComponent= null;
+                this.isFlipped = !this.isFlipped;
+            }
+        }
     }
-  }
 </script>
-
-
