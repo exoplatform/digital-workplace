@@ -9,98 +9,41 @@
         <v-layout
           row
           wrap
-          mx-0>
+          mx-0
+          class="white">
           <v-flex
             d-flex
             xs12
-            sm12>
-            <v-layout
-              row
-              wrap
-              mx-0>
-              <v-flex d-flex>
-                <v-layout
-                  row
-                  mx-0>
-                  <v-flex
-                    xs12
-                    d-flex>
-                    <v-layout
-                      row
-                      ml-0
-                      mr-lg-2
-                      mb-lg-0
-                      mr-0
-                      mb-2
-                      class="white">
-                      <v-flex d-flex xs12>
-                        <v-card flat>
-                          <v-card-text class="subtitle-2 grey--text pa-1">Perkstore</v-card-text>
-                        </v-card>
-                      </v-flex>
-                      <v-flex
-                        d-flex
-                        xs12
-                        pb-2>
-                        <v-layout
-                          wrap
-                          row
-                          mx-0>
-                          <v-flex
-                            d-flex
-                            md6>
-                            <v-layout row mx-0>
-                              <v-flex
-                                d-flex
-                                xs12
-                                xs2
-                                md4>
-                                <v-card flat>
-                                  <v-card-text class="py-0 pl-1 display-1 font-weight-bold">3</v-card-text>
-                                </v-card>
-                              </v-flex>
-                              <v-flex
-                                d-flex
-                                xs10
-                                md8>
-                                <v-card flat>
-                                  <v-card-text class="pa-0 caption-1 green--text darken-2 mt-1">New</v-card-text>
-                                  <v-card-text class="pa-0 caption-1 mt-n2">Products</v-card-text>
-                                </v-card>
-                              </v-flex>
-                            </v-layout>
-                          </v-flex>
-                          <v-flex
-                            d-flex
-                            md6>
-                            <v-layout row mx-0>
-                              <v-flex
-                                d-flex
-                                md4
-                                xs2>
-                                <v-card flat>
-                                  <v-card-text class="py-0 pl-1 display-1 font-weight-bold">2</v-card-text>
-                                </v-card>
-                              </v-flex>
-                              <v-flex
-                                d-flex
-                                md8
-                                xs10>
-                                <v-card flat>
-                                  <v-card-text class="pa-0 caption-1 orange--text darken-1 mt-1">Pending</v-card-text>
-                                  <v-card-text class="pa-0 caption-1 mt-n2">Orders</v-card-text>
-                                </v-card>
-                              </v-flex>
-                            </v-layout>
-                          </v-flex>
-                        </v-layout>
-                      </v-flex>
-                    </v-layout>
-                  </v-flex>
-
-                </v-layout>
-              </v-flex>
-            </v-layout>
+            py-2>
+            <div>
+              <span class="subtitle-2 grey--text pa-1">Perkstore</span>
+              <v-tooltip bottom>
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    color="amber lighten-1"
+                    fab
+                    depressed
+                    dark
+                    height="20"
+                    width="20"
+                    class="mb-1"
+                    v-on="on">
+                    <span class="white--text caption">44</span>
+                  </v-btn>
+                </template>
+                <span>Pending orders</span>
+              </v-tooltip>
+            </div>
+          </v-flex>
+          <v-flex xs12>
+            <v-card
+              flat
+              color="transparent">
+              <v-list-item class="px-2">
+                <v-list-item-avatar class="mr-1 my-0 display-1 font-weight-bold blue-grey--text darken-1" width="132">132</v-list-item-avatar>
+                <v-list-item-title class="caption mt-4">Products</v-list-item-title>
+              </v-list-item>
+            </v-card>
           </v-flex>
         </v-layout>
       </v-container>
