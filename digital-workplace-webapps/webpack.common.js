@@ -9,11 +9,13 @@ let config = {
     slider: './src/main/webapp/vue-app/slider/main.js',
     news: './src/main/webapp/vue-app/news/main.js',
     profileStats: './src/main/webapp/vue-app/profile-stats/main.js',
+    wallet: './src/main/webapp/vue-app/wallet/main.js',
+    perkstore: './src/main/webapp/vue-app/perkstore/main.js',
     tasks: './src/main/webapp/vue-app/tasks/main.js',
     events: './src/main/webapp/vue-app/events/main.js',
-    documents: './src/main/webapp/vue-app/documents/main.js',
-    wallet: './src/main/webapp/vue-app/wallet/main.js',
-    perkstore: './src/main/webapp/vue-app/perkstore/main.js'
+    sharedDocuments: './src/main/webapp/vue-app/sharedDocuments/main.js',
+    recentDocuments: './src/main/webapp/vue-app/recentDocuments/main.js',
+    favoriteDocuments: './src/main/webapp/vue-app/favoriteDocuments/main.js'
   },
   output: {
     filename: 'js/[name].bundle.js',

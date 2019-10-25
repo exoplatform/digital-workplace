@@ -117,18 +117,49 @@
             <show-info-bar>false</show-info-bar>
           </portlet-application>
         </container>
+
         <container id="DocumentsContainer"
           template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-          <access-permissions>*:/platform/users</access-permissions>
-          <portlet-application>
-            <portlet>
-              <application-ref>digital-workplace</application-ref>
-              <portlet-ref>digitalWorkplaceDocuments</portlet-ref>
-            </portlet>
-            <title>Documents</title>
-            <access-permissions>*:/platform/users</access-permissions>
-            <show-info-bar>false</show-info-bar>
-          </portlet-application>
+          <container
+            template="system:/groovy/portal/webui/container/UITabContainer.gtmpl">
+            <factory-id>TabContainer</factory-id>
+            <container
+              template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+              <portlet-application>
+                <portlet>
+                  <application-ref>digital-workplace</application-ref>
+                  <portlet-ref>digitalWorkplaceRecentDocuments</portlet-ref>
+                </portlet>
+                <title>Recent documents</title>
+                <access-permissions>*:/platform/users</access-permissions>
+                <show-info-bar>false</show-info-bar>
+              </portlet-application>
+            </container>
+            <container
+              template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+              <portlet-application>
+                <portlet>
+                  <application-ref>digital-workplace</application-ref>
+                  <portlet-ref>digitalWorkplaceSharedDocuments</portlet-ref>
+                </portlet>
+                <title>Shared with me documents</title>
+                <access-permissions>*:/platform/users</access-permissions>
+                <show-info-bar>false</show-info-bar>
+              </portlet-application>
+            </container>
+            <container
+              template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+              <portlet-application>
+                <portlet>
+                  <application-ref>digital-workplace</application-ref>
+                  <portlet-ref>digitalWorkplaceFavoriteDocuments</portlet-ref>
+                </portlet>
+                <title>Favorite documents</title>
+                <access-permissions>*:/platform/users</access-permissions>
+                <show-info-bar>false</show-info-bar>
+              </portlet-application>
+            </container>
+          </container>
         </container>
       </container>
     </container>

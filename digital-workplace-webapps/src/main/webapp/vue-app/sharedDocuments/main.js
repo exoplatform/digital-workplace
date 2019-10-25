@@ -1,4 +1,4 @@
-import documentsApp from './components/DocumentsApp.vue';
+import sharedDocumentsApp from './components/SharedDocumentsApp.vue';
 
 import '../../css/main.less';
 
@@ -21,9 +21,9 @@ exoi18n.loadLanguageAsync(lang, url)
     .then(i18n => {
         // init Vue app when locale ressources are ready
         new Vue({
-            render: h => h(documentsApp),
+            render: h => h(sharedDocumentsApp),
             i18n,
             vuetify,
-        }).$mount('#digital-workplace-documents');
+        }).$mount('#digital-workplace-shared-documents');
     });
 }
