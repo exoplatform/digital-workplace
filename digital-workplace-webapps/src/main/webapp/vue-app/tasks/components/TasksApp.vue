@@ -171,8 +171,7 @@
                           mx-0>
                           <v-flex
                             d-flex
-                            xs12
-                            sm6>
+                            xs6>
                             <v-list-item-content>
                               <v-tooltip bottom>
                                 <template v-slot:activator="{ on }">
@@ -185,14 +184,13 @@
                           </v-flex>
                           <v-flex
                             d-flex
-                            xs12
-                            sm6
+                            xs5
+                            class="pt-1"
                             justify-end
                             align><v-tooltip bottom>
                               <template v-slot:activator="{ on }">
                                 <v-card
                                   :color="item.color"
-                                  height="35"
                                   width="200"
                                   class="pa-2 my-3 Rectangular-card text-center"
                                   flat
@@ -201,7 +199,6 @@
                                 </v-card>
                                 <v-card
                                   :style="{borderColor:item.color}"
-                                  height="35"
                                   class="pa-2 my-3 Rectangular-card "
                                   flat
                                   outlined
