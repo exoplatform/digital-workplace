@@ -47,17 +47,47 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 	</portlet>
 
 	<portlet>
-		<portlet-name>digitalWorkplaceDocuments</portlet-name>
+		<portlet-name>digitalWorkplaceRecentDocuments</portlet-name>
 		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
 		<init-param>
 			<name>portlet-view-dispatched-file-path</name>
-			<value>/documents.html</value>
+			<value>/recentDocuments.html</value>
 		</init-param>
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>
 		<portlet-info>
-			<title>Digital Workplace Documents</title>
+			<title>Digital Workplace Recents Documents</title>
+		</portlet-info>
+	</portlet>	
+	
+	<portlet>
+		<portlet-name>digitalWorkplaceSharedDocuments</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/sharedDocuments.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace Shared Documents</title>
+		</portlet-info>
+	</portlet>	
+	
+	<portlet>
+		<portlet-name>digitalWorkplaceFavoriteDocuments</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/favoriteDocuments.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace Favorite Documents</title>
 		</portlet-info>
 	</portlet>
 
@@ -88,6 +118,36 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 		</supports>
 		<portlet-info>
 			<title>Digital Workplace Tasks</title>
+		</portlet-info>
+	</portlet>
+
+	<portlet>
+		<portlet-name>digitalWorkplacePerkstore</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/perkstore.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace Perkstore</title>
+		</portlet-info>
+	</portlet>
+
+	<portlet>
+		<portlet-name>digitalWorkplaceWallet</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/wallet.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace Wallet</title>
 		</portlet-info>
 	</portlet>
 

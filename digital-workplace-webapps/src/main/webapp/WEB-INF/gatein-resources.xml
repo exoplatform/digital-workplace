@@ -1,6 +1,6 @@
 <gatein-resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://www.exoplatform.org/xml/ns/gatein_resources_1_4 http://www.exoplatform.org/xml/ns/gatein_resources_1_4"
-                  xmlns="http://www.exoplatform.org/xml/ns/gatein_resources_1_4">
+  xsi:schemaLocation="http://www.exoplatform.org/xml/ns/gatein_resources_1_4 http://www.exoplatform.org/xml/ns/gatein_resources_1_4"
+  xmlns="http://www.exoplatform.org/xml/ns/gatein_resources_1_4">
 
   <portal-skin>
     <skin-name>Default</skin-name>
@@ -33,116 +33,263 @@
   <portlet>
     <name>digitalWorkplaceSlider</name>
     <module>
-      <script>
-        <minify>false</minify>
-        <path>/js/slider.bundle.js</path>
-      </script>
       <depends>
-        <module>vue</module>
-      </depends>
-      <depends>
-        <module>vuetify</module>
-      </depends>
-      <depends>
-        <module>eXoVueI18n</module>
+        <module>digitalWorkplaceSliderBundle</module>
       </depends>
     </module>
   </portlet>
+
+  <module>
+    <name>digitalWorkplaceSliderBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/slider.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
 
   <portlet>
     <name>digitalWorkplaceNews</name>
     <module>
-      <script>
-        <minify>false</minify>
-        <path>/js/news.bundle.js</path>
-      </script>
       <depends>
-        <module>vue</module>
-      </depends>
-      <depends>
-        <module>vuetify</module>
-      </depends>
-      <depends>
-        <module>eXoVueI18n</module>
+        <module>digitalWorkplaceNewsBundle</module>
       </depends>
     </module>
   </portlet>
+
+  <module>
+    <name>digitalWorkplaceNewsBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/news.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
 
   <portlet>
     <name>digitalWorkplaceProfileStats</name>
     <module>
-      <script>
-        <minify>false</minify>
-        <path>/js/profileStats.bundle.js</path>
-      </script>
       <depends>
-        <module>vue</module>
-      </depends>
-      <depends>
-        <module>vuetify</module>
-      </depends>
-      <depends>
-        <module>eXoVueI18n</module>
+        <module>digitalWorkplaceProfileStatsBundle</module>
       </depends>
     </module>
   </portlet>
 
+  <module>
+    <name>digitalWorkplaceProfileStatsBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/profileStats.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
+
   <portlet>
-    <name>digitalWorkplaceDocuments</name>
+    <name>digitalWorkplaceRecentDocuments</name>
     <module>
-      <script>
-        <minify>false</minify>
-        <path>/js/documents.bundle.js</path>
-      </script>
       <depends>
-        <module>vue</module>
-      </depends>
-      <depends>
-        <module>vuetify</module>
-      </depends>
-      <depends>
-        <module>eXoVueI18n</module>
+        <module>digitalWorkplaceRecentDocumentsBundle</module>
       </depends>
     </module>
   </portlet>
+
+  <module>
+    <name>digitalWorkplaceRecentDocumentsBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/recentDocuments.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
+  
+  <portlet>
+    <name>digitalWorkplaceSharedDocuments</name>
+    <module>
+      <depends>
+        <module>digitalWorkplaceSharedDocumentsBundle</module>
+      </depends>
+    </module>
+  </portlet>
+
+  <module>
+    <name>digitalWorkplaceSharedDocumentsBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/sharedDocuments.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
+  
+  <portlet>
+    <name>digitalWorkplaceFavoriteDocuments</name>
+    <module>
+      <depends>
+        <module>digitalWorkplaceFavoriteDocumentsBundle</module>
+      </depends>
+    </module>
+  </portlet>
+
+  <module>
+    <name>digitalWorkplaceFavoriteDocumentsBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/favoriteDocuments.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
 
   <portlet>
     <name>digitalWorkplaceEvents</name>
     <module>
-      <script>
-        <minify>false</minify>
-        <path>/js/events.bundle.js</path>
-      </script>
       <depends>
-        <module>vue</module>
-      </depends>
-      <depends>
-        <module>vuetify</module>
-      </depends>
-      <depends>
-        <module>eXoVueI18n</module>
+        <module>digitalWorkplaceEventsBundle</module>
       </depends>
     </module>
   </portlet>
 
+  <module>
+    <name>digitalWorkplaceEventsBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/events.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
+
   <portlet>
     <name>digitalWorkplaceTasks</name>
     <module>
-      <script>
-        <minify>false</minify>
-        <path>/js/tasks.bundle.js</path>
-      </script>
       <depends>
-        <module>vue</module>
-      </depends>
-      <depends>
-        <module>vuetify</module>
-      </depends>
-      <depends>
-        <module>eXoVueI18n</module>
+        <module>digitalWorkplaceTasksBundle</module>
       </depends>
     </module>
   </portlet>
+
+  <module>
+    <name>digitalWorkplaceTasksBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/tasks.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
+
+  <portlet>
+    <name>digitalWorkplacePerkstore</name>
+    <module>
+      <depends>
+        <module>digitalWorkplacePerkstoreBundle</module>
+      </depends>
+    </module>
+  </portlet>
+
+  <module>
+    <name>digitalWorkplacePerkstoreBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/perkstore.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
+
+
+  <portlet>
+    <name>digitalWorkplaceWallet</name>
+    <module>
+      <depends>
+        <module>digitalWorkplaceWalletBundle</module>
+      </depends>
+    </module>
+  </portlet>
+
+  <module>
+    <name>digitalWorkplaceWalletBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/wallet.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
 
 
 </gatein-resources>

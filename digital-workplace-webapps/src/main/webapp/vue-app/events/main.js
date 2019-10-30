@@ -15,7 +15,8 @@ const lang = eXo && eXo.env && eXo.env.portal && eXo.env.portal.language || 'en'
 const resourceBundleName = 'locale.addon.DigitalWorkplace';
 const url = `${eXo.env.portal.context}/${eXo.env.portal.rest}/i18n/bundle/${resourceBundleName}-${lang}.json`;
 
-// getting locale ressources
+export function init() {
+//getting locale ressources
 exoi18n.loadLanguageAsync(lang, url)
     .then(i18n => {
         // init Vue app when locale ressources are ready
@@ -25,3 +26,4 @@ exoi18n.loadLanguageAsync(lang, url)
             vuetify,
         }).$mount('#digital-workplace-events');
     });
+}

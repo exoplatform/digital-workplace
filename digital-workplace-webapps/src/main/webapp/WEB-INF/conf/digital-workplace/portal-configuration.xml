@@ -11,7 +11,7 @@
       <init-params>
         <value-param>
           <name>override</name>
-          <value>true</value>
+          <value>${dw.portalConfig.metadata.override:true}</value>
         </value-param>
         <object-param>
           <name>portal.configuration</name>
@@ -24,7 +24,7 @@
               <boolean>true</boolean>
             </field>
             <field name="importMode">
-              <string>insert</string>
+              <string>${dw.portalConfig.metadata.importmode:overwrite}</string>
             </field>
             <field name="predefinedOwner">
               <collection type="java.util.HashSet">

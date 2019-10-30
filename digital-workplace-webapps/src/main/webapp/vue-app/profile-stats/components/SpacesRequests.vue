@@ -10,34 +10,36 @@
       <v-layout
         row
         wrap
-        mx-0
+        mx-2
         align-start
         px-2>
         <v-flex
           d-flex
-          md2>
-          <v-icon
-            color="grey darken-2"
-            size="20"
-            @click="toProfileStats()">mdi-arrow-left</v-icon>
-        </v-flex>
-        <v-flex
-          d-flex
-          md10
+          xs12
+          mt-n2
           justify-center>
           <div>
             <span class="pr-2 text-uppercase subtitle-2">Spaces requests</span>
             <v-btn
-              color="primary"
+              color="primary-color"
               fab
               depressed
               dark
               height="20"
               width="20"
               class="mb-1">
-              <span class="white--text caption">3</span>
+              <span class="white--text caption">4</span>
             </v-btn>
           </div>
+        </v-flex>
+        <v-flex
+          d-flex
+          xs12
+          mt-n6>
+          <v-icon
+            color="grey darken-2"
+            size="20"
+            @click="toProfileStats()">mdi-arrow-left</v-icon>
         </v-flex>
       </v-layout>
     </v-flex>
@@ -54,7 +56,7 @@
 
             <v-list-item-content class="py-0">
               <v-list-item-title class="font-weight-bold subtitle-2 primary-color--text darken-2" v-text="item.userName"/>
-              <v-list-item-subtitle class="body-2 grey--text darken-1" v-text="item.spaceName"/>
+              <v-list-item-subtitle class="body-2 grey-color" v-text="item.spaceName"/>
             </v-list-item-content>
             <v-list-item-action>
               <v-btn-toggle

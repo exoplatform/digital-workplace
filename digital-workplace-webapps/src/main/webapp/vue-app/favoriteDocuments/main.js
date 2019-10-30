@@ -1,12 +1,12 @@
-import sliderApp from './components/SliderApp.vue';
+import favoriteDocumentsApp from './components/FavoriteDocumentsApp.vue';
 
 import '../../css/main.less';
 
 Vue.use(Vuetify);
 
 const vuetify = new Vuetify({
-  dark: true,
-  iconfont: '',
+    dark: true,
+    iconfont: '',
 });
 
 // getting language of user
@@ -18,12 +18,12 @@ const url = `${eXo.env.portal.context}/${eXo.env.portal.rest}/i18n/bundle/${reso
 export function init() {
 //getting locale ressources
 exoi18n.loadLanguageAsync(lang, url)
-  .then(i18n => {
-    // init Vue app when locale ressources are ready
-    new Vue({
-      render: h => h(sliderApp),
-      i18n,
-      vuetify,
-    }).$mount('#digital-workplace-slider');
-  });
+    .then(i18n => {
+        // init Vue app when locale ressources are ready
+        new Vue({
+            render: h => h(favoriteDocumentsApp),
+            i18n,
+            vuetify,
+        }).$mount('#digital-workplace-favorite-documents');
+    });
 }

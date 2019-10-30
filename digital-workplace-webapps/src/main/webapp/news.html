@@ -1,3 +1,9 @@
 <div class="VuetifyApp">
-    <div id="digital-workplace-news"></div>
+    <div id="digital-workplace-news">
+    	<script>
+	    	require(['SHARED/digitalWorkplaceNewsBundle'], function(newsApp) {
+				newsApp.init();
+			});
+		</script>
+    </div>
 </div>

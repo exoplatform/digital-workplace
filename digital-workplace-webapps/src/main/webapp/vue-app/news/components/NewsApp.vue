@@ -37,7 +37,7 @@
               <v-btn 
                 depressed 
                 small 
-                class="caption text-uppercase grey--text">See all</v-btn>
+                class="caption text-uppercase grey--text d-none d-sm-flex">See all</v-btn>
             </v-flex>
           </v-layout>
         </v-flex>
@@ -48,13 +48,15 @@
           <v-layout 
             row 
             wrap 
-            mx-0>
+            mx-0
+            class="d-none d-sm-flex">
             <v-flex
               d-flex
               xs12
-              md6
+              sm6
               pb-3>
               <v-img
+                v-if="news.length > 0"
                 :src="news[0].illustration"
                 aspect-ratio="2.3">
                 <v-row align="end" class="lightbox white--text pa-2 fill-height">
@@ -68,46 +70,70 @@
             <v-flex
               d-flex
               xs12
-              md6>
+              sm6
+              align-start>
               <v-layout 
                 row 
                 wrap 
                 mx-0
-                pl-md-3>
-                <v-flex
-                  v-for="(item, index) of news.slice(1)"
-                  :key="index"
-                  mb-3
-                  md12
-                  sm4>
-                  <v-layout 
-                    row 
-                    mx-0 
-                    mr-sm-2>
-                    <v-flex
-                      d-flex
-                      xs12
-                      md3>
-                      <v-img
-                        :src="item.illustration"
-                        aspect-ratio="2"/>
-                    </v-flex>
-                    <v-flex
-                      d-flex
-                      xs12
-                      md9>
-                      <v-card
-                        flat
-                        color="transparent">
-                        <v-card-title class="subtitle-2 font-weight-bold text-uppercase pt-2">{{ item.title }}</v-card-title>
-                        <v-card-text class="pb-2 grey-color">{{ item.summary }}</v-card-text>
-                      </v-card>
-                    </v-flex>
-                  </v-layout>
-                </v-flex>
+                pl-3>
+                <v-list
+                  three-line
+                  class="d-xs-none py-0 list-news">
+                  <template v-for="item of news.slice(1)">
+                    <v-list-item
+                      :key="item.title"
+                      class="px-0">
+                      <v-list-item-avatar 
+                        tile 
+                        size="75"
+                        class="mr-2 my-0">
+                        <v-img :src="item.illustration"/>
+                      </v-list-item-avatar>
+
+                      <v-list-item-content class="pt-0">
+                        <v-list-item-title class="subtitle-2 font-weight-bold text-uppercase mb-2" v-html="item.title"/>
+                        <v-list-item-subtitle class="pb-2 grey-color" v-html="item.summary"/>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </template>
+                </v-list>
+
               </v-layout>
             </v-flex>
           </v-layout>
+
+          <v-carousel
+            :height="250"
+            class="d-sm-none carousel-news"
+            touch
+            hide-delimiters>
+            <v-carousel-item
+              v-for="(slide, index) of news"
+              :key="index"
+              :src="slide.illustration"
+              aspect-ratio="2.3">
+              <v-sheet
+                color="transparent news-text"
+                height="50%"
+                width="100%"
+                class="mx-auto"
+                tile>
+                <v-row
+                  class="fill-height lightbox mx-0 px-2"
+                  justify="center">
+                  <div>
+                    <a
+                      :href="slide.url"
+                      class="white--text subtitle-1 font-weight-bold"
+                      style="text-shadow: 0 0 13px #000000a8;">
+                      {{ slide.title }}</a>
+                    <p>{{ slide.summary }}</p>
+                  </div>
+                </v-row>
+              </v-sheet>
+            </v-carousel-item>
+          </v-carousel>
         </v-flex>
       </v-layout>
     </v-container>
@@ -118,7 +144,14 @@
   export default {
     data () {
       return {
-        news: {},
+        news: [],
+        colors: [
+          'primary',
+          'secondary',
+          'yellow darken-2',
+          'red',
+          'orange',
+        ],
       }
     },
     created() {

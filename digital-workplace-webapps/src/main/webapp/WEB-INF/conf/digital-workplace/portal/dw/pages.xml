@@ -1,70 +1,173 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<page-set 
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_7 http://www.gatein.org/xml/ns/gatein_objects_1_7"
-        xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_7">
+<page-set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_7 http://www.gatein.org/xml/ns/gatein_objects_1_7"
+  xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_7">
   <page>
     <name>homepage</name>
     <title>Home Page</title>
     <access-permissions>*:/platform/users</access-permissions>
     <edit-permission>*:/platform/administrators</edit-permission>
-    <container id="digitalWorkplaceHomePage" template="system:/groovy/portal/webui/container/UIDigitalWorkplaceHomepageContainer.gtmpl">
+    <container id="digitalWorkplaceHomePage"
+      template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
       <access-permissions>*:/platform/users</access-permissions>
-      <portlet-application>
-        <portlet>
-          <application-ref>digital-workplace</application-ref>
-          <portlet-ref>digitalWorkplaceSlider</portlet-ref>
-        </portlet>
-        <title>Digital Workplace Slider</title>
+      <container id="SliderContainer"
+        template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
-        <show-info-bar>false</show-info-bar>
-      </portlet-application>
-      <portlet-application>
-        <portlet>
-          <application-ref>digital-workplace</application-ref>
-          <portlet-ref>digitalWorkplaceNews</portlet-ref>
-        </portlet>
-        <title>Digital Workplace News</title>
+        <portlet-application>
+          <portlet>
+            <application-ref>digital-workplace</application-ref>
+            <portlet-ref>digitalWorkplaceSlider</portlet-ref>
+          </portlet>
+          <title>Slider</title>
+          <access-permissions>*:/platform/users</access-permissions>
+          <show-info-bar>false</show-info-bar>
+        </portlet-application>
+      </container>
+      <container id="MiddleContainer"
+        template="system:/groovy/portal/webui/container/UIResponsiveTableColumnContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
-        <show-info-bar>false</show-info-bar>
-      </portlet-application>
-      <portlet-application>
-        <portlet>
-          <application-ref>digital-workplace</application-ref>
-          <portlet-ref>digitalWorkplaceProfileStats</portlet-ref>
-        </portlet>
-        <title>Digital Workplace Profile stats</title>
-        <access-permissions>*:/platform/users</access-permissions>
-        <show-info-bar>false</show-info-bar>
-      </portlet-application>
-      <portlet-application>
-        <portlet>
-          <application-ref>digital-workplace</application-ref>
-          <portlet-ref>digitalWorkplaceEvents</portlet-ref>
-        </portlet>
-        <title>Digital Workplace Events</title>
-        <access-permissions>*:/platform/users</access-permissions>
-        <show-info-bar>false</show-info-bar>
-      </portlet-application>
-      <portlet-application>
-        <portlet>
-          <application-ref>digital-workplace</application-ref>
-          <portlet-ref>digitalWorkplaceTasks</portlet-ref>
-        </portlet>
-        <title>Digital Workplace Tasks</title>
-        <access-permissions>*:/platform/users</access-permissions>
-        <show-info-bar>false</show-info-bar>
-      </portlet-application>
-      <portlet-application>
-        <portlet>
-          <application-ref>digital-workplace</application-ref>
-          <portlet-ref>digitalWorkplaceDocuments</portlet-ref>
-        </portlet>
-        <title>Digital Workplace Documents</title>
-        <access-permissions>*:/platform/users</access-permissions>
-        <show-info-bar>false</show-info-bar>
-      </portlet-application>
-    </container>
+        <container id="LatestNewsContainer"
+          template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <portlet-application>
+            <portlet>
+              <application-ref>digital-workplace</application-ref>
+              <portlet-ref>digitalWorkplaceNews</portlet-ref>
+            </portlet>
+            <title>News</title>
+            <access-permissions>*:/platform/users</access-permissions>
+            <show-info-bar>false</show-info-bar>
+          </portlet-application>
+        </container>
+        <container id="UserProfileContainer"
+          template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <container id="ProfileStatsContainer"
+            template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+            <access-permissions>*:/platform/users</access-permissions>
+            <portlet-application>
+              <portlet>
+                <application-ref>digital-workplace</application-ref>
+                <portlet-ref>digitalWorkplaceProfileStats</portlet-ref>
+              </portlet>
+              <title>Profile stats</title>
+              <access-permissions>*:/platform/users</access-permissions>
+              <show-info-bar>false</show-info-bar>
+            </portlet-application>
+          </container>
+          <container id="PerkstoreWalletContainer"
+            template="system:/groovy/portal/webui/container/UIResponsiveTableColumnContainer.gtmpl">
+            <access-permissions>*:/platform/users</access-permissions>
+            <container id="PerkstoreContainer"
+              template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+              <access-permissions>*:/platform/users</access-permissions>
+              <portlet-application>
+                <portlet>
+                  <application-ref>digital-workplace</application-ref>
+                  <portlet-ref>digitalWorkplacePerkstore</portlet-ref>
+                </portlet>
+                <title>Perkstore</title>
+                <access-permissions>*:/platform/users</access-permissions>
+                <show-info-bar>false</show-info-bar>
+              </portlet-application>
+            </container>
+            <container id="WalletContainer"
+              template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+              <access-permissions>*:/platform/users</access-permissions>
+              <portlet-application>
+                <portlet>
+                  <application-ref>digital-workplace</application-ref>
+                  <portlet-ref>digitalWorkplaceWallet</portlet-ref>
+                </portlet>
+                <title>Wallet</title>
+                <access-permissions>*:/platform/users</access-permissions>
+                <show-info-bar>false</show-info-bar>
+              </portlet-application>
+            </container>
+          </container>
+        </container>
+      </container>
 
+      <container id="BottomContainer"
+        template="system:/groovy/portal/webui/container/UIResponsiveTableColumnContainer.gtmpl">
+        <access-permissions>*:/platform/users</access-permissions>
+        <container id="EventsContainer"
+          template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <portlet-application>
+            <portlet>
+              <application-ref>digital-workplace</application-ref>
+              <portlet-ref>digitalWorkplaceEvents</portlet-ref>
+            </portlet>
+            <title>Events</title>
+            <access-permissions>*:/platform/users</access-permissions>
+            <show-info-bar>false</show-info-bar>
+          </portlet-application>
+        </container>
+        <container id="TasksContainer"
+          template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <portlet-application>
+            <portlet>
+              <application-ref>digital-workplace</application-ref>
+              <portlet-ref>digitalWorkplaceTasks</portlet-ref>
+            </portlet>
+            <title>Tasks</title>
+            <access-permissions>*:/platform/users</access-permissions>
+            <show-info-bar>false</show-info-bar>
+          </portlet-application>
+        </container>
+        <container id="DocumentsContainer"
+          template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <container
+            template="system:/groovy/portal/webui/container/UIDWTabContainer.gtmpl">
+            <factory-id>TabContainer</factory-id>
+            <container
+              template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+              <title>recentDocuments</title>
+              <access-permissions>*:/platform/users</access-permissions>
+              <portlet-application>
+                <portlet>
+                  <application-ref>digital-workplace</application-ref>
+                  <portlet-ref>digitalWorkplaceRecentDocuments</portlet-ref>
+                </portlet>
+                <title>Recent documents</title>
+                <access-permissions>*:/platform/users</access-permissions>
+                <show-info-bar>false</show-info-bar>
+              </portlet-application>
+            </container>
+            <container
+              template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+              <title>sharedDocuments</title>
+              <access-permissions>*:/platform/users</access-permissions>
+              <portlet-application>
+                <portlet>
+                  <application-ref>digital-workplace</application-ref>
+                  <portlet-ref>digitalWorkplaceSharedDocuments</portlet-ref>
+                </portlet>
+                <title>Shared with me documents</title>
+                <access-permissions>*:/platform/users</access-permissions>
+                <show-info-bar>false</show-info-bar>
+              </portlet-application>
+            </container>
+            <container
+              template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+              <title>favoriteDocuments</title>
+              <access-permissions>*:/platform/users</access-permissions>
+              <portlet-application>
+                <portlet>
+                  <application-ref>digital-workplace</application-ref>
+                  <portlet-ref>digitalWorkplaceFavoriteDocuments</portlet-ref>
+                </portlet>
+                <title>Favorite documents</title>
+                <access-permissions>*:/platform/users</access-permissions>
+                <show-info-bar>false</show-info-bar>
+              </portlet-application>
+            </container>
+          </container>
+        </container>
+      </container>
+    </container>
   </page>
 </page-set>
