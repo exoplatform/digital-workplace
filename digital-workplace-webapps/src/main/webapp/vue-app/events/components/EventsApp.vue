@@ -41,11 +41,10 @@
               pl-3>
               <v-flex
                 d-flex
-                xs12
-                sm2>
+                xs2>
                 <v-layout column><v-avatar 
                   color="#568DC9"
-                  class="pa-6"
+                  class="pa-2"
                   size="36">
                   <span class="white--text headline">19</span>
                 </v-avatar>
@@ -55,8 +54,7 @@
               </v-layout></v-flex>
               <v-flex
                 d-flex
-                xs12
-                sm10><v-list-item>
+                xs10><v-list-item>
                   <v-list-item-content class="pt-0">
                     <v-card
                       flat
@@ -94,10 +92,9 @@
               pl-3>
               <v-flex
                 d-flex
-                xs12
-                sm2>
+                xs2>
                 <v-layout column>
-                  <v-avatar size="36" class="px-6">
+                  <v-avatar size="36" class="px-2">
                     <span class="headline blueText">20</span>
                   </v-avatar>
                   <v-avatar size="20">
@@ -106,8 +103,7 @@
               </v-layout></v-flex>
               <v-flex
                 d-flex
-                xs12
-                sm10><v-list-item>
+                xs10><v-list-item>
                   <v-list-item-content class="pt-0">
                     <v-card
                       flat
