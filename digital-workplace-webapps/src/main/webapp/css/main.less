@@ -73,6 +73,22 @@
       min-height: 100px;
     }
   }
+
+  #digital-workplace-news {
+    .list-news {
+      overflow: hidden;
+      .v-list-item__content {
+        align-self: flex-start!important;
+        .v-list-item__subtitle {
+          line-height: 1.5;
+        }
+      }
+    }
+    .carousel-news .v-responsive {
+      align-items: flex-end;
+    }
+  }
+
   .blueText{
     font-size: 15px;color: #568DC9;
   }
@@ -173,7 +189,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 599px) {
   .EventsContainerTDContainer, .TasksContainerTDContainer {
     flex: 0 0 100%;
   }
