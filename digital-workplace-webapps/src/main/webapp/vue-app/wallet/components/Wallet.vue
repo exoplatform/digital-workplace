@@ -24,7 +24,7 @@
               </v-flex>
               <v-flex d-flex xs12>
                 <v-card flat>
-                  <v-card-text class="display-1 font-weight-bold pa-2">251 Ȼ</v-card-text>
+                  <v-card-text class="display-1 font-weight-bold pa-2">300 Ȼ</v-card-text>
                 </v-card>
               </v-flex>
             </v-layout>

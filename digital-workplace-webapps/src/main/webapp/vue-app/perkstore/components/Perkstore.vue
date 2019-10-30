@@ -39,9 +39,9 @@
             <v-card
               flat
               color="transparent">
-              <v-list-item class="px-2">
-                <v-list-item-avatar class="mr-1 my-0 display-1 font-weight-bold blue-grey--text darken-1" width="132">132</v-list-item-avatar>
-                <v-list-item-title class="caption mt-4">Products</v-list-item-title>
+              <v-list-item class="px-1">
+                <span class="product-number mr-1 my-0 display-1 font-weight-bold blue-grey--text darken-1">122</span>
+                <span class="product-label caption mt-4">Products</span>
               </v-list-item>
             </v-card>
           </v-flex>

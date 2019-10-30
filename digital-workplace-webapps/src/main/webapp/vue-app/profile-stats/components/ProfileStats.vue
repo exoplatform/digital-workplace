@@ -10,8 +10,7 @@
           row
           wrap
           mx-0
-          class="white profileCard"
-          mb-2>
+          class="white profileCard">
           <user-dashboard
             v-if="!isFlipped"
             class="profileFlippedCard profileStats"

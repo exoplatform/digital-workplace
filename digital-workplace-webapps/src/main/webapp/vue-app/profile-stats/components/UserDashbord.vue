@@ -30,8 +30,7 @@
           row
           mx-0>
           <v-flex
-            xs12
-            sm6
+            xs6
             d-flex
             justify-center
             align-center>
@@ -50,8 +49,7 @@
           </v-flex>
           <v-flex
             d-flex
-            sx12
-            sm6
+            xs6
             justify-center
             align-center>
             <v-card
@@ -76,8 +74,7 @@
         align-center>
         <v-layout row mx-0>
           <v-flex
-            xs12
-            sm6
+            xs6
             d-flex
             justify-center
             align-center>
@@ -91,8 +88,7 @@
           </v-flex>
           <v-flex
             d-flex
-            xs12
-            sm6
+            xs6
             justify-center
             align-center>
             <v-card

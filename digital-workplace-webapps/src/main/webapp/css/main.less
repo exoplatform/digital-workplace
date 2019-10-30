@@ -11,30 +11,26 @@
     color: @primaryColor !important;
     caret-color: @primaryColor !important;
   }
-
   .grey-color {
     color: @greyColor!important;
   }
-
   .color-title {
     color: #a8b3c5;
   }
   .Rectangular-card {
     border-radius: 0em;
   }
-
   #digital-workplace-profile-stats {
     background: transparent;
     .profileCard {
       position: relative;
       width: 100%;
       height: 100%;
-      min-height: 320px;
+      min-height: 280px;
       cursor: pointer;
       transform-style: preserve-3d;
       transition: transform 1s;
     }
-
     .profileCard.is-flipped {
       transform: rotateY(-180deg);
     }
@@ -44,7 +40,6 @@
       height: 100%;
       backface-visibility: hidden;
     }
-
     .ConnexionsRequests {
       background: white;
       transform: rotateY(180deg);
@@ -56,76 +51,165 @@
       background-color: @primaryColor!important;
       border-color: @primaryColor!important;
     }
-
     .top1 {
       -webkit-animation-duration: 1.5s;
       animation-duration: 1.5s;
       -webkit-animation-name: toTop1;
       animation-name: toTop1;
     }
-
     .top2 {
       -webkit-animation-duration: 1.5s;
       animation-duration: 1.5s;
       -webkit-animation-name: toTop2;
       animation-name: toTop2;
     }
-
     .top3 {
       -webkit-animation-duration: 1.5s;
       animation-duration: 1.5s;
       -webkit-animation-name: toTop3;
       animation-name: toTop3;
     }
-
     .podium-layout {
       min-height: 100px;
     }
   }
-  .blueText{font-size: 15px;color: #568DC9}
-  .iconlarge{font-size: 50px;color:#6CCBAE;font-size: 40px;}
-
+  .blueText{
+    font-size: 15px;color: #568DC9;
+  }
+  .iconlarge{
+    font-size: 50px;color:#6CCBAE;font-size: 40px;
+  }
 }
 
 /*--------------- HomePage Containers Structure ---------------------------*/
 
 #digitalWorkplaceHomePage {
-	margin: 12px;
+  margin: 20px;
 }
-
 #SliderContainer, #MiddleContainer {
-	margin-bottom: 12px;
+  margin-bottom: 20px;
 }
-
+#MiddleContainer tr {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 .LatestNewsContainerTDContainer {
-	width: 75%;
+  flex: 0 1 73.7%;
+  background: #fff;
+}
+.UserProfileContainerTDContainer {
+  flex: 0 1 25%;
+}
+#BottomContainer tr {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.EventsContainerTDContainer,
+.TasksContainerTDContainer,
+.DocumentsContainerTDContainer {
+  flex: 0 1 32%;
+  background: #fff;
+  overflow: hidden;
+}
+.PerkstoreContainerTDContainer, .WalletContainerTDContainer {
+  flex: 0 1 48%;
+  background: #fff;
+}
+.profileCard {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 1200px) {
+  .LatestNewsContainerTDContainer {
+    flex: 0 1 100%;
+    margin-right: 0;
+  }
+  .UserProfileContainerTDContainer {
+    flex: 0 1 100%;
+  }
+  #UserProfileContainer {
+    margin-top: 20px;
+  }
+  #UserProfileContainer .NormalContainerBlock .VIEW-CONTAINER div .UIRowContainer {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  #ProfileStatsContainer {
+    flex: 0 1 68.5%;
     background: #fff;
-    border-right: 10px solid #f2f2f2;
-}
-
-.EventsContainerTDContainer, .TasksContainerTDContainer {
-	width: 33.3333333333%;
-}
-
-#EventsContainer, #TasksContainer {
-	margin-right: 12px;
-}
-
-#PerkstoreWalletContainer tr td {
-  background-color: #fff;
-}
-
-#PerkstoreWalletContainer .PerkstoreContainerTDContainer {
-  border-right: 5px solid #f2f2f2;
+  }
+  #PerkstoreWalletContainer {
+    flex: 0 1 30%;
+  }
+  #ProfileStatsContainer .UIRowContainer {
+    display: block!important;
+  }
+  .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
+    flex: 0 1 100%;
+    min-height: 135px;
+  }
+  .PerkstoreContainerTDContainer {
+    margin-bottom: 10px;
+  }
+  .profileCard {
+    margin-bottom: 0!important;
+  }
+  .EventsContainerTDContainer, .TasksContainerTDContainer {
+    flex: 0 0 48.7%;
+    background: #fff;
+    margin-right: 0;
+  }
+  .DocumentsContainerTDContainer {
+    flex: 1 1 100%!important;
+    margin-top: 20px;
+  }
+  #MiddleContainer tr {
+    flex-wrap: wrap;
+  }
 }
 
 @media (max-width: 768px) {
-	.TRContainer .TDResponsiveContainer {
-	    width: 100%;
-	    float: left;
-	    margin-right: 0;
-	    margin-bottom: 12px;
-	}
+  .EventsContainerTDContainer, .TasksContainerTDContainer {
+    flex: 0 0 100%;
+  }
+  .TasksContainerTDContainer {
+    margin-top: 20px;
+  }
+  #ProfileStatsContainer {
+    flex: 0 1 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  #PerkstoreWalletContainer {
+    flex: 0 1 100%;
+  }
+  .PerkstoreContainerTDContainer {
+    margin-bottom: 0;
+  }
+  .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
+    flex: 0 1 49%;
+    min-height: 110px;
+  }
+  #digitalWorkplaceHomePage {
+    margin: 10px;
+  }
+  #SliderContainer, #MiddleContainer {
+    margin-bottom: 10px;
+  }
+  #UserProfileContainer {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 500px) {
+  .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
+    flex: 0 1 48.3%;
+    min-height: 90px;
+  }
 }
 
 /*--------------- Podium Animation ---------------------------*/
