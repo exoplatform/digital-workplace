@@ -19,7 +19,7 @@
           mt-n2
           justify-center>
           <div>
-            <span class="pr-2 text-uppercase subtitle-2">LeaderBoard</span>
+            <span class="pr-2 text-uppercase subtitle-2">{{ this.$t('homepage.profileStatus.leaderboard') }}</span>
           </div>
         </v-flex>
         <v-flex
@@ -64,7 +64,7 @@
       <v-btn
         depressed
         small
-        class="caption text-uppercase grey--text">See all</v-btn>
+        class="caption text-uppercase grey--text">{{ this.$t('homepage.seeAll') }}</v-btn>
     </v-flex>
   </v-layout>
 </template>

@@ -19,7 +19,7 @@
               class="white">
               <v-flex d-flex xs12>
                 <v-card flat>
-                  <v-card-text class="subtitle-2 grey--text pa-2">Wallet Balance</v-card-text>
+                  <v-card-text class="subtitle-2 grey--text pa-2">{{ this.$t('homepage.Wallet.header') }}</v-card-text>
                 </v-card>
               </v-flex>
               <v-flex 
