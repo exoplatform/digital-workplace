@@ -79,7 +79,7 @@
                                 sm7>
                                 <v-card flat color="#F7FAFD">
                                   <div class="title">12 {{ this.$t('homepage.tasks') }}</div>
-                                  <div class="caption color-title">{{ this.$t('homepage.tasks.InProgress') }}</div>
+                                  <div class="caption color-title">{{ this.$t('homepage.tasks.inProgress') }}</div>
                                 </v-card>
                               </v-flex>
                             </v-layout>
