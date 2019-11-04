@@ -11,8 +11,7 @@
         row
         wrap
         mx-2
-        align-start
-        px-2>
+        align-start>
         <v-flex
           d-flex
           xs12

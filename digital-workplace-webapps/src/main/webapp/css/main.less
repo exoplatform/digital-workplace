@@ -29,6 +29,7 @@
       width: 100%;
       max-height: 300px;
       height: 300px;
+      min-width: 270px;
       cursor: pointer;
       transform-style: preserve-3d;
       transition: transform 1s;
@@ -171,12 +172,12 @@
   }
 }
 .LatestNewsContainerTDContainer {
-  flex: 0 1 73%;
+  flex: 0 1 74%;
   background: #fff;
   overflow: hidden;
 }
 .UserProfileContainerTDContainer {
-  flex: 0 1 25%;
+  flex: 0 1 26%;
   margin-left: 10px;
 }
 #BottomContainer tr {
@@ -304,6 +305,12 @@
   #PerkstoreWalletContainer {
     .big-number, .perkstore-info {
       margin-top: 20px;
+    }
+  }
+
+  #digital-workplace-news {
+    .news-container {
+      min-height: auto!important;
     }
   }
 }
