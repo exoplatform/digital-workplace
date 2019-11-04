@@ -6,7 +6,7 @@
     flat>
     <main>
       <v-carousel
-        :height="300"
+        :height="250"
         hide-delimiter-background>
         <v-carousel-item
           v-for="(item,i) in sliderItems"
@@ -23,11 +23,10 @@
               class="fill-height"
               align="center"
               justify="center">
-              <div class="display-1">
+              <div>
                 <a
                   :href="item.url"
-                  class="white--text font-weight-medium"
-                  style="text-shadow: 0 0 13px #000000a8;">
+                  class="white--text font-weight-medium carousel-text">
                   {{ item.summary }}</a>
               </div>
             </v-row>

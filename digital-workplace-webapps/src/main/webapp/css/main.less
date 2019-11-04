@@ -1,6 +1,7 @@
 // Variables
 @primaryColor: #578DC9;
 @greyColor: #a8b3c5;
+@yellowColor: #ffc20e;
 
 .VuetifyApp {
   .primary-color {
@@ -72,6 +73,42 @@
     .podium-layout {
       min-height: 100px;
     }
+  }
+
+  /*--------------------------Slider ---------------------------*/
+
+  #digital-workplace-slider {
+    .carousel-text {
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+      text-shadow: 0px 0px 12px #000000db;
+    }
+    .v-responsive__content {
+      background-color: #0000002b;
+    }
+    .v-btn--round .v-btn__content .v-icon {
+      color: @yellowColor;
+    }
+
+    .v-carousel__controls {
+      .v-btn__content .v-icon {
+        color: #ffffff;
+        opacity: 1;
+        height: 20px !important;
+        font-size: 20px !important;
+        width: 20px !important;
+      }
+    }
+    .v-btn--active {
+      .v-btn__content .v-icon {
+        color: @yellowColor!important;
+      }
+      &:before {
+        opacity: 0!important;
+      }
+    }
+
+
   }
 
   #digital-workplace-news {
@@ -205,6 +242,15 @@
   #MiddleContainer tr {
     flex-wrap: wrap;
   }
+
+  /*-----------------------Slider ------------------------------*/
+
+  #digital-workplace-slider {
+    .carousel-text {
+      font-size: 1.5rem !important;
+    }
+  }
+
 }
 
 @media (max-width: 599px) {
@@ -237,6 +283,27 @@
   }
   #UserProfileContainer {
     margin-top: 10px;
+  }
+  /* -----------------Slider ----------------------------*/
+
+  #digital-workplace-slider {
+    .v-btn--icon.v-size--default {
+      height: 26px!important;
+      width: 26px!important;
+    }
+
+    .v-window__prev {
+      left: -10px!important
+    }
+
+    .v-window__next {
+      right: -10px!important;
+    }
+
+    .carousel-text {
+      font-size: 1.1rem !important;
+      line-height: 1.5rem !important;
+    }
   }
 }
 @media (max-width: 500px) {
