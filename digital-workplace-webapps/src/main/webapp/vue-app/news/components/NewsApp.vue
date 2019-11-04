@@ -25,7 +25,7 @@
                 flat
                 color="transparent">
                 <v-card-text class="body-1 text-uppercase grey--text px-0">
-                  Latest news post
+                  {{ this.$t('homepage.news.header') }}
                 </v-card-text>
               </v-card>
             </v-flex>
@@ -37,7 +37,7 @@
               <v-btn 
                 depressed 
                 small 
-                class="caption text-uppercase grey--text d-none d-sm-flex">See all</v-btn>
+                class="caption text-uppercase grey--text d-none d-sm-flex">{{ this.$t('homepage.seeAll') }}</v-btn>
             </v-flex>
           </v-layout>
         </v-flex>

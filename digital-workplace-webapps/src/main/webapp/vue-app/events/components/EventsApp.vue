@@ -24,7 +24,7 @@
                 flat
                 color="transparent">
                 <a href="#"><v-card-text class="body-1 text-uppercase color-title px-0">
-                  Events
+                  {{ this.$t('homepage.events.header') }}
                 </v-card-text></a>
               </v-card>
             </v-flex>

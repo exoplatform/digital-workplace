@@ -24,7 +24,7 @@
                 flat
                 color="transparent">
                 <a href="#"><v-card-text class="body-1 text-uppercase color-title px-0">
-                  Tasks
+                  {{ this.$t('homepage.tasks.header') }}
                 </v-card-text></a>
               </v-card>
             </v-flex>
@@ -78,8 +78,8 @@
                                 xs12
                                 sm7>
                                 <v-card flat color="#F7FAFD">
-                                  <div class="title">12 Tasks</div>
-                                  <div class="caption color-title">en cours</div>
+                                  <div class="title">12 {{ this.$t('homepage.tasks') }}</div>
+                                  <div class="caption color-title">{{ this.$t('homepage.tasks.InProgress') }}</div>
                                 </v-card>
                               </v-flex>
                             </v-layout>
@@ -129,8 +129,8 @@
                                 xs12
                                 sm7>
                                 <v-card flat color="#F7FAFD">
-                                  <div class="title">6 Tasks</div>
-                                  <div class="caption color-title">en retard</div>
+                                  <div class="title">6 {{ this.$t('homepage.tasks') }}</div>
+                                  <div class="caption color-title">{{ this.$t('homepage.tasks.late') }}</div>
                                 </v-card>
                               </v-flex>
                             </v-layout>

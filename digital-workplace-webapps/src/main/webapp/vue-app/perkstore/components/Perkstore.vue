@@ -15,7 +15,7 @@
             d-flex
             xs12>
             <div class="pa-2">
-              <span class="subtitle-2 grey--text">Perkstore</span>
+              <span class="subtitle-2 grey--text">>{{ this.$t('homepage.Perkstore.header') }}</span>
               <v-tooltip bottom>
                 <template v-slot:activator="{ on }">
                   <v-btn
@@ -43,7 +43,7 @@
               color="transparent">
               <v-list-item class="px-1 perkstore-info">
                 <span class="mr-1 my-0 font-weight-bold big-number">122</span>
-                <span class="mt-4 product-label">Products</span>
+                <span class="mt-4 product-label">{{ this.$t('homepage.Perkstore.products') }}</span>
               </v-list-item>
             </v-card>
           </v-flex>

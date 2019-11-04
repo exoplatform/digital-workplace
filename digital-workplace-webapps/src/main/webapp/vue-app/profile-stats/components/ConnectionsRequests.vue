@@ -18,7 +18,7 @@
           mt-n2
           justify-center>
           <div>
-            <span class="pr-2 text-uppercase subtitle-2">Connections requests</span>
+            <span class="pr-2 text-uppercase subtitle-2">{{ this.$t('homepage.profileStatus.connectionsRequests') }}</span>
             <v-btn
               color="primary-color"
               fab
@@ -91,7 +91,7 @@
       <v-btn
         depressed
         small
-        class="caption text-uppercase grey--text">See all</v-btn>
+        class="caption text-uppercase grey--text">{{ this.$t('homepage.seeAll') }}</v-btn>
     </v-flex>
   </v-layout>
 
