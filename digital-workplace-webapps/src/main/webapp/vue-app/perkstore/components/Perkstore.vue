@@ -15,7 +15,7 @@
             d-flex
             xs12>
             <div class="pa-2">
-              <span class="subtitle-2 grey--text">>{{ this.$t('homepage.Perkstore.header') }}</span>
+              <span class="subtitle-2 grey--text">{{ this.$t('homepage.Perkstore.header') }}</span>
               <v-tooltip bottom>
                 <template v-slot:activator="{ on }">
                   <v-btn
