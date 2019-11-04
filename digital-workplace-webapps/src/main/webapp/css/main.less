@@ -125,6 +125,25 @@
     .carousel-news .v-responsive {
       align-items: flex-end;
     }
+    .news-container {
+      min-height: 310px;
+      overflow: hidden;
+      .news-right-list{
+        height: 100%;
+        .news-item {
+          height: 33%;
+        }
+        .news-item:nth-child(2) {
+          margin: 10px 0;
+        }
+      }
+    }
+  .item-lightbox {
+    background-color: #0000006b;
+    .v-list-item__content {
+      align-self: center!important;
+    }
+  }
   }
 
   .blueText{
@@ -154,6 +173,7 @@
 .LatestNewsContainerTDContainer {
   flex: 0 1 73%;
   background: #fff;
+  overflow: hidden;
 }
 .UserProfileContainerTDContainer {
   flex: 0 1 25%;
