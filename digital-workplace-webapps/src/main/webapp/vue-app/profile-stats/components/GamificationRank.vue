@@ -36,7 +36,7 @@
     </v-flex>
     <v-flex
       xs12
-      mb-3>
+      mb-1>
       <v-layout
         row
         wrap
@@ -51,7 +51,7 @@
               <img
                 :src="leaderBoardArray[2].avatar">
             </v-avatar>
-            <v-card-text class="top3 grey lighten-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold" style="height: 30px">
+            <v-card-text class="top3 grey lighten-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold" style="height: 25px">
               {{ leaderBoardArray[2].totalPoints }}
             </v-card-text>
 
@@ -63,7 +63,7 @@
                 :src="leaderBoardArray[0].avatar"
                 alt="John">
             </v-avatar>
-            <v-card-text class="top1 yellow darken-1 px-3 py-2 flex d-flex white--text  align-center font-weight-bold" style="height: 60px">
+            <v-card-text class="top1 yellow darken-1 px-3 py-2 flex d-flex white--text  align-center font-weight-bold" style="height: 55px">
               {{ leaderBoardArray[0].totalPoints }}
             </v-card-text>
 
@@ -75,7 +75,7 @@
                 :src="leaderBoardArray[1].avatar"
                 alt="John">
             </v-avatar>
-            <v-card-text class="top2 amber darken-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold" style="height: 45px">
+            <v-card-text class="top2 amber darken-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold" style="height: 40px">
               {{ leaderBoardArray[1].totalPoints }}
             </v-card-text>
 

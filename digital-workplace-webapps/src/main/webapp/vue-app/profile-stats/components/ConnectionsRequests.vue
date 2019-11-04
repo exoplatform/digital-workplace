@@ -49,14 +49,14 @@
         <template v-for="item in connectionsRequestsArray">
           <v-list-item
             :key="item.id"
-            class="py-0">
-            <v-list-item-avatar class="my-1 mr-2">
+            class="py-0 px-2">
+            <v-list-item-avatar class="my-1 mr-2" size="30">
               <v-img :src="item.avatar"/>
             </v-list-item-avatar>
 
             <v-list-item-content class="py-0">
               <v-list-item-title class="font-weight-bold subtitle-2 primary-color--text darken-2" v-html="item.userName"/>
-              <v-list-item-subtitle class="body-2 grey-color" v-text="item.communConnections + ' Commun connections'"/>
+              <v-list-item-subtitle class="caption grey-color" v-text="item.communConnections + ' Commun connections'"/>
             </v-list-item-content>
             <v-list-item-action>
               <v-btn-toggle
@@ -68,14 +68,14 @@
                   small
                   min-width="auto"
                   class="px-0">
-                  <v-icon color="primary-color">mdi-checkbox-marked-circle</v-icon>
+                  <v-icon color="primary-color" size="20">mdi-checkbox-marked-circle</v-icon>
                 </v-btn>
                 <v-btn
                   text
                   small
                   min-width="auto"
                   class="px-0">
-                  <v-icon color="grey lighten-1">mdi-close-circle</v-icon>
+                  <v-icon color="grey lighten-1" size="20">mdi-close-circle</v-icon>
                 </v-btn>
               </v-btn-toggle>
             </v-list-item-action>
