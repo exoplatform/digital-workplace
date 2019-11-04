@@ -2,6 +2,7 @@
 @primaryColor: #578DC9;
 @greyColor: #a8b3c5;
 @yellowColor: #ffc20e;
+@blueGreyColor: #4d5466;
 
 .VuetifyApp {
   .primary-color {
@@ -146,9 +147,12 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+  td {
+    padding: 0!important;
+  }
 }
 .LatestNewsContainerTDContainer {
-  flex: 0 1 73.7%;
+  flex: 0 1 73%;
   background: #fff;
 }
 .UserProfileContainerTDContainer {
@@ -169,7 +173,7 @@
   overflow: hidden;
 }
 .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
-  flex: 0 1 48%;
+  flex: 0 1 49%;
   background: #fff;
 }
 
@@ -180,6 +184,35 @@
 .profileStats {
   span.v-badge__badge{
     padding: 0!important;
+  }
+}
+
+#PerkstoreContainer, #WalletContainer {
+  height: 100%;
+}
+
+#PerkstoreWalletContainer {
+  .big-number {
+    font-size: 2.4rem!important;
+    line-height: 2.5rem;
+    color: @blueGreyColor;
+  }
+  .product-label {
+    font-size: .75rem!important;
+    font-weight: 400;
+    letter-spacing: .0333333333em!important;
+    line-height: 1.25rem;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1300px) {
+  #PerkstoreWalletContainer {
+    .big-number {
+      font-size: 2rem!important;
+    }
+    .product-label {
+      font-size: .7rem!important;
+    }
   }
 }
 
@@ -221,7 +254,6 @@
 
   #digital-workplace-profile-stats {
     background: transparent;
-
     .profileCard {
       max-height: 280px!important;
       height: 280px!important;
@@ -243,14 +275,17 @@
     flex-wrap: wrap;
   }
 
-  /*-----------------------Slider ------------------------------*/
-
   #digital-workplace-slider {
     .carousel-text {
       font-size: 1.5rem !important;
     }
   }
 
+  #PerkstoreWalletContainer {
+    .big-number, .perkstore-info {
+      margin-top: 20px;
+    }
+  }
 }
 
 @media (max-width: 599px) {
@@ -303,6 +338,11 @@
     .carousel-text {
       font-size: 1.1rem !important;
       line-height: 1.5rem !important;
+	}
+  }
+  #PerkstoreWalletContainer {
+    .big-number, .perkstore-info {
+      margin-top: 0;
     }
   }
 }

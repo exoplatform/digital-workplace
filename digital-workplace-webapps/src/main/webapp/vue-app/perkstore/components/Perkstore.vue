@@ -13,10 +13,9 @@
           class="white">
           <v-flex
             d-flex
-            xs12
-            py-2>
-            <div>
-              <span class="subtitle-2 grey--text pa-1">Perkstore</span>
+            xs12>
+            <div class="pa-2">
+              <span class="subtitle-2 grey--text">Perkstore</span>
               <v-tooltip bottom>
                 <template v-slot:activator="{ on }">
                   <v-btn
@@ -35,13 +34,16 @@
               </v-tooltip>
             </div>
           </v-flex>
-          <v-flex xs12>
+          <v-flex 
+            d-flex 
+            xs12 
+            justify-center>
             <v-card
               flat
               color="transparent">
-              <v-list-item class="px-1">
-                <span class="product-number mr-1 my-0 display-1 font-weight-bold blue-grey--text darken-1">122</span>
-                <span class="product-label caption mt-4">Products</span>
+              <v-list-item class="px-1 perkstore-info">
+                <span class="mr-1 my-0 font-weight-bold big-number">122</span>
+                <span class="mt-4 product-label">Products</span>
               </v-list-item>
             </v-card>
           </v-flex>
