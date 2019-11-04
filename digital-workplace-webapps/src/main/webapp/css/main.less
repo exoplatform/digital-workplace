@@ -25,8 +25,8 @@
     .profileCard {
       position: relative;
       width: 100%;
-      height: 100%;
-      min-height: 280px;
+      max-height: 300px;
+      height: 300px;
       cursor: pointer;
       transform-style: preserve-3d;
       transition: transform 1s;
@@ -116,6 +116,7 @@
 }
 .UserProfileContainerTDContainer {
   flex: 0 1 25%;
+  margin-left: 10px;
 }
 #BottomContainer tr {
   display: flex;
@@ -134,8 +135,15 @@
   flex: 0 1 48%;
   background: #fff;
 }
-.profileCard {
-  margin-bottom: 8px;
+
+#ProfileStatsContainer {
+  padding-bottom: 10px;
+}
+
+.profileStats {
+  span.v-badge__badge{
+    padding: 0!important;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -145,6 +153,7 @@
   }
   .UserProfileContainerTDContainer {
     flex: 0 1 100%;
+    margin-left: 0;
   }
   #UserProfileContainer {
     margin-top: 20px;
@@ -167,10 +176,19 @@
   }
   .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
     flex: 0 1 100%;
-    min-height: 135px;
+    min-height: 138px;
   }
   .PerkstoreContainerTDContainer {
     margin-bottom: 10px;
+  }
+
+  #digital-workplace-profile-stats {
+    background: transparent;
+
+    .profileCard {
+      max-height: 280px!important;
+      height: 280px!important;
+    }
   }
   .profileCard {
     margin-bottom: 0!important;
@@ -243,7 +261,7 @@
     height: 0;
   }
   100% {
-    height:60px;
+    height:55px;
   }
 }
 
@@ -252,7 +270,7 @@
     height: 0;
   }
   100% {
-    height:45px;
+    height:40px;
   }
 }
 
@@ -261,7 +279,7 @@
     height: 0;
   }
   100% {
-    height:30px;
+    height:25px;
   }
 }
 

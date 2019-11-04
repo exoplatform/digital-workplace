@@ -20,7 +20,7 @@
                 src="https://images.unsplash.com/photo-1524593689594-aae2f26b75ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"/>
             </v-list-item-avatar>
             <v-list-item-content>
-              <v-list-item-title class="text-uppercase">Welcome back Sara</v-list-item-title>
+              <v-list-item-title class="text-uppercase subtitle-1">Welcome back Sara</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-card>
