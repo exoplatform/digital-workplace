@@ -314,6 +314,17 @@
       min-height: auto!important;
     }
   }
+
+  #DocumentsContainer {
+    .nav-tabs {
+      max-width: 100%;
+      white-space: nowrap;
+      overflow-x: scroll;
+      min-height: 46px;
+      display: flex;
+      flex-wrap: nowrap;
+    }
+  }
 }
 
 @media (max-width: 599px) {
@@ -427,7 +438,8 @@
 	.nav-tabs {
 	  border-bottom: none;
 	  background-color: white;
-	}
+      max-width: 100%;
+    }
 	.nav-tabs > li {
 	  background: none;
 	}
