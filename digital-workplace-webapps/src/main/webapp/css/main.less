@@ -4,6 +4,12 @@
 @yellowColor: #ffc20e;
 @blueGreyColor: #4d5466;
 
+
+#digitalWorkplaceHomePage  {
+  td {
+    padding: 0!important;
+  }
+}
 .VuetifyApp {
   .primary-color {
     background-color: @primaryColor!important;
@@ -33,6 +39,8 @@
       cursor: pointer;
       transform-style: preserve-3d;
       transition: transform 1s;
+      margin-bottom: 10px;
+      margin-bottom: 10px;
     }
     .profileCard.is-flipped {
       transform: rotateY(-180deg);
@@ -167,9 +175,6 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
-  td {
-    padding: 0!important;
-  }
 }
 .LatestNewsContainerTDContainer {
   flex: 0 1 74%;
@@ -196,10 +201,6 @@
 .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
   flex: 0 1 49%;
   background: #fff;
-}
-
-#ProfileStatsContainer {
-  padding-bottom: 10px;
 }
 
 .profileStats {

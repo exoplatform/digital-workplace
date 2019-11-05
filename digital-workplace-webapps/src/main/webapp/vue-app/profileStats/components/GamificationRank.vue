@@ -49,9 +49,13 @@
           <div class="transparent mx-1 align-center">
             <v-avatar size="35" class="mb-1 elevation-1">
               <img
+                v-if="leaderBoardArray.length > 0"
                 :src="leaderBoardArray[2].avatar">
             </v-avatar>
-            <v-card-text class="top3 grey lighten-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold" style="height: 25px">
+            <v-card-text 
+              v-if="leaderBoardArray.length > 0" 
+              class="top3 grey lighten-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold" 
+              style="height: 25px">
               {{ leaderBoardArray[2].totalPoints }}
             </v-card-text>
 
@@ -60,10 +64,14 @@
           <div class="transparent mx-1 align-center">
             <v-avatar size="35" class="mb-1 elevation-1">
               <img
+                v-if="leaderBoardArray.length > 0"
                 :src="leaderBoardArray[0].avatar"
                 alt="John">
             </v-avatar>
-            <v-card-text class="top1 yellow darken-1 px-3 py-2 flex d-flex white--text  align-center font-weight-bold" style="height: 55px">
+            <v-card-text 
+              v-if="leaderBoardArray.length > 0" 
+              class="top1 yellow darken-1 px-3 py-2 flex d-flex white--text  align-center font-weight-bold" 
+              style="height: 55px">
               {{ leaderBoardArray[0].totalPoints }}
             </v-card-text>
 
@@ -72,10 +80,14 @@
           <div class="transparent mx-1 align-center">
             <v-avatar size="35" class="mb-1 elevation-1">
               <img
+                v-if="leaderBoardArray.length > 0"
                 :src="leaderBoardArray[1].avatar"
                 alt="John">
             </v-avatar>
-            <v-card-text class="top2 amber darken-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold" style="height: 40px">
+            <v-card-text 
+              v-if="leaderBoardArray.length > 0" 
+              class="top2 amber darken-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold" 
+              style="height: 40px">
               {{ leaderBoardArray[1].totalPoints }}
             </v-card-text>
 

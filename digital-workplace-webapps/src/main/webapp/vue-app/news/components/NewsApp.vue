@@ -1,8 +1,7 @@
 <template>
   <v-app
     id="digital-workplace-news"
-    color="transaprent"
-    class="VuetifyApp"
+    class="VuetifyApp transparent"
     flat>
     <v-container pa-0>
       <v-layout 

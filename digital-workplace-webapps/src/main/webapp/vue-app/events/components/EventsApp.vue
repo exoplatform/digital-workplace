@@ -1,7 +1,7 @@
 <template>
   <v-app
     id="digital-workplace-events"
-    color="transaprent"
+    color="transparent"
     class="VuetifyApp"
     flat>
     <v-container pa-0>
