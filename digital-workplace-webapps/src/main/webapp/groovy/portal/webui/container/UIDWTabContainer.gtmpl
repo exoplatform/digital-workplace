@@ -50,8 +50,6 @@ def modeState = Util.getUIPortalApplication().getModeState();
   							      <v-tabs
                                           v-model="tab"
                                           class="docTabs"
-                                          grow
-                                          right
 								      >
         <%
         if(modeState > 0){
@@ -79,7 +77,7 @@ def modeState = Util.getUIPortalApplication().getModeState();
             String moveLeftAction = uicomponent.event("MoveLeft", tabId);
             String moveRightAction = uicomponent.event("MoveRight", tabId);
             %>
-            <a data-toggle="tab" data-target="#$tabId-tab" onclick="<%= selectTab %>"><%=title%></a>
+            <a data-toggle="tab" data-target="#$tabId-tab" onclick="<%= selectTab %>" class="tabsTitle"><%=title%></a>
             <div class="dropdown" style="display: inline-block">
                 <a data-toggle="dropdown" class="dropdown-toggle">
                     <i class="uiIconArrowDown uiIconWhite"></i>
@@ -100,7 +98,7 @@ def modeState = Util.getUIPortalApplication().getModeState();
                 <% /*End Popup Menu*/ %>
             </div>
             <%} else {%>
-            <a data-toggle="tab" data-target="#$tabId-tab" onclick="<%= selectTab %>"><%=title%></a>
+            <a data-toggle="tab" data-target="#$tabId-tab" onclick="<%= selectTab %>" class="tabsTitle"><%=title%></a>
             <%} %>
         </v-tab>
         <%
