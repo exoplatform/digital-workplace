@@ -432,7 +432,6 @@
 /*--------------- Documents Tabs CSS ---------------------------*/
 #DocumentsContainer {
     .docTabs {
-      padding-left: 8px;
       color: @primaryColor;
     }
     .header {
@@ -442,4 +441,20 @@
       padding-bottom: 8px;
       color: @greyColor;
     }
+  .v-slide-group__next,
+  .v-slide-group__prev {
+    display: contents;
+  }
+  .v-slide-group__wrapper{
+    padding-left: 18px;
+  }
+  .v-tabs-slider-wrapper{
+    height: 3px;
+  }
+  .tabsTitle {
+    font-size: 1rem!important;
+    font-weight: 400;
+    letter-spacing: .009375em!important;
+    line-height: 1.75rem;  text-transform: capitalize;
+  }
 }
