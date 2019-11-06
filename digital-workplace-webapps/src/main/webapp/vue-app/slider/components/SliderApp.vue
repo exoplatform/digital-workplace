@@ -1,7 +1,6 @@
 <template>
   <v-app
     id="digital-workplace-slider"
-    color="transparent"
     class="VuetifyApp"
     flat>
     <main>

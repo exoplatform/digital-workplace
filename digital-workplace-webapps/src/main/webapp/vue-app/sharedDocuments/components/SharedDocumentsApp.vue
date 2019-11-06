@@ -1,6 +1,5 @@
 <template>
   <v-app
-    color="transparent"
     class="VuetifyApp"
     flat>
     <v-container pa-0>
