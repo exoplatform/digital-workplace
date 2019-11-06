@@ -6,7 +6,9 @@
     <main>
       <v-carousel
         :height="250"
-        hide-delimiter-background>
+        :interval="5000"
+        hide-delimiter-background
+        cycle>
         <v-carousel-item
           v-for="(item,i) in sliderItems"
           :key="i"
