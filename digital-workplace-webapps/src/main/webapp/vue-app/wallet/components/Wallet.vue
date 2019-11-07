@@ -19,12 +19,15 @@
               class="white">
               <v-flex d-flex xs12>
                 <v-card flat>
-                  <v-card-text class="subtitle-2 grey--text pa-1">Wallet Balance</v-card-text>
+                  <v-card-text class="subtitle-2 grey--text pa-2">{{ this.$t('homepage.Wallet.header') }}</v-card-text>
                 </v-card>
               </v-flex>
-              <v-flex d-flex xs12>
+              <v-flex 
+                d-flex 
+                xs12 
+                justify-center>
                 <v-card flat>
-                  <v-card-text class="display-1 font-weight-bold pa-2">300 Ȼ</v-card-text>
+                  <v-card-text class="display-1 font-weight-bold pa-2 big-number">300 Ȼ</v-card-text>
                 </v-card>
               </v-flex>
             </v-layout>

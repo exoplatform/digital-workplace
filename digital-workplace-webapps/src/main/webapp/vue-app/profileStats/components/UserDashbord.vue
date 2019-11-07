@@ -20,7 +20,7 @@
                 src="https://images.unsplash.com/photo-1524593689594-aae2f26b75ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"/>
             </v-list-item-avatar>
             <v-list-item-content>
-              <v-list-item-title class="text-uppercase">Welcome back Sara</v-list-item-title>
+              <v-list-item-title class="text-uppercase subtitle-1">{{ this.$t('homepage.profileStatus.header') }} Sara</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-card>
@@ -44,7 +44,7 @@
                   <span class="headline blue-grey--text font-weight-bold pa-1">53</span>
                 </v-badge>
               </a>
-              <v-card-text class="pa-1 subtitle-1 blue-grey--text">Spaces</v-card-text>
+              <v-card-text class="pa-1 subtitle-1 blue-grey--text">{{ this.$t('homepage.profileStatus.spaces') }}</v-card-text>
             </v-card>
           </v-flex>
           <v-flex
@@ -63,7 +63,7 @@
                   <span class="headline blue-grey--text font-weight-bold pa-1">53</span>
                 </v-badge>
               </a>
-              <v-card-text class="pa-1 subtitle-1 blue-grey--text">Connections</v-card-text>
+              <v-card-text class="pa-1 subtitle-1 blue-grey--text">{{ this.$t('homepage.profileStatus.connections') }}</v-card-text>
             </v-card>
           </v-flex>
         </v-layout>
@@ -82,7 +82,7 @@
               flat>
               <a @click="getSpecificCard('LeaderBoard')">
                 <v-card-text class="headline blue-grey--text font-weight-bold pa-1">53</v-card-text>
-                <v-card-text class="pa-1 subtitle-1 blue-grey--text">Total points</v-card-text>
+                <v-card-text class="pa-1 subtitle-1 blue-grey--text">{{ this.$t('homepage.profileStatus.totalPoints') }}</v-card-text>
               </a>
             </v-card>
           </v-flex>
@@ -97,7 +97,7 @@
               align-center>
               <a @click="getSpecificCard('GamificationRank')">
                 <v-card-text class="headline blue-grey--text font-weight-bold pa-1">53</v-card-text>
-                <v-card-text class="pa-1 subtitle-1 blue-grey--text">Total Rank</v-card-text>
+                <v-card-text class="pa-1 subtitle-1 blue-grey--text">{{ this.$t('homepage.profileStatus.totalRank') }}</v-card-text>
               </a>
             </v-card>
           </v-flex>

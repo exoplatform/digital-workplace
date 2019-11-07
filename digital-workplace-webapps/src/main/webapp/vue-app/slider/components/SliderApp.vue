@@ -1,13 +1,14 @@
 <template>
   <v-app
     id="digital-workplace-slider"
-    color="transaprent"
     class="VuetifyApp"
     flat>
     <main>
       <v-carousel
-        :height="300"
-        hide-delimiter-background>
+        :height="250"
+        :interval="5000"
+        hide-delimiter-background
+        cycle>
         <v-carousel-item
           v-for="(item,i) in sliderItems"
           :key="i"
@@ -23,11 +24,10 @@
               class="fill-height"
               align="center"
               justify="center">
-              <div class="display-1">
+              <div>
                 <a
                   :href="item.url"
-                  class="white--text font-weight-medium"
-                  style="text-shadow: 0 0 13px #000000a8;">
+                  class="white--text font-weight-medium carousel-text">
                   {{ item.summary }}</a>
               </div>
             </v-row>

@@ -1,8 +1,7 @@
 <template>
   <v-app
     id="digital-workplace-news"
-    color="transaprent"
-    class="VuetifyApp"
+    class="VuetifyApp transparent"
     flat>
     <v-container pa-0>
       <v-layout 
@@ -25,7 +24,7 @@
                 flat
                 color="transparent">
                 <v-card-text class="body-1 text-uppercase grey--text px-0">
-                  Latest news post
+                  {{ this.$t('homepage.news.header') }}
                 </v-card-text>
               </v-card>
             </v-flex>
@@ -37,14 +36,16 @@
               <v-btn 
                 depressed 
                 small 
-                class="caption text-uppercase grey--text d-none d-sm-flex">See all</v-btn>
+                class="caption text-uppercase grey--text d-none d-sm-flex">{{ this.$t('homepage.seeAll') }}</v-btn>
             </v-flex>
           </v-layout>
         </v-flex>
         <v-flex 
           d-flex 
           xs12 
-          px-3>
+          px-3
+          pb-3
+          class="news-container">
           <v-layout 
             row 
             wrap 
@@ -53,17 +54,20 @@
             <v-flex
               d-flex
               xs12
-              sm6
-              pb-3>
+              sm6>
               <v-img
                 v-if="news.length > 0"
                 :src="news[0].illustration"
                 aspect-ratio="2.3">
                 <v-row align="end" class="lightbox white--text pa-2 fill-height">
-                  <v-col>
-                    <div class="subtitle-1 font-weight-bold text-uppercase">{{ news[0].title }}</div>
-                    <div class="body-2">{{ news[0].summary }}</div>
-                  </v-col>
+                  <v-list three-line class="flex transparent">
+                    <v-list-item>
+                      <v-list-item-content>
+                        <v-list-item-title class="subtitle-1 font-weight-bold text-uppercase white--text">{{ news[0].title }}</v-list-item-title>
+                        <v-list-item-subtitle class="body-2 white--text">{{ news[0].summary }}</v-list-item-subtitle>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </v-list>
                 </v-row>
               </v-img>
             </v-flex>
@@ -76,22 +80,23 @@
                 row 
                 wrap 
                 mx-0
-                pl-3>
+                pl-3
+                class="news-right-list">
                 <v-list
                   three-line
                   class="d-xs-none py-0 list-news">
                   <template v-for="item of news.slice(1)">
                     <v-list-item
                       :key="item.title"
-                      class="px-0">
+                      class="px-0 news-item">
                       <v-list-item-avatar 
                         tile 
-                        size="75"
+                        size="95"
                         class="mr-2 my-0">
                         <v-img :src="item.illustration"/>
                       </v-list-item-avatar>
 
-                      <v-list-item-content class="pt-0">
+                      <v-list-item-content class="pt-0 pl-3">
                         <v-list-item-title class="subtitle-2 font-weight-bold text-uppercase mb-2" v-html="item.title"/>
                         <v-list-item-subtitle class="pb-2 grey-color" v-html="item.summary"/>
                       </v-list-item-content>
@@ -119,18 +124,14 @@
                 width="100%"
                 class="mx-auto"
                 tile>
-                <v-row
-                  class="fill-height lightbox mx-0 px-2"
-                  justify="center">
-                  <div>
-                    <a
-                      :href="slide.url"
-                      class="white--text subtitle-1 font-weight-bold"
-                      style="text-shadow: 0 0 13px #000000a8;">
-                      {{ slide.title }}</a>
-                    <p>{{ slide.summary }}</p>
-                  </div>
-                </v-row>
+                <v-list three-line class="flex item-lightbox">
+                  <v-list-item class="px-2">
+                    <v-list-item-content class="py-0">
+                      <v-list-item-title class="font-weight-bold text-uppercase white--text">{{ slide.title }}</v-list-item-title>
+                      <v-list-item-subtitle class="body-2 white--text">{{ slide.summary }}</v-list-item-subtitle>
+                    </v-list-item-content>
+                  </v-list-item>
+                </v-list>
               </v-sheet>
             </v-carousel-item>
           </v-carousel>

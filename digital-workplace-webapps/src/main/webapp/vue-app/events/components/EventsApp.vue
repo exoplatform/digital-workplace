@@ -1,7 +1,6 @@
 <template>
   <v-app
     id="digital-workplace-events"
-    color="transaprent"
     class="VuetifyApp"
     flat>
     <v-container pa-0>
@@ -24,7 +23,7 @@
                 flat
                 color="transparent">
                 <a href="#"><v-card-text class="body-1 text-uppercase color-title px-0">
-                  Events
+                  {{ this.$t('homepage.events.header') }}
                 </v-card-text></a>
               </v-card>
             </v-flex>

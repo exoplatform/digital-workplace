@@ -41,11 +41,16 @@ String id = uicomponent.getId();
 def modeState = Util.getUIPortalApplication().getModeState();
 %>
 <% if(children != null && children.size() > 0) { %>
-<div id="$id">
+<div id="$id" class="docs-wrapper">
 	<% if(modeState == 0){ %>
     	<header><div class="header"><%=_ctx.appRes("homepage.documents")%></div></header>
     <%}%>
-    <ul class="nav nav-tabs ">
+          <div class="VuetifyApp">
+                	<div id="app">
+  							      <v-tabs
+                                          v-model="tab"
+                                          class="docTabs"
+								      >
         <%
         if(modeState > 0){
         jsmanager.require("SHARED/portalDragDrop", "portalDragDrop").addScripts("portalDragDrop.init(['UIContainer']);");
@@ -65,14 +70,14 @@ def modeState = Util.getUIPortalApplication().getModeState();
         String tabState = uicomponent.getTabState(uiChild, uicomponent);
         title = HTMLEntityEncoder.getInstance().encode(title);
         %>
-        <li class="<%=status%>">
+        <v-tab>
             <%
             if(modeState > 0){
             String actionLink = uicomponent.event("EditContainer", "$uiChild.id") - "javascript:";
             String moveLeftAction = uicomponent.event("MoveLeft", tabId);
             String moveRightAction = uicomponent.event("MoveRight", tabId);
             %>
-            <a data-toggle="tab" data-target="#$tabId-tab" onclick="<%= selectTab %>"><%=title%></a>
+            <a data-toggle="tab" data-target="#$tabId-tab" onclick="<%= selectTab %>" class="tabsTitle"><%=title%></a>
             <div class="dropdown" style="display: inline-block">
                 <a data-toggle="dropdown" class="dropdown-toggle">
                     <i class="uiIconArrowDown uiIconWhite"></i>
@@ -93,9 +98,9 @@ def modeState = Util.getUIPortalApplication().getModeState();
                 <% /*End Popup Menu*/ %>
             </div>
             <%} else {%>
-            <a data-toggle="tab" data-target="#$tabId-tab" onclick="<%= selectTab %>"><%=title%></a>
+            <a data-toggle="tab" data-target="#$tabId-tab" onclick="<%= selectTab %>" class="tabsTitle"><%=title%></a>
             <%} %>
-        </li>
+        </v-tab>
         <%
         counter++;
         }
@@ -107,7 +112,9 @@ def modeState = Util.getUIPortalApplication().getModeState();
             <span class="uiIconLightGray uiIconSimplePlusMini"></span>
         </li>
         <% } %>
-    </ul>
+    </v-tabs>
+
+    
     <%
     String style = "";
     String width = uicomponent.getWidth();
@@ -117,19 +124,42 @@ def modeState = Util.getUIPortalApplication().getModeState();
     if(height != null) style += "height: "+height+"px;"
     if(style.length() > 0) style += "\"";
     %>
-    <div class="tab-content" $style>
+    <v-tabs-items v-model="tab">
+    
+    
         <%
 
         for(uiChild in uicomponent.getChildren()) {
         String active = "";
         if(uiChild.isRendered()) active = "in active";
         %>
-        <div id="$uiChild.id-tab" class="tab-pane fade $active">
+        <v-tab-item eager>
             <% uicomponent.renderUIComponent(uiChild);%>
-        </div>
+        </v-tab-item>
         <%
         }
         %>
+    </v-tabs-items>
     </div>
 </div>
+</div>
 <% } %>
+
+<script type="text/javascript">
+	require(['SHARED/vuetify'], function(vuetify){
+		new Vue({
+			el: '#app',
+			vuetify: new Vuetify(),
+			data () {
+			    return {
+			      tab: null,
+			    }
+			},
+		})
+	});
+	require(['SHARED/jquery'], function(jquery) {
+    	jquery(document).ready(function() {
+       		jquery(".docs-wrapper").delay(1000).fadeIn(100);
+		});
+	});
+</script>

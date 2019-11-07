@@ -1,6 +1,5 @@
 <template>
   <v-app
-    color="transaprent"
     class="VuetifyApp"
     flat>
     <v-container pa-0>

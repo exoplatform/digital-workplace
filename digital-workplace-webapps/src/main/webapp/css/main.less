@@ -1,7 +1,15 @@
 // Variables
 @primaryColor: #578DC9;
 @greyColor: #a8b3c5;
+@yellowColor: #ffc20e;
+@blueGreyColor: #4d5466;
 
+
+#digitalWorkplaceHomePage  {
+  td {
+    padding: 0!important;
+  }
+}
 .VuetifyApp {
   .primary-color {
     background-color: @primaryColor!important;
@@ -20,16 +28,29 @@
   .Rectangular-card {
     border-radius: 0em;
   }
+  #digital-workplace-tasks {
+    .flexCard {
+      flex: 1 1 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    
+  }
+  
   #digital-workplace-profile-stats {
     background: transparent;
     .profileCard {
       position: relative;
       width: 100%;
-      height: 100%;
-      min-height: 280px;
+      max-height: 300px;
+      height: 300px;
+      min-width: 270px;
       cursor: pointer;
       transform-style: preserve-3d;
       transition: transform 1s;
+      margin-bottom: 10px;
+      margin-bottom: 10px;
     }
     .profileCard.is-flipped {
       transform: rotateY(-180deg);
@@ -74,6 +95,42 @@
     }
   }
 
+  /*--------------------------Slider ---------------------------*/
+
+  #digital-workplace-slider {
+    .carousel-text {
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+      text-shadow: 0px 0px 12px #000000db;
+    }
+    .v-responsive__content {
+      background-color: #0000002b;
+    }
+    .v-btn--round .v-btn__content .v-icon {
+      color: @yellowColor;
+    }
+
+    .v-carousel__controls {
+      .v-btn__content .v-icon {
+        color: #ffffff;
+        opacity: 1;
+        height: 20px !important;
+        font-size: 20px !important;
+        width: 20px !important;
+      }
+    }
+    .v-btn--active {
+      .v-btn__content .v-icon {
+        color: @yellowColor!important;
+      }
+      &:before {
+        opacity: 0!important;
+      }
+    }
+
+
+  }
+
   #digital-workplace-news {
     .list-news {
       overflow: hidden;
@@ -87,6 +144,25 @@
     .carousel-news .v-responsive {
       align-items: flex-end;
     }
+    .news-container {
+      min-height: 310px;
+      overflow: hidden;
+      .news-right-list{
+        height: 100%;
+        .news-item {
+          height: 33%;
+        }
+        .news-item:nth-child(2) {
+          margin: 10px 0;
+        }
+      }
+    }
+  .item-lightbox {
+    background-color: #0000006b;
+    .v-list-item__content {
+      align-self: center!important;
+    }
+  }
   }
 
   .blueText{
@@ -111,11 +187,13 @@
   justify-content: space-between;
 }
 .LatestNewsContainerTDContainer {
-  flex: 0 1 73.7%;
+  flex: 0 1 74%;
   background: #fff;
+  overflow: hidden;
 }
 .UserProfileContainerTDContainer {
-  flex: 0 1 25%;
+  flex: 0 1 26%;
+  margin-left: 10px;
 }
 #BottomContainer tr {
   display: flex;
@@ -131,11 +209,43 @@
   overflow: hidden;
 }
 .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
-  flex: 0 1 48%;
+  flex: 0 1 49%;
   background: #fff;
 }
-.profileCard {
-  margin-bottom: 8px;
+
+.profileStats {
+  span.v-badge__badge{
+    padding: 0!important;
+  }
+}
+
+#PerkstoreContainer, #WalletContainer {
+  height: 100%;
+}
+
+#PerkstoreWalletContainer {
+  .big-number {
+    font-size: 2.4rem!important;
+    line-height: 2.5rem;
+    color: @blueGreyColor;
+  }
+  .product-label {
+    font-size: .75rem!important;
+    font-weight: 400;
+    letter-spacing: .0333333333em!important;
+    line-height: 1.25rem;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1300px) {
+  #PerkstoreWalletContainer {
+    .big-number {
+      font-size: 2rem!important;
+    }
+    .product-label {
+      font-size: .7rem!important;
+    }
+  }
 }
 
 @media (max-width: 1200px) {
@@ -145,6 +255,7 @@
   }
   .UserProfileContainerTDContainer {
     flex: 0 1 100%;
+    margin-left: 0;
   }
   #UserProfileContainer {
     margin-top: 20px;
@@ -167,10 +278,18 @@
   }
   .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
     flex: 0 1 100%;
-    min-height: 135px;
+    min-height: 138px;
   }
   .PerkstoreContainerTDContainer {
     margin-bottom: 10px;
+  }
+
+  #digital-workplace-profile-stats {
+    background: transparent;
+    .profileCard {
+      max-height: 280px!important;
+      height: 280px!important;
+    }
   }
   .profileCard {
     margin-bottom: 0!important;
@@ -186,6 +305,35 @@
   }
   #MiddleContainer tr {
     flex-wrap: wrap;
+  }
+
+  #digital-workplace-slider {
+    .carousel-text {
+      font-size: 1.5rem !important;
+    }
+  }
+
+  #PerkstoreWalletContainer {
+    .big-number, .perkstore-info {
+      margin-top: 20px;
+    }
+  }
+
+  #digital-workplace-news {
+    .news-container {
+      min-height: auto!important;
+    }
+  }
+
+  #DocumentsContainer {
+    .nav-tabs {
+      max-width: 100%;
+      white-space: nowrap;
+      overflow-x: scroll;
+      min-height: 46px;
+      display: flex;
+      flex-wrap: nowrap;
+    }
   }
 }
 
@@ -220,6 +368,32 @@
   #UserProfileContainer {
     margin-top: 10px;
   }
+  /* -----------------Slider ----------------------------*/
+
+  #digital-workplace-slider {
+    .v-btn--icon.v-size--default {
+      height: 26px!important;
+      width: 26px!important;
+    }
+
+    .v-window__prev {
+      left: -10px!important
+    }
+
+    .v-window__next {
+      right: -10px!important;
+    }
+
+    .carousel-text {
+      font-size: 1.1rem !important;
+      line-height: 1.5rem !important;
+	}
+  }
+  #PerkstoreWalletContainer {
+    .big-number, .perkstore-info {
+      margin-top: 0;
+    }
+  }
 }
 @media (max-width: 500px) {
   .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
@@ -243,7 +417,7 @@
     height: 0;
   }
   100% {
-    height:60px;
+    height:55px;
   }
 }
 
@@ -252,7 +426,7 @@
     height: 0;
   }
   100% {
-    height:45px;
+    height: 40px;
   }
 }
 
@@ -261,35 +435,46 @@
     height: 0;
   }
   100% {
-    height:30px;
+    height: 25px;
   }
 }
 
 /*--------------- Documents Tabs CSS ---------------------------*/
 #DocumentsContainer {
-	.nav {
-	  margin-bottom: 0px;
-	  padding-left: 20px;
-	}
-	.nav-tabs {
-	  border-bottom: none;
-	  background-color: white;
-	}
-	.nav-tabs > li {
-	  background: none;
-	}
-	.nav-tabs > li > a {
-	    font-size: 17px;
-	    color: @greyColor;
-	    border: none;
-	    cursor: pointer;
-	}
-	.nav-tabs > .active > a, .nav-tabs > .active > a:hover {
-	  border: none;
-	  color: @primaryColor;
-	  border-bottom: 3px solid;
-	}
-	.header {
-	  font-size: 1rem;text-transform: uppercase;padding: 16px;color: @greyColor;
-	}
+    .docTabs {
+      color: @primaryColor;
+    }
+    .header {
+      font-size: 1rem;
+      text-transform: uppercase;
+      padding: 16px;
+      padding-bottom: 8px;
+      color: @greyColor;
+    }
+  .v-slide-group__next,
+  .v-slide-group__prev {
+    display: contents;
+  }
+  .v-slide-group__next > i,
+  .v-slide-group__prev > i{
+    color: @primaryColor;
+  }
+  .v-slide-group__wrapper{
+    padding-left: 18px;
+  }
+  .v-tabs-slider-wrapper{
+    height: 3px;
+  }
+  .v-tab > .tabsTitle {
+    color:@greyColor
+  }
+  .v-tab--active > .tabsTitle {
+    color:@primaryColor
+  }
+  .tabsTitle {
+    font-size: 1rem!important;
+    font-weight: 400;
+    letter-spacing: .009375em!important;
+    line-height: 1.75rem;  text-transform: capitalize;
+  }
 }

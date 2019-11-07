@@ -19,7 +19,7 @@
           mt-n2
           justify-center>
           <div>
-            <span class="pr-2 text-uppercase subtitle-2">Rank (Weekly) </span>
+            <span class="pr-2 text-uppercase subtitle-2">{{ this.$t('homepage.profileStatus.Rank') }}</span>
           </div>
         </v-flex>
         <v-flex
@@ -36,7 +36,7 @@
     </v-flex>
     <v-flex
       xs12
-      mb-3>
+      mb-1>
       <v-layout
         row
         wrap
@@ -46,37 +46,78 @@
           d-flex
           justify-center
           align-end>
+
           <div class="transparent mx-1 align-center">
-            <v-avatar size="35" class="mb-1 elevation-1">
-              <img
-                :src="leaderBoardArray[2].avatar">
-            </v-avatar>
-            <v-card-text class="top3 grey lighten-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold" style="height: 30px">
-              {{ leaderBoardArray[2].totalPoints }}
+            <v-tooltip top>
+              <template v-slot:activator="{ on }">
+                <v-avatar 
+                  size="35" 
+                  class="mb-1 elevation-1" 
+                  v-on="on">
+                  <img
+                    v-if="leaderBoardArray.length > 0"
+                    :src="leaderBoardArray[1].avatar"
+                    alt="John">
+                </v-avatar>
+              </template>
+              <span v-if="leaderBoardArray.length > 0">{{ leaderBoardArray[1].userName }}</span>
+
+            </v-tooltip>
+            <v-card-text
+              v-if="leaderBoardArray.length > 0"
+              class="top2 grey lighten-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold"
+              style="height: 40px">
+              {{ leaderBoardArray[1].totalPoints }}
             </v-card-text>
+
 
           </div>
 
           <div class="transparent mx-1 align-center">
-            <v-avatar size="35" class="mb-1 elevation-1">
-              <img
-                :src="leaderBoardArray[0].avatar"
-                alt="John">
-            </v-avatar>
-            <v-card-text class="top1 yellow darken-1 px-3 py-2 flex d-flex white--text  align-center font-weight-bold" style="height: 60px">
+            <v-tooltip top>
+              <template v-slot:activator="{ on }">
+                <v-avatar 
+                  size="35" 
+                  class="mb-1 elevation-1" 
+                  v-on="on">
+                  <img
+                    v-if="leaderBoardArray.length > 0"
+                    :src="leaderBoardArray[0].avatar"
+                    alt="John">
+                </v-avatar>
+              </template>
+              <span v-if="leaderBoardArray.length > 0">{{ leaderBoardArray[0].userName }}</span>
+            </v-tooltip>
+            <v-card-text
+              v-if="leaderBoardArray.length > 0"
+              class="top1 yellow darken-1 px-3 py-2 flex d-flex white--text  align-center font-weight-bold"
+              style="height: 55px">
               {{ leaderBoardArray[0].totalPoints }}
             </v-card-text>
 
+
           </div>
 
           <div class="transparent mx-1 align-center">
-            <v-avatar size="35" class="mb-1 elevation-1">
-              <img
-                :src="leaderBoardArray[1].avatar"
-                alt="John">
-            </v-avatar>
-            <v-card-text class="top2 amber darken-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold" style="height: 45px">
-              {{ leaderBoardArray[1].totalPoints }}
+            <v-tooltip top>
+              <template v-slot:activator="{ on }">
+                <v-avatar 
+                  size="35" 
+                  class="mb-1 elevation-1" 
+                  v-on="on">
+                  <img
+                    v-if="leaderBoardArray.length > 0"
+                    :src="leaderBoardArray[2].avatar">
+                </v-avatar>
+              </template>
+              <span v-if="leaderBoardArray.length > 0">{{ leaderBoardArray[2].userName }}</span>
+            </v-tooltip>
+
+            <v-card-text
+              v-if="leaderBoardArray.length > 0"
+              class="top3 amber darken-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold"
+              style="height: 25px">
+              {{ leaderBoardArray[2].totalPoints }}
             </v-card-text>
 
           </div>
