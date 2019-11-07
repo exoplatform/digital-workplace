@@ -65,7 +65,7 @@
             </v-tooltip>
             <v-card-text
               v-if="leaderBoardArray.length > 0"
-              class="top2  amber darken-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold"
+              class="top2 grey lighten-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold"
               style="height: 40px">
               {{ leaderBoardArray[1].totalPoints }}
             </v-card-text>
@@ -115,7 +115,7 @@
 
             <v-card-text
               v-if="leaderBoardArray.length > 0"
-              class="top3 grey lighten-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold"
+              class="top3 amber darken-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold"
               style="height: 25px">
               {{ leaderBoardArray[2].totalPoints }}
             </v-card-text>
