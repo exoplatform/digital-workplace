@@ -9,9 +9,6 @@
   td {
     padding: 0!important;
   }
-  .docs-wrapper {
-    display:none;
-  }
 }
 .VuetifyApp {
   .primary-color {
@@ -458,11 +455,21 @@
   .v-slide-group__prev {
     display: contents;
   }
+  .v-slide-group__next > i,
+  .v-slide-group__prev > i{
+    color: @primaryColor;
+  }
   .v-slide-group__wrapper{
     padding-left: 18px;
   }
   .v-tabs-slider-wrapper{
     height: 3px;
+  }
+  .v-tab > .tabsTitle {
+    color:@greyColor
+  }
+  .v-tab--active > .tabsTitle {
+    color:@primaryColor
   }
   .tabsTitle {
     font-size: 1rem!important;
