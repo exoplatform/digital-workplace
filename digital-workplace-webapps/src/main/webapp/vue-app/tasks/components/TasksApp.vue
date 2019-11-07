@@ -78,7 +78,7 @@
                                   class="py-1" 
                                   flat 
                                   color="#F7FAFD">
-                                  <div class="title">12 {{ this.$t('homepage.tasks') }}</div class="title">
+                                  <div class="title">12 {{ this.$t('homepage.tasks') }}</div>
                                   <div class="caption color-title">{{ this.$t('homepage.tasks.inProgress') }}</div>
                                 </v-card>
                               </v-flex>
