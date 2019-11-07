@@ -54,15 +54,14 @@
                           <v-flex
                             xs12
                             d-flex>
-                            <v-layout mx-0>
+                            <v-layout mx-0 pl-2>
                               <v-flex
                                 d-flex
-                                xs12
-                                sm5>
+                                xs4>
                                 <v-layout
                                   mx-0
                                   justify-center
-                                  class="pa-2">
+                                  class="py-2">
                                   <template>
                                     <div class="text-center">
                                       <v-avatar tile color="#F7FAFD">
@@ -74,10 +73,12 @@
                               </v-flex>
                               <v-flex
                                 d-flex
-                                xs12
-                                sm7>
-                                <v-card flat color="#F7FAFD">
-                                  <div class="title">12 {{ this.$t('homepage.tasks') }}</div>
+                                xs8>
+                                <v-card 
+                                  class="py-1" 
+                                  flat 
+                                  color="#F7FAFD">
+                                  <div class="title">12 {{ this.$t('homepage.tasks') }}</div class="title">
                                   <div class="caption color-title">{{ this.$t('homepage.tasks.inProgress') }}</div>
                                 </v-card>
                               </v-flex>
@@ -105,8 +106,7 @@
                             <v-layout mx-0>
                               <v-flex
                                 d-flex
-                                xs12
-                                sm5>
+                                xs5>
                                 <v-layout 
                                   mx-0 
                                   justify-center 
@@ -116,7 +116,6 @@
                                       <v-avatar tile color="#F7FAFD">
                                         <v-icon
                                           size="50"
-                                          class="mb-1"
                                           color="#D07B7B">mdi-alarm</v-icon>
                                       </v-avatar>
                                     </div>
@@ -125,9 +124,11 @@
                               </v-flex>
                               <v-flex
                                 d-flex
-                                xs12
-                                sm7>
-                                <v-card flat color="#F7FAFD">
+                                xs7>
+                                <v-card 
+                                  class="py-1"
+                                  flat 
+                                  color="#F7FAFD">
                                   <div class="title">6 {{ this.$t('homepage.tasks') }}</div>
                                   <div class="caption color-title">{{ this.$t('homepage.tasks.late') }}</div>
                                 </v-card>
@@ -145,7 +146,8 @@
         <v-flex 
           d-flex
           xs12
-          px-3>
+          pl-2
+          pt-4>
           <v-layout
             row
             mx-0>
@@ -164,14 +166,14 @@
                       <v-flex
                         d-flex
                         xs12
-                        px-3>
+                        pl-3>
                         <v-layout
                           row
                           mx-0>
                           <v-flex
                             d-flex
                             xs6>
-                            <v-list-item-content>
+                            <v-list-item-content class="py-0">
                               <v-tooltip bottom>
                                 <template v-slot:activator="{ on }">
                                   <v-list-item-title v-on="on" v-text="item.title"/><br>
@@ -182,23 +184,25 @@
                             </v-list-item-content>
                           </v-flex>
                           <v-flex
+                            mt-n2      
                             d-flex
                             xs5
-                            class="pt-1"
                             justify-end
                             align><v-tooltip bottom>
                               <template v-slot:activator="{ on }">
                                 <v-card
                                   :color="item.color"
+                                  flex
                                   width="200"
-                                  class="pa-2 my-3 Rectangular-card text-center"
+                                  class="pa-2 my-3 Rectangular-card text-center flexCard"
                                   flat
                                   v-on="on" >
                                   <span>{{ item.project }}</span>
                                 </v-card>
                                 <v-card
                                   :style="{borderColor:item.color}"
-                                  class="pa-2 my-3 Rectangular-card "
+                                  width="18"
+                                  class="pa-2 my-3 Rectangular-card"
                                   flat
                                   outlined
                                   center>
@@ -222,7 +226,7 @@
   export default {
     data: () => ({
       items: [
-        { title: 'Create new composer', project: 'New Feature ' ,color:'#FFF0D8',status:'en cours',date:"14-10-2019"},
+        { title: 'Create new composer', project: 'Lorsum iprem. Lorsum sur iprem et, lorsa sur iprem, valum sur ipdi.' ,color:'#FFF0D8',status:'en cours',date:"14-10-2019"},
         { title: 'Design new Home', project: 'Home page',color:'#E1E1E1',status: 'en retard',date:"14-10-2019"},
         { title: 'New Badges', project: 'Gamification',color:'#ECC8C8',status:'en cours' ,date:"14-10-2019"},
         { title: 'My currencies', project: 'Wallet Feature',color:'#CEDEEF',status:'en cours' ,date:"14-10-2019"},
