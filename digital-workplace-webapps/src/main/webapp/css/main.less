@@ -326,13 +326,8 @@
   }
 
   #DocumentsContainer {
-    .nav-tabs {
-      max-width: 100%;
-      white-space: nowrap;
-      overflow-x: scroll;
-      min-height: 46px;
-      display: flex;
-      flex-wrap: nowrap;
+    .v-slide-group__wrapper{
+      padding-left: 18px;
     }
   }
 }
@@ -453,17 +448,15 @@
     }
   .v-slide-group__next,
   .v-slide-group__prev {
-    display: contents;
+    flex:0 1 25px;
+    min-width: 25px;
   }
   .v-slide-group__next > i,
   .v-slide-group__prev > i{
     color: @primaryColor;
   }
-  .v-slide-group__wrapper{
-    padding-left: 18px;
-  }
   .v-tabs-slider-wrapper{
-    height: 3px;
+    height: 3px!important;
   }
   .v-tab > .tabsTitle {
     color:@greyColor
