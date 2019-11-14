@@ -1,0 +1,11 @@
+<%
+    import org.exoplatform.platform.webui.NavigationURLUtils;
+%>
+
+<div id="<%=uicomponent.id%>">
+<div class="dwHamburgerMenu">
+  <v-btn text icon  class="white--text" @click.stop="drawer = !drawer">
+       <v-icon large class="white--text">menu</v-icon>
+   </v-btn>
+</div>
+</div>

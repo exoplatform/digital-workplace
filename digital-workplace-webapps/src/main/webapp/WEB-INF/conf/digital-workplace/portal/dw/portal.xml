@@ -10,50 +10,72 @@
     </properties>
 
     <portal-layout>
-        <container id="NavigationBody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+        <container id="NavigationBody" template="system:/groovy/portal/webui/container/UILeftNavigationContainer.gtmpl">
             <access-permissions>Everyone</access-permissions>
-            <container id="LeftNavigation" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+            <container id="DWLeftNavigation" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                 <access-permissions>*:/platform/users</access-permissions>
-                <container id="LeftNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+                <container id="DWLeftNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                     <access-permissions>*:/platform/users</access-permissions>
                     <portlet-application>
                         <portlet>
-                            <application-ref>platformNavigation</application-ref>
-                            <portlet-ref>UICompanyNavigationPortlet</portlet-ref>
+                            <application-ref>digital-workplace</application-ref>
+                            <portlet-ref>digitalWorkplaceLeftNavigation</portlet-ref>
                         </portlet>
                         <access-permissions>*:/platform/users</access-permissions>
                         <show-info-bar>false</show-info-bar>
                     </portlet-application>
                 </container>
-                <container id="GroupsNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+
+                <container id="DWAdministrationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                     <access-permissions>*:/platform/users</access-permissions>
                     <portlet-application>
                         <portlet>
-                            <application-ref>platformNavigation</application-ref>
-                            <portlet-ref>UIGroupsNavigationPortlet</portlet-ref>
+                            <application-ref>digital-workplace</application-ref>
+                            <portlet-ref>digitalWorkplaceAdministration</portlet-ref>
                         </portlet>
                         <access-permissions>*:/platform/users</access-permissions>
                         <show-info-bar>false</show-info-bar>
                     </portlet-application>
                 </container>
-                <container id="SpaceNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+
+                <container id="DWSpacesNavigationPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                     <access-permissions>*:/platform/users</access-permissions>
                     <portlet-application>
                         <portlet>
-                            <application-ref>platformNavigation</application-ref>
-                            <portlet-ref>UISpaceNavigationPortlet</portlet-ref>
+                            <application-ref>digital-workplace</application-ref>
+                            <portlet-ref>digitalWorkplaceSpacesNavigation</portlet-ref>
                         </portlet>
                         <access-permissions>*:/platform/users</access-permissions>
                         <show-info-bar>false</show-info-bar>
                     </portlet-application>
                 </container>
-                <container id="bottom-leftNavigation-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
-				          <name>bottom-leftNavigation-container</name>
-				          <access-permissions>*:/platform/users</access-permissions>
-				          <factory-id>addonContainer</factory-id>
+
+                <container id="DWMyAccountPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+                    <access-permissions>*:/platform/users</access-permissions>
+                    <portlet-application>
+                        <portlet>
+                            <application-ref>digital-workplace</application-ref>
+                            <portlet-ref>digitalWorkplaceMyAccount</portlet-ref>
+                        </portlet>
+                        <access-permissions>*:/platform/users</access-permissions>
+                        <show-info-bar>false</show-info-bar>
+                    </portlet-application>
                 </container>
+
+                <container id="DWMySettingsPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+                    <access-permissions>*:/platform/users</access-permissions>
+                    <portlet-application>
+                        <portlet>
+                            <application-ref>digital-workplace</application-ref>
+                            <portlet-ref>digitalWorkplaceMySettings</portlet-ref>
+                        </portlet>
+                        <access-permissions>*:/platform/users</access-permissions>
+                        <show-info-bar>false</show-info-bar>
+                    </portlet-application>
+                </container>
+
             </container>
-            <container id="RightBody" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+            <container id="DWRightBody" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
                 <access-permissions>Everyone</access-permissions>
                 <page-body> </page-body>
             </container>
