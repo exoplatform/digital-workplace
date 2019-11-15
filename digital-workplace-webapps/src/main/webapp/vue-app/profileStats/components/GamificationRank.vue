@@ -100,11 +100,11 @@
 
           <div class="transparent mx-1 align-center">
             <v-tooltip top>
-              <template v-slot:activator="{ on }">
+              <template v-slot:activator="{ on1 }">
                 <v-avatar 
                   size="35" 
                   class="mb-1 elevation-1" 
-                  v-on="on">
+                  v-on="on1">
                   <img
                     v-if="leaderBoardArray.length > 0"
                     :src="leaderBoardArray[2].avatar">

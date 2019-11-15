@@ -74,6 +74,7 @@ if (rcontext.getRemoteUser() != null && WCMComposer.MODE_EDIT.equals(Utils.getCu
 			vuetify: new Vuetify(),
 			data () {
             	return {
+            	    tab: null,
             		drawer: null,
             	}
             },
