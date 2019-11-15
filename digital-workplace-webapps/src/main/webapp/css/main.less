@@ -65,7 +65,7 @@
 }
 .dwHamburgerMenu {
   .v-btn.v-btn--icon {
-    color: white!important;
+    color: @greyColor!important;
   }
 }
 
@@ -537,3 +537,34 @@
     line-height: 1.75rem;  text-transform: capitalize;
   }
 }
+
+/*--------------- TopBar CSS ---------------------------*/
+  .UIToolbarContainer {
+    box-shadow: none;
+  }
+  .UIToolbarContainerDark .NormalContainerBlock .ToolbarContainer {
+    background-image: linear-gradient(to bottom, white, white);
+    border-bottom: 1px solid white;
+  }
+  .UIToolbarContainer [class^="uiIconPLF24x24"] {
+    color: @greyColor;
+    font-size: 26px;
+  }
+  @media (min-width: 1025px){
+    .UIToolbarContainer .toggle-left-bar {
+      display: block;
+    }}
+  
+    .UIToolbarContainer .toggle-left-bar span {
+      background: @greyColor;
+    }
+/*---------- Chat App CSS ----------------*/
+  .uiNotifChatIcon:before {
+      font-family: 'PLF-FONT-ICONS';
+      content: "\e9c4" !important;
+      font-size: 26px;
+    }
+/*---------- Hamburger CSS ----------------*/
+  .UIToolbarContainer .HamburgerContainerTDContainer {
+    padding: 11px;
+  }
