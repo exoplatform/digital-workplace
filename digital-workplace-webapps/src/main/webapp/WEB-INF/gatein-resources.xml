@@ -421,5 +421,30 @@
     </depends>
   </module>
 
+  <portlet>
+    <name>digitalWorkplaceNotification</name>
+    <module>
+      <depends>
+        <module>digitalWorkplaceNotificationBundle</module>
+      </depends>
+    </module>
+  </portlet>
 
+  <module>
+    <name>digitalWorkplaceNotificationBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/notification.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
+  
 </gatein-resources>

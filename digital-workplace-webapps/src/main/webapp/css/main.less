@@ -551,6 +551,19 @@
         content: "\e9c4" !important;
         font-size: 26px;
       }
+      /*---------- Notification CSS ----------------*/
+      #NotificationPopoverPortlet {
+        .VuetifyApp .v-badge__badge {
+          padding: 0px;
+          font-size: 12px;
+          min-width: 20px;
+          height: 20px;
+        }
+
+        .VuetifyApp .v-overlay--absolute, .VuetifyApp .v-navigation-drawer--absolute {
+          position: fixed;
+        }
+      }
 	}
 	#UIDWToolbarContainer.UIToolbarContainerDark .NormalContainerBlock .ToolbarContainer {
 	  background-image: linear-gradient(to bottom, white, white);
@@ -560,8 +573,3 @@
 	  color: @greyColor;
 	  font-size: 26px;
 	}
-  @media (min-width: 1025px){
-    #UIDWToolbarContainer .toggle-left-bar {
-      display: block;
-    }
-  }

@@ -228,4 +228,21 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 		</portlet-info>
 	</portlet>
 
+	<!-- ************************* TopBar Portlets ********************************* -->
+
+	<portlet>
+		<portlet-name>digitalWorkplaceNotification</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/notification.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace notifications</title>
+		</portlet-info>
+	</portlet>
+
 </portlet-app>

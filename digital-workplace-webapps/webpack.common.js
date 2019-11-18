@@ -20,7 +20,8 @@ let config = {
     spacesNavigation: './src/main/webapp/vue-app/sidebar/spacesNavigation/main.js',
     dwAdministration: './src/main/webapp/vue-app/sidebar/administration/main.js',
     myAccount: './src/main/webapp/vue-app/sidebar/myAccount/main.js',
-    mySettings: './src/main/webapp/vue-app/sidebar/mySettings/main.js'
+    mySettings: './src/main/webapp/vue-app/sidebar/mySettings/main.js',
+    notification: './src/main/webapp/vue-app/topBar/notification/main.js'
   },
   output: {
     filename: 'js/[name].bundle.js',

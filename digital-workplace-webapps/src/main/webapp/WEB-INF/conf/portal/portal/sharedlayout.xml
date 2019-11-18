@@ -154,9 +154,10 @@
         template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
         <portlet-application>
           <portlet>
-            <application-ref>platformNavigation</application-ref>
-            <portlet-ref>NotificationPopoverToolbarPortlet</portlet-ref>
+            <application-ref>digital-workplace</application-ref>
+            <portlet-ref>digitalWorkplaceNotification</portlet-ref>
           </portlet>
+          <title>Notification</title>
           <access-permissions>*:/platform/users</access-permissions>
           <show-info-bar>false</show-info-bar>
         </portlet-application>
