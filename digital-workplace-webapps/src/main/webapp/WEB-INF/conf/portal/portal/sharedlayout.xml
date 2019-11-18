@@ -51,7 +51,6 @@
           <portlet>
             <application-ref>platformNavigation</application-ref>
             <portlet-ref>UIUserInfoPortlet</portlet-ref>
-
           </portlet>
           <access-permissions>*:/platform/users</access-permissions>
           <show-info-bar>false</show-info-bar>
@@ -62,8 +61,7 @@
         <portlet-application>
           <portlet>
             <application-ref>platformNavigation</application-ref>
-            <portlet-ref>NotificationPopoverToolbarPortlet
-            </portlet-ref>
+            <portlet-ref>NotificationPopoverToolbarPortlet</portlet-ref>
           </portlet>
           <access-permissions>*:/platform/users</access-permissions>
           <show-info-bar>false</show-info-bar>
@@ -106,17 +104,13 @@
       </container>
       <container id="AdminToolBarPortlet"
         template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <access-permissions>*:/platform/administrators;
-          editor:/platform/web-contributors
-        </access-permissions>
+        <access-permissions>*:/platform/administrators;editor:/platform/web-contributors</access-permissions>
         <portlet-application>
           <portlet>
             <application-ref>platformNavigation</application-ref>
             <portlet-ref>PlatformAdminToolbarPortlet</portlet-ref>
           </portlet>
-          <access-permissions>*:/platform/administrators;
-            editor:/platform/web-contributors
-          </access-permissions>
+          <access-permissions>*:/platform/administrators;editor:/platform/web-contributors</access-permissions>
           <show-info-bar>false</show-info-bar>
         </portlet-application>
       </container>
@@ -151,7 +145,6 @@
           <portlet>
             <application-ref>platformNavigation</application-ref>
             <portlet-ref>UIUserInfoPortlet</portlet-ref>
-
           </portlet>
           <access-permissions>*:/platform/users</access-permissions>
           <show-info-bar>false</show-info-bar>
@@ -192,8 +185,7 @@
       </container>
       <container id="AdminToolBarPortlet"
         template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <access-permissions>*:/platform/administrators;
-          editor:/platform/web-contributors</access-permissions>
+        <access-permissions>*:/platform/administrators;editor:/platform/web-contributors</access-permissions>
         <portlet-application>
           <portlet>
             <application-ref>platformNavigation</application-ref>
