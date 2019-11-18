@@ -10,10 +10,6 @@
 
 /*-------------------------Global page Container--------------------------*/
 
-.UIToolbarContainer {
-  left: 0!important;
-}
-
 .DWLeftNavigationContainer {
   aside {
     z-index: 1031!important;
@@ -539,32 +535,33 @@
 }
 
 /*--------------- TopBar CSS ---------------------------*/
-  .UIToolbarContainer {
-    box-shadow: none;
-  }
-  .UIToolbarContainerDark .NormalContainerBlock .ToolbarContainer {
-    background-image: linear-gradient(to bottom, white, white);
-    border-bottom: 1px solid white;
-  }
-  .UIToolbarContainer [class^="uiIconPLF24x24"] {
-    color: @greyColor;
-    font-size: 26px;
-  }
+    #UIDWToolbarContainer {
+	  box-shadow: none;
+	  left: 0!important;
+	  .toggle-left-bar span {
+        background: @greyColor;
+      }
+      /*---------- Hamburger CSS ----------------*/
+      .HamburgerContainerTDContainer {
+        padding: 11px;
+      }
+      /*---------- Chat App CSS ----------------*/
+      .uiNotifChatIcon:before {
+        font-family: 'PLF-FONT-ICONS';
+        content: "\e9c4" !important;
+        font-size: 26px;
+      }
+	}
+	#UIDWToolbarContainer.UIToolbarContainerDark .NormalContainerBlock .ToolbarContainer {
+	  background-image: linear-gradient(to bottom, white, white);
+	  border-bottom: 1px solid white;
+	}
+	#UIDWToolbarContainer.UIToolbarContainer [class^="uiIconPLF24x24"] {
+	  color: @greyColor;
+	  font-size: 26px;
+	}
   @media (min-width: 1025px){
-    .UIToolbarContainer .toggle-left-bar {
+    #UIDWToolbarContainer .toggle-left-bar {
       display: block;
-    }}
-  
-    .UIToolbarContainer .toggle-left-bar span {
-      background: @greyColor;
     }
-/*---------- Chat App CSS ----------------*/
-  .uiNotifChatIcon:before {
-      font-family: 'PLF-FONT-ICONS';
-      content: "\e9c4" !important;
-      font-size: 26px;
-    }
-/*---------- Hamburger CSS ----------------*/
-  .UIToolbarContainer .HamburgerContainerTDContainer {
-    padding: 11px;
   }

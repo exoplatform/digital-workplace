@@ -62,12 +62,9 @@
 								    absolute
 								    temporary
 								    width="350">
-									    <% uicomponent.renderUIComponent(uicomponent.getChild(0)) %>
+									    <% if (uiPortalApp.getBaseURL().contains("/portal/dw")) uicomponent.renderUIComponent(uicomponent.getChild(0)) %>
 								</v-navigation-drawer>
 								</div>
-							<div class="${uicomponent.getChild(1).id}Container Container" <% if(uicomponent.getChild(1).getWidth()) { %> width="<%= uicomponent.getChild(1).getWidth(); %>" <% } %>>
-								<% uicomponent.renderUIComponent(uicomponent.getChild(1)) %>
-							</div>
 					</div>
 				</div>
 				<%} else {print "<div class='ProtectedContent'>"+_ctx.appRes("UIPortlet.label.protectedContent")+"</div>";}%>
