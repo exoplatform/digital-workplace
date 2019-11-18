@@ -551,6 +551,13 @@
         content: "\e9c4" !important;
         font-size: 26px;
       }
+      .UIAdminToolbarPortlet [class^="uiIconPLF24x24"] {
+        color: black!important;
+        height: 13px;
+        font-size: 14px!important;
+      }
+    }
+    
       /*---------- Notification CSS ----------------*/
       #NotificationPopoverPortlet {
         .VuetifyApp .v-badge__badge {
@@ -564,7 +571,20 @@
           position: fixed;
         }
       }
-	}
+    /*---------- Topbar Edit button CSS ----------------*/
+    #UIDWToolbarContainer.UIToolbarContainerDark .uiDropdownWithIcon > a {
+      color: black;
+      text-transform: uppercase !important;
+      font-weight: normal;
+      font-size: 15px;
+    }
+    #UIDWToolbarContainer.UIToolbarContainerDark .uiDropdownWithIcon > a:hover{
+      color: black;
+      background: none;
+    }
+    #UIDWToolbarContainer.UIToolbarContainer .AdminToolBarPortletTDContainer{
+      float: left!important;
+    }
 	#UIDWToolbarContainer.UIToolbarContainerDark .NormalContainerBlock .ToolbarContainer {
 	  background-image: linear-gradient(to bottom, white, white);
 	  border-bottom: 1px solid white;
