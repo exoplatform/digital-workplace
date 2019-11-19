@@ -162,6 +162,10 @@
           <show-info-bar>false</show-info-bar>
         </portlet-application>
       </container>
+      <container id="MyApplicationsContainer"
+                 template="war:/groovy/portal/webui/container/MyApplicationsContainer.gtmpl">
+        <access-permissions>*:/platform/users</access-permissions>
+      </container>
       <container id="middle-topNavigation-container"
                  template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
         <name>middle-topNavigation-container</name>
