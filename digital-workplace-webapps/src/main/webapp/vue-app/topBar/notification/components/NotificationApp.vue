@@ -1,12 +1,13 @@
 <template>
   <v-app
+    id="NotificationPopoverPortlet"      
     class="VuetifyApp">
     <v-container pa-0>
       <v-layout class="white px-3 pt-3">
         <v-btn
           icon
           class="text-xs-center"
-          @click.stop="drawer = !drawer" >
+          @click.stop="drawerNotification = !drawerNotification" >
           <v-badge
             flat
             color="red"
@@ -19,13 +20,16 @@
           </v-badge>
         </v-btn>
         <v-navigation-drawer
-          v-model="drawer"
+          v-model="drawerNotification"
           right
           absolute
           temporary
           width="420">
           <v-container pa-0>
-            <v-layout row mx-0>
+            <v-layout 
+              row 
+              mx-0 
+              py-0>
               <v-flex xs12 >
                 <v-card flat>
                   <v-layout>
@@ -35,7 +39,7 @@
                       <v-btn
                         class="my-2 grey-color"
                         icon
-                        @click.stop="drawer = !drawer"><v-icon size="30">mdi-close</v-icon></v-btn></v-flex></v-layout></v-card></v-flex>
+                        @click.stop="drawerNotification = !drawerNotification"><v-icon size="30">mdi-close</v-icon></v-btn></v-flex></v-layout></v-card></v-flex>
               <v-divider
                 :inset="inset"
                 class="mx-1 my-0"/>
@@ -97,7 +101,7 @@
   export default {
     data () {
       return {
-        drawer: null,
+        drawerNotification: null,
         items: [
           {
             avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
