@@ -47,7 +47,6 @@
                         style="border-radius: 1em;"
                         depressed
                         color="#E1E8EE"
-                        flat 
                         class="my-2 ml-2"><span class="font-weight-black">See all</span></v-btn></v-flex>
                     <v-flex xs4>
                       <v-btn
