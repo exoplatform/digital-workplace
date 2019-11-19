@@ -68,7 +68,7 @@ if (rcontext.getRemoteUser() != null && WCMComposer.MODE_EDIT.equals(Utils.getCu
 }
 %>
 <script type="text/javascript">
-	require(['SHARED/vuetify'], function(vuetify){
+	require(['SHARED/jquery', 'SHARED/vuetify'], function(jQuery, vuetify){
 		new Vue({
 			el: '#appDWHomePage',
 			vuetify: new Vuetify(),
@@ -78,6 +78,18 @@ if (rcontext.getRemoteUser() != null && WCMComposer.MODE_EDIT.equals(Utils.getCu
             		drawer: null,
             	}
             },
-		})
+            methods: {
+                openDrawer() {
+                    this.drawer = !this.drawer;
+                    jQuery('body').addClass('open-drawer');
+                }
+            }
+		});
+
+		jQuery(document).ready(function() {
+             jQuery(document).on('click','.DWLeftNavigationContainer .v-overlay',function(e) {
+                jQuery('body').removeClass('open-drawer');
+            });
+         });
 	});
 </script>

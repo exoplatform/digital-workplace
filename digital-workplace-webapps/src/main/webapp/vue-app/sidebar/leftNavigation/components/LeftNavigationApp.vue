@@ -12,9 +12,11 @@
         align="center" 
         justify="center" 
         class="mx-0 pb-3">
-        <v-img
-          src="/digital-workplace/images/logo_exo.png"
-          max-width="120"/>
+        <a href="/portal/dw/home">
+          <v-img
+            src="/digital-workplace/images/logo_exo.png"
+            max-width="120"/>
+        </a>
       </v-row>
 
       <v-row
