@@ -34,7 +34,7 @@
                 <v-card flat>
                   <v-layout>
                     <v-flex xs11>
-                    <v-card-text style="font-size: 17px;font-weight: bold">Notifications</v-card-text></v-flex>
+                    <v-card-text style="font-size: 17px;font-weight: bold">{{ this.$t('homepage.topBar.notification') }}</v-card-text></v-flex>
                     <v-flex xs1>
                       <v-btn
                         class="my-2 grey-color"
@@ -46,16 +46,17 @@
               <v-flex xs12 >
                 <v-card flat>
                   <v-layout>
-                    <v-flex xs8>
+                    <v-flex xs7>
                       <v-btn
                         style="border-radius: 1em;"
                         depressed
                         color="#E1E8EE"
-                        class="my-2 ml-2"><span class="font-weight-black">See all</span></v-btn></v-flex>
-                    <v-flex xs4>
+                        class="my-2 ml-2"><span>{{ this.$t('homepage.topBar.notification.seeAll') }}</span></v-btn></v-flex>
+                    <v-flex xs5>
                       <v-btn
                         text
-                        class="my-2"><span class="primary-color--text">Mark all as read</span></v-btn></v-flex></v-layout></v-card></v-flex>
+                        class="my-2">
+              <span class="primary-color--text">{{ this.$t('homepage.topBar.notification.MarkAllAsRead') }}</span></v-btn></v-flex></v-layout></v-card></v-flex>
               <v-divider
                 :inset="inset"
                 class="mx-1 my-0"/>
