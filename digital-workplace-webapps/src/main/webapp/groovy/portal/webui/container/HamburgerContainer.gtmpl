@@ -5,7 +5,7 @@ import org.exoplatform.platform.webui.NavigationURLUtils;
 <div id="<%=uicomponent.id%>">
   <div class="dwHamburgerMenu">
     <v-btn text icon  class="white--text" @click.stop="openDrawer()">
-      <v-icon large class="white--text">menu</v-icon>
+      <v-icon class="white--text" style="font-size: 30px;">menu</v-icon>
     </v-btn>
   </div>
 </div>

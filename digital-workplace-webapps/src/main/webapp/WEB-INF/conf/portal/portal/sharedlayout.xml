@@ -182,13 +182,15 @@
           <show-info-bar>false</show-info-bar>
         </portlet-application>
       </container>
-      <container id="UISetupPlatformToolBarPortletID"
-        template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <container id="NavigationToolbarPortlet"
+                 template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>*:/platform/administrators;editor:/platform/web-contributors</access-permissions>
         <portlet-application>
           <portlet>
-            <application-ref>platformNavigation</application-ref>
-            <portlet-ref>UISetupPlatformToolBarPortlet</portlet-ref>
+            <application-ref>digital-workplace</application-ref>
+            <portlet-ref>digitalWorkplaceTopNavigation</portlet-ref>
           </portlet>
+          <title>Top Navigation</title>
           <access-permissions>*:/platform/users</access-permissions>
           <show-info-bar>false</show-info-bar>
         </portlet-application>
@@ -206,9 +208,16 @@
           <show-info-bar>false</show-info-bar>
         </portlet-application>
       </container>
-      <container id="NavigationToolbarPortlet"
+      <container id="UISetupPlatformToolBarPortletID"
         template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <access-permissions>*:/platform/administrators;editor:/platform/web-contributors</access-permissions>
+        <portlet-application>
+          <portlet>
+            <application-ref>platformNavigation</application-ref>
+            <portlet-ref>UISetupPlatformToolBarPortlet</portlet-ref>
+          </portlet>
+          <access-permissions>*:/platform/users</access-permissions>
+          <show-info-bar>false</show-info-bar>
+        </portlet-application>
       </container>
     </container>
   </container>

@@ -446,5 +446,31 @@
       <module>eXoVueI18n</module>
     </depends>
   </module>
+
+  <portlet>
+    <name>digitalWorkplaceTopNavigation</name>
+    <module>
+      <depends>
+        <module>digitalWorkplaceTopNavigationBundle</module>
+      </depends>
+    </module>
+  </portlet>
+
+  <module>
+    <name>digitalWorkplaceTopNavigationBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/topNavigation.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
   
 </gatein-resources>

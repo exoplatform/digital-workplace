@@ -3,6 +3,8 @@
 @greyColor: #a8b3c5;
 @yellowColor: #ffc20e;
 @blueGreyColor: #4d5466;
+@blackColor: black;
+@greyWhiteColor: #a8b3c521;
 @leftNavigationHoverBG: #476a9c;
 @leftIconColor: #a8b3c5;
 @menuTextColor: #757575;
@@ -603,6 +605,8 @@ body.open-drawer {
       /*---------- Hamburger CSS ----------------*/
       .HamburgerContainerTDContainer {
         padding: 11px;
+        border-right: 1px solid @greyWhiteColor;
+        padding-right: 10px;
       }
       /*---------- Chat App CSS ----------------*/
       .uiNotifChatIcon:before {
@@ -648,10 +652,25 @@ body.open-drawer {
       .MyApplicationsContainerTDContainer {
         float: right!important;
       }
+
+    /*---------- Navigation TopBar CSS ----------------*/
+    #NavigationToolbarPortlet {
+      .v-tabs-slider-wrapper{
+        height: 4px!important;
+      }
+      .VuetifyApp .theme--light.v-tabs > .v-tabs-bar .v-tab:not(.v-tab--active){
+        color: @blackColor;
+      }
+    }
+    
+    .NavigationToolbarPortletTDContainer {
+      padding-top: 10px;
+      padding-left: 5px;
+    }
       
     /*---------- Topbar Edit button CSS ----------------*/
     #UIDWToolbarContainer.UIToolbarContainerDark .uiDropdownWithIcon > a {
-      color: black;
+      color: @blackColor;
       text-transform: uppercase !important;
       font-weight: normal;
       font-size: 15px;
