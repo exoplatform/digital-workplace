@@ -291,5 +291,186 @@
     </depends>
   </module>
 
+  <portlet>
+    <name>digitalWorkplaceLeftNavigation</name>
+    <module>
+      <depends>
+        <module>digitalWorkplaceLeftNavigationBundle</module>
+      </depends>
+    </module>
+  </portlet>
 
+  <module>
+    <name>digitalWorkplaceLeftNavigationBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/leftNavigation.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
+
+  <portlet>
+    <name>digitalWorkplaceSpacesNavigation</name>
+    <module>
+      <depends>
+        <module>digitalWorkplaceSpacesNavigationBundle</module>
+      </depends>
+    </module>
+  </portlet>
+
+  <module>
+    <name>digitalWorkplaceSpacesNavigationBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/spacesNavigation.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
+
+  <portlet>
+    <name>digitalWorkplaceAdministration</name>
+    <module>
+      <depends>
+        <module>digitalWorkplaceAdministrationBundle</module>
+      </depends>
+    </module>
+  </portlet>
+
+  <module>
+    <name>digitalWorkplaceAdministrationBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/dwAdministration.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
+
+  <portlet>
+    <name>digitalWorkplaceMyAccount</name>
+    <module>
+      <depends>
+        <module>digitalWorkplaceProfileNavigationBundle</module>
+      </depends>
+    </module>
+  </portlet>
+
+  <module>
+    <name>digitalWorkplaceMyAccountBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/myAccount.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
+
+  <portlet>
+    <name>digitalWorkplaceMySettings</name>
+    <module>
+      <depends>
+        <module>digitalWorkplaceMySettingsBundle</module>
+      </depends>
+    </module>
+  </portlet>
+
+  <module>
+    <name>digitalWorkplaceMySettingsBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/mySettings.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
+
+  <portlet>
+    <name>digitalWorkplaceNotification</name>
+    <module>
+      <depends>
+        <module>digitalWorkplaceNotificationBundle</module>
+      </depends>
+    </module>
+  </portlet>
+
+  <module>
+    <name>digitalWorkplaceNotificationBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/notification.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
+
+  <portlet>
+    <name>digitalWorkplaceTopNavigation</name>
+    <module>
+      <depends>
+        <module>digitalWorkplaceTopNavigationBundle</module>
+      </depends>
+    </module>
+  </portlet>
+
+  <module>
+    <name>digitalWorkplaceTopNavigationBundle</name>
+    <script>
+      <minify>false</minify>
+      <path>/js/topNavigation.bundle.js</path>
+    </script>
+    <depends>
+      <module>vue</module>
+    </depends>
+    <depends>
+      <module>vuetify</module>
+    </depends>
+    <depends>
+      <module>eXoVueI18n</module>
+    </depends>
+  </module>
+  
 </gatein-resources>

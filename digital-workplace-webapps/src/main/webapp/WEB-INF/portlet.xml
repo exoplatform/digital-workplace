@@ -151,4 +151,113 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 		</portlet-info>
 	</portlet>
 
+	<!-- ************************* Sidebar portlets ********************************* -->
+
+	<portlet>
+		<portlet-name>digitalWorkplaceLeftNavigation</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/leftNavigation.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace Company Navigation</title>
+		</portlet-info>
+	</portlet>
+
+	<portlet>
+		<portlet-name>digitalWorkplaceSpacesNavigation</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/spacesNavigation.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace Spaces Navigation</title>
+		</portlet-info>
+	</portlet>
+
+	<portlet>
+		<portlet-name>digitalWorkplaceAdministration</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/administration.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace Administration Navigation</title>
+		</portlet-info>
+	</portlet>
+
+	<portlet>
+		<portlet-name>digitalWorkplaceMyAccount</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/myAccount.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace Profile Navigation</title>
+		</portlet-info>
+	</portlet>
+
+	<portlet>
+		<portlet-name>digitalWorkplaceMySettings</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/mySettings.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace Settings Navigation</title>
+		</portlet-info>
+	</portlet>
+
+	<!-- ************************* TopBar Portlets ********************************* -->
+
+	<portlet>
+		<portlet-name>digitalWorkplaceNotification</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/notification.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace notifications</title>
+		</portlet-info>
+	</portlet>
+
+	<portlet>
+		<portlet-name>digitalWorkplaceTopNavigation</portlet-name>
+		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
+		<init-param>
+			<name>portlet-view-dispatched-file-path</name>
+			<value>/topNavigation.html</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Digital Workplace TopNavigation</title>
+		</portlet-info>
+	</portlet>
+
 </portlet-app>

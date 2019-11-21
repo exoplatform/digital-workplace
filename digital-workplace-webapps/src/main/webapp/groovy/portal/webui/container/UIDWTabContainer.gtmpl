@@ -45,8 +45,6 @@ def modeState = Util.getUIPortalApplication().getModeState();
 	<% if(modeState == 0){ %>
     	<header><div class="header"><%=_ctx.appRes("homepage.documents")%></div></header>
     <%}%>
-          <div class="VuetifyApp">
-                	<div id="app">
   							      <v-tabs
                                           v-model="tab"
                                           class="docTabs"
@@ -141,22 +139,10 @@ def modeState = Util.getUIPortalApplication().getModeState();
         %>
     </v-tabs-items>
     </div>
-</div>
-</div>
+
 <% } %>
 
 <script type="text/javascript">
-	require(['SHARED/vuetify'], function(vuetify){
-		new Vue({
-			el: '#app',
-			vuetify: new Vuetify(),
-			data () {
-			    return {
-			      tab: null,
-			    }
-			},
-		})
-	});
 	require(['SHARED/jquery'], function(jquery) {
     	jquery(document).ready(function() {
        		jquery(".docs-wrapper").delay(1000).fadeIn(100);

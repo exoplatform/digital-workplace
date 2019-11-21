@@ -3,6 +3,129 @@
 @greyColor: #a8b3c5;
 @yellowColor: #ffc20e;
 @blueGreyColor: #4d5466;
+@blackColor: black;
+@greyWhiteColor: #a8b3c521;
+@leftNavigationHoverBG: #476a9c;
+@leftIconColor: #a8b3c5;
+@menuTextColor: #757575;
+
+
+/*-------------------------Global page Container--------------------------*/
+
+body.open-drawer {
+  overflow: hidden;
+}
+
+#NavigationPortlet {
+  background: #f2f2f2;
+}
+
+.DWLeftNavigationContainer {
+  aside {
+    z-index: 1031!important;
+    height: 100vh!important;
+    #digital-workplace-left-navigation {
+      .v-list-item-group {
+        .v-list-item {
+          color: @menuTextColor!important;
+          .v-list-item__icon i {
+            color: @leftIconColor;
+            font-family: 'PLF-FONT-ICONS' !important;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+          }
+          .iconSnapshot:before {
+            content: "\eb67";
+          }
+          .iconStream:before {
+            content: "\e6d5";
+          }
+          .iconSpaces:before {
+            content: '\e648';
+          }
+          .iconPeople:before {
+            content: '\eac1';
+          }
+
+        }
+        .v-list-item--active {
+          color: white!important;
+          background: @leftNavigationHoverBG;
+          .v-list-item__icon i {
+            color: white;
+          }
+        }
+      }
+    }
+    #digital-workplace-myAccount {
+      i {
+        color: @leftIconColor;
+        font-family: 'PLF-FONT-ICONS' !important;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+      }
+      .accountTitle {
+        border-bottom: 1px solid #f7f7f7;
+        border-top: 1px solid #f7f7f7;
+        i {
+          color: @blueGreyColor;
+          font-size: 22px;
+        }
+        .accountTitleLabel {
+          color: @blueGreyColor;
+        }
+      }
+      .accountIcon:before {
+        content: "\e6cc";
+      }
+      .walletIcon:before {
+        content: "\e9be";
+      }
+      .achievementsIcon:before {
+        content: "\ebdb";
+      }
+    }
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-left: 2px solid #f1f1f1;
+      border-right: 2px solid #f1f1f1;
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #7d7d7d;
+    }
+  }
+  .v-overlay {
+    z-index: 1031!important;
+    height: 100vh;
+  }
+
+}
+
+.dwHamburgerMenu {
+  .v-btn.v-btn--icon {
+    color: @greyColor!important;
+  }
+}
+
 
 
 #digitalWorkplaceHomePage  {
@@ -326,13 +449,8 @@
   }
 
   #DocumentsContainer {
-    .nav-tabs {
-      max-width: 100%;
-      white-space: nowrap;
-      overflow-x: scroll;
-      min-height: 46px;
-      display: flex;
-      flex-wrap: nowrap;
+    .v-slide-group__wrapper{
+      padding-left: 18px;
     }
   }
 }
@@ -453,17 +571,18 @@
     }
   .v-slide-group__next,
   .v-slide-group__prev {
-    display: contents;
+    flex:0 1 25px;
+    min-width: 25px;
   }
   .v-slide-group__next > i,
   .v-slide-group__prev > i{
     color: @primaryColor;
   }
-  .v-slide-group__wrapper{
-    padding-left: 18px;
-  }
   .v-tabs-slider-wrapper{
-    height: 3px;
+    height: 3px!important;
+  }
+  .v-tab {
+    box-sizing: border-box;
   }
   .v-tab > .tabsTitle {
     color:@greyColor
@@ -478,3 +597,110 @@
     line-height: 1.75rem;  text-transform: capitalize;
   }
 }
+
+/*--------------- TopBar CSS ---------------------------*/
+    #UIDWToolbarContainer {
+	  box-shadow: none;
+	  left: 0!important;
+	  .toggle-left-bar span {
+        background: @greyColor;
+      }
+      /*---------- Hamburger CSS ----------------*/
+      .HamburgerContainerTDContainer {
+        padding: 11px;
+        border-right: 1px solid @greyWhiteColor;
+        padding-right: 10px;
+      }
+      /*---------- Chat App CSS ----------------*/
+      .uiNotifChatIcon:before {
+        font-family: 'PLF-FONT-ICONS';
+        content: "\e9c4" !important;
+        font-size: 26px;
+      }
+      .UIAdminToolbarPortlet [class^="uiIconPLF24x24"] {
+        color: black!important;
+        height: 13px;
+        font-size: 14px!important;
+      }
+    }
+    
+      /*---------- Notification CSS ----------------*/
+      #NotificationPopoverPortlet {
+        .VuetifyApp .v-badge__badge {
+          padding: 0px;
+          font-size: 12px;
+          min-width: 20px;
+          height: 20px;
+        }
+
+        .VuetifyApp .v-overlay--absolute, .VuetifyApp .v-navigation-drawer--absolute {
+          position: fixed;
+        }
+        .VuetifyApp .v-list-item {
+          padding: 0px;
+        }
+        .VuetifyApp .v-navigation-drawer--temporary {
+          z-index: 1050;
+        }
+      }
+      
+    /*------------ MyApplication CSS ----------------*/
+
+      .dwMyApplications {
+        padding: 11px;
+        .v-btn.v-btn--icon {
+          color: @greyColor!important;
+        }
+      }
+      .MyApplicationsContainerTDContainer {
+        float: right!important;
+      }
+
+    /*---------- Navigation TopBar CSS ----------------*/
+    #NavigationToolbarPortlet {
+      .v-tabs-slider-wrapper{
+        height: 4px!important;
+      }
+      .VuetifyApp .theme--light.v-tabs > .v-tabs-bar .v-tab:not(.v-tab--active){
+        color: @blackColor;
+      }
+      .v-slide-group__next,
+      .v-slide-group__prev {
+        flex:0 1 25px;
+        min-width: 25px;
+        height: 40px;
+      }
+    }
+    
+    .NavigationToolbarPortletTDContainer {
+      padding-top: 10px;
+      padding-left: 5px;
+    }
+      
+    /*---------- Topbar Edit button CSS ----------------*/
+    #UIDWToolbarContainer.UIToolbarContainerDark .uiDropdownWithIcon > a {
+      color: @blackColor;
+      text-transform: uppercase !important;
+      font-weight: normal;
+      font-size: 15px;
+    }
+    #UIDWToolbarContainer.UIToolbarContainerDark .uiDropdownWithIcon > a:hover{
+      color: black;
+      background: none;
+    }
+    #UIDWToolbarContainer.UIToolbarContainer .AdminToolBarPortletTDContainer{
+      float: left!important;
+    }
+	#UIDWToolbarContainer.UIToolbarContainerDark .NormalContainerBlock .ToolbarContainer {
+	  background-image: linear-gradient(to bottom, white, white);
+	  border-bottom: 1px solid white;
+	}
+	#UIDWToolbarContainer.UIToolbarContainer [class^="uiIconPLF24x24"] {
+	  color: @greyColor;
+	  font-size: 26px;
+	}
+    #UIDWToolbarContainer.UIToolbarContainer .UISetupPlatformToolBarPortletIDTDContainer,
+    #UIDWToolbarContainer.UIToolbarContainer .AdminToolBarPortletTDContainer {
+      float: left!important;
+    }
+
