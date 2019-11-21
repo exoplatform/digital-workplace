@@ -3,7 +3,7 @@
     id="NotificationPopoverPortlet"      
     class="VuetifyApp">
     <v-container pa-0>
-      <v-layout class="white px-3 pt-3">
+      <v-layout class="white pt-3">
         <v-btn
           icon
           class="text-xs-center"
