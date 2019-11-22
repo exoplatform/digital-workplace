@@ -1,7 +1,7 @@
 <div id="<%=uicomponent.id%>">
   <div class="dwMyApplications">
-    <v-btn text icon>
-      <v-icon class="white--text" style="font-size: 20px;">mdi-apps</v-icon>
-    </v-btn>
+    <button>
+         <i class="myApplicationIcon"></i>
+    </button>
   </div>
 </div>

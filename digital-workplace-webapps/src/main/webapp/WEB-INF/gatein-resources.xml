@@ -472,5 +472,16 @@
       <module>eXoVueI18n</module>
     </depends>
   </module>
+
+  <module>
+    <name>LeftNavigationDrawer</name>
+    <script>
+      <path>/js/DW-Drawer.js</path>
+    </script>
+    <depends>
+      <module>jquery</module>
+      <as>$</as>
+    </depends>
+  </module>
   
 </gatein-resources>

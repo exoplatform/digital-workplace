@@ -35,8 +35,7 @@
   eXo.env.portal.rest = '<%= PortalContainer.getCurrentRestContextName() %>';
 </script>
     
-<div id="UIWorkingWorkspace" class="UIWorkingWorkspace VuetifyApp" style="position: relative; z-index: 0;">
-    <div id="appDWHomePage">
+<div id="UIWorkingWorkspace" class="UIWorkingWorkspace" style="position: relative; z-index: 0;">
       <%
       try{
        uicomponent.renderChildren();
@@ -45,7 +44,6 @@
        NavigationUtils.removeNavigationAsJson(portalName, userName);
        }
       %>
-    </div>
 </div>
 
 <%
@@ -67,29 +65,3 @@ if (rcontext.getRemoteUser() != null && WCMComposer.MODE_EDIT.equals(Utils.getCu
   jsManager.require("SHARED/quick-edit", "quickEdit").addScripts("if(CKEDITOR) {for(var instanceName in CKEDITOR.instances) { var editor = CKEDITOR.instances[instanceName]; editor.on( 'focus', function( e ) {quickEdit.InlineEditor.removeHoverClass();} ); editor.on('change', function(e) {quickEdit.InlineEditor.modifyInlineContent();}); editor.on('blur', (function(tmp) { return function() {quickEdit.InlineEditor.saveInlineContent(tmp);}})(editor)); }}");
 }
 %>
-<script type="text/javascript">
-	require(['SHARED/jquery', 'SHARED/vuetify'], function(jQuery, vuetify){
-		new Vue({
-			el: '#appDWHomePage',
-			vuetify: new Vuetify(),
-			data () {
-            	return {
-            	    tab: null,
-            		drawer: null,
-            	}
-            },
-            methods: {
-                openDrawer() {
-                    this.drawer = !this.drawer;
-                    jQuery('body').addClass('open-drawer');
-                }
-            }
-		});
-
-		jQuery(document).ready(function() {
-             jQuery(document).on('click','.DWLeftNavigationContainer .v-overlay',function(e) {
-                jQuery('body').removeClass('open-drawer');
-            });
-         });
-	});
-</script>

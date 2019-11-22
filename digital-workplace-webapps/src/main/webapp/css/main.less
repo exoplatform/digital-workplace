@@ -20,10 +20,18 @@ body.open-drawer {
   background: #f2f2f2;
 }
 
-.DWLeftNavigationContainer {
-  aside {
-    z-index: 1031!important;
-    height: 100vh!important;
+#DWLeftNavigationContainer {
+   #DWLeftNavigation {
+      width: 320px;
+      position: fixed;
+      z-index: 1031;
+      height: 100vh;
+      top: 0;
+      transform: translateX(-100%);
+      background: #fff;
+      overflow: scroll;
+      transition-duration:.6s;
+     -webkit-transition-duration:.6s;
     #digital-workplace-left-navigation {
       .v-list-item-group {
         .v-list-item {
@@ -89,6 +97,7 @@ body.open-drawer {
         content: "\ebdb";
       }
     }
+   }
     /* width */
     ::-webkit-scrollbar {
       width: 10px;
@@ -112,17 +121,48 @@ body.open-drawer {
     ::-webkit-scrollbar-thumb:hover {
       background: #7d7d7d;
     }
-  }
-  .v-overlay {
-    z-index: 1031!important;
-    height: 100vh;
-  }
 
 }
 
+/*---------------------------------------------------*/
+
+.open-drawer {
+  #DWLeftNavigationContainer {
+    height: 100vh;
+    width: 100%;
+    background: #0b0b0b96;
+    position: fixed;
+    z-index: 1030;
+    top: 0;
+    transition: 1s all;
+    #DWLeftNavigation {
+      transform: translateX(0%) !important;
+    }
+  }
+}
+
 .dwHamburgerMenu {
-  .v-btn.v-btn--icon {
-    color: @greyColor!important;
+    .openDrawerBtn {
+      background: transparent;
+      border: transparent;
+      padding-top: 8px;
+      padding-right: 10px;
+      padding-left: 10px;
+      i {
+        font-family: 'PLF-FONT-ICONS' !important;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        color: @greyColor!important;
+          &:before {
+            content: '\e73c';
+          }
+    }
+      &:focus {
+        outline: none;
+      }
+
   }
 }
 
@@ -651,8 +691,25 @@ body.open-drawer {
 
       .dwMyApplications {
         padding: 11px;
-        .v-btn.v-btn--icon {
-          color: @greyColor!important;
+        button {
+          padding: 0;
+          background: transparent;
+          border: transparent;
+          padding-top: 8px;
+        .myApplicationIcon {
+            font-family: 'PLF-FONT-ICONS' !important;
+            font-size: 26px;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            color: @greyColor!important;
+            &:before {
+              content:'\e911';
+            }
+          }
+          &:focus {
+              outline: none;
+          }
         }
       }
       .MyApplicationsContainerTDContainer {
