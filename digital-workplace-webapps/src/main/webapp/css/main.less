@@ -764,4 +764,42 @@ body.open-drawer {
     #UIDWToolbarContainer.UIToolbarContainer .AdminToolBarPortletTDContainer {
       float: left!important;
     }
+/*------------------- bottom bar css --------------------*/
+    #NavigationToolbarPortlet {
+      .VuetifyApp *:not(.ignore-vuetify-classes) {
+        box-sizing: border-box;
+      }
+      .VuetifyApp .v-item-group.v-bottom-navigation .v-btn.v-btn--active {
+        color: @primaryColor !important;
+      }
+      .VuetifyApp .v-item-group.v-bottom-navigation {
+        overflow: auto;
+        justify-content: normal;
+      }
+    }
+    /*-------- bottom bar icons ----------*/
+    .people:before{
+      font-family: 'PLF-FONT-ICONS';
+      font-style: normal;
+      font-size: x-large;
+      content: "\e6ca"
+    }
+    .spaces:before{
+      font-family: 'PLF-FONT-ICONS';
+      font-style: normal;
+      font-size: x-large;
+      content: "\e648"
+    }
+    .stream:before{
+      font-family: 'PLF-FONT-ICONS';
+      font-style: normal;
+      font-size: x-large;
+      content: "\e6d5"
+    }
+    .snapshot:before{
+      font-family: 'PLF-FONT-ICONS';
+      font-style: normal;
+      font-size: x-large;
+      content: "\eb67"
+    }
 

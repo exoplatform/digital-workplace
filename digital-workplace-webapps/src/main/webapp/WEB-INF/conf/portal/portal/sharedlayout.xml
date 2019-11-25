@@ -188,7 +188,7 @@
         <portlet-application>
           <portlet>
             <application-ref>digital-workplace</application-ref>
-            <portlet-ref>digitalWorkplaceTopNavigation</portlet-ref>
+            <portlet-ref>digitalWorkplaceTopBottomNavigation</portlet-ref>
           </portlet>
           <title>Top Navigation</title>
           <access-permissions>*:/platform/users</access-permissions>

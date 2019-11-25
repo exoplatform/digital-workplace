@@ -448,19 +448,19 @@
   </module>
 
   <portlet>
-    <name>digitalWorkplaceTopNavigation</name>
+    <name>digitalWorkplaceTopBottomNavigation</name>
     <module>
       <depends>
-        <module>digitalWorkplaceTopNavigationBundle</module>
+        <module>digitalWorkplaceTopBottomNavigationBundle</module>
       </depends>
     </module>
   </portlet>
 
   <module>
-    <name>digitalWorkplaceTopNavigationBundle</name>
+    <name>digitalWorkplaceTopBottomNavigationBundle</name>
     <script>
       <minify>false</minify>
-      <path>/js/topNavigation.bundle.js</path>
+      <path>/js/topBottomNavigation.bundle.js</path>
     </script>
     <depends>
       <module>vue</module>

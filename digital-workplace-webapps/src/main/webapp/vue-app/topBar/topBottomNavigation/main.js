@@ -1,4 +1,4 @@
-import TopNavigationApp from './components/TopNavigation.vue';
+import TopBottomNavigationApp from './components/TopBottomNavigation.vue';
 
 import '../../../css/main.less';
 
@@ -21,9 +21,9 @@ export function init() {
         .then(i18n => {
         // init Vue app when locale ressources are ready
         new Vue({
-            render: h => h(TopNavigationApp),
+            render: h => h(TopBottomNavigationApp),
             i18n,
             vuetify,
-    }).$mount('#digital-workplace-top-navigation');
+    }).$mount('#digital-workplace-top-Bottom-navigation');
 });
 }
