@@ -33,6 +33,15 @@
       <visibility>SYSTEM</visibility>
       <page-reference>portal::dw::wallet</page-reference>
     </node>
+
+    <node>
+      <uri>notifications</uri>
+      <name>notifications</name>
+      <label>#{portal.dw.notifications}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::notifications</page-reference>
+    </node>
+
   </page-nodes>
 
 </node-navigation>

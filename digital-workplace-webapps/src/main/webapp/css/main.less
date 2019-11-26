@@ -77,14 +77,19 @@ body.open-drawer {
         font-variant: normal;
       }
       .accountTitle {
-        border-bottom: 1px solid #f7f7f7;
-        border-top: 1px solid #f7f7f7;
-        i {
-          color: @blueGreyColor;
-          font-size: 22px;
-        }
-        .accountTitleLabel {
-          color: @blueGreyColor;
+        .accountTitleWrapper {
+          border: 1px solid #f7f7f7;
+          border-radius: 0 25px 25px 0;
+          margin-right: 20px;
+
+          i {
+            color: @blueGreyColor;
+            font-size: 22px;
+          }
+
+          .accountTitleLabel {
+            color: @blueGreyColor;
+          }
         }
       }
       .accountIcon:before {
@@ -121,6 +126,52 @@ body.open-drawer {
     ::-webkit-scrollbar-thumb:hover {
       background: #7d7d7d;
     }
+
+  #digital-workplace-mySettings {
+    i {
+      color: @leftIconColor;
+      font-family: 'PLF-FONT-ICONS' !important;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+    }
+    .settingsTitle {
+      .settingsTitleWrapper {
+        border: 1px solid #f7f7f7;
+        border-radius: 0 25px 25px 0;
+        margin-right: 20px;
+        i {
+          color: @blueGreyColor;
+          font-size: 22px;
+        }
+
+        .settingsTitleLabel {
+          color: @blueGreyColor;
+        }
+      }
+    }
+    .settingsIcon:before {
+      content: "\eaf2";
+    }
+    .securityIcon:before {
+      content: "\e794";
+    }
+    .notifIcon:before {
+      content: "\e963";
+    }
+
+    .languageIcon:before {
+      content: "\e9f1";
+    }
+
+    .helpIcon:before {
+      content: "\ea05";
+    }
+    .logoutIcon:before {
+      content: "\e6d1";
+    }
+  }
 
 }
 
