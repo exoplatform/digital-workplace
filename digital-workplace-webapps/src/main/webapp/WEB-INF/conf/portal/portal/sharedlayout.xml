@@ -173,7 +173,6 @@
       </container>
       <container id="NavigationToolbarPortlet"
                  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <access-permissions>*:/platform/administrators;editor:/platform/web-contributors</access-permissions>
         <portlet-application>
           <portlet>
             <application-ref>digital-workplace</application-ref>
