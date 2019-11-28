@@ -9,7 +9,7 @@
       class="white">
       <v-row
         class="mx-0 accountTitle">
-        <v-list-item>
+        <v-list-item class="accountTitleWrapper">
           <v-list-item-icon class="my-2"><i class="accountIcon"></i></v-list-item-icon>
           <v-list-item-content class="subtitle-1 text-uppercase font-weight-bold accountTitleLabel py-2">{{ this.$t('homepage.sidebar.account.title') }}</v-list-item-content>
         </v-list-item>

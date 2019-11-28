@@ -22,7 +22,7 @@ let config = {
     myAccount: './src/main/webapp/vue-app/sidebar/myAccount/main.js',
     mySettings: './src/main/webapp/vue-app/sidebar/mySettings/main.js',
     notification: './src/main/webapp/vue-app/topBar/notification/main.js',
-    topNavigation: './src/main/webapp/vue-app/topBar/topNavigation/main.js'
+    topBottomNavigation: './src/main/webapp/vue-app/topBar/topBottomNavigation/main.js'
   },
   output: {
     filename: 'js/[name].bundle.js',

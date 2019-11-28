@@ -8,33 +8,60 @@
 @leftNavigationHoverBG: #476a9c;
 @leftIconColor: #a8b3c5;
 @menuTextColor: #757575;
-
+@greyBackground: #e1e8ee;
 
 /*-------------------------Global page Container--------------------------*/
 
 body.open-drawer {
   overflow: hidden;
+  .openRecentSpaces {
+    overflow: inherit!important;
+  }
 }
 
-#NavigationPortlet {
-  background: #f2f2f2;
-}
+#DWLeftNavigationContainer {
 
-.DWLeftNavigationContainer {
-  aside {
+  .recentDrawer {
+    transform: translateX(30%) !important;
+    position: fixed !important;
+    min-height: 100vh !important;
+    z-index: -1 !important;
+  }
+
+  .openRecentSpaces .recentDrawer {
+    transform: translateX(120%) !important;
     z-index: 1031!important;
-    height: 100vh!important;
+  }
+
+  #NavigationPortlet {
+    background: #f2f2f2;
+  }
+
+  i {
+    font-family: 'PLF-FONT-ICONS' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+  }
+   #DWLeftNavigation {
+      width: 320px;
+      position: fixed;
+      z-index: 1031;
+      height: 100vh;
+      top: 0;
+      transform: translateX(-100%);
+      background: #fff;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      transition-duration:.6s;
+     -webkit-transition-duration:.6s;
     #digital-workplace-left-navigation {
       .v-list-item-group {
         .v-list-item {
           color: @menuTextColor!important;
           .v-list-item__icon i {
             color: @leftIconColor;
-            font-family: 'PLF-FONT-ICONS' !important;
             font-size: 22px;
-            font-style: normal;
-            font-weight: normal;
-            font-variant: normal;
           }
           .iconSnapshot:before {
             content: "\eb67";
@@ -62,21 +89,22 @@ body.open-drawer {
     #digital-workplace-myAccount {
       i {
         color: @leftIconColor;
-        font-family: 'PLF-FONT-ICONS' !important;
         font-size: 20px;
-        font-style: normal;
-        font-weight: normal;
-        font-variant: normal;
       }
       .accountTitle {
-        border-bottom: 1px solid #f7f7f7;
-        border-top: 1px solid #f7f7f7;
-        i {
-          color: @blueGreyColor;
-          font-size: 22px;
-        }
-        .accountTitleLabel {
-          color: @blueGreyColor;
+        .accountTitleWrapper {
+          border: 1px solid #f7f7f7;
+          border-radius: 0 25px 25px 0;
+          margin-right: 20px;
+
+          i {
+            color: @blueGreyColor;
+            font-size: 22px;
+          }
+
+          .accountTitleLabel {
+            color: @blueGreyColor;
+          }
         }
       }
       .accountIcon:before {
@@ -89,6 +117,97 @@ body.open-drawer {
         content: "\ebdb";
       }
     }
+     #spaces-navigation {
+       .spacesNavigationTitle {
+         .uiArrowRightIcon {
+           font-size: 26px;
+           color: @blueGreyColor;
+           &:before {
+             content: '\e919';
+           }
+         }
+         .titleIcon {
+           .spacesIcon {
+             color: @leftIconColor;
+             font-size: 22px;
+             &:before {
+               content: '\e630';
+             }
+           }
+
+         }
+         .titleLabel {
+             color: @menuTextColor!important;
+         }
+       }
+       .spacesNavigationContent {
+         .spaceItem {
+           .spaceAvatar {
+             border-radius: 4px;
+           }
+         }
+
+       }
+       .recentDrawer {
+         .recentSpacesTitle {
+           .recentSpacesTitleLabel {
+             color: @menuTextColor!important;
+           }
+           .recentSpacesTitleIcon {
+             .uiSearchIcon {
+               color: @blueGreyColor;
+               font-size: 20px;
+               &:before {
+                 content: '\e978';
+               }
+             }
+           }
+         }
+         .filterSpaces {
+           button {
+             position: absolute;
+             top:10px;
+             right: 15px;
+           }
+         }
+         .spaceItem {
+           min-height: 30px!important;
+           .spaceAvatar {
+             border-radius: 4px;
+           }
+         }
+
+         .recentSpacesFilter {
+           input {
+             box-shadow: none;
+             border-color: transparent;
+             margin-bottom: 0;
+             padding: 0;
+           }
+           label {
+             font-size: 14px;
+           }
+         }
+         .recentSpacesWrapper {
+           .addSpaces {
+             border: 1px dashed @greyBackground;
+             .v-avatar {
+               background: @greyBackground;
+               border-radius: 4px;
+             .uiPlusEmptyIcon {
+               color: @blueGreyColor;
+               font-size: 22px;
+               &:before {
+                 content: '\ead0';
+               }
+             }
+             }
+           }
+         }
+       }
+     }
+   }
+
     /* width */
     ::-webkit-scrollbar {
       width: 10px;
@@ -112,17 +231,94 @@ body.open-drawer {
     ::-webkit-scrollbar-thumb:hover {
       background: #7d7d7d;
     }
-  }
-  .v-overlay {
-    z-index: 1031!important;
-    height: 100vh;
+
+  #digital-workplace-mySettings {
+    i {
+      color: @leftIconColor;
+      font-family: 'PLF-FONT-ICONS' !important;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+    }
+    .settingsTitle {
+      .settingsTitleWrapper {
+        border: 1px solid #f7f7f7;
+        border-radius: 0 25px 25px 0;
+        margin-right: 20px;
+        i {
+          color: @blueGreyColor;
+          font-size: 22px;
+        }
+
+        .settingsTitleLabel {
+          color: @blueGreyColor;
+        }
+      }
+    }
+    .settingsIcon:before {
+      content: "\eaf2";
+    }
+    .securityIcon:before {
+      content: "\e794";
+    }
+    .notifIcon:before {
+      content: "\e963";
+    }
+
+    .languageIcon:before {
+      content: "\e9f1";
+    }
+
+    .helpIcon:before {
+      content: "\ea05";
+    }
+    .logoutIcon:before {
+      content: "\e6d1";
+    }
   }
 
 }
 
+/*---------------------------------------------------*/
+
+.open-drawer {
+  #DWLeftNavigationContainer {
+    height: 100vh;
+    width: 100%;
+    background: #0b0b0b96;
+    position: fixed;
+    z-index: 1030;
+    top: 0;
+    transition: .5s all;
+    #DWLeftNavigation {
+      transform: translateX(0%) !important;
+    }
+  }
+}
+
 .dwHamburgerMenu {
-  .v-btn.v-btn--icon {
-    color: @greyColor!important;
+    .openDrawerBtn {
+      background: transparent;
+      border: transparent;
+      padding-top: 8px;
+      padding-right: 10px;
+      padding-left: 10px;
+      i {
+        font-family: 'PLF-FONT-ICONS' !important;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        color: @greyColor!important;
+          &:before {
+            content: '\e73c';
+          }
+    }
+      &:focus {
+        outline: none;
+      }
+
   }
 }
 
@@ -163,6 +359,9 @@ body.open-drawer {
   
   #digital-workplace-profile-stats {
     background: transparent;
+    .subtitle-2 {
+      color: #4d5466;
+    }
     .profileCard {
       position: relative;
       width: 100%;
@@ -453,6 +652,9 @@ body.open-drawer {
       padding-left: 18px;
     }
   }
+  #NavigationToolbarPortlet {
+    max-width: 300px!important;
+  }
 }
 
 @media (max-width: 599px) {
@@ -600,7 +802,6 @@ body.open-drawer {
 
 /*--------------- TopBar CSS ---------------------------*/
     #UIDWToolbarContainer {
-	  box-shadow: none;
 	  left: 0!important;
 	  .toggle-left-bar span {
         background: @greyColor;
@@ -648,8 +849,25 @@ body.open-drawer {
 
       .dwMyApplications {
         padding: 11px;
-        .v-btn.v-btn--icon {
-          color: @greyColor!important;
+        button {
+          padding: 0;
+          background: transparent;
+          border: transparent;
+          padding-top: 8px;
+        .myApplicationIcon {
+            font-family: 'PLF-FONT-ICONS' !important;
+            font-size: 26px;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            color: @greyColor!important;
+            &:before {
+              content:'\e911';
+            }
+          }
+          &:focus {
+              outline: none;
+          }
         }
       }
       .MyApplicationsContainerTDContainer {
@@ -658,6 +876,7 @@ body.open-drawer {
 
     /*---------- Navigation TopBar CSS ----------------*/
     #NavigationToolbarPortlet {
+      max-width: 400px;
       .v-tabs-slider-wrapper{
         height: 4px!important;
       }
@@ -702,5 +921,52 @@ body.open-drawer {
     #UIDWToolbarContainer.UIToolbarContainer .UISetupPlatformToolBarPortletIDTDContainer,
     #UIDWToolbarContainer.UIToolbarContainer .AdminToolBarPortletTDContainer {
       float: left!important;
+    }
+    #UIDWToolbarContainer.UIToolbarContainer .uiDropdownWithIcon > a {
+      padding: 0 12px 0 12px;
+    }
+    #UIDWToolbarContainer.UIToolbarContainer {
+      box-shadow: none;
+    }
+    #UIDWToolbarContainer.top-bar-scrolled {
+      box-shadow: 0 6px 4px -4px rgba(0,0,0,.3);
+    }
+/*------------------- bottom bar css --------------------*/
+    #NavigationToolbarPortlet {
+      .VuetifyApp *:not(.ignore-vuetify-classes) {
+        box-sizing: border-box;
+      }
+      .VuetifyApp .v-item-group.v-bottom-navigation .v-btn.v-btn--active {
+        color: @primaryColor !important;
+      }
+      .VuetifyApp .v-item-group.v-bottom-navigation {
+        overflow: auto;
+        justify-content: normal;
+      }
+    }
+    /*-------- bottom bar icons ----------*/
+    .people:before{
+      font-family: 'PLF-FONT-ICONS';
+      font-style: normal;
+      font-size: x-large;
+      content: "\e6ca"
+    }
+    .spaces:before{
+      font-family: 'PLF-FONT-ICONS';
+      font-style: normal;
+      font-size: x-large;
+      content: "\e648"
+    }
+    .stream:before{
+      font-family: 'PLF-FONT-ICONS';
+      font-style: normal;
+      font-size: x-large;
+      content: "\e6d5"
+    }
+    .snapshot:before{
+      font-family: 'PLF-FONT-ICONS';
+      font-style: normal;
+      font-size: x-large;
+      content: "\eb67"
     }
 

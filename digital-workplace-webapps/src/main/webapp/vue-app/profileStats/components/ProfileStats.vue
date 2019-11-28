@@ -31,14 +31,14 @@
 <script>
     import UserDashboard from './UserDashbord.vue';
     import ConnectionsRequests from './ConnectionsRequests.vue';
-    import LeaderBoard from './LeaderBoard.vue';
+    import TotalPoints from './TotalPoints.vue';
     import SpacesRequests from './SpacesRequests.vue';
     import GamificationRank from "./GamificationRank.vue";
     export default {
         components: {
             UserDashboard,
             ConnectionsRequests,
-            LeaderBoard,
+            TotalPoints,
             SpacesRequests,
             GamificationRank
         },

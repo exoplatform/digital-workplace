@@ -6,7 +6,8 @@
     flat>
     <v-container 
       px-0 
-      py-4 
+      pt-4
+      pb-0
       class="white">
       <v-row 
         align="center" 
@@ -24,7 +25,8 @@
         <v-list 
           shaped 
           dense 
-          min-width="90%">
+          min-width="90%"
+          class="pb-0">
           <v-list-item-group v-model="item">
             <v-list-item
               v-for="(item, i) in items"

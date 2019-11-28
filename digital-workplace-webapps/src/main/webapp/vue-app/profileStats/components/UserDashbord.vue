@@ -80,7 +80,7 @@
             align-center>
             <v-card
               flat>
-              <a @click="getSpecificCard('LeaderBoard')">
+              <a @click="getSpecificCard('TotalPoints')">
                 <v-card-text class="headline blue-grey--text font-weight-bold pa-1">53</v-card-text>
                 <v-card-text class="pa-1 subtitle-1 blue-grey--text">{{ this.$t('homepage.profileStatus.totalPoints') }}</v-card-text>
               </a>
