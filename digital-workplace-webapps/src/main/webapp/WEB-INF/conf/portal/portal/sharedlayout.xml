@@ -123,7 +123,7 @@
     
 <!--     DW -->
     <container id="UIDWToolbarContainer"
-      template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
+      template="system:/groovy/portal/webui/container/UIDWToolbarcontainer.gtmpl">
       <access-permissions>*:/platform/users</access-permissions>
       <container id="left-topNavigation-container"
         template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">

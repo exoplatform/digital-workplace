@@ -483,5 +483,16 @@
       <as>$</as>
     </depends>
   </module>
+
+  <module>
+    <name>ShadowScroll</name>
+    <script>
+      <path>/js/Shadow-Scroll.js</path>
+    </script>
+    <depends>
+      <module>jquery</module>
+      <as>$</as>
+    </depends>
+  </module>
   
 </gatein-resources>
