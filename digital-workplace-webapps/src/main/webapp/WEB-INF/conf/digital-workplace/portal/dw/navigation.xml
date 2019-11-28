@@ -42,6 +42,15 @@
       <page-reference>portal::dw::notifications</page-reference>
     </node>
 
+    <node>
+      <uri>all-spaces</uri>
+      <name>all-spaces</name>
+      <label>#{portal.dw.allSpaces}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::all-spaces</page-reference>
+    </node>
+
+
   </page-nodes>
 
 </node-navigation>

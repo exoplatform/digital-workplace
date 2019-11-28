@@ -7,7 +7,10 @@
                     });
 
                     $(document).on('click','#DWLeftNavigationContainer',function(e) {
-                        $('body').removeClass('open-drawer');
+                        if(e.target == this) {
+                            $('body').removeClass('open-drawer');
+                            $('#DWLeftNavigation').removeClass('openRecentSpaces');
+                        }
                     });
 
                 });
