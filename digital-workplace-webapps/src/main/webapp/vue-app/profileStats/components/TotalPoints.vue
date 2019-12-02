@@ -61,7 +61,7 @@
             style: {
               text: `Total\n${1500}`,
               textAlign: 'center',
-              font: 'bolder 16px cursive',
+              font: '16px arial',
               fill:'#4d5466',
               width: 30,
               height: 30
