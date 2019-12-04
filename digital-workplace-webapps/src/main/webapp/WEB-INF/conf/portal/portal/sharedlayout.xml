@@ -195,17 +195,6 @@
           <show-info-bar>false</show-info-bar>
         </portlet-application>
       </container>
-      <container id="UISetupPlatformToolBarPortletID"
-        template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <portlet-application>
-          <portlet>
-            <application-ref>platformNavigation</application-ref>
-            <portlet-ref>UISetupPlatformToolBarPortlet</portlet-ref>
-          </portlet>
-          <access-permissions>*:/platform/users</access-permissions>
-          <show-info-bar>false</show-info-bar>
-        </portlet-application>
-      </container>
     </container>
   </container>
 <!--     DW -->
@@ -227,7 +216,6 @@
           <show-info-bar>false</show-info-bar>
         </portlet-application>
       </container>
-
       <container id="DWSpacesNavigationPortlet"
                    template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
             <access-permissions>*:/platform/users</access-permissions>
@@ -242,7 +230,7 @@
         </container>
 
       <container id="DWAdministrationPortlet"
-        template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+                 template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
         <portlet-application>
           <portlet>

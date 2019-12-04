@@ -10,6 +10,7 @@
                         if(e.target == this) {
                             $('body').removeClass('open-drawer');
                             $('#DWLeftNavigation').removeClass('openRecentSpaces');
+                            $('#DWLeftNavigation').removeClass('openAdministrationMenu');
                         }
                     });
 

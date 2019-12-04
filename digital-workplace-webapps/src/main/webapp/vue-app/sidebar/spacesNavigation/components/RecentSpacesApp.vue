@@ -40,6 +40,7 @@
     <v-list
       dense
       nav
+      rounded
       class="recentSpacesWrapper">
       <v-list-item class="addSpaces my-2" @click="navigateTo('all-spaces')">
         <v-list-item-avatar 
