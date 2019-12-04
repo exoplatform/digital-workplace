@@ -149,7 +149,7 @@
       },
       methods: {
         navigateTo(pagelink) {
-          location.href=`/portal/g/:platform:/${ pagelink }` ;
+          location.href=`/portal/g/:platform:${ pagelink }` ;
         }
       }
 
