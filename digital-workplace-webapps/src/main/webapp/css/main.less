@@ -1044,4 +1044,40 @@ body.open-drawer {
       font-size: x-large;
       content: "\eb67"
     }
+    
+    /*----------- Task Drawer CSS ---------------*/
+    
+    #digital-workplace-tasks {
+       .v-navigation-drawer--temporary {
+        z-index: 1050;
+      }
+    
+       .theme--light.v-navigation-drawer {
+        position: fixed;
+      }
+    
+      .v-text-field.v-text-field--solo:not(.v-text-field--solo-flat) > .v-input__control > .v-input__slot {
+        box-shadow: none;
+        padding-left: 0px;
+    
+      }
+    
+       .v-input__icon {
+        height: 10px;
+        width: 10px;
+      }
+    
+      .styleIcon {
+        padding-top: 10px
+      }
+    
+       .v-input--selection-controls.v-input .v-label {
+        margin: 0px;
+      }
+    
+       input:not(.ignore-vuetify-classes) {
+        width: 80px;
+        cursor: pointer;
+      }
+    }
 
