@@ -10,7 +10,7 @@
       <v-row
         class="mx-0 accountTitle">
         <v-list-item class="accountTitleWrapper">
-          <v-list-item-icon class="my-2"><i class="accountIcon"></i></v-list-item-icon>
+          <v-list-item-icon class="my-2 mr-6"><i class="accountIcon"></i></v-list-item-icon>
           <v-list-item-content class="subtitle-1 text-uppercase font-weight-bold accountTitleLabel py-2">{{ this.$t('homepage.sidebar.account.title') }}</v-list-item-content>
         </v-list-item>
       </v-row>
@@ -25,7 +25,7 @@
               <v-img v-if="item.pageName === 'My profile'" src="/rest/v1/social/users/root/avatar"/>
               <i v-else :class="item.link+'Icon'"></i>
             </v-list-item-avatar>
-            <v-list-item-content class="body-2">{{ item.pageName }}</v-list-item-content>
+            <v-list-item-content class="body-2 myAccountItemLabel">{{ item.pageName }}</v-list-item-content>
           </v-list-item>
         </v-list>
       </v-row>

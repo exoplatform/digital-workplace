@@ -16,9 +16,11 @@ body.open-drawer {
   overflow: hidden;
   .openRecentSpaces {
     overflow: inherit!important;
+    width: 310px!important;
   }
   .openAdministrationMenu {
-    overflow: inherit!important;
+   overflow: inherit!important;
+    width: 310px!important;
   }
 }
 
@@ -27,29 +29,30 @@ body.open-drawer {
 }
 
 #DWLeftNavigationContainer {
-
   .recentDrawer {
-    transform: translateX(30%) !important;
+    transform: translateX(20%) !important;
     position: fixed !important;
     min-height: 100vh !important;
     z-index: -1 !important;
   }
 
   .openRecentSpaces .recentDrawer {
-    transform: translateX(120%) !important;
-    z-index: 1031!important;
+    transform: translateX(121%) !important;
+    margin-left: -1px;
+    border-left: 1px solid @greyWhiteColor;
   }
 
   .administrationDrawer {
-    transform: translateX(30%) !important;
+    transform: translateX(20%) !important;
     position: fixed !important;
     min-height: 100vh !important;
     z-index: -1 !important;
   }
 
   .openAdministrationMenu .administrationDrawer {
-    transform: translateX(120%) !important;
-    z-index: 1031!important;
+    transform: translateX(121%) !important;
+    margin-left: -1px;
+    border-left: 1px solid @greyWhiteColor;
   }
 
   i {
@@ -60,16 +63,13 @@ body.open-drawer {
   }
   #DWLeftNavigation {
       width: 320px;
-      position: fixed;
+      position: absolute;
       z-index: 1031;
       height: 100vh;
-      top: 0;
       transform: translateX(-100%);
       background: #fff;
       overflow-y: scroll;
       overflow-x: hidden;
-      transition-duration:.3s;
-     -webkit-transition-duration:.3s;
       #digital-workplace-left-navigation {
       .v-list-item-group {
         .v-list-item {
@@ -111,7 +111,6 @@ body.open-drawer {
           border: 1px solid #f7f7f7;
           border-radius: 0 25px 25px 0;
           margin-right: 20px;
-
           i {
             color: @blueGreyColor;
             font-size: 22px;
@@ -121,6 +120,11 @@ body.open-drawer {
             color: @blueGreyColor;
           }
         }
+      }
+      .accountLinks {
+          .myAccountItemLabel {
+            color: @menuTextColor;
+          }
       }
       .accountIcon:before {
         content: "\e6cc";
@@ -134,6 +138,7 @@ body.open-drawer {
     }
       #spaces-navigation {
        .spacesNavigationTitle {
+         cursor: pointer;
          .uiArrowRightIcon {
            font-size: 18px;
            color: @blueGreyColor;
@@ -165,6 +170,7 @@ body.open-drawer {
        }
        .recentDrawer {
          .recentSpacesTitle {
+           min-height: 56px;
            .recentSpacesTitleLabel {
              color: @menuTextColor!important;
            }
@@ -223,6 +229,7 @@ body.open-drawer {
      }
     #administration-navigation {
        .administrationTitle {
+         cursor: pointer;
          .uiAdministrationIcon {
            color: @leftIconColor;
            font-size: 22px;
@@ -307,6 +314,19 @@ body.open-drawer {
         }
       }
     }
+    .settingsLinks {
+      .mySettingsItemLabel {
+        color: @menuTextColor;
+      }
+    }
+    .logoutLinks {
+      .settingsTitleLabel {
+        color: @blueGreyColor;
+      }
+      .logoutIcon {
+        color: @blueGreyColor;
+      }
+    }
     .settingsIcon:before {
       content: "\eaf2";
     }
@@ -339,9 +359,10 @@ body.open-drawer {
     width: 100%;
     background: #0b0b0b96;
     position: fixed;
-    z-index: 1030;
+
     top: 0;
-    transition: .5s all;
+    transition: .2s all;
+    z-index: 1030;
     #DWLeftNavigation {
       transform: translateX(0%) !important;
     }
