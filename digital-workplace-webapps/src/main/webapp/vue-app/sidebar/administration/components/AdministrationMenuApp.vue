@@ -5,81 +5,23 @@
     absolute
     temporary
     hide-overlay>
-    <v-list
-      dense
-      rounded
-      class="adminMenu communityMenuWrapper">
-      <v-subheader class="text-uppercase subtitle-2 font-weight-bold">Community</v-subheader>
-      <v-treeview
-        :items="communityItems"
-        dense
-        rounded
-        hoverable
-        class="subItemTitle"
-        item-key="name">
-        <template slot="label" slot-scope="{ item }">
-          <a @click="navigateTo(item.path)">{{ item.name }}</a>
-        </template>
-      </v-treeview>
-    </v-list>
-    <v-list
-      dense
-      rounded
-      class="adminMenu contentMenuWrapper">
-      <v-subheader class="text-uppercase subtitle-2 font-weight-bold">Content</v-subheader>
-      <v-treeview
-        :items="contentItems"
-        dense
-        rounded
-        hoverable
-        class="subItemTitle"
-        item-key="name">
-        <template slot="label" slot-scope="{ item }">
-          <a @click="navigateTo(item.path)">{{ item.name }}</a>
-        </template>
-      </v-treeview>
-    </v-list>
-    <v-list
-      dense
-      rounded
-      class="adminMenu contentMenuWrapper">
-      <v-subheader class="text-uppercase subtitle-2 font-weight-bold">Gamification</v-subheader>
-      <v-treeview
-        :items="gamificationItems"
-        dense
-        rounded
-        hoverable
-        class="subItemTitle"
-        item-key="name">
-        <template slot="label" slot-scope="{ item }">
-          <a @click="navigateTo(item.path)">{{ item.name }}</a>
-        </template>
-      </v-treeview>
-    </v-list>
-    <v-list
-      dense
-      rounded
-      class="adminMenu contentMenuWrapper">
-      <v-subheader class="text-uppercase subtitle-2 font-weight-bold">Rewards</v-subheader>
-
-      <v-treeview
-        :items="rewardsItems"
-        dense
-        rounded
-        hoverable
-        class="subItemTitle"
-        item-key="name">
-        <template slot="label" slot-scope="{ item }">
-          <a @click="navigateTo(item.path)">{{ item.name }}</a>
-        </template>
-      </v-treeview>
-
-    </v-list>
+    <administration-menu-item-app :administration-item="usersItems" item-title="Users"/>
+    <administration-menu-item-app :administration-item="contentItems" item-title="Content"/>
+    <administration-menu-item-app :administration-item="gamificationItems" item-title="Gamification"/>
+    <administration-menu-item-app :administration-item="rewardsItems" item-title="Reward"/>
+    <administration-menu-item-app :administration-item="searchItems" item-title="Search"/>
+    <administration-menu-item-app :administration-item="portalItems" item-title="Portal"/>
+    <administration-menu-item-app :administration-item="spacesItems" item-title="Spaces"/>
+    <administration-menu-item-app :administration-item="othersItems" item-title="Other"/>
   </v-navigation-drawer>
 </template>
 <script>
+  import AdministrationMenuItemApp from "./AdministrationMenuItemApp.vue";
     export default {
         name: "AdministrationMenuApp",
+        components: {
+            AdministrationMenuItemApp
+        },
         props: {
             administrationDrawer: {
                 type: Object,
@@ -88,7 +30,7 @@
         },
       data() {
           return {
-            communityItems: [
+            usersItems: [
               {
                 name: 'Add users',
                 path: 'administrators/administration/newStaff'
@@ -100,7 +42,7 @@
             ],
             contentItems: [
               {
-                name: 'Sites Explorer',
+                name: 'Explorer',
                 path: 'web-contributors/siteExplorer'
               },
               {
@@ -144,14 +86,56 @@
                 name: 'Rewards',
                 path: 'rewarding/rewardAdministration'
               }
-            ]
+            ],
+            searchItems: [
+              {
+                name: 'Indexing',
+                path: 'administrators/searchIndexing'
+              },
+              {
+                name: 'Connectors',
+                path: '#'
+              }
+            ],
+            portalItems: [
+              {
+                name: 'Sites',
+                path: 'administrators/portalnavigation'
+              },
+              {
+                name: 'Pages',
+                path: 'administrators/administration/pageManagement'
+              },
+              {
+                name: 'Branding',
+                path: 'administrators/branding'
+              }
+            ],
+            spacesItems: [
+              {
+                name: 'Manage Spaces',
+                path: 'users/spacesAdministration'
+              },
+              {
+                name: 'Manage Templates',
+                path: 'administrators/spacesTemplates'
+              }
+            ],
+            othersItems: [
+              {
+                name: 'Applications',
+                path: 'administrators/administration/registry'
+              },
+              {
+                name: 'Notifications',
+                path: 'administrators/notification'
+              },
+              {
+                name: 'Web Conferencing',
+                path: 'administrators/webconferencing'
+              }
+            ],
           }
-      },
-      methods: {
-        navigateTo(pagelink) {
-          location.href=`/portal/g/:platform:${ pagelink }` ;
-        }
       }
-
     }
 </script>

@@ -231,7 +231,7 @@
 
       <container id="DWAdministrationPortlet"
                  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <access-permissions>*:/platform/users</access-permissions>
+        <access-permissions>*:/platform/administrators</access-permissions>
         <portlet-application>
           <portlet>
             <application-ref>digital-workplace</application-ref>
