@@ -171,6 +171,13 @@ body.open-drawer {
        .recentDrawer {
          .recentSpacesTitle {
            min-height: 56px;
+           .uiArrowBackIcon {
+             color: @blueGreyColor;
+             font-size: 20px;
+             &:before {
+               content: '\e913';
+             }
+           }
            .recentSpacesTitleLabel {
              color: @menuTextColor!important;
            }
@@ -207,6 +214,13 @@ body.open-drawer {
            }
            label {
              font-size: 14px;
+           }
+           >.v-input__control>.v-input__slot:before {
+             display: none;
+           }
+
+           >.v-input__control>.v-input__slot:after {
+             display: none;
            }
          }
          .recentSpacesWrapper {
@@ -789,6 +803,15 @@ body.open-drawer {
       margin-top: 0;
     }
   }
+  #DWLeftNavigationContainer {
+    .openRecentSpaces {
+      .activeDrawerMobile {
+        transform: translateX(0%) !important;
+        width: 320px!important;
+        z-index: 1031!important;
+      }
+    }
+  }
 }
 @media (max-width: 500px) {
   .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
@@ -1044,40 +1067,39 @@ body.open-drawer {
       font-size: x-large;
       content: "\eb67"
     }
-    
+
     /*----------- Task Drawer CSS ---------------*/
-    
+
     #digital-workplace-tasks {
-       .v-navigation-drawer--temporary {
+      .v-navigation-drawer--temporary {
         z-index: 1050;
       }
-    
-       .theme--light.v-navigation-drawer {
+
+      .theme--light.v-navigation-drawer {
         position: fixed;
       }
-    
+
       .v-text-field.v-text-field--solo:not(.v-text-field--solo-flat) > .v-input__control > .v-input__slot {
         box-shadow: none;
         padding-left: 0px;
-    
+
       }
-    
-       .v-input__icon {
+
+      .v-input__icon {
         height: 10px;
         width: 10px;
       }
-    
+
       .styleIcon {
         padding-top: 10px
       }
-    
-       .v-input--selection-controls.v-input .v-label {
+
+      .v-input--selection-controls.v-input .v-label {
         margin: 0px;
       }
-    
-       input:not(.ignore-vuetify-classes) {
+
+      input:not(.ignore-vuetify-classes) {
         width: 80px;
         cursor: pointer;
       }
     }
-
