@@ -2,6 +2,7 @@
 <template>
   <ckeditor
     v-model="editorData"
+    :config="editorConfig"
     type="classic"/>
 </template>
 
@@ -19,7 +20,20 @@
   export default {
     data: function () {
       return {
-        editorData: '<p>I\'m a description</p>',
+        editorData: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>',
+        editorConfig: {
+          toolbar: {
+            items: [
+              'bold',
+              'italic',
+              '|',
+              'bulletedList',
+              '|',
+              'redo',
+              'undo'
+            ]
+          }
+        },
       };
     }
   }

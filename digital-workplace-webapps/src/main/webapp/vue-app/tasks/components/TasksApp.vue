@@ -220,7 +220,7 @@
         </v-flex></v-layout></v-flex>
       </v-layout>
     </v-container>
-    <task-drawer :drawer="drawer"/>
+    <task-drawer :drawer="drawer" @closeDrawer="onCloseDrawer"/>
   </v-app>
 </template>
 
@@ -259,6 +259,11 @@
     methods: {
       getTaskDrawer() {
         this.drawer = !this.drawer;
+        document.body.style.overflow = this.drawer ? 'hidden' : 'auto';
+      },
+      onCloseDrawer: function(drawer){
+        this.drawer = drawer;
+        document.body.style.overflow = 'auto';
       }
     }
   }
