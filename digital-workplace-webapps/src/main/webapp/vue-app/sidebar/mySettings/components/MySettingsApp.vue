@@ -5,7 +5,8 @@
     flat>
     <v-container
       px-0
-      py-4
+      pb-4
+      pt-0
       class="white">
       <v-row class="mx-0 settingsTitle">
         <v-list-item class="settingsTitleWrapper">

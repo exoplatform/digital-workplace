@@ -74,6 +74,28 @@ body.open-drawer {
       overflow-y: scroll;
       overflow-x: hidden;
       #digital-workplace-left-navigation {
+        .accountTitleWrapper {
+          border-bottom: 1px solid #f9f9f9;
+          .accountTitleItem {
+            &:before {
+              display: none!important;
+            }
+            &:hover {
+              &:before {
+                opacity: 0;
+              }
+            }
+            &:focus {
+              &:before {
+                opacity: 0;
+              }
+            }
+            .accountTitleLabel {
+              color: @menuTextColor;
+              font-size: 0.9rem!important;
+            }
+          }
+        }
       .v-list-item-group {
         .v-list-item {
           color: @menuTextColor!important;
@@ -102,41 +124,6 @@ body.open-drawer {
             color: white;
           }
         }
-      }
-    }
-      #digital-workplace-myAccount {
-      i {
-        color: @leftIconColor;
-        font-size: 20px;
-      }
-      .accountTitle {
-        .accountTitleWrapper {
-          border: 1px solid #f7f7f7;
-          border-radius: 0 25px 25px 0;
-          margin-right: 20px;
-          i {
-            color: @blueGreyColor;
-            font-size: 22px;
-          }
-
-          .accountTitleLabel {
-            color: @blueGreyColor;
-          }
-        }
-      }
-      .accountLinks {
-          .myAccountItemLabel {
-            color: @menuTextColor;
-          }
-      }
-      .accountIcon:before {
-        content: "\e6cc";
-      }
-      .walletIcon:before {
-        content: "\e9be";
-      }
-      .achievementsIcon:before {
-        content: "\ebdb";
       }
     }
       #spaces-navigation {
