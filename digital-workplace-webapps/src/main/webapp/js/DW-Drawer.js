@@ -1,4 +1,6 @@
 (function($) {
+    var positionTop = 0;
+    var topScroll = 0;
     var DWDrawer = {
         initDrawer : function() {
                 $(document).ready(function() {
@@ -6,13 +8,17 @@
                         $('body').addClass('open-drawer');
                     });
 
-                    var positionTop = 0;
                     var leftSideBar = $('#DWLeftNavigation');
                     var administrationDrawer = $('.administrationDrawer');
                     var adminTitleItem = $('.administrationTitle');
 
                     var spacesDrawer = $('.recentDrawer');
                     var spacesTitleItem = $('.spacesNavigationTitle');
+
+                    $("#DWLeftNavigation").on('scroll', function() {
+                        topScroll = $("#DWLeftNavigation").scrollTop();
+                    });
+
                     DWDrawer.toggleLeftMenuDrawer(adminTitleItem, leftSideBar, administrationDrawer, 'openAdministrationMenu');
                     DWDrawer.toggleLeftMenuDrawer(spacesTitleItem, leftSideBar, spacesDrawer, 'openRecentSpaces');
 
@@ -22,22 +28,22 @@
                         $('.spacesNavigationTitle').on({
                             click: function() {
                                 $(".recentDrawer").addClass("activeDrawerMobile");
-                                $('#DWLeftNavigation').addClass('openRecentSpaces');
+                                leftSideBar.addClass('openRecentSpaces');
                             },
                         });
 
                         $(document).on('click','.backToMenu',function(e) {
                             $('.recentDrawer').removeClass('activeDrawerMobile');
-                            $('#DWLeftNavigation').removeClass('openRecentSpaces');
+                            leftSideBar.removeClass('openRecentSpaces');
                         });
-                    };
+                    }
 
                     $(document).on('click','#DWLeftNavigationContainer',function(e) {
                         if(e.target == this) {
                             $('body').removeClass('open-drawer');
-                            $('#DWLeftNavigation').removeClass('openRecentSpaces');
-                            $('#DWLeftNavigation').removeClass('openAdministrationMenu');
-                            $("#DWLeftNavigation").scrollTop(0);
+                            leftSideBar.removeClass('openRecentSpaces');
+                            leftSideBar.removeClass('openAdministrationMenu');
+                            leftSideBar.scrollTop(0);
                         }
                     });
 
@@ -50,14 +56,17 @@
             item.on({
                 mouseenter: function() {
                     positionTop = DWDrawer.getScrollTopPosition();
-                    leftNavigation.css("margin-top", "-"+ positionTop+"px");
-                    drawer.css("margin-top", positionTop+"px");
+                    if(topScroll < positionTop) {
+                        topScroll = positionTop;
+                    }
+                    leftNavigation.css("margin-top", "-"+ topScroll+"px");
+                    drawer.css("margin-top", topScroll+"px");
                     leftNavigation.addClass(className);
                 },
                 mouseleave: function() {
                     if(drawer.mousenter) {
-                        leftNavigation.css("margin-top", "-"+ positionTop+"px");
-                        drawer.css("margin-top", positionTop+"px");
+                        leftNavigation.css("margin-top", "-"+ topScroll+"px");
+                        drawer.css("margin-top", topScroll+"px");
                     } else {
                         leftNavigation.removeClass(className);
                         leftNavigation.css("margin-top", "0");

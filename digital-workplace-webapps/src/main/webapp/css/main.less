@@ -7,7 +7,7 @@
 @greyWhiteColor: #a8b3c521;
 @leftNavigationHoverBG: #476a9c;
 @leftIconColor: #a8b3c5;
-@menuTextColor: #757575;
+@menuTextColor: #4d5466;
 @greyBackground: #e1e8ee;
 
 /*-------------------------Global page Container--------------------------*/
@@ -152,6 +152,7 @@ body.open-drawer {
        }
        .spacesNavigationContent {
          .spaceItem {
+           color: @menuTextColor!important;
            .spaceAvatar {
              border-radius: 4px;
            }
@@ -160,7 +161,7 @@ body.open-drawer {
        }
        .recentDrawer {
          .recentSpacesTitle {
-           min-height: 56px;
+           height: 56px!important;
            .uiArrowBackIcon {
              color: @blueGreyColor;
              font-size: 20px;
@@ -189,6 +190,7 @@ body.open-drawer {
            }
          }
          .spaceItem {
+           color: @menuTextColor!important;
            min-height: 30px!important;
            .spaceAvatar {
              border-radius: 4px;

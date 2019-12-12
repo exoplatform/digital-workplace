@@ -8,7 +8,7 @@
     <v-list-item 
       v-if="showFilter" 
       class="recentSpacesTitle">
-      <v-list-item-icon class="d-flex d-sm-none backToMenu">
+      <v-list-item-icon class="d-flex my-3 d-sm-none backToMenu">
         <i class="uiArrowBackIcon"></i>
       </v-list-item-icon>
       <v-list-item-content class="recentSpacesTitleLabel body-1" @click="showFilter=!showFilter">
@@ -68,7 +68,7 @@
           tile>
           <v-img :src="space.avatar"/>
         </v-list-item-avatar>
-        <v-list-item-content class="py-0 body-2 grey--text darken-4">{{ space.spaceName }}</v-list-item-content>
+        <v-list-item-content class="py-0 body-2">{{ space.spaceName }}</v-list-item-content>
       </v-list-item>
     </v-list>
     <v-row class="mx-0 my-4 justify-center">
