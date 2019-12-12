@@ -30,6 +30,14 @@
     <css-priority>11</css-priority>
   </portal-skin>
 
+  <portlet-skin>
+    <application-name>digital-workplace</application-name>
+    <portlet-name>digitalWorkplaceEvents</portlet-name>
+    <skin-name>Enterprise</skin-name>
+    <css-path>/../EnterpriseSkin/skin/css/calendar/calendar.css</css-path>
+    <css-priority>12</css-priority>
+  </portlet-skin>
+
   <portlet>
     <name>digitalWorkplaceSlider</name>
     <module>
@@ -209,6 +217,9 @@
     </depends>
     <depends>
       <module>eXoVueI18n</module>
+    </depends>
+    <depends>
+      <module>calendarEvent</module>
     </depends>
   </module>
 

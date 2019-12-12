@@ -414,6 +414,9 @@ body.open-drawer {
     color: @primaryColor !important;
     caret-color: @primaryColor !important;
   }
+  .blueGrey-Color {
+    color: @blueGreyColor;
+  }
   .grey-color {
     color: @greyColor!important;
   }
@@ -1130,5 +1133,32 @@ body.open-drawer {
       .uiIconClock:before {
         font-size: 17px;
         color: @primaryColor;
+      }
+    }
+
+/*=============== Drawer Event component ===========*/
+    #ExoCalendarEventForm {
+      .drawer-backdrop {
+        z-index: 1050;
+      }
+      
+      .eventTitle, .category, .location {
+        border: Solid 2px #e1e8ee !important;
+        border-radius: 5px!important;
+      }
+    
+      .btn {
+        border: 1px solid #e1e8ee !important;
+      }
+      .drawer {
+        .header {
+          box-sizing: border-box !important;
+        }
+        .content {
+          box-sizing: border-box !important;
+        }
+        .footer {
+          box-sizing: border-box !important;
+        }
       }
     }
