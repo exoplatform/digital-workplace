@@ -5,8 +5,13 @@
     absolute
     temporary
     hide-overlay>
-    <v-list-item v-if="showFilter" class="recentSpacesTitle">
-      <v-list-item-content class="recentSpacesTitleLabel body-1">
+    <v-list-item 
+      v-if="showFilter" 
+      class="recentSpacesTitle">
+      <v-list-item-icon class="d-flex d-sm-none backToMenu">
+        <i class="uiArrowBackIcon"></i>
+      </v-list-item-icon>
+      <v-list-item-content class="recentSpacesTitleLabel body-1" @click="showFilter=!showFilter">
         {{ $t('homepage.spaces.recentVisited.tilte') }}
       </v-list-item-content>
       <v-list-item-action class="recentSpacesTitleIcon my-2" @click="showFilter=!showFilter">
@@ -25,13 +30,15 @@
         label="Filter spaces here"
         class="ma-2 py-1 recentSpacesFilter body-1"
         single-line
-        hide-details/>
+        hide-details
+        required
+        autofocus/>
       <v-btn
         text
         icon
         color="blue-grey darken-1 searchClose"
         size="22"
-        @click="showFilter=!showFilter">
+        @click="closeFilter()">
         <v-icon size="18">mdi-close</v-icon>
       </v-btn>
     </div>
@@ -40,7 +47,6 @@
     <v-list
       dense
       nav
-      rounded
       class="recentSpacesWrapper">
       <v-list-item class="addSpaces my-2" @click="navigateTo('all-spaces')">
         <v-list-item-avatar 
@@ -147,7 +153,6 @@
           if (!this.search) {
             return this.filterResult = this.spacesList;
           }
-
           const search = this.search.toLowerCase();
 
           return this.spacesList.filter(space => {
@@ -157,12 +162,13 @@
           })
         },
         closeFilter() {
-          this.showFilter=!this.showFilter;
           this.search = '';
+          this.searching();
+          this.showFilter = true;
         },
         navigateTo(pagelink) {
           location.href=`${eXo.env.portal.context  }/${ eXo.env.portal.portalName }/${  pagelink}` ;
-        }
+        },
       }
     }
 </script>

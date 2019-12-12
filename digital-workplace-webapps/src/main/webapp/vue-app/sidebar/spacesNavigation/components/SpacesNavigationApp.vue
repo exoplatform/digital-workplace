@@ -15,11 +15,12 @@
             {{ this.$t('homepage.spaces.title') }}
           </v-list-item-content>
 
-          <v-list-item-action class="my-0" @click.stop="getRecentsSpaces()">
+          <v-list-item-action class="my-0" @mouseover="getRecentsSpaces()">
             <i class="uiArrowRightIcon" color="grey lighten-1"></i>
           </v-list-item-action>
 
         </v-list-item>
+        <recent-spaces-app :drawer="drawer"/>
       </v-row>
       <v-row class="mx-0 spacesNavigationContent">
         <v-list 
@@ -42,7 +43,6 @@
         </v-list>
       </v-row>
     </v-container>
-    <recent-spaces-app :drawer="drawer"/>
   </v-app>
 </template>
 <script>
@@ -77,7 +77,6 @@
     methods: {
       getRecentsSpaces() {
         this.drawer = !this.drawer;
-        document.getElementById("DWLeftNavigation").classList.toggle("openRecentSpaces");
       }
     }
   }
