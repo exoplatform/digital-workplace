@@ -10,7 +10,7 @@
         <v-card flat>
           <v-layout>
             <v-flex xs10>
-              <v-card-text style="font-size: 17px;font-weight: bold">Edit Task</v-card-text>
+              <v-card-text class="blueGrey-Color drawer-title">Edit Task</v-card-text>
             </v-flex>
             <v-flex xs1>
               <v-btn
@@ -41,12 +41,14 @@
                 row
                 class="ml-1">
                 <i class="uiIconFolder uiIconBlue px-4 py-3"></i>
-                <v-text-field
-                  v-model="projet"
-                  solo
-                  hide-details
-                  style="font-weight: bold;"
-                  class="pt-0 pr-3"/>
+                <div id="ProjectName">
+                  <v-text-field
+                    v-model="projet"
+                    solo
+                    hide-details
+                    style="border-radius: 5px"
+                    class="pt-0 pr-3"/>
+                </div>
               </v-flex>
             </v-layout>
           </v-flex>
@@ -59,7 +61,7 @@
               placeholder="Label"
               solo
               hide-details
-              class="pt-0 pr-3"/>
+              class="pt-0 pr-3 custom-placeholer-color"/>
           </v-flex>
           <v-flex xs9 class="ml-4 mt-2">
             <v-checkbox
@@ -82,14 +84,14 @@
               </v-flex>
               <v-flex xs3>
                 <v-layout row style="width: 100px">
-                  <v-avatar size="26"><img src="https://cdn.vuetifyjs.com/images/lists/1.jpg"></v-avatar>
+                  <v-avatar size="24"><img src="https://cdn.vuetifyjs.com/images/lists/1.jpg"></v-avatar>
                   <a class="pl-3 pt-1" href="#">{{ items[0].title }}</a>
                 </v-layout>
               </v-flex>
               <v-flex xs3 row>
                 <div style="white-space: nowrap">
                   <i class="uiIconTime uiIconBlue"></i>
-                  <select class="autocomplete" style="margin-bottom: 6px;width: 60px;">
+                  <select class="autocomplete grey-color" style="margin-bottom: 6px;width: 60px;">
                     <option value="1">Ready</option>
                     <option value="2">Doing</option>
                     <option value="3">Done</option>
@@ -99,7 +101,7 @@
             </v-layout>
           </v-flex>
           <v-flex xs12>
-            <div id="app" class="py-3 px-6">
+            <div id="app" class="py-3 px-4 mr-4">
               <div>
                 <vue-ckeditor/>
               </div>
@@ -120,7 +122,7 @@
               <v-flex xs3 row>
                 <div style="white-space: nowrap">
                   <v-icon>mdi-flag-variant</v-icon>
-                  <select class="autocomplete" style="margin-bottom: 0px;width: 60px;">
+                  <select class="autocomplete grey-color" style="margin-bottom: 0px;width: 60px;">
                     <option value="1">High</option>
                     <option value="2">Normal</option>
                     <option value="3">Low</option>
