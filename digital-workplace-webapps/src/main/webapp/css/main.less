@@ -1177,12 +1177,41 @@ body.open-drawer {
       .drawer-backdrop {
         z-index: 1050;
       }
-      
-      .eventTitle, .category, .location {
+      .info {
+        background-color: white!important;
+      }
+      .category {
+        -webkit-appearance:menulist!important;
+      }
+      .title {
+        font-size: 14px!important;
+      }
+      .fromTime ,.toTime {
         border: Solid 2px #e1e8ee !important;
         border-radius: 5px!important;
       }
-    
+      #endDate ,#endAfterNumber{
+        border: Solid 2px #e1e8ee !important;
+        border-radius: 5px!important;
+        input[disabled]{
+          background-color: #f2f2f2!important;
+        }
+      }
+      .selectbox {
+        border: Solid 2px #e1e8ee !important;
+        border-radius: 5px!important;
+        -webkit-appearance:menulist!important;
+      }
+      .eventTitle ,.category, .location  {
+        border: Solid 2px #e1e8ee !important;
+        border-radius: 5px!important;
+        box-sizing: border-box!important;
+      }
+      .category {
+        .select:not(.ignore-vuetify-classes) {
+          -webkit-appearance:menulist!important;
+        }
+      }
       .btn {
         border: 1px solid #e1e8ee !important;
       }
@@ -1191,7 +1220,7 @@ body.open-drawer {
           box-sizing: border-box !important;
         }
         .content {
-          box-sizing: border-box !important;
+          box-sizing: content-box !important;
         }
         .footer {
           box-sizing: border-box !important;
