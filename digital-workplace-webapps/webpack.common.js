@@ -21,7 +21,8 @@ let config = {
     dwAdministration: './src/main/webapp/vue-app/sidebar/administration/main.js',
     mySettings: './src/main/webapp/vue-app/sidebar/mySettings/main.js',
     notification: './src/main/webapp/vue-app/topBar/notification/main.js',
-    topBottomNavigation: './src/main/webapp/vue-app/topBar/topBottomNavigation/main.js'
+    topBottomNavigation: './src/main/webapp/vue-app/topBar/topBottomNavigation/main.js',
+    logo: './src/main/webapp/vue-app/topBar/logo/main.js'
   },
   output: {
     filename: 'js/[name].bundle.js',

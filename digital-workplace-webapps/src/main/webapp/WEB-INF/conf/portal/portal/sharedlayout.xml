@@ -176,13 +176,25 @@
         <portlet-application>
           <portlet>
             <application-ref>digital-workplace</application-ref>
-            <portlet-ref>digitalWorkplaceTopBottomNavigation</portlet-ref>
+            <portlet-ref>digitalWorkplaceLogo</portlet-ref>
           </portlet>
           <title>Top Navigation</title>
           <access-permissions>*:/platform/users</access-permissions>
           <show-info-bar>false</show-info-bar>
         </portlet-application>
       </container>
+      <!--<container id="NavigationToolbarPortlet"
+                 template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <portlet-application>
+          <portlet>
+            <application-ref>digital-workplace</application-ref>
+            <portlet-ref>digitalWorkplaceTopBottomNavigation</portlet-ref>
+          </portlet>
+          <title>Top Navigation</title>
+          <access-permissions>*:/platform/users</access-permissions>
+          <show-info-bar>false</show-info-bar>
+        </portlet-application>
+      </container>-->
       <container id="AdminToolBarPortlet"
         template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
         <access-permissions>*:/platform/administrators;editor:/platform/web-contributors</access-permissions>
