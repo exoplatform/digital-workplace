@@ -5,36 +5,24 @@
     class="VuetifyApp white"
     flat>
     <v-container 
-      px-0 
-      pt-3
-      pb-0
+      px-0
+      py-0
       class="white">
-      <v-row 
-        align="center" 
-        justify="center" 
-        class="mx-0 pb-1">
-        <a href="/portal/dw/home">
-          <v-img
-            src="/digital-workplace/images/logo_exo.png"
-            max-width="100"/>
-        </a>
+      <v-row
+
+        class="accountTitleWrapper mx-0">
+        <v-list-item
+          class="accountTitleItem py-3 "
+          @click="navigateTo('profile')">
+          <v-list-item-avatar size="44" class="mr-3 mt-0 mb-0 elevation-1">
+            <v-img src="/rest/v1/social/users/root/avatar"/>
+          </v-list-item-avatar>
+          <v-list-item-content class="py-0 accountTitleLabel">
+            <v-list-item-title class="font-weight-bold body-2 mb-0">Sara Boutej</v-list-item-title>
+            <v-list-item-subtitle class="font-italic caption">Frontend developer</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
       </v-row>
-      <v-flex
-        d-flex
-        justify-center
-        pb-1
-        class="accountTitleWrapper">
-        <v-card flat>
-          <v-list-item
-            class="accountTitleItem" 
-            @click="navigateTo('profile')">
-            <v-list-item-avatar size="32" class="mr-3 mt-0 mb-0 elevation-1">
-              <v-img src="/rest/v1/social/users/root/avatar"/>
-            </v-list-item-avatar>
-            <v-list-item-content class="subtitle-1 py-2 accountTitleLabel">Sara Boutej</v-list-item-content>
-          </v-list-item>
-        </v-card>
-      </v-flex>
       <v-row
         class="mx-0">
         <v-list 
@@ -46,7 +34,7 @@
             <v-list-item
               v-for="(item, i) in items"
               :key="i">
-              <v-list-item-icon class="mr-6">
+              <v-list-item-icon class="mr-6 my-1">
                 <i :class="'icon'+item.text"></i>
               </v-list-item-icon>
               <v-list-item-content>
