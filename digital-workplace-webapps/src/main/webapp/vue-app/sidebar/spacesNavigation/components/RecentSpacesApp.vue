@@ -61,22 +61,23 @@
         v-for="(item,i) in itemsToShow"
         :key="i"
         class="px-2 spaceItem"
-        @click="navigateTo(searching[item].link)">
+        @click="navigateTo(searching[i].link)">
         <v-list-item-avatar
           size="22"
           class="mr-3 tile my-0 spaceAvatar"
           tile>
-          <v-img 
+          <v-img
             v-if="searching.length > 0"
-            :src="searching[item].avatar"/>
+            :src="searching[i].avatar"/>
         </v-list-item-avatar>
-        <v-list-item-content v-if="searching.length > 0" class="py-0 body-2">{{ searching[item].spaceName }}</v-list-item-content>
+        <v-list-item-content v-if="searching.length > 0" class="py-0 body-2">{{ searching[i].spaceName }}</v-list-item-content>
       </v-list-item>
     </v-list>
     <v-row class="mx-0 my-4 justify-center">
-      <v-btn 
+      <v-btn
+        v-if="showButton"
         small
-        color="primary"
+        depressed
         @click="getSpacesPage(5)">{{ $t('homepage.spaces.recentVisited.showMore') }}</v-btn>
     </v-row>
   </v-navigation-drawer>
@@ -226,7 +227,8 @@
                 itemsToShow: 15,
                 right: null,
                 showFilter: true,
-                search: ''
+                search: '',
+                showButton: true
             }
         },
       computed: {
@@ -246,13 +248,21 @@
         closeFilter() {
           this.search = '';
           this.showFilter = true;
+          this.itemsToShow = 15;
+          this.showButton = true;
         },
         navigateTo(pagelink) {
           location.href=`${eXo.env.portal.context  }/${ eXo.env.portal.portalName }/${  pagelink}` ;
         },
         getSpacesPage(item) {
           if (this.itemsToShow <= this.spacesList.length) {
-            this.itemsToShow+=item;
+            const l = this.spacesList.length - this.itemsToShow;
+            if( l > item ) {
+              this.itemsToShow+=item;
+            } else {
+              this.itemsToShow+=l;
+              this.showButton = false;
+            }
           }
         }
       }
