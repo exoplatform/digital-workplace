@@ -34,12 +34,15 @@ body.open-drawer {
     position: fixed !important;
     min-height: 100vh !important;
     z-index: -1 !important;
+    display: none;
+    box-shadow: none!important;
   }
 
   .openRecentSpaces .recentDrawer {
     transform: translateX(121%) !important;
     margin-left: -1px;
     border-left: 1px solid @greyWhiteColor;
+    display: block;
   }
 
   .administrationDrawer {
@@ -47,6 +50,8 @@ body.open-drawer {
     position: fixed !important;
     min-height: 100vh !important;
     z-index: -1 !important;
+    display: none;
+    box-shadow: none!important;
     .v-treeview-node__root {
       min-height: 32px!important;
     }
@@ -56,6 +61,7 @@ body.open-drawer {
     transform: translateX(121%) !important;
     margin-left: -1px;
     border-left: 1px solid @greyWhiteColor;
+    display: block;
   }
 
   i {

@@ -16,17 +16,17 @@
       </v-row>
       <v-row class="mx-0 settingsLinks">
         <v-list class="flex" dense>
-          <v-list-item class="pl-12" @click="openURI('/portal/dw/account', '_self')" >
+          <v-list-item class="ml-12 px-2" @click="openURI('/portal/dw/account', '_self')" >
             <v-list-item-avatar size="30" class="mr-3"><i class="securityIcon"></i></v-list-item-avatar>
             <v-list-item-content class="body-2 mySettingsItemLabel">{{ this.$t('homepage.sidebar.settings.account') }}</v-list-item-content>
           </v-list-item>
 
-          <v-list-item class="pl-12" @click="openURI('/portal/dw/notifications', '_self')" >
+          <v-list-item class="ml-12 px-2" @click="openURI('/portal/dw/notifications', '_self')" >
             <v-list-item-avatar size="30" class="mr-3"><i class="notifIcon"></i></v-list-item-avatar>
             <v-list-item-content class="body-2 mySettingsItemLabel">{{ this.$t('homepage.sidebar.settings.notification') }}</v-list-item-content>
           </v-list-item>
 
-          <v-list-item class="pl-12" @click="openURI('https://docs.exoplatform.org/en/5.2/', '_blank')" >
+          <v-list-item class="ml-12 px-2" @click="openURI('https://docs.exoplatform.org/en/5.2/', '_blank')" >
             <v-list-item-avatar size="30" class="mr-3"><i class="helpIcon"></i></v-list-item-avatar>
             <v-list-item-content class="body-2 mySettingsItemLabel">{{ this.$t('homepage.sidebar.settings.help') }}</v-list-item-content>
           </v-list-item>
