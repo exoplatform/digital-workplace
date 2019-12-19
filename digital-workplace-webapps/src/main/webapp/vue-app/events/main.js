@@ -18,8 +18,8 @@ const eventUrl = `${eXo.env.portal.context}/${eXo.env.portal.rest}/i18n/bundle/l
 
 export function init() {
 //getting locale ressources
-exoi18n.loadLanguageAsync(lang,eventUrl);
-exoi18n.loadLanguageAsync(lang, url)
+exoi18n.loadLanguageAsync(lang,url);
+exoi18n.loadLanguageAsync(lang, eventUrl)
     .then(i18n => {
         // init Vue app when locale ressources are ready
         new Vue({
