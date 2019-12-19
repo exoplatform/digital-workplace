@@ -18,10 +18,17 @@
     name: 'ckeditor',
   }
   export default {
+    props: {
+      editorData: {
+        type: String,
+        default: ''
+      }
+    },
     data: function () {
       return {
-        editorData: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>',
+        editorData: '',
         editorConfig: {
+          placeholder:this.$t('homepage.task.drawer.addYourComment'),
           toolbar: {
             items: [
               'bold',

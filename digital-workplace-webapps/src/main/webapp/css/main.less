@@ -1126,6 +1126,8 @@ body.open-drawer {
       .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-rounded-corners {
         border: 2px solid #a8b3c521;
         border-radius: 0.5rem;
+        min-height: 80px;
+        width: -webkit-fill-available;
       }
       .uiIconAndroidOpen:before {
         font-family: 'PLF-FONT-ICONS';
@@ -1184,7 +1186,6 @@ body.open-drawer {
 
         input[type="text"] {
           color: @greyColor;
-          margin-left: 12px;
         }
       }
       .custom-placeholer-color input::placeholder {
@@ -1193,6 +1194,22 @@ body.open-drawer {
       }
       .theme--light.v-tabs > .v-tabs-bar .v-tab:not(.v-tab--active) {
         color: @greyColor;
+      }
+      .uiIconClock:before {
+        font-size: 18px!important;
+      }
+      .ck.ck-content ul,
+      .ck.ck-content ul li{
+        list-style-type: inherit;
+      }
+      .v-avatar {
+        align-self: flex-start!important;
+      }
+      .v-btn:not(.v-btn--round).v-size--small {
+        flex: none;
+      }
+      #reply_btn {
+          padding: 0px !important;
       }
     }
 
