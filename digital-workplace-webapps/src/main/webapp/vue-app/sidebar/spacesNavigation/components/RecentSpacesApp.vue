@@ -8,7 +8,7 @@
     <v-list-item 
       v-if="showFilter" 
       class="recentSpacesTitle">
-      <v-list-item-icon class="d-flex d-sm-none backToMenu">
+      <v-list-item-icon class="d-flex my-3 d-sm-none backToMenu">
         <i class="uiArrowBackIcon"></i>
       </v-list-item-icon>
       <v-list-item-content class="recentSpacesTitleLabel body-1" @click="showFilter=!showFilter">
@@ -58,23 +58,27 @@
         <v-list-item-content class="py-0 body-2 grey--text darken-4">{{ $t('homepage.spaces.recentVisited.createSpace') }}</v-list-item-content>
       </v-list-item>
       <v-list-item
-        v-for="(space,i) in searching()"
+        v-for="(item,i) in itemsToShow"
         :key="i"
         class="px-2 spaceItem"
-        @click="navigateTo(space.link)">
+        @click="navigateTo(searching[i].link)">
         <v-list-item-avatar
           size="22"
           class="mr-3 tile my-0 spaceAvatar"
           tile>
-          <v-img :src="space.avatar"/>
+          <v-img
+            v-if="searching.length > 0"
+            :src="searching[i].avatar"/>
         </v-list-item-avatar>
-        <v-list-item-content class="py-0 body-2 grey--text darken-4">{{ space.spaceName }}</v-list-item-content>
+        <v-list-item-content v-if="searching.length > 0" class="py-0 body-2">{{ searching[i].spaceName }}</v-list-item-content>
       </v-list-item>
     </v-list>
     <v-row class="mx-0 my-4 justify-center">
-      <v-btn 
+      <v-btn
+        v-if="showButton"
         small
-        color="primary">{{ $t('homepage.spaces.recentVisited.showMore') }}</v-btn>
+        depressed
+        @click="getSpacesPage(5)">{{ $t('homepage.spaces.recentVisited.showMore') }}</v-btn>
     </v-row>
   </v-navigation-drawer>
 </template>
@@ -139,36 +143,128 @@
                   spaceLink:'#' },
                 { spaceName: 'EXo Solidarity',
                   avatar: 'https://images.unsplash.com/photo-1437750769465-301382cdf094?ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80',
-                  spaceLink:'#'}
+                  spaceLink:'#'},
+                { spaceName: 'eXo Employees',
+                  avatar: 'https://images.unsplash.com/photo-1534531173927-aeb928d54385?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+                  spaceLink:'#'},
+                { spaceName: 'EXo Product management',
+                  avatar: 'https://images.unsplash.com/photo-1474564862106-1f23d10b9d72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80',
+                  spaceLink:'#'
+                },
+                { spaceName: 'EXo platform',
+                  avatar: 'https://images.unsplash.com/photo-1466065478348-0b967011f8e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=744&q=80',
+                  spaceLink:'#'
+                },
+                { spaceName: 'EXo Designers',
+                  avatar: 'https://images.unsplash.com/photo-1517923564953-4454fb2c99df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+                  spaceLink:'#' },
+                { spaceName: 'eXo Employees',
+                  avatar: 'https://images.unsplash.com/photo-1534531173927-aeb928d54385?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+                  spaceLink:'#'},
+                { spaceName: 'EXo Product management',
+                  avatar: 'https://images.unsplash.com/photo-1474564862106-1f23d10b9d72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80',
+                  spaceLink:'#'
+                },
+                { spaceName: 'EXo platform',
+                  avatar: 'https://images.unsplash.com/photo-1466065478348-0b967011f8e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=744&q=80',
+                  spaceLink:'#'
+                },
+                { spaceName: 'EXo Designers',
+                  avatar: 'https://images.unsplash.com/photo-1517923564953-4454fb2c99df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+                  spaceLink:'#' },
+                { spaceName: 'EXo Solidarity',
+                  avatar: 'https://images.unsplash.com/photo-1437750769465-301382cdf094?ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80',
+                  spaceLink:'#'},
+                { spaceName: 'eXo Employees',
+                  avatar: 'https://images.unsplash.com/photo-1534531173927-aeb928d54385?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+                  spaceLink:'#'},
+                { spaceName: 'EXo Product management',
+                  avatar: 'https://images.unsplash.com/photo-1474564862106-1f23d10b9d72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80',
+                  spaceLink:'#'
+                },
+                { spaceName: 'EXo platform',
+                  avatar: 'https://images.unsplash.com/photo-1466065478348-0b967011f8e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=744&q=80',
+                  spaceLink:'#'
+                },
+                { spaceName: 'EXo Designers',
+                  avatar: 'https://images.unsplash.com/photo-1517923564953-4454fb2c99df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+                  spaceLink:'#' },
+                { spaceName: 'EXo Solidarity',
+                  avatar: 'https://images.unsplash.com/photo-1437750769465-301382cdf094?ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80',
+                  spaceLink:'#'},
+                { spaceName: 'eXo Employees',
+                  avatar: 'https://images.unsplash.com/photo-1534531173927-aeb928d54385?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+                  spaceLink:'#'},
+                { spaceName: 'EXo Product management',
+                  avatar: 'https://images.unsplash.com/photo-1474564862106-1f23d10b9d72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80',
+                  spaceLink:'#'
+                },
+                { spaceName: 'EXo platform',
+                  avatar: 'https://images.unsplash.com/photo-1466065478348-0b967011f8e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=744&q=80',
+                  spaceLink:'#'
+                },
+                { spaceName: 'EXo Designers',
+                  avatar: 'https://images.unsplash.com/photo-1517923564953-4454fb2c99df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+                  spaceLink:'#' },
+                { spaceName: 'EXo Solidarity',
+                  avatar: 'https://images.unsplash.com/photo-1437750769465-301382cdf094?ixlib=rb-1.2.1&auto=format&fit=crop&w=755&q=80',
+                  spaceLink:'#'},
+                { spaceName: 'eXo Employees',
+                  avatar: 'https://images.unsplash.com/photo-1534531173927-aeb928d54385?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+                  spaceLink:'#'},
+                { spaceName: 'EXo Product management',
+                  avatar: 'https://images.unsplash.com/photo-1474564862106-1f23d10b9d72?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=768&q=80',
+                  spaceLink:'#'
+                },
+                { spaceName: 'EXo platform',
+                  avatar: 'https://images.unsplash.com/photo-1466065478348-0b967011f8e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=744&q=80',
+                  spaceLink:'#'
+                },
+                { spaceName: 'EXo Designers',
+                  avatar: 'https://images.unsplash.com/photo-1517923564953-4454fb2c99df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80',
+                  spaceLink:'#' }
               ],
+                itemsToShow: 15,
                 right: null,
                 showFilter: true,
                 search: '',
-                filterResult:[]
-
+                showButton: true
             }
         },
-      methods: {
+      computed: {
         searching () {
           if (!this.search) {
-            return this.filterResult = this.spacesList;
+            return this.spacesList;
+          } else {
+            const search = this.search.toLowerCase();
+            return this.spacesList.filter(space => {
+                const text = space.spaceName.toLowerCase();
+                return text.indexOf(search) > -1
+            })
           }
-          const search = this.search.toLowerCase();
-
-          return this.spacesList.filter(space => {
-            const text = space.spaceName.toLowerCase();
-
-            return this.filterResult = text.indexOf(search) > -1
-          })
         },
+      },
+      methods: {
         closeFilter() {
           this.search = '';
-          this.searching();
           this.showFilter = true;
+          this.itemsToShow = 15;
+          this.showButton = true;
         },
         navigateTo(pagelink) {
           location.href=`${eXo.env.portal.context  }/${ eXo.env.portal.portalName }/${  pagelink}` ;
         },
+        getSpacesPage(item) {
+          if (this.itemsToShow <= this.spacesList.length) {
+            const l = this.spacesList.length - this.itemsToShow;
+            if( l > item ) {
+              this.itemsToShow+=item;
+            } else {
+              this.itemsToShow+=l;
+              this.showButton = false;
+            }
+          }
+        }
       }
     }
 </script>

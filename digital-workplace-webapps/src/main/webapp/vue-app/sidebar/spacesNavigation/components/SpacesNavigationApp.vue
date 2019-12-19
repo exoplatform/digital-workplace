@@ -38,7 +38,7 @@
               tile>
               <v-img :src="space.avatar"/>
             </v-list-item-avatar>
-            <v-list-item-content class="body-2 grey--text darken-4">{{ space.spaceName }}</v-list-item-content>
+            <v-list-item-content class="body-2">{{ space.spaceName }}</v-list-item-content>
           </v-list-item>
         </v-list>
       </v-row>
