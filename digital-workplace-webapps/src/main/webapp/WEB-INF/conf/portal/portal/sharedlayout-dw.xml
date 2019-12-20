@@ -67,8 +67,8 @@
       <access-permissions>*:/platform/administrators;editor:/platform/web-contributors</access-permissions>
       <portlet-application>
         <portlet>
-          <application-ref>platformNavigation</application-ref>
-          <portlet-ref>PlatformAdminToolbarPortlet</portlet-ref>
+          <application-ref>commons-extension</application-ref>
+          <portlet-ref>QuickEditLayoutPortlet</portlet-ref>
         </portlet>
         <access-permissions>*:/platform/administrators;editor:/platform/web-contributors</access-permissions>
         <show-info-bar>false</show-info-bar>

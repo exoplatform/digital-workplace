@@ -1,5 +1,5 @@
 <%
-import org.exoplatform.platform.webui.NavigationURLUtils;
+import org.exoplatform.portal.webui.util.NavigationURLUtils;
 
     def rcontext = _ctx.getRequestContext();
     def jsManager = rcontext.getJavascriptManager();
