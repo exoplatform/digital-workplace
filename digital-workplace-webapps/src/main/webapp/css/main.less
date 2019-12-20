@@ -1097,6 +1097,16 @@ body.open-drawer {
       .theme--light.v-navigation-drawer {
         position: fixed;
       }
+      @media (max-width: 1200px) {
+        .theme--light.v-navigation-drawer {
+          width: 60% !important;
+        }
+      }
+      @media (max-width: 599px) {
+        .theme--light.v-navigation-drawer {
+          width: 100% !important;
+        }
+      }
       .v-text-field.v-text-field--solo:not(.v-text-field--solo-flat) > .v-input__control > .v-input__slot {
         box-shadow: none;
         padding-left: 0px;
@@ -1118,7 +1128,7 @@ body.open-drawer {
         color: #578DC9 !important;
       }
       input:not(.ignore-vuetify-classes) {
-        width: 100px;
+        width: 110px;
         cursor: pointer;
         padding-left: 10px;
         margin-left: 5px;
@@ -1173,6 +1183,7 @@ body.open-drawer {
       }
       .v-tab {
         box-sizing: border-box;
+        margin: 0px!important;
       }
       .v-tabs-slider-wrapper {
         height: 3px !important;
