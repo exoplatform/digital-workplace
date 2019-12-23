@@ -33,3 +33,15 @@ export function getGamificationRank() {
         }
     })
 }
+
+export function getUserInformations() {
+    return fetch(`/portal/rest/v1/social/users/${eXo.env.portal.userName}`, {
+      method: 'GET',
+    }).then((resp) => {
+      if(resp && resp.ok) {
+        return resp.json();
+      } else {
+        throw new Error ('Error when getting user info')
+      }
+    })
+}

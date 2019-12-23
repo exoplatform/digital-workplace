@@ -17,10 +17,10 @@
           <v-list-item>
             <v-list-item-avatar>
               <v-img
-                src="https://images.unsplash.com/photo-1524593689594-aae2f26b75ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80"/>
+                :src="avatar" />
             </v-list-item-avatar>
             <v-list-item-content>
-              <v-list-item-title class="text-uppercase subtitle-1">{{ this.$t('homepage.profileStatus.header') }} Sara</v-list-item-title>
+              <v-list-item-title class="text-uppercase subtitle-1">{{ this.$t('homepage.profileStatus.header') }} {{ firstName }}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-card>
@@ -107,8 +107,25 @@
   </v-flex>
 </template>
 <script>
+  import {getUserInformations} from '../profilStatsAPI'
   export default {
+    data() {
+      return {
+        firstName: '',
+        avatar:'',
+      }
+    },
+    created(){
+      this.getFirstName();
+      this.avatar=`/portal/rest/v1/social/users/${eXo.env.portal.userName}/avatar`;
+    },
     methods: {
+      getFirstName() {
+        getUserInformations().then(
+                (data) => {
+                  this.firstName = data.firstname;
+                })
+      },
       getSpecificCard(component) {
         this.$emit('specificCard',component);
       }
