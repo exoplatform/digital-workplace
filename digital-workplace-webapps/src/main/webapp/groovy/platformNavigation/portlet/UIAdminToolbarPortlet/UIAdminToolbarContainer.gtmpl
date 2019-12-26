@@ -1,0 +1,161 @@
+<%	
+	import org.exoplatform.web.application.JavascriptManager;
+	import org.exoplatform.portal.webui.util.Util;
+	import org.exoplatform.wcm.webui.Utils;
+	import org.exoplatform.portal.application.PortalRequestContext ;
+	import org.exoplatform.platform.webui.NavigationURLUtils;
+	import org.exoplatform.wcm.webui.seo.UISEOToolbarForm;
+
+	def rcontext = _ctx.getRequestContext();
+	 
+    JavascriptManager jsmanager = rcontext.getJavascriptManager();
+	String addPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.AddPage");	
+	String editPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Layout");
+	String editSiteLayout = _ctx.appRes("UIAdminToolbarPortlet.action.siteLayout");
+	String editNavigation = _ctx.appRes("UIAdminToolbarPortlet.action.EditNavigation");
+	String quickEditLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Content");
+	String editorLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Editor");
+	String seoLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Properties");
+  String siteLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Site");
+	String addSiteLabel = _ctx.appRes("UIAdminToolbarPortlet.action.AddSite");
+	String editAdministration = _ctx.appRes("homepage.administration.edit.title");
+
+	String quiEditClass = "quickEditUnchecked";
+	PortalRequestContext context = Util.getPortalRequestContext();
+	Boolean quickEdit = (Boolean)context.getRequest().getSession().getAttribute(Utils.TURN_ON_QUICK_EDIT);
+	if(quickEdit != null && quickEdit) {
+	  quiEditClass = "quickEditChecked"
+	}
+
+	boolean userCouldEditNavigation = uicomponent.hasEditPermissionOnNavigation() && !uicomponent.isUserNavigation();
+	boolean userCouldEditPage = uicomponent.hasEditPermissionOnPage();
+	boolean userCouldEditPortal = uicomponent.hasEditPermissionOnPortal();
+
+%>
+
+
+<div class="uiAdminToolbarPortlet uiDropdownWithIcon VuetifyApp" id="$uicomponent.id">
+<div id="DWEditAdministration">
+	<a class="editAdministrationBtn" @click="closeDrawer()">
+		<i class="uiEditAdminIcon"></i>
+	</a>
+	 <v-navigation-drawer
+	 class="editDrawer"
+      v-model="editDrawer"
+      absolute
+      temporary
+      right>
+      	<v-list-item class="editAdminHeader">
+      		<v-list-item-content>
+      			<span class="editAdminTitle">$editAdministration</span>
+      		</v-list-item-content>
+      		<v-list-item-action @click="closeDrawer()">
+      			<i class="uiCloseIcon"></i>
+      		</v-list-item-action>
+      	</v-list-item>
+		<ul class="editAdministrationMenu">
+      <% if(uicomponent.isSpaceManager()) { %>
+			<li class="editonLineItem">
+				<a href="javascript:void(0);" onclick="<%=uicomponent.event("ChangeEditing")%>" class="editOnline">
+					<span>$quickEditLabel</span>
+					<i class="quickEditSwitcher $quiEditClass"></i>
+				</a>
+			</li>
+			<li class="divider">&nbsp;</li>
+      <% } %>
+			<% if(userCouldEditPage){ %>
+			<li class="editItemsTitle">
+				<a href="#" tabindex="-1">
+					<i class="uiPageIcon"></i>
+					<span><%=_ctx.appRes("UIAdminToolbarPortlet.action.Page")%></span>
+				</a>
+				<ul class="editSubItemList">
+        <%
+          String editPageRequest = "javascript:ajaxGet(eXo.env.server.createPortalURL('" + uicomponent.getUIPageId() + "', 'EditCurrentPage', true))";
+        %>
+					<li class="editSubItemListItem">
+						<a href="javascript:void(0);" onclick="$editPageRequest">
+							$editPageLabel
+						</a>
+					</li>
+					<li class="editSubItemListItem seoItem">
+						<div class="seoImgBlock">
+							<%uicomponent.renderChild(UISEOToolbarForm.class);%>
+						</div>
+					</li>
+					<li class="editSubItemListItem">
+						<a href="javascript:void(0);" onclick="ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))">
+							$addPageLabel
+						</a>
+					</li>
+				</ul>
+			</li>
+			<% } %>
+			<% if(userCouldEditPortal || userCouldEditNavigation) { %>
+			<li class="editItemsTitle">
+				<a href="#" tabindex="-1">
+					<i class="uiSiteIcon"></i>
+					<span>$siteLabel</span>
+				</a>
+				<ul class="editSubItemList">
+					<% if(userCouldEditPortal){ %>
+					<li class="editSubItemListItem">
+						<a href="javascript:void(0);" onclick="ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditInline', true))">
+							$editSiteLayout
+						</a>
+					</li>
+					<% } %>
+					<% if(userCouldEditNavigation){ %>
+					<li class="editSubItemListItem editNavigationItem">
+						<a href="javascript:void(0);" onclick="<%=uicomponent.event("EditNavigation", null);%>">
+							$editNavigation
+						</a>
+					</li>
+					<% } %>
+					<% if(userCouldEditPortal){ %>
+					<li class="editSubItemListItem">
+						<a href="javascript:void(0);" onclick="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'CreatePortal', true))">
+							$addSiteLabel
+						</a>
+					</li>
+					<% } %>
+				</ul>
+			</li>
+			<% } %>
+		</ul>
+		</v-navigation-drawer>
+	</div>
+</div>
+<%uicomponent.renderChildren();%>
+
+<script type="text/javascript">
+	require(['SHARED/vuetify'], function(vuetify){
+    		new Vue({
+    			el: '#DWEditAdministration',
+    			vuetify: new Vuetify(),
+    			data () {
+    			    return {
+    			      editDrawer: null,
+    			    }
+    			},
+    			methods: {
+    				closeDrawer() {
+    					this.editDrawer = !this.editDrawer;
+    				}
+    			}
+    		})
+    	});
+	require(['SHARED/jquery'], function(jquery){
+            	jquery(document).ready(function() {
+
+            	jquery(document).on('click','.editNavigationItem',function(e) {
+                        jquery('body').addClass('hiddenDrawer');
+
+                });
+
+               	jquery(document).on('click','.uiIconClose',function(e) {
+                        window.location.reload();
+                });
+            });
+        });
+</script>
