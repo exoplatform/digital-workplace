@@ -6,7 +6,7 @@
     <v-container
       px-0
       py-0
-      class="white d-none d-sm-flex">
+      class="white">
       <v-row
         class="mx-0 administrationTitle">
         <v-list-item @mouseover="getAdminMenu()">
