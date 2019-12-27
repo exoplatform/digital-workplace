@@ -24,6 +24,10 @@ body.open-drawer {
   }
 }
 
+body.open-edit-drawer {
+  overflow: hidden;
+}
+
 .hiddenDrawer .editDrawer {
   display: none;
 }
@@ -757,6 +761,12 @@ body.open-drawer {
   #administration-navigation {
     display: none;
   }
+  .DWAdminToolBarPortletTDContainer {
+    display: none;
+  }
+  .NotificationPopoverPortletTDContainer {
+    padding-right: 12px;
+  }
 }
 
 @media (max-width: 599px) {
@@ -1023,6 +1033,7 @@ body.open-drawer {
                   font-weight: bold;
                   text-transform: uppercase;
                   letter-spacing: .5px;
+                  cursor: default;
                 }
               }
               .editSubItemList {
@@ -1164,6 +1175,7 @@ body.open-drawer {
       }
       .brandingContainer {
         color: @menuTextColor;
+        padding-top: 3px;
       }
     }
 

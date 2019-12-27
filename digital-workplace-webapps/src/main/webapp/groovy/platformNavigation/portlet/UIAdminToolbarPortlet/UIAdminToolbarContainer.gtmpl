@@ -145,17 +145,4 @@
     			}
     		})
     	});
-	require(['SHARED/jquery'], function(jquery){
-            	jquery(document).ready(function() {
-
-            	jquery(document).on('click','.editNavigationItem',function(e) {
-                        jquery('body').addClass('hiddenDrawer');
-
-                });
-
-               	jquery(document).on('click','.uiIconClose',function(e) {
-                        window.location.reload();
-                });
-            });
-        });
 </script>

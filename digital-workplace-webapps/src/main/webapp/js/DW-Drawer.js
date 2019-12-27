@@ -4,9 +4,6 @@
     var DWDrawer = {
         initDrawer : function() {
                 $(document).ready(function() {
-                    $(document).on('click','.openDrawerBtn',function(e) {
-                        $('body').addClass('open-drawer');
-                    });
 
                     var leftSideBar = $('#DWLeftNavigation');
                     var administrationDrawer = $('.administrationDrawer');
@@ -21,6 +18,37 @@
 
                     DWDrawer.toggleLeftMenuDrawer(adminTitleItem, leftSideBar, administrationDrawer, 'openAdministrationMenu');
                     DWDrawer.toggleLeftMenuDrawer(spacesTitleItem, leftSideBar, spacesDrawer, 'openRecentSpaces');
+
+                    /* --------------------------------------Click event------------------------------- */
+
+                    $(document).on('click','.openDrawerBtn',function(e) {
+                        $('body').addClass('open-drawer');
+                    });
+
+                    $(document).on('click','.editAdministrationBtn',function(e) {
+                        $('body').addClass('open-edit-drawer');
+                    });
+
+                    $(document).on('click','#DWEditAdministration .v-overlay ,.editAdminHeader .uiCloseIcon',function() {
+                        $('body').removeClass('open-edit-drawer');
+                    });
+
+                    $(document).on('click','.editNavigationItem',function(e) {
+                        $('body').addClass('hiddenDrawer');
+                    });
+
+                    $(document).on('click','.uiIconClose',function(e) {
+                        window.location.reload();
+                    });
+
+                    $(document).on('click','#DWLeftNavigationContainer',function(e) {
+                        if(e.target == this) {
+                            $('body').removeClass('open-drawer');
+                            leftSideBar.removeClass('openRecentSpaces');
+                            leftSideBar.removeClass('openAdministrationMenu');
+                            leftSideBar.scrollTop(0);
+                        }
+                    });
 
                     /*----------------------------Recent spaces Mobiles ---------------------------*/
 
@@ -37,16 +65,6 @@
                             leftSideBar.removeClass('openRecentSpaces');
                         });
                     }
-
-                    $(document).on('click','#DWLeftNavigationContainer',function(e) {
-                        if(e.target == this) {
-                            $('body').removeClass('open-drawer');
-                            leftSideBar.removeClass('openRecentSpaces');
-                            leftSideBar.removeClass('openAdministrationMenu');
-                            leftSideBar.scrollTop(0);
-                        }
-                    });
-
                 });
         },
         getScrollTopPosition : function() {
