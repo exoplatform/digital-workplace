@@ -527,4 +527,71 @@
     </container>
   </page>
 
+  <page>
+    <name>people</name>
+    <title>People Directory</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <portlet-application>
+      <portlet>
+        <application-ref>social-portlet</application-ref>
+        <portlet-ref>AllPeoplePortlet</portlet-ref>
+      </portlet>
+      <title>People Directory</title>
+      <access-permissions>*:/platform/users</access-permissions>
+      <show-info-bar>false</show-info-bar>
+    </portlet-application>
+  </page>
+
+  <page>
+    <name>connections</name>
+    <title>Connections</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <portlet-application>
+      <portlet>
+        <application-ref>social-portlet</application-ref>
+        <portlet-ref>ConnectionsPortlet</portlet-ref>
+      </portlet>
+      <title>My Connections</title>
+      <access-permissions>*:/platform/users</access-permissions>
+      <show-info-bar>false</show-info-bar>
+      <show-application-state>true</show-application-state>
+    </portlet-application>
+  </page>
+
+  <page>
+    <name>invitations</name>
+    <title>Invitations</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <portlet-application>
+      <portlet>
+        <application-ref>social-portlet</application-ref>
+        <portlet-ref>InvitationsPortlet</portlet-ref>
+      </portlet>
+      <title>Invitations</title>
+      <access-permissions>*:/platform/users</access-permissions>
+      <show-info-bar>false</show-info-bar>
+      <show-application-state>true</show-application-state>
+    </portlet-application>
+  </page>
+
+  <page>
+    <name>requests</name>
+    <title>Requests</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <portlet-application>
+      <portlet>
+        <application-ref>social-portlet</application-ref>
+        <portlet-ref>RequestsPortlet</portlet-ref>
+      </portlet>
+      <title>Requests</title>
+      <access-permissions>*:/platform/users</access-permissions>
+      <show-info-bar>false</show-info-bar>
+      <show-application-state>true</show-application-state>
+    </portlet-application>
+  </page>
+
 </page-set>

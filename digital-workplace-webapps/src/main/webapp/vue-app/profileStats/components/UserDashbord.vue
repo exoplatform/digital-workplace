@@ -55,12 +55,12 @@
             <v-card
               tile
               flat>
-              <a class="white--text" @click="getSpecificCard('ConnectionsRequests')">
+              <a class="white--text">
                 <v-badge pa-0 class="badge-color">
                   <template v-slot:badge>
-                    <span>3</span>
+                    <span v-if="connectionsRequestsSize > 0" @click="getSpecificCard('ConnectionsRequests')">{{ connectionsRequestsSize }}</span>
                   </template>
-                  <span class="headline blue-grey--text font-weight-bold pa-1">53</span>
+                  <a class="headline blue-grey--text font-weight-bold pa-1" href="/portal/dw/connexions/network">{{ connectionsSize }}</a>
                 </v-badge>
               </a>
               <v-card-text class="pa-1 subtitle-1 blue-grey--text">{{ this.$t('homepage.profileStatus.connections') }}</v-card-text>
@@ -107,7 +107,7 @@
   </v-flex>
 </template>
 <script>
-  import {getUserInformations, getSpaces, getSpacesRequests} from '../profilStatsAPI'
+  import {getUserInformations, getSpaces, getSpacesRequests, getConnections, getConnectionsRequests} from '../profilStatsAPI'
   export default {
     data() {
       return {
@@ -115,6 +115,8 @@
         avatar:'',
         spacesSize: '',
         spacesRequestsSize: '',
+        connectionsSize: '',
+        connectionsRequestsSize: ''
       }
     },
     
@@ -123,6 +125,8 @@
       this.getFirstName();
       this.getSpacesSize();
       this.getSpacesRequestsSize();
+      this.getConnectionsSize();
+      this.getConnectionsRequestsSize();
     },
     
     methods: {
@@ -147,6 +151,20 @@
           }
         )
       },
+      getConnectionsSize() {
+        getConnections().then(
+          (data) => {
+            this.connectionsSize = data.size;
+          }
+        )
+      },
+      getConnectionsRequestsSize() {
+        getConnectionsRequests().then(
+          (data) => {
+            this.connectionsRequestsSize = data.size;
+          }
+        )
+      },
       getSpecificCard(component) {
         this.$emit('specificCard',component);
       },
@@ -156,5 +174,3 @@
     }
   }
 </script>
-
-

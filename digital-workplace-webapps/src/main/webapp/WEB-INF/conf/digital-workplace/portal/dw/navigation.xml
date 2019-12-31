@@ -81,6 +81,39 @@
       <page-reference>portal::dw::account</page-reference>
     </node>
 
+    <node>
+    <uri>connexions</uri>
+    <name>connexions</name>
+    <label>#{portal.dw.people}</label>
+    <page-reference>portal::dw::people</page-reference>
+      <node>
+        <uri>connexions/all-people</uri>
+        <name>people</name>
+        <label>#{portal.dw.people}</label>
+        <page-reference>portal::dw::people</page-reference>
+      </node>
+
+      <node>
+        <uri>connexions/network</uri>
+        <name>network</name>
+        <label>#{portal.dw.people}</label>
+        <page-reference>portal::dw::connections</page-reference>
+      </node>
+
+      <node>
+        <uri>connexions/receivedInvitations</uri>
+        <name>receivedInvitations</name>
+        <label>#{portal.dw.people}</label>
+        <page-reference>portal::dw::invitations</page-reference>
+      </node>
+
+      <node>
+        <uri>connexions/pendingRequests</uri>
+        <name>pendingRequests</name>
+        <label>#{portal.dw.people}</label>
+        <page-reference>portal::dw::requests</page-reference>
+      </node>
+    </node>
 
   </page-nodes>
 
