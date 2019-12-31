@@ -27,7 +27,7 @@
               height="20"
               width="20"
               class="mb-1">
-              <span class="white--text caption">4</span>
+              <span class="white--text caption">{{ spacesRequestsSize }}</span>
             </v-btn>
           </div>
         </v-flex>
@@ -43,19 +43,20 @@
       </v-layout>
     </v-flex>
     <v-flex
-      xs12>
+      xs12 
+      style="height: 180px">
       <v-list>
-        <template v-for="item in spacesRequestsArray">
+        <template v-for="item in spacesRequests">
           <v-list-item
             :key="item.id"
             class="py-0 px-2">
             <v-list-item-avatar class="my-1 mr-2" size="30">
-              <v-img :src="item.avatar"/>
+              <v-img :src="item.avatarUrl != undefined ? item.avatarUrl : `/portal/rest/v1/social/spaces/${item.displayName.toLowerCase()}/avatar`"/>
             </v-list-item-avatar>
 
             <v-list-item-content class="py-0">
-              <v-list-item-title class="font-weight-bold subtitle-2 primary-color--text darken-2" v-text="item.userName"/>
-              <v-list-item-subtitle class="caption grey-color" v-text="item.spaceName"/>
+              <v-list-item-title class="font-weight-bold subtitle-2 primary-color--text darken-2" v-text="item.displayName"/>
+              <v-list-item-subtitle class="caption grey-color" v-text="item.description"/>
             </v-list-item-content>
             <v-list-item-action>
               <v-btn-toggle
@@ -66,14 +67,16 @@
                   icon
                   small
                   min-width="auto"
-                  class="px-0">
+                  class="px-0"
+                  @click="replyInvitationToJoinSpace(item.displayName.toLowerCase(), 'approved')">
                   <v-icon color="primary-color" size="20">mdi-checkbox-marked-circle</v-icon>
                 </v-btn>
                 <v-btn 
                   text
                   small
                   min-width="auto"
-                  class="px-0">
+                  class="px-0"
+                  @click="replyInvitationToJoinSpace(item.displayName.toLowerCase(), 'ignored')">
                   <v-icon color="grey lighten-1" size="20">mdi-close-circle</v-icon>
                 </v-btn>
               </v-btn-toggle>
@@ -89,34 +92,70 @@
       pb-2
       justify-end>
       <v-btn
+        v-if="spacesRequestsSize > 3"
         depressed
         small
-        class="caption text-uppercase grey--text">{{ this.$t('homepage.seeAll') }}</v-btn>
+        class="caption text-uppercase grey--text"
+        href="/portal/dw/invitationSpace">{{ this.$t('homepage.seeAll') }}</v-btn>
     </v-flex>
   </v-layout>
 </template>
 <script>
-  import * as profileStatsAPI from '../profilStatsAPI'
+  import {getSpacesRequests, replyInvitationToJoinSpace} from '../profilStatsAPI'
   export default {
     data() {
       return {
-        toggle_exclusive: 2,
-        spacesRequestsArray: []
+        spacesRequests: [],
+        spacesRequestsSize: ''
       }
     },
+
     created(){
       this.getSpacesRequests();
-    },
-
+	},
+	
     methods: {
       getSpacesRequests() {
-        profileStatsAPI.getSpacesRequests().then(
-                (data) => {
-                  this.spacesRequestsArray = data;
+        this.spacesRequests = [];
+        getSpacesRequests().then(
+          (data) => {
+            this.spacesRequestsSize = data.size;
+            if (this.spacesRequestsSize === 0) {
+              this.toProfileStats();
+            } 
+            else {
+              for (let i = 0; i < data.spacesMemberships.length; i++) {
+                fetch(`${data.spacesMemberships[i].space}`, {
+                  method: 'GET',
+                }).then((resp) => {
+                  if(resp && resp.ok) {
+                    return resp.json();
+                  } 
+                  else {
+                    throw new Error ('Error when getting space');
+                  }
+                }).then((data) => {
+                  this.spacesRequests.push(data);
                 })
+              }
+            }
+          }
+        )
       },
       toProfileStats() {
         this.$emit('isProfileStats');
+      },
+      replyInvitationToJoinSpace(spaceId, reply) {
+        replyInvitationToJoinSpace(spaceId, reply).then(
+          (data) => {
+            if (this.spacesRequestsSize === 1) {
+              this.toProfileStats();
+            } 
+            else {
+              this.getSpacesRequests();
+            }
+          }
+        )
       }
     }
   }

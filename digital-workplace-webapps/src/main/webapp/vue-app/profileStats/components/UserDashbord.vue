@@ -36,12 +36,12 @@
             align-center>
             <v-card
               flat>
-              <a class="white--text" @click="getSpecificCard('SpacesRequests')">
+              <a class="white--text">
                 <v-badge class="badge-color">
                   <template v-slot:badge>
-                    <span>4</span>
+                    <span v-if="spacesRequestsSize > 0" @click="getSpecificCard('SpacesRequests')">{{ spacesRequestsSize }}</span>
                   </template>
-                  <span class="headline blue-grey--text font-weight-bold pa-1">53</span>
+                  <a class="headline blue-grey--text font-weight-bold pa-1" href="/portal/dw/spaces">{{ spacesSize }}</a>
                 </v-badge>
               </a>
               <v-card-text class="pa-1 subtitle-1 blue-grey--text">{{ this.$t('homepage.profileStatus.spaces') }}</v-card-text>
@@ -107,27 +107,51 @@
   </v-flex>
 </template>
 <script>
-  import {getUserInformations} from '../profilStatsAPI'
+  import {getUserInformations, getSpaces, getSpacesRequests} from '../profilStatsAPI'
   export default {
     data() {
       return {
         firstName: '',
         avatar:'',
+        spacesSize: '',
+        spacesRequestsSize: '',
       }
     },
+    
     created(){
-      this.getFirstName();
       this.avatar=`/portal/rest/v1/social/users/${eXo.env.portal.userName}/avatar`;
+      this.getFirstName();
+      this.getSpacesSize();
+      this.getSpacesRequestsSize();
     },
+    
     methods: {
       getFirstName() {
         getUserInformations().then(
-                (data) => {
-                  this.firstName = data.firstname;
-                })
+          (data) => {
+            this.firstName = data.firstname;
+          }
+        )
+      },
+      getSpacesSize() {
+        getSpaces().then(
+          (data) => {
+            this.spacesSize = data.size;
+          }
+        )
+      },
+      getSpacesRequestsSize() {
+        getSpacesRequests().then(
+          (data) => {
+            this.spacesRequestsSize = data.size;
+          }
+        )
       },
       getSpecificCard(component) {
         this.$emit('specificCard',component);
+      },
+      toProfileStats() {
+        this.$emit('isProfileStats');
       }
     }
   }
