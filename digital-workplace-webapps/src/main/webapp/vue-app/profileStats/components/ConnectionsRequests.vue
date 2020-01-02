@@ -27,7 +27,7 @@
               height="20"
               width="20"
               class="mb-1 badge-color">
-              <span class="white--text caption">3</span>
+              <span class="white--text caption">{{ connectionsRequestsSize }}</span>
             </v-btn>
           </div>
         </v-flex>
@@ -45,16 +45,16 @@
     <v-flex
       xs12>
       <v-list>
-        <template v-for="item in connectionsRequestsArray">
+        <template v-for="item in connectionsRequests">
           <v-list-item
             :key="item.id"
             class="py-0 px-2">
             <v-list-item-avatar class="my-1 mr-2" size="30">
-              <v-img :src="item.avatar"/>
+              <v-img :src="item.senderAvatar"/>
             </v-list-item-avatar>
 
             <v-list-item-content class="py-0">
-              <v-list-item-title class="font-weight-bold subtitle-2 primary-color--text darken-2" v-html="item.userName"/>
+              <v-list-item-title class="font-weight-bold subtitle-2 primary-color--text darken-2" v-html="item.senderFullName"/>
               <v-list-item-subtitle class="caption grey-color" v-text="item.communConnections + ' Commun connections'"/>
             </v-list-item-content>
             <v-list-item-action>
@@ -66,14 +66,16 @@
                   icon
                   small
                   min-width="auto"
-                  class="px-0">
+                  class="px-0"
+                  @click="replyInvitationToConnect(item.id, 'confirmed')">
                   <v-icon color="primary-color" size="20">mdi-checkbox-marked-circle</v-icon>
                 </v-btn>
                 <v-btn
                   text
                   small
                   min-width="auto"
-                  class="px-0">
+                  class="px-0"
+                  @click="replyInvitationToConnect(item.id, 'ignored')">
                   <v-icon color="grey lighten-1" size="20">mdi-close-circle</v-icon>
                 </v-btn>
               </v-btn-toggle>
@@ -89,6 +91,7 @@
       pb-2
       justify-end>
       <v-btn
+        v-if="connectionsRequestsSize > 3"
         depressed
         small
         class="caption text-uppercase grey--text">{{ this.$t('homepage.seeAll') }}</v-btn>
@@ -97,26 +100,64 @@
 
 </template>
 <script>
-  import * as profileStatsAPI from '../profilStatsAPI'
+  import {getConnectionsRequests, getConnectionRequestSender, replyInvitationToConnect} from '../profilStatsAPI'
   export default {
     data() {
       return {
-        connectionsRequestsArray: []
+        connectionsRequests: [],
+        connectionsRequestsSize: ''
       }
     },
     created(){
-        this.getConnectionsRequests();
+      this.getConnectionsRequests();
     },
 
     methods: {
       getConnectionsRequests() {
-           profileStatsAPI.getConnectionsRequests().then(
-               (data) => {
-                   this.connectionsRequestsArray = data;
-               })
+        this.connectionsRequests = [];
+        getConnectionsRequests().then(
+          (data) => {
+            this.connectionsRequestsSize = data.size;
+            if (this.connectionsRequestsSize === 0) {
+              this.toProfileStats();
+            } 
+            else {
+              for (let i = 0; i < data.relationships.length; i++) {
+                const connection = {};
+                connection.id = data.relationships[i].id;
+                fetch(`${data.relationships[i].sender}`, {
+                  method: 'GET',
+                }).then((resp) => {
+                  if(resp && resp.ok) {
+                    return resp.json();
+                  } 
+                  else {
+                    throw new Error ('Error when getting connection request sender');
+                  }
+                }).then((data) => {
+                  connection.senderAvatar = data.avatar !== undefined ? data.avatar : `/rest/v1/social/users/${data.username}/avatar`;
+                  connection.senderFullName = data.fullname;
+                  this.connectionsRequests.push(connection);
+                })
+              }
+            }
+          }
+        )
       },
       toProfileStats() {
         this.$emit('isProfileStats');
+      },
+      replyInvitationToConnect(relationId, reply) {
+        replyInvitationToConnect(relationId, reply).then(
+          (data) => {
+            if (this.connectionsRequestsSize === 1) {
+              this.toProfileStats();
+            } 
+            else {
+              this.getConnectionsRequests();
+            }
+          }
+        )
       }
     }
   }

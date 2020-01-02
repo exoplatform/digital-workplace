@@ -92,3 +92,34 @@ export function getConnectionsRequests() {
     }
   })
 }
+
+export function getConnectionRequestSender(senderUrl) {
+  return fetch(`${senderUrl}`, {
+    method: 'GET',
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+    } 
+    else {
+      throw new Error ('Error when getting connection request sender');
+	}
+  })
+}
+
+export function replyInvitationToConnect(relationId, reply) {
+  const data = {status: `${reply}`}; 
+  return fetch(`/portal/rest/v1/social/relationships/${relationId}`, {
+    method: 'PUT',
+	body: JSON.stringify(data),
+	headers: {
+      'Content-Type': 'application/json'
+	}
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+	} 
+	else {
+      throw new Error ('Error when replying invitation to connect');
+	}
+  })
+}
