@@ -51,12 +51,69 @@
     </node>
 
     <node>
+      <uri>spaces</uri>
+      <name>spaces</name>
+      <label>#{portal.dw.spaces}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::spaces</page-reference>
+    </node>
+
+    <node>
+      <uri>invitationSpace</uri>
+      <name>invitationSpace</name>
+      <label>#{portal.dw.invitationSpace}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::invitationSpace</page-reference>
+    </node>
+
+    <node>
+      <uri>pendingSpace</uri>
+      <name>pendingSpace</name>
+      <label>#{portal.dw.pendingSpace}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::pendingSpace</page-reference>
+    </node>
+
+    <node>
       <name>account</name>
       <label>#{portal.dw.account}</label>
       <visibility>SYSTEM</visibility>
       <page-reference>portal::dw::account</page-reference>
     </node>
 
+    <node>
+    <uri>connexions</uri>
+    <name>connexions</name>
+    <label>#{portal.dw.people}</label>
+    <page-reference>portal::dw::people</page-reference>
+      <node>
+        <uri>connexions/all-people</uri>
+        <name>people</name>
+        <label>#{portal.dw.people}</label>
+        <page-reference>portal::dw::people</page-reference>
+      </node>
+
+      <node>
+        <uri>connexions/network</uri>
+        <name>network</name>
+        <label>#{portal.dw.people}</label>
+        <page-reference>portal::dw::connections</page-reference>
+      </node>
+
+      <node>
+        <uri>connexions/receivedInvitations</uri>
+        <name>receivedInvitations</name>
+        <label>#{portal.dw.people}</label>
+        <page-reference>portal::dw::invitations</page-reference>
+      </node>
+
+      <node>
+        <uri>connexions/pendingRequests</uri>
+        <name>pendingRequests</name>
+        <label>#{portal.dw.people}</label>
+        <page-reference>portal::dw::requests</page-reference>
+      </node>
+    </node>
 
   </page-nodes>
 

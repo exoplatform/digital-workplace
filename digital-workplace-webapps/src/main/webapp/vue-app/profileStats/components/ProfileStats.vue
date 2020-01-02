@@ -57,10 +57,6 @@
                 this.currentComponent = component;
                 this.isFlipped = !this.isFlipped;
             },
-            testMethod() {
-                this.currentComponent= null;
-                this.isFlipped = !this.isFlipped;
-            }
         }
     }
 </script>

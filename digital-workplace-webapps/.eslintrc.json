@@ -57,7 +57,6 @@
         "no-shadow-restricted-names": ["error"],
         "no-template-curly-in-string": ["error"],
         "no-throw-literal": ["error"],
-        "no-undefined": ["error"],
         "no-unmodified-loop-condition": ["error"],
         "no-unused-vars": ["off"],
         "no-unused-expressions": ["error"],

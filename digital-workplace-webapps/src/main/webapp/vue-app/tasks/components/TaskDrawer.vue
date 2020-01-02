@@ -4,7 +4,7 @@
     right
     temporary
     stateless
-    width="520">
+    width="33%">
     <div class="drawer-header">
       <v-flex xs12>
         <v-card flat>
@@ -73,7 +73,7 @@
           <v-flex xs12 class="ml-1">
             <v-layout row ml-4>
               <v-flex
-                xs3
+                xs4
                 class="px-4"
                 style="margin: -6px">
                 <v-layout row>
@@ -82,16 +82,19 @@
                     :value="date"/>
                 </v-layout>
               </v-flex>
-              <v-flex xs3>
-                <v-layout row style="width: 100px">
+              <v-flex 
+                xs4>
+                <v-layout row>
                   <v-avatar size="24"><img src="https://cdn.vuetifyjs.com/images/lists/1.jpg"></v-avatar>
                   <a class="pl-3 pt-1" href="#">{{ items[0].title }}</a>
                 </v-layout>
               </v-flex>
-              <v-flex xs3 row>
+              <v-flex 
+                xs4
+                row>
                 <div style="white-space: nowrap">
                   <i class="uiIconTime uiIconBlue"></i>
-                  <select class="autocomplete grey-color" style="margin-bottom: 6px;width: 60px;">
+                  <select class="autocomplete grey-color my-n1" style="width: 60px;">
                     <option value="1">{{ $t('homepage.task.drawer.ready') }}</option>
                     <option value="2">{{ $t('homepage.task.drawer.doing') }}</option>
                     <option value="3">{{ $t('homepage.task.drawer.done') }}</option>
@@ -110,7 +113,7 @@
           <v-flex xs12 ml-1>
             <v-layout row ml-4>
               <v-flex
-                xs3
+                xs4
                 class="px-4"
                 style="margin: -6px">
                 <v-layout row>
@@ -119,10 +122,12 @@
                     :value="date"/>
                 </v-layout>
               </v-flex>
-              <v-flex xs3 row>
+              <v-flex 
+                xs4
+                row>
                 <div style="white-space: nowrap">
                   <v-icon>mdi-flag-variant</v-icon>
-                  <select class="autocomplete grey-color" style="margin-bottom: 0px;width: 60px;">
+                  <select class="autocomplete grey-color my-n2" style="width: 60px;">
                     <option value="1">{{ $t('homepage.task.drawer.high') }}</option>
                     <option value="2">{{ $t('homepage.task.drawer.normal') }}</option>
                     <option value="3">{{ $t('homepage.task.drawer.low') }}</option>
@@ -136,7 +141,7 @@
             <v-tabs color="#578DC9">
               <v-tab class="text-capitalize">{{ $t('homepage.task.drawer.comments') }}</v-tab>
               <v-tab class="text-capitalize">{{ $t('homepage.task.drawer.changes') }}</v-tab>
-              <v-tab-item>
+              <v-tab-item class="pt-5">
                 <v-list>
                   <v-list-item
                     v-for="(item, i) in items"
@@ -155,7 +160,8 @@
                           v-html="item.title"/>
                         <span>{{ item.comment }}</span>
                         <v-btn 
-                          id="reply_btn" 
+                          id="reply_btn"
+                          depressed
                           text 
                           small
                           color="primary"
@@ -176,7 +182,8 @@
                                   v-html="items2[0].title"/>
                                 <span>{{ items2[0].comment }}</span>
                                 <v-btn
-                                  id="reply_btn" 
+                                  id="reply_btn"
+                                  depressed
                                   text
                                   small
                                   color="primary"
@@ -191,6 +198,7 @@
                             <v-layout row>
                               <vue-ckeditor/>
                               <v-btn
+                                depressed
                                 small
                                 dark
                                 class="primary-color mt-1">{{ $t('homepage.task.drawer.comment') }}</v-btn>
@@ -201,12 +209,13 @@
                     </v-layout>
                   </v-list-item>
                   <v-list-item v-if="!showEditor">
-                    <v-list-item-avatar size="30" tile>
+                    <v-list-item-avatar size="35" tile>
                       <v-img :src="items[0].avatar"/>
                     </v-list-item-avatar>
                     <v-layout row>
                       <vue-ckeditor class="mr-4"/>
                       <v-btn
+                        depressed
                         small
                         dark
                         class="primary-color mt-1">{{ $t('homepage.task.drawer.comment') }}</v-btn>
@@ -214,6 +223,7 @@
                   </v-list-item>
                   <v-btn
                     v-else
+                    depressed
                     text
                     small
                     color="primary"
