@@ -55,7 +55,7 @@
 
             <v-list-item-content class="py-0">
               <v-list-item-title class="font-weight-bold subtitle-2 primary-color--text darken-2" v-html="item.senderFullName"/>
-              <v-list-item-subtitle class="caption grey-color" v-text="item.communConnections + ' Commun connections'"/>
+              <!-- <v-list-item-subtitle class="caption grey-color" v-text="item.communConnections + ' Commun connections'"/> -->
             </v-list-item-content>
             <v-list-item-action>
               <v-btn-toggle
@@ -94,7 +94,8 @@
         v-if="connectionsRequestsSize > 3"
         depressed
         small
-        class="caption text-uppercase grey--text">{{ this.$t('homepage.seeAll') }}</v-btn>
+        class="caption text-uppercase grey--text"
+        href="/portal/dw/connexions/receivedInvitations">{{ this.$t('homepage.seeAll') }}</v-btn>
     </v-flex>
   </v-layout>
 
