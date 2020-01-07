@@ -51,7 +51,7 @@
             :key="item.id"
             class="py-0 px-2">
             <v-list-item-avatar class="my-1 mr-2" size="30">
-              <v-img :src="item.avatarUrl != undefined ? item.avatarUrl : `/portal/rest/v1/social/spaces/${item.displayName.toLowerCase()}/avatar`"/>
+              <v-img :src="item.avatar"/>
             </v-list-item-avatar>
 
             <v-list-item-content class="py-0">
@@ -68,7 +68,7 @@
                   small
                   min-width="auto"
                   class="px-0"
-                  @click="replyInvitationToJoinSpace(item.displayName.toLowerCase(), 'approved')">
+                  @click="replyInvitationToJoinSpace(item.id, 'approved')">
                   <v-icon color="primary-color" size="20">mdi-checkbox-marked-circle</v-icon>
                 </v-btn>
                 <v-btn 
@@ -76,7 +76,7 @@
                   small
                   min-width="auto"
                   class="px-0"
-                  @click="replyInvitationToJoinSpace(item.displayName.toLowerCase(), 'ignored')">
+                  @click="replyInvitationToJoinSpace(item.id, 'ignored')">
                   <v-icon color="grey lighten-1" size="20">mdi-close-circle</v-icon>
                 </v-btn>
               </v-btn-toggle>
@@ -125,6 +125,8 @@
             } 
             else {
               for (let i = 0; i < data.spacesMemberships.length; i++) {
+                const spaceRequest = {};
+                spaceRequest.id = data.spacesMemberships[i].id;
                 fetch(`${data.spacesMemberships[i].space}`, {
                   method: 'GET',
                 }).then((resp) => {
@@ -135,7 +137,10 @@
                     throw new Error ('Error when getting space');
                   }
                 }).then((data) => {
-                  this.spacesRequests.push(data);
+                  spaceRequest.avatar = data.avatarUrl !== undefined ? data.avatarUrl : `/portal/rest/v1/social/spaces/${spaceRequest.id.split(":")[0]}/avatar`;
+                  spaceRequest.displayName = data.displayName;
+                  spaceRequest.description = data.description;
+                  this.spacesRequests.push(spaceRequest);
                 })
               }
             }
