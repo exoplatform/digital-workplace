@@ -46,7 +46,7 @@
       xs12 
       style="height: 180px">
       <v-list>
-        <template v-for="item in spacesRequests">
+        <template v-for="item in sort(spacesRequests)">
           <v-list-item
             :key="item.id"
             class="py-0 px-2">
@@ -109,7 +109,6 @@
         spacesRequestsSize: ''
       }
     },
-
     created(){
       this.getSpacesRequests();
 	},
@@ -140,7 +139,7 @@
                   spaceRequest.avatar = data.avatarUrl !== undefined ? data.avatarUrl : `/portal/rest/v1/social/spaces/${spaceRequest.id.split(":")[0]}/avatar`;
                   spaceRequest.displayName = data.displayName;
                   spaceRequest.description = data.description;
-                  this.spacesRequests.push(spaceRequest);
+                  this.spacesRequests.splice(i, 0, spaceRequest);
                 })
               }
             }
@@ -149,6 +148,11 @@
       },
       toProfileStats() {
         this.$emit('isProfileStats');
+      },
+      sort(array) {
+        return array.slice().sort(function(a, b) {
+          return a.displayName.localeCompare(b.displayName);
+        });
       },
       replyInvitationToJoinSpace(spaceId, reply) {
         replyInvitationToJoinSpace(spaceId, reply).then(
