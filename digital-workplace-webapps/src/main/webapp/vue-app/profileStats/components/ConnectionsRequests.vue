@@ -45,7 +45,7 @@
     <v-flex
       xs12>
       <v-list>
-        <template v-for="item in connectionsRequests">
+        <template v-for="item in sort(connectionsRequests)">
           <v-list-item
             :key="item.id"
             class="py-0 px-2">
@@ -106,7 +106,8 @@
     data() {
       return {
         connectionsRequests: [],
-        connectionsRequestsSize: ''
+        connectionsRequestsSize: '',
+        items: []
       }
     },
     created(){
@@ -138,7 +139,7 @@
                 }).then((data) => {
                   connection.senderAvatar = data.avatar !== undefined ? data.avatar : `/rest/v1/social/users/${data.username}/avatar`;
                   connection.senderFullName = data.fullname;
-                  this.connectionsRequests.push(connection);
+                  this.connectionsRequests.splice(i, 0, connection);
                 })
               }
             }
@@ -147,6 +148,11 @@
       },
       toProfileStats() {
         this.$emit('isProfileStats');
+      },
+      sort(array) {
+        return array.slice().sort(function(a, b) {
+          return a.senderFullName.localeCompare(b.senderFullName);
+        });
       },
       replyInvitationToConnect(relationId, reply) {
         replyInvitationToConnect(relationId, reply).then(
