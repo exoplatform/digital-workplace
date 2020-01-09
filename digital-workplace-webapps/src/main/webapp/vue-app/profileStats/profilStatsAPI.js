@@ -49,9 +49,9 @@ export function getSpacesRequests() {
   })
 }
 
-export function replyInvitationToJoinSpace(spaceId, reply) {
+export function replyInvitationToJoinSpace(spaceMembershipId, reply) {
   const data = {status: `${reply}`}; 
-  return fetch(`/portal/rest/v1/social/spacesMemberships/${spaceId}:${eXo.env.portal.userName}:invited`, {
+  return fetch(`/portal/rest/v1/social/spacesMemberships/${spaceMembershipId}`, {
     method: 'PUT',
     body: JSON.stringify(data),
     headers: {

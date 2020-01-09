@@ -44,8 +44,8 @@
     </v-flex>
     <v-flex
       xs12>
-      <v-list>
-        <template v-for="item in connectionsRequests">
+      <v-list height="180">
+        <template v-for="item in sort(connectionsRequests)">
           <v-list-item
             :key="item.id"
             class="py-0 px-2">
@@ -55,7 +55,7 @@
 
             <v-list-item-content class="py-0">
               <v-list-item-title class="font-weight-bold subtitle-2 primary-color--text darken-2" v-html="item.senderFullName"/>
-              <v-list-item-subtitle class="caption grey-color" v-text="item.communConnections + ' Commun connections'"/>
+              <!-- <v-list-item-subtitle class="caption grey-color" v-text="item.communConnections + ' Commun connections'"/> -->
             </v-list-item-content>
             <v-list-item-action>
               <v-btn-toggle
@@ -94,7 +94,8 @@
         v-if="connectionsRequestsSize > 3"
         depressed
         small
-        class="caption text-uppercase grey--text">{{ this.$t('homepage.seeAll') }}</v-btn>
+        class="caption text-uppercase grey--text"
+        href="/portal/dw/connexions/receivedInvitations">{{ this.$t('homepage.seeAll') }}</v-btn>
     </v-flex>
   </v-layout>
 
@@ -105,7 +106,8 @@
     data() {
       return {
         connectionsRequests: [],
-        connectionsRequestsSize: ''
+        connectionsRequestsSize: '',
+        items: []
       }
     },
     created(){
@@ -137,7 +139,7 @@
                 }).then((data) => {
                   connection.senderAvatar = data.avatar !== undefined ? data.avatar : `/rest/v1/social/users/${data.username}/avatar`;
                   connection.senderFullName = data.fullname;
-                  this.connectionsRequests.push(connection);
+                  this.connectionsRequests.splice(i, 0, connection);
                 })
               }
             }
@@ -146,6 +148,11 @@
       },
       toProfileStats() {
         this.$emit('isProfileStats');
+      },
+      sort(array) {
+        return array.slice().sort(function(a, b) {
+          return a.senderFullName.localeCompare(b.senderFullName);
+        });
       },
       replyInvitationToConnect(relationId, reply) {
         replyInvitationToConnect(relationId, reply).then(
