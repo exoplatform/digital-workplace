@@ -38,9 +38,14 @@
               flat>
               <a class="white--text">
                 <v-badge class="badge-color">
-                  <template v-slot:badge>
-                    <span v-if="spacesRequestsSize > 0" @click="getSpecificCard('SpacesRequests')">{{ spacesRequestsSize }}</span>
-                  </template>
+                  <v-btn
+                    v-if="spacesRequestsSize > 0"
+                    slot="badge"
+                    icon
+                    dark
+                    height="22"
+                    width="22"
+                    @click="getSpecificCard('SpacesRequests')">{{ spacesRequestsSize }}</v-btn>
                   <a class="headline blue-grey--text font-weight-bold pa-1" href="/portal/dw/spaces">{{ spacesSize }}</a>
                 </v-badge>
               </a>
@@ -57,9 +62,14 @@
               flat>
               <a class="white--text">
                 <v-badge pa-0 class="badge-color">
-                  <template v-slot:badge>
-                    <span v-if="connectionsRequestsSize > 0" @click="getSpecificCard('ConnectionsRequests')">{{ connectionsRequestsSize }}</span>
-                  </template>
+                  <v-btn
+                    v-if="connectionsRequestsSize > 0"
+                    slot="badge"
+                    icon
+                    dark
+                    height="22"
+                    width="22"
+                    @click="getSpecificCard('ConnectionsRequests')">{{ connectionsRequestsSize }}</v-btn>
                   <a class="headline blue-grey--text font-weight-bold pa-1" href="/portal/dw/connexions/network">{{ connectionsSize }}</a>
                 </v-badge>
               </a>
