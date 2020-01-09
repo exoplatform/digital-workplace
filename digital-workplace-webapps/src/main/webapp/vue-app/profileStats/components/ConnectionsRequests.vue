@@ -44,7 +44,7 @@
     </v-flex>
     <v-flex
       xs12>
-      <v-list>
+      <v-list height="180">
         <template v-for="item in sort(connectionsRequests)">
           <v-list-item
             :key="item.id"
