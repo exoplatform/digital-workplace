@@ -24,7 +24,7 @@
   <parent>
     <groupId>org.exoplatform.addons.digital-workplace</groupId>
     <artifactId>digital-workplace</artifactId>
-    <version>1.0.x-SNAPSHOT</version>
+    <version>1.0.0-M14</version>
   </parent>
   <artifactId>digital-workplace-services</artifactId>
   <name>eXo Add-on:: Digital workplace - Services</name>
