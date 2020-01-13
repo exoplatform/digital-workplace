@@ -42,13 +42,14 @@
   import 'echarts/lib/chart/pie';
   import 'echarts/lib/component/tooltip';
   import 'echarts/lib/component/graphic';
-  
+  import {getGamificationPointsStats, getGamificationPoints} from '../profilStatsAPI'
+
   export default {
     components: {
       'v-chart': ECharts
     },
     data() {
-      return {         
+      return {
         option : {
           tooltip : {
             trigger: 'item',
@@ -59,7 +60,7 @@
             left:'center',
             top:'center',
             style: {
-              text: `Total\n${1500}`,
+              text: '',
               textAlign: 'center',
               font: '16px arial',
               fill:'#4d5466',
@@ -79,22 +80,33 @@
                 },
                   
               },
-              data:[
-                {value:335, name:'Development',itemStyle: {color: 'rgb(31, 119, 180)'},},
-                {value:310, name:'Feedback',itemStyle: {color: 'rgb(44, 160, 44)'},},
-                {value:234, name:'Knowledge',itemStyle: {color: 'rgb(214, 39, 40)'},},
-                {value:200, name:'Social',itemStyle: {color: 'rgb(148, 103, 189)'},},
-                {value:500, name:'Teamwork',itemStyle: {color: 'rgb(255, 127, 14)'},}
-              ],
             }, 
           ]
         }
       };
     },
-      methods: {
-        toProfileStats() {
-          this.$emit('isProfileStats');
-        }
+    created() {
+      this.getGamificationPointsStats();
+      this.getGamificationPoints();
+    },
+    methods: {
+      getGamificationPoints() {
+        getGamificationPoints().then(
+          (data) => {
+            this.option.graphic.style.text = `Total\n ${data.points}`
+          }      
+        )
+      },
+      getGamificationPointsStats() {
+        getGamificationPointsStats().then(
+          (data) => {
+            this.option.series[0].data = JSON.parse(JSON.stringify(data).split('"label":').join('"name":'));
+          }
+        )
+      },
+      toProfileStats() {
+        this.$emit('isProfileStats');
       }
     }
+  }
 </script>

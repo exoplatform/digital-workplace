@@ -91,7 +91,7 @@
             <v-card
               flat>
               <a @click="getSpecificCard('TotalPoints')">
-                <v-card-text class="headline blue-grey--text font-weight-bold pa-1">53</v-card-text>
+                <v-card-text class="headline blue-grey--text font-weight-bold pa-1">{{ totalPoints }}</v-card-text>
                 <v-card-text class="pa-1 subtitle-1 blue-grey--text">{{ this.$t('homepage.profileStatus.totalPoints') }}</v-card-text>
               </a>
             </v-card>
@@ -117,7 +117,7 @@
   </v-flex>
 </template>
 <script>
-  import {getUserInformations, getSpaces, getSpacesRequests, getConnections, getConnectionsRequests} from '../profilStatsAPI'
+  import {getUserInformations, getSpaces, getSpacesRequests, getConnections, getConnectionsRequests, getGamificationPoints} from '../profilStatsAPI'
   export default {
     data() {
       return {
@@ -126,7 +126,8 @@
         spacesSize: '',
         spacesRequestsSize: '',
         connectionsSize: '',
-        connectionsRequestsSize: ''
+        connectionsRequestsSize: '',
+        totalPoints: ''
       }
     },
     
@@ -137,6 +138,7 @@
       this.getSpacesRequestsSize();
       this.getConnectionsSize();
       this.getConnectionsRequestsSize();
+      this.getGamificationPoints();
     },
     
     methods: {
@@ -172,6 +174,13 @@
         getConnectionsRequests().then(
           (data) => {
             this.connectionsRequestsSize = data.size;
+          }
+        )
+      },
+      getGamificationPoints() {
+        getGamificationPoints().then(
+          (data) => {
+            this.totalPoints = data.points;
           }
         )
       },

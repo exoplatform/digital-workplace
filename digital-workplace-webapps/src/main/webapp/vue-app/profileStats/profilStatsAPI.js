@@ -123,3 +123,29 @@ export function replyInvitationToConnect(relationId, reply) {
 	}
   })
 }
+
+export function getGamificationPoints() {
+  return fetch(`/portal/rest/gamification/api/v1/points?userId=${eXo.env.portal.userName}`, {
+    method: 'GET',
+  }).then((resp) => {
+    if(resp && resp.ok) {
+    return resp.json();
+    }
+    else {
+    throw new Error ('Error when getting gamification points');
+    }
+  })
+}
+
+export function getGamificationPointsStats() {
+  return fetch(`/portal/rest/gamification/leaderboard/stats?username=${eXo.env.portal.userName}`, {
+    method: 'GET',
+  }).then((resp) => {
+    if(resp && resp.ok) {
+    return resp.json();
+    }
+    else {
+    throw new Error ('Error when getting gamification points stats');
+    }
+  })
+}
