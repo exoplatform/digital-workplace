@@ -27,7 +27,7 @@
                 xs12 
                 justify-center>
                 <v-card flat>
-                  <v-card-text class="display-1 font-weight-bold pa-2 big-number">300 Ȼ</v-card-text>
+                  <v-card-text class="display-1 font-weight-bold pa-2 big-number"><a class="blueGrey-Color" href="/portal/dw/wallet">{{ walletBalance }} Ȼ</a></v-card-text>
                 </v-card>
               </v-flex>
             </v-layout>
@@ -37,3 +37,26 @@
     </main>
   </v-app>
 </template>
+
+<script>
+  import {getWalletAccount} from '../WalletAPI'
+  export default {
+    data() {
+      return {
+        walletBalance: ''
+      }
+    },
+    created() {
+      this.getRewardBalance();
+    },
+    methods: {
+      getRewardBalance() {
+        getWalletAccount().then(
+                (data) => {
+                  this.walletBalance = Math.trunc(data.tokenBalance);
+                }
+        )
+      },
+    }
+  }
+</script>
