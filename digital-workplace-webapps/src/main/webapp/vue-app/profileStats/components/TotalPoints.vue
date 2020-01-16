@@ -101,6 +101,10 @@
         getGamificationPointsStats().then(
           (data) => {
             this.option.series[0].data = JSON.parse(JSON.stringify(data).split('"label":').join('"name":'));
+            for(let i=0;i<data.length;i++) {
+              const optionSeriesName = this.option.series[0].data[i].name;
+              this.option.series[0].data[i].name = optionSeriesName.charAt(0).toUpperCase() + optionSeriesName.slice(1);
+            }
           }
         )
       },

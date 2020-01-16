@@ -15,10 +15,12 @@
         <v-card
           flat>
           <v-list-item>
-            <v-list-item-avatar>
-              <v-img
-                :src="avatar" />
-            </v-list-item-avatar>
+            <a href="/portal/dw/profile">
+              <v-list-item-avatar>
+                <v-img
+                  :src="avatar" />
+              </v-list-item-avatar>
+            </a>
             <v-list-item-content>
               <v-list-item-title class="text-uppercase subtitle-1">{{ this.$t('homepage.profileStatus.header') }} {{ firstName }}</v-list-item-title>
             </v-list-item-content>
