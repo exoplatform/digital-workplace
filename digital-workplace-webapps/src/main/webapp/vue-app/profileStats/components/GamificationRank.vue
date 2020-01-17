@@ -47,7 +47,7 @@
           justify-center
           align-end>
 
-          <div class="transparent mx-1 align-center">
+          <div v-if="(typeof leaderBoardArray[1] != 'undefined')" class="transparent mx-1 align-center">
             <v-tooltip top>
               <template v-slot:activator="{ on }">
                 <v-avatar 
@@ -55,25 +55,22 @@
                   class="mb-1 elevation-1" 
                   v-on="on">
                   <img
-                    v-if="leaderBoardArray.length > 0"
-                    :src="leaderBoardArray[1].avatar"
-                    alt="John">
+                    :src="getUserAvatar(leaderBoardArray[1].remoteId)">
                 </v-avatar>
               </template>
-              <span v-if="leaderBoardArray.length > 0">{{ leaderBoardArray[1].userName }}</span>
+              <span>{{ leaderBoardArray[1].fullname }}</span>
 
             </v-tooltip>
             <v-card-text
-              v-if="leaderBoardArray.length > 0"
               class="top2 grey lighten-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold"
               style="height: 40px">
-              {{ leaderBoardArray[1].totalPoints }}
+              {{ leaderBoardArray[1].score }}
             </v-card-text>
 
 
           </div>
 
-          <div class="transparent mx-1 align-center">
+          <div v-if="(typeof leaderBoardArray[0] != 'undefined')" class="transparent mx-1 align-center" >
             <v-tooltip top>
               <template v-slot:activator="{ on }">
                 <v-avatar 
@@ -81,43 +78,37 @@
                   class="mb-1 elevation-1" 
                   v-on="on">
                   <img
-                    v-if="leaderBoardArray.length > 0"
-                    :src="leaderBoardArray[0].avatar"
-                    alt="John">
+                    :src="getUserAvatar(leaderBoardArray[0].remoteId)">
                 </v-avatar>
               </template>
-              <span v-if="leaderBoardArray.length > 0">{{ leaderBoardArray[0].userName }}</span>
+              <span>{{ leaderBoardArray[0].fullname }}</span>
             </v-tooltip>
             <v-card-text
-              v-if="leaderBoardArray.length > 0"
               class="top1 yellow darken-1 px-3 py-2 flex d-flex white--text  align-center font-weight-bold"
               style="height: 55px">
-              {{ leaderBoardArray[0].totalPoints }}
+              {{ leaderBoardArray[0].score }}
             </v-card-text>
 
 
           </div>
 
-          <div class="transparent mx-1 align-center">
+          <div v-if="(typeof leaderBoardArray[2] != 'undefined')" class="transparent mx-1 align-center">
             <v-tooltip top>
               <template v-slot:activator="{ on1 }">
                 <v-avatar 
                   size="35" 
                   class="mb-1 elevation-1" 
                   v-on="on1">
-                  <img
-                    v-if="leaderBoardArray.length > 0"
-                    :src="leaderBoardArray[2].avatar">
+                  <img :src="getUserAvatar(leaderBoardArray[2].remoteId)">
                 </v-avatar>
               </template>
-              <span v-if="leaderBoardArray.length > 0">{{ leaderBoardArray[2].userName }}</span>
+              <span>{{ leaderBoardArray[2].fullname }}</span>
             </v-tooltip>
 
             <v-card-text
-              v-if="leaderBoardArray.length > 0"
               class="top3 amber darken-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold"
               style="height: 25px">
-              {{ leaderBoardArray[2].totalPoints }}
+              {{ leaderBoardArray[2].score }}
             </v-card-text>
 
           </div>
@@ -126,21 +117,21 @@
     </v-flex>
     <v-flex
       xs12>
-      <v-list>
-        <template v-for="item in leaderBoardArray.slice(3, 6)">
+      <v-list height="110">
+        <template v-for="item in listBelowPoduim">
           <v-list-item
-            :key="item.id"
+            :key="item.remoteId"
             class="py-0 px-4 mt-n3">
-            <span class="mr-2">{{ item.rank }}</span>
+            <span v-if="(typeof item != 'undefined')" class="mr-2">{{ item.rank }}</span>
             <v-list-item-avatar size="25" class="my-0 mr-2">
-              <v-img :src="item.avatar"/>
+              <v-img :src="getUserAvatar(item.remoteId)"/>
             </v-list-item-avatar>
 
-            <v-list-item-content class="py-0">
-              <v-list-item-title class="body-2 " v-html="item.userName"/>
+            <v-list-item-content v-if="(typeof item != 'undefined')" class="py-0">
+              <v-list-item-title class="body-2 " v-html="item.fullname"/>
             </v-list-item-content>
-            <v-list-item-action class="my-0">
-              <span>{{ item.totalPoints }}</span>
+            <v-list-item-action v-if="(typeof item != 'undefined')" class="my-0">
+              <span>{{ item.score }}</span>
             </v-list-item-action>
           </v-list-item>
         </template>
@@ -150,29 +141,50 @@
 </template>
 
 <script>
-    import * as profileStatsAPI from '../profilStatsAPI'
-    export default {
-        name: "GamificationRank",
-      data() {
-        return {
-          leaderBoardArray: []
-        }
-      },
-      created(){
-        this.getLeaderBoardList();
-      },
+  import {getUsersByGamificationRank} from "../profilStatsAPI";
+  export default {
+    data() {
+      return {
+        leaderBoardArray: [],
+        listBelowPoduim: []
+      }
+    },
+    created() {
+      this.getUsersByGamificationRank();
+    },
 
-
-      methods: {
-          getLeaderBoardList() {
-            profileStatsAPI.getGamificationRank().then(
-              (data) => {
-                this.leaderBoardArray = data;
-              })
-          },
-          toProfileStats() {
-            this.$emit('isProfileStats');
-          }
-        }
+    methods: {
+      getUsersByGamificationRank() {
+        getUsersByGamificationRank().then(
+          (data) => {
+            const currentUser = eXo.env.portal.userName;
+            const index = data.findIndex(function (item, i) {
+              return item.remoteId === currentUser
+            }) + 1;
+            for (let i = 0; i < data.length; i++) {
+              this.leaderBoardArray.push(data[i])
+            }
+            if (data.length < 4) {
+              for (let i = 0; i < data.length; i++) {
+                this.listBelowPoduim.push(data[i])
+              }
+            } else if ((data.length > 3 && data.length < 6) || index === data.length) {
+              for (let i = data.length - 3; i < data.length; i++) {
+                this.listBelowPoduim.push(data[i])
+              }
+            } else {
+              for (let i = index - 2; i < index + 1; i++) {
+                this.listBelowPoduim.push(data[i])
+              }
+            }
+        })
+      },
+      getUserAvatar(username) {
+        return `/rest/v1/social/users/${username}/avatar`;
+      },
+      toProfileStats() {
+        this.$emit('isProfileStats');
+      }
     }
+  }
 </script>
