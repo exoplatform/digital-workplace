@@ -33,7 +33,14 @@
       <visibility>SYSTEM</visibility>
       <page-reference>portal::dw::wallet</page-reference>
     </node>
-
+    
+    <node>
+      <name>perkstore</name>
+      <label>#{portal.dw.perkstore}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::perkstore</page-reference>
+    </node>
+    
     <node>
       <uri>notifications</uri>
       <name>notifications</name>
@@ -113,6 +120,22 @@
         <label>#{portal.dw.people}</label>
         <page-reference>portal::dw::requests</page-reference>
       </node>
+    </node>
+
+    <node>
+      <uri>activity</uri>
+      <name>activity</name>
+      <label>#{portal.dw.activity}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::activity</page-reference>
+    </node>
+
+    <node>
+      <uri>allNotifications</uri>
+      <name>allNotifications</name>
+      <label>#{portal.dw.allNotifications}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::allNotifications</page-reference>
     </node>
 
   </page-nodes>

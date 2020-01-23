@@ -9,6 +9,10 @@
 @leftIconColor: #a8b3c5;
 @menuTextColor: #4d5466;
 @greyBackground: #e1e8ee;
+@lightBlueBackground: #f0f7fd;
+@lightBlueHover: #e3eef7;
+@borderColor: #0000001f;
+@notifIconColor: #abc8e6;
 
 /*-------------------------Global page Container--------------------------*/
 
@@ -24,7 +28,11 @@ body.open-drawer {
   }
 }
 
-body.open-edit-drawer {
+.open-edit-drawer {
+  overflow: hidden;
+}
+
+.open-notif-drawer {
   overflow: hidden;
 }
 
@@ -1096,6 +1104,7 @@ body.open-edit-drawer {
     }
     
       /*---------- Notification CSS ----------------*/
+
       #NotificationPopoverPortlet {
         .VuetifyApp .v-badge__badge {
           padding: 0px;
@@ -1112,6 +1121,229 @@ body.open-edit-drawer {
         }
         .VuetifyApp .v-navigation-drawer--temporary {
           z-index: 1050;
+        }
+        .notifDrawer {
+          .notifDrawerHeader {
+            .notifDrawerTitle {
+              font-size: 18px;
+              font-weight: bold;
+              color: @blueGreyColor;
+            }
+            .notifDrawerIcons {
+              flex-direction: row!important;
+              .notifDrawerClose {
+                cursor: pointer;
+              }
+            }
+          }
+          .notifDrawerItems {
+            padding-bottom: 80px;
+            .notifDrawerItem {
+                li {
+                  list-style: none;
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: space-between;
+                  padding: 12px;
+                  cursor: pointer;
+
+                  &:hover {
+                    background: @lightBlueHover;
+                    cursor: pointer;
+                    -o-transition: all 0.2s linear;
+                    -moz-transition: all 0.2s linear;
+                    -webkit-transition: all 0.2s linear;
+                    transition: all 0.2s linear;
+                    }
+
+                  &:before {
+                    display: none;
+                  }
+
+                  &:after {
+                    display: none;
+                  }
+
+                  .media {
+                    max-width: 360px;
+                    .avatarXSmall {
+                      max-height: 45px;
+                      max-width: 45px;
+
+                      img {
+                        border-radius: 50%;
+                        width: 45px !important;
+                        height: 45px;
+                      }
+                    }
+
+                    .media-body {
+                      .contentSmall {
+                        .status {
+                          .user-name {
+                            font-weight: bold;
+                          }
+                        }
+
+                        .content {
+                          text-overflow: ellipsis;
+                          white-space: nowrap;
+                          font-size: 13px;
+                          font-style: italic;
+                          max-width: 280px;
+                          overflow: hidden;
+                          display: flex;
+
+                          .user-name {
+                            color: @primaryColor;
+                            font-weight: bold;
+                          }
+
+                          p {
+                            margin-bottom: 8px;
+                            font-size: 13px;
+                            font-style: italic;
+                          }
+
+                          blockquote {
+                            p {
+                              padding: 10px 0 !important;
+                            }
+                          }
+
+                          i {
+                            margin-right: 8px;
+                            font-size: 15px;
+                            color: @notifIconColor!important;
+                            &:before {
+                              color: inherit;
+                            }
+                          }
+                          .confirm {
+                            padding: 8px 0;
+                            .action-item {
+                              font-style: normal;
+                              letter-spacing: .5px;
+                              background-color: transparent!important;
+                              background-image: none;
+                              padding: 0 5px !important;
+                              position: relative;
+                              padding-left: 25px!important;
+                              border-radius: 4px;
+                              border:1px solid @primaryColor;
+                              color: @primaryColor;
+                              -o-transition: all 0.2s linear;
+                              -moz-transition: all 0.2s linear;
+                              -webkit-transition: all 0.2s linear;
+                              transition: all 0.2s linear;
+                              &:before {
+                                content: '\e9c8';
+                                font-family: 'PLF-FONT-ICONS' !important;
+                                position: absolute;
+                                height: 100%;
+                                border-right: 1px solid @primaryColor;
+                                padding-right: 3px;
+                                left:0;
+                                padding-left: 3px;
+                              }
+                              &:hover {
+                                background-color: @primaryColor!important;
+                                color:  white;
+                                &:before {
+                                  border-right: 1px solid white;
+                                }
+                              }
+                            }
+                            .cancel-item {
+                              font-style: normal;
+                              letter-spacing: .5px;
+                              background-color: transparent !important;
+                              background-image: none;
+                              padding: 0 5px !important;
+                              position: relative;
+                              padding-left: 25px!important;
+                              border-radius: 4px;
+                              margin-left:5px;
+                              color: @greyColor;
+                              border:1px solid @greyColor;
+                              -o-transition: all 0.2s linear;
+                              -moz-transition: all 0.2s linear;
+                              -webkit-transition: all 0.2s linear;
+                              transition: all 0.2s linear;
+                              &:before {
+                                content: '\E9D2';
+                                font-family: 'PLF-FONT-ICONS' !important;
+                                position: absolute;
+                                height: 100%;
+                                border-right: 1px solid @greyColor;
+                                padding-right: 3px;
+                                padding-left: 3px;
+                                left: 0;
+                                border-radius: 5px 0 0 5px;
+                              }
+                              &:hover {
+                                background-color: @greyColor!important;
+                                color:  white;
+                                &:before {
+                                  border-right: 1px solid white;
+                                }
+                              }
+                            }
+                          }
+                        }
+
+                        .lastUpdatedTime {
+                          color: @greyColor;
+                          font-size: 12px;
+                          i {
+                            margin-right: 10px;
+                            color: @notifIconColor;
+                          }
+                        }
+
+                        .quoteContainer {
+                          padding-left: 5px;
+                          margin: 5px 0;
+                          max-height: 20px;
+                          overflow: hidden;
+                          white-space: nowrap;
+                          text-overflow: ellipsis;
+                          font-size: 13px;
+
+                          .comment {
+                            border-left: 6px solid #aacded;
+                            padding-left: 5px;
+                            font-style: italic;
+                          }
+                        }
+                      }
+                    }
+                  }
+
+                  .kudosWebNotifContent {
+                    .content {
+                      display: block !important;
+                    }
+                  }
+                }
+                .unread {
+                  background: @lightBlueBackground;
+                }
+            }
+          }
+          .notifFooterActions {
+            position: fixed;
+            bottom: 0;
+            left:0;
+            width: 407px;
+            padding-top: 20px;
+            border-top: 1px solid @borderColor;
+            background: white;
+            padding-bottom: 20px;
+            .seeAllNotif {
+              border: 1px solid @primaryColor;
+            }
+          }
         }
       }
 
@@ -1482,13 +1714,25 @@ body.open-edit-drawer {
 
     .uiCloseIcon {
       color: @greyColor;
-      font-size: 22px;
+      font-size: 20px;
       font-style: normal;
       &:before {
         font-family: 'PLF-FONT-ICONS';
         content: "\e937" !important;
       }
     }
+
+    .uiSettingsIcon {
+      color: @greyColor;
+      font-size: 18px;
+      font-style: normal;
+      &:before {
+        font-family: 'PLF-FONT-ICONS';
+        content: "\e78b" !important;
+      }
+    }
+
+
     .uiPageIcon {
       color: @blueGreyColor;
       font-size: 18px;

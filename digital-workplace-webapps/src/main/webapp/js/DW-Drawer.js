@@ -33,11 +33,15 @@
                         $('body').removeClass('open-edit-drawer');
                     });
 
+                    $(document).on('click','#NotificationPopoverPortlet .v-overlay',function() {
+                        $('body').removeClass('open-notif-drawer');
+                    });
+
                     $(document).on('click','.editNavigationItem',function(e) {
                         $('body').addClass('hiddenDrawer');
                     });
 
-                    $(document).on('click','.uiIconClose',function(e) {
+                    $(document).on('click','.popupHeader .uiIconClose',function(e) {
                         window.location.reload();
                     });
 

@@ -108,7 +108,7 @@
               color="transparent"
               align-center>
               <a @click="getSpecificCard('GamificationRank')">
-                <v-card-text class="headline blue-grey--text font-weight-bold pa-1">53</v-card-text>
+                <v-card-text class="headline blue-grey--text font-weight-bold pa-1">{{ gamificationRank }}</v-card-text>
                 <v-card-text class="pa-1 subtitle-1 blue-grey--text">{{ this.$t('homepage.profileStatus.totalRank') }}</v-card-text>
               </a>
             </v-card>
@@ -119,7 +119,8 @@
   </v-flex>
 </template>
 <script>
-  import {getUserInformations, getSpaces, getSpacesRequests, getConnections, getConnectionsRequests, getGamificationPoints} from '../profilStatsAPI'
+
+  import {getUserInformations, getSpaces, getSpacesRequests, getConnections, getConnectionsRequests, getGamificationPoints, getReputationStatus} from '../profilStatsAPI'
   export default {
     data() {
       return {
@@ -129,6 +130,7 @@
         spacesRequestsSize: '',
         connectionsSize: '',
         connectionsRequestsSize: '',
+        gamificationRank:'',
         totalPoints: ''
       }
     },
@@ -140,6 +142,7 @@
       this.getSpacesRequestsSize();
       this.getConnectionsSize();
       this.getConnectionsRequestsSize();
+      this.getGamificationRank();
       this.getGamificationPoints();
     },
     
@@ -178,6 +181,13 @@
             this.connectionsRequestsSize = data.size;
           }
         )
+      },
+      getGamificationRank() {
+          getReputationStatus().then(
+              (data) => {
+                  this.gamificationRank = data.rank;
+              }
+          )
       },
       getGamificationPoints() {
         getGamificationPoints().then(
