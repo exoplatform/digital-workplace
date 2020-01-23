@@ -122,6 +122,22 @@
       </node>
     </node>
 
+    <node>
+      <uri>activity</uri>
+      <name>activity</name>
+      <label>#{portal.dw.activity}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::activity</page-reference>
+    </node>
+
+    <node>
+      <uri>allNotifications</uri>
+      <name>allNotifications</name>
+      <label>#{portal.dw.allNotifications}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::allNotifications</page-reference>
+    </node>
+
   </page-nodes>
 
 </node-navigation>
