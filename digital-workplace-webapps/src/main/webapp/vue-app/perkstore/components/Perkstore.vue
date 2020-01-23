@@ -15,7 +15,7 @@
             d-flex
             xs12>
             <div class="pa-2">
-              <span class="subtitle-2 grey--text">{{ this.$t('homepage.Perkstore.header') }}</span>
+              <span class="subtitle-2 grey--text"><a class="grey--text" href="/portal/dw/perkstore">{{ this.$t('homepage.Perkstore.header') }}</a></span>
               <v-tooltip bottom>
                 <template v-slot:activator="{ on }">
                   <v-btn
@@ -27,7 +27,7 @@
                     width="20"
                     class="mb-1"
                     v-on="on">
-                    <span class="white--text caption">44</span>
+                    <span class="white--text caption">{{ pendingOrdersSize }}</span>
                   </v-btn>
                 </template>
                 <span>Pending orders</span>
@@ -42,7 +42,7 @@
               flat
               color="transparent">
               <v-list-item class="px-1 perkstore-info">
-                <span class="mr-1 my-0 font-weight-bold big-number">122</span>
+                <span class="mr-1 my-0 font-weight-bold big-number"><a class="blueGrey-Color" href="/portal/dw/perkstore">{{ productsSize }}</a></span>
                 <span class="mt-4 product-label">{{ this.$t('homepage.Perkstore.products') }}</span>
               </v-list-item>
             </v-card>
@@ -50,5 +50,39 @@
         </v-layout>
       </v-container>
     </main>
+    <order-list/>
   </v-app>
 </template>
+
+<script>
+  import {getProductsSize, getPendingOrdersSize} from '../persktoreAPI'
+
+  export default {
+    data() {
+      return {
+        productsSize: '',
+        pendingOrdersSize:''
+      }
+    },
+    created() {
+      this.getProductsSize();
+      this.getPendingOrdersSize();
+    },
+    methods: {
+      getProductsSize() {
+        getProductsSize().then(
+                (products) => {
+                  this.productsSize = products.size;
+                }
+        )
+      },
+      getPendingOrdersSize() {
+        getPendingOrdersSize().then(
+                (orders) => {
+                  this.pendingOrdersSize = orders.size;
+                }
+        )
+      },
+    }
+  }
+</script> 

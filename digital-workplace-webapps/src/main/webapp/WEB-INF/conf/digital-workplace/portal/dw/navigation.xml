@@ -33,7 +33,14 @@
       <visibility>SYSTEM</visibility>
       <page-reference>portal::dw::wallet</page-reference>
     </node>
-
+    
+    <node>
+      <name>perkstore</name>
+      <label>#{portal.dw.perkstore}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::perkstore</page-reference>
+    </node>
+    
     <node>
       <uri>notifications</uri>
       <name>notifications</name>

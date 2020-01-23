@@ -341,6 +341,38 @@
   </page>
 
   <page>
+    <name>perkstore</name>
+    <title>Perk Store</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <container id="PerkStoreParentContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <access-permissions>*:/platform/users</access-permissions>
+      <container id="top-perk-store-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+        <name>top-perk-store-container</name>
+        <access-permissions>*:/platform/users</access-permissions>
+        <factory-id>addonContainer</factory-id>
+      </container>
+      <container id="PerkStoreContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>*:/platform/users</access-permissions>
+        <portlet-application>
+          <portlet>
+            <application-ref>perk-store</application-ref>
+            <portlet-ref>PerkStore</portlet-ref>
+          </portlet>
+          <title>Perk store</title>
+          <access-permissions>*:/platform/users</access-permissions>
+          <show-info-bar>false</show-info-bar>
+        </portlet-application>
+      </container>
+      <container id="bottom-perk-store-container" template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+        <name>bottom-perk-store-container</name>
+        <access-permissions>*:/platform/users</access-permissions>
+        <factory-id>addonContainer</factory-id>
+      </container>
+    </container>
+  </page>
+
+  <page>
     <name>achievements</name>
     <title>Gamification Achievements</title>
     <access-permissions>*:/platform/users</access-permissions>
