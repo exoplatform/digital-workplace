@@ -172,13 +172,8 @@
                 $(document).trigger("exo-invitation-updated");
               });
             }
-            if(linkId.length >1 ) {
-              location.href = `${eXo.env.portal.context}/${eXo.env.portal.portalName}/${linkId[1]}`;
-            } 
-            else {
-              const spaceName = linkId[0].split('g/:spaces:');
-              location.href = `${eXo.env.portal.context}/g/:spaces:${spaceName[1]}`;
-            }
+            notificationlAPI.updateNotification(dataId,'hide');
+            $(this).parents('li:first').slideUp(600);
           });
 
           // ------------- Refuse request
