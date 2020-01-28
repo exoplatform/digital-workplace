@@ -164,7 +164,11 @@
             for (let i = 0; i < data.length; i++) {
               this.leaderBoardArray.push(data[i])
             }
-            if (data.length < 4) {
+            if (data.length === 6 || index < 7) {
+              for (let i = 3; i < 6; i++) {
+                this.listBelowPoduim.push(data[i])
+              }
+            } else if (data.length < 3) {
               for (let i = 0; i < data.length; i++) {
                 this.listBelowPoduim.push(data[i])
               }
