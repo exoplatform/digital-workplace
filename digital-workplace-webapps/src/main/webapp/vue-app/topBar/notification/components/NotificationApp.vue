@@ -125,7 +125,6 @@
       },
       applyActions(item) {
         $(`#${item}`).find('li').each(function (i) {
-
           const dataLink = $(this).find('.contentSmall:first').data('link');
           const linkId = dataLink.split('/portal/intranet/');
           const dataId = $(this).data('id').toString();
@@ -149,57 +148,55 @@
           // ------------- hide notif
 
           $(this).find('.remove-item').off('click')
-                  .on('click', function(evt) {
-                    evt.stopPropagation();
-                    notificationlAPI.updateNotification(dataId,'hide');
-                    $(this).parents('li:first').slideUp(300);
+          .on('click', function(evt) {
+            evt.stopPropagation();
+            notificationlAPI.updateNotification(dataId,'hide');
+            $(this).parents('li:first').slideUp(300);
           });
 
           // ------------- Accept request
 
           $(this).find('.action-item').off('click')
-                  .on('click', function(evt) {
-                    evt.stopPropagation();
-                    let restURl = $(this).data('rest');
-                    if(restURl.indexOf('?') >= 0 ) {
-                      restURl += '&'
-                    } else {
-                      restURl += '?';
-                    }
-                    restURl += `gtn:csrf=${  eXo.env.portal.csrfToken}`;
-                    if(restURl && restURl.length > 0) {
-                      $.ajax(restURl).done(function (data) {
-                        $(document).trigger("exo-invitation-updated");
-                      });
-                    }
-                    if(linkId.length >1 ) {
-                      location.href = `${eXo.env.portal.context}/${eXo.env.portal.portalName}/${linkId[1]}`;
-                    } else {
-                      const spaceName = linkId[0].split('g/:spaces:');
-                      location.href = `${eXo.env.portal.context}/g/:spaces:${spaceName[1]}`;
-                    }
-                  });
+          .on('click', function(evt) {
+            evt.stopPropagation();
+            let restURl = $(this).data('rest');
+            if(restURl.indexOf('?') >= 0 ) {
+              restURl += '&'
+            } 
+            else {
+              restURl += '?';
+            }
+            restURl += `portal:csrf=${eXo.env.portal.csrfToken}`;
+            if(restURl && restURl.length > 0) {
+              $.ajax(restURl).done(function (data) {
+                $(document).trigger("exo-invitation-updated");
+              });
+            }
+            notificationlAPI.updateNotification(dataId,'hide');
+            $(this).parents('li:first').slideUp(600);
+          });
 
           // ------------- Refuse request
 
           $(this).find('.cancel-item').off('click')
-                  .on('click', function(evt) {
-                    evt.stopPropagation();
-                    let restCancelURl = $(this).data('rest');
-                    if(restCancelURl.indexOf('?') >= 0 ) {
-                      restCancelURl += '&'
-                    } else {
-                      restCancelURl += '?';
-                    }
-                    restCancelURl += `gtn:csrf=${  eXo.env.portal.csrfToken}`;
-                    if(restCancelURl && restCancelURl.length > 0) {
-                      $.ajax(restCancelURl).done(function () {
-                        $(document).trigger("exo-invitation-updated");
-                      });
-                    }
-                    notificationlAPI.updateNotification(dataId,'hide');
-                    $(this).parents('li:first').slideUp(600);
-                  });
+          .on('click', function(evt) {
+            evt.stopPropagation();
+            let restCancelURl = $(this).data('rest');
+            if(restCancelURl.indexOf('?') >= 0 ) {
+              restCancelURl += '&'
+            } 
+            else {
+              restCancelURl += '?';
+            }
+            restCancelURl += `portal:csrf=${eXo.env.portal.csrfToken}`;
+            if(restCancelURl && restCancelURl.length > 0) {
+              $.ajax(restCancelURl).done(function () {
+                $(document).trigger("exo-invitation-updated");
+              });
+            }
+            notificationlAPI.updateNotification(dataId,'hide');
+            $(this).parents('li:first').slideUp(600);
+          });
         })
       },
     }

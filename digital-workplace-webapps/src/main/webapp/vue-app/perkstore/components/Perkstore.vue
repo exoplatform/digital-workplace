@@ -27,7 +27,7 @@
                     width="20"
                     class="mb-1"
                     v-on="on">
-                    <span class="white--text caption">{{ pendingOrdersSize }}</span>
+                    <a class="white--text caption" href="/portal/dw/perkstore?notProcessedOrders=true">{{ pendingOrdersSize }}</a>
                   </v-btn>
                 </template>
                 <span>Pending orders</span>
