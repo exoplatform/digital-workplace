@@ -16,22 +16,22 @@
             xs12>
             <div class="pa-2">
               <span class="subtitle-2 grey--text"><a class="grey--text" href="/portal/dw/perkstore">{{ this.$t('homepage.Perkstore.header') }}</a></span>
-              <v-tooltip bottom>
-                <template v-slot:activator="{ on }">
-                  <v-btn
-                    color="amber lighten-1"
-                    fab
-                    depressed
-                    dark
-                    height="20"
-                    width="20"
-                    class="mb-1"
-                    v-on="on">
-                    <a class="white--text caption" href="/portal/dw/perkstore?notProcessedOrders=true">{{ pendingOrdersSize }}</a>
-                  </v-btn>
-                </template>
-                <span>Pending orders</span>
-              </v-tooltip>
+              <a ref="tooltip" :title="$t('homepage.perkstore.pendingOrders')">
+                <v-btn
+                  color="amber lighten-1"
+                  fab
+                  depressed
+                  dark
+                  height="20"
+                  width="20"
+                  class="mb-1"
+                  v-on="on">
+                  <a 
+                    class="white--text caption" 
+                    style="padding-right: 1px" 
+                    href="/portal/dw/perkstore?notProcessedOrders=true">{{ pendingOrdersSize }}</a>
+                </v-btn>
+              </a>
             </div>
           </v-flex>
           <v-flex 
