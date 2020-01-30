@@ -7,7 +7,12 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 		<init-param>
       <name>portlet-view-dispatched-file-path</name>
       <value>/slider.html</value>
-     </init-param>
+    </init-param>
+    <init-param>
+      <description>List of profiles that can be used to enable this portlet</description>
+      <name>exo.profiles</name>
+      <value>ecms</value>
+    </init-param>
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>
@@ -23,6 +28,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 			<name>portlet-view-dispatched-file-path</name>
 			<value>/news.html</value>
 		</init-param>
+    <init-param>
+      <description>List of profiles that can be used to enable this portlet</description>
+      <name>exo.profiles</name>
+      <value>news</value>
+    </init-param>
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>
@@ -38,6 +48,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 			<name>portlet-view-dispatched-file-path</name>
 			<value>/profileStats.html</value>
 		</init-param>
+    <init-param>
+      <description>List of profiles that can be used to enable this portlet</description>
+      <name>exo.profiles</name>
+      <value>gamification,social</value>
+    </init-param>
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>
@@ -53,6 +68,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 			<name>portlet-view-dispatched-file-path</name>
 			<value>/recentDocuments.html</value>
 		</init-param>
+    <init-param>
+      <description>List of profiles that can be used to enable this portlet</description>
+      <name>exo.profiles</name>
+      <value>ecms</value>
+    </init-param>
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>
@@ -68,6 +88,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 			<name>portlet-view-dispatched-file-path</name>
 			<value>/sharedDocuments.html</value>
 		</init-param>
+    <init-param>
+      <description>List of profiles that can be used to enable this portlet</description>
+      <name>exo.profiles</name>
+      <value>ecms</value>
+    </init-param>
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>
@@ -98,6 +123,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 			<name>portlet-view-dispatched-file-path</name>
 			<value>/events.html</value>
 		</init-param>
+    <init-param>
+      <description>List of profiles that can be used to enable this portlet</description>
+      <name>exo.profiles</name>
+      <value>calendar</value>
+    </init-param>
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>
@@ -113,6 +143,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 			<name>portlet-view-dispatched-file-path</name>
 			<value>/tasks.html</value>
 		</init-param>
+    <init-param>
+      <description>List of profiles that can be used to enable this portlet</description>
+      <name>exo.profiles</name>
+      <value>task</value>
+    </init-param>
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>
@@ -128,6 +163,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 			<name>portlet-view-dispatched-file-path</name>
 			<value>/perkstore.html</value>
 		</init-param>
+    <init-param>
+      <description>List of profiles that can be used to enable this portlet</description>
+      <name>exo.profiles</name>
+      <value>perk-store</value>
+    </init-param>
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>
@@ -143,6 +183,11 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 			<name>portlet-view-dispatched-file-path</name>
 			<value>/wallet.html</value>
 		</init-param>
+    <init-param>
+      <description>List of profiles that can be used to enable this portlet</description>
+      <name>exo.profiles</name>
+      <value>wallet</value>
+    </init-param>
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>

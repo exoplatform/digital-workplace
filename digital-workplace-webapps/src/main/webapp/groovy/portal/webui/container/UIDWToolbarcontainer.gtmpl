@@ -1,7 +1,6 @@
 <%
 import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.services.wcm.utils.WCMCoreUtils;
 
 def rcontext = _ctx.getRequestContext();
 /* ADDED PART BY ECMS */
@@ -14,8 +13,8 @@ boolean hasPermission = uicomponent.hasPermission();
 if(!uiPortalApp.isEditing() && !hasPermission) return;
 
 /* ADDED PART BY PLF */
-String barNavigationStyle = WCMCoreUtils.getBarNavigationStyle();
-barNavigationStyle = "UIToolbarContainer" + barNavigationStyle;
+String theme = uicomponent.getApplicationComponent(org.exoplatform.portal.branding.BrandingService.class).getTopBarTheme();
+theme = "UIToolbarContainer" + theme;
 /* END ADDED PART BY PLF */
 
 JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -27,7 +26,7 @@ require("SHARED/ShadowScroll","shadowScroll").
 addScripts("shadowScroll.initShadow();");
 
 %>
-<div class="UIContainer UIToolbarContainer $barNavigationStyle <%=uiPortalApp.isEditing()?"EdittingContainer":""%> <%=hasPermission?"": "ProtectedContainer"%>"
+<div class="UIContainer UIToolbarContainer $theme <%=uiPortalApp.isEditing()?"EdittingContainer":""%> <%=hasPermission?"": "ProtectedContainer"%>"
 id="${uicomponent.id}">
 <div class="NormalContainerBlock">
     <div class="LeftContainerBlock">

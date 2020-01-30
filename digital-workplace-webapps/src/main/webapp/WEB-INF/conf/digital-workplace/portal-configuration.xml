@@ -13,6 +13,11 @@
           <name>override</name>
           <value>${dw.portalConfig.metadata.override:true}</value>
         </value-param>
+        <value-param>
+          <name>default.portal</name>
+          <description>The default portal</description>
+          <value>dw</value>
+        </value-param>
         <object-param>
           <name>portal.configuration</name>
           <description>description</description>

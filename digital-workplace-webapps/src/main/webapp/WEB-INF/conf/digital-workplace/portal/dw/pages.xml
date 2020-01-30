@@ -181,7 +181,7 @@
       <access-permissions>*:/platform/users</access-permissions>
       <portlet-application>
         <portlet>
-          <application-ref>platformNavigation</application-ref>
+          <application-ref>social-portlet</application-ref>
           <portlet-ref>UIUserNavigationPortlet</portlet-ref>
         </portlet>
         <title>User Navigation Portlet</title>
@@ -298,7 +298,7 @@
       <access-permissions>*:/platform/users</access-permissions>
       <portlet-application>
         <portlet>
-          <application-ref>platformNavigation</application-ref>
+          <application-ref>social-portlet</application-ref>
           <portlet-ref>UIUserNavigationPortlet</portlet-ref>
         </portlet>
         <title>User Navigation Portlet</title>
@@ -381,7 +381,7 @@
       <access-permissions>*:/platform/users</access-permissions>
       <portlet-application>
         <portlet>
-          <application-ref>platformNavigation</application-ref>
+          <application-ref>social-portlet</application-ref>
           <portlet-ref>UIUserNavigationPortlet</portlet-ref>
         </portlet>
         <title>User Navigation Portlet</title>
@@ -432,7 +432,7 @@
       <access-permissions>*:/platform/users</access-permissions>
       <portlet-application>
         <portlet>
-          <application-ref>platformNavigation</application-ref>
+          <application-ref>social-portlet</application-ref>
           <portlet-ref>UIUserNavigationPortlet</portlet-ref>
         </portlet>
         <title>User Navigation Portlet</title>
