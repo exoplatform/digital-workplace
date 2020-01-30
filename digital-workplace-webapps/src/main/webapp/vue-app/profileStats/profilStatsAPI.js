@@ -93,7 +93,7 @@ export function getConnections() {
 }
 
 export function getConnectionsRequests() {
-  return fetch('/portal/rest/v1/social/relationships?status=pending&returnSize=true&limit=3', {
+  return fetch('/portal/rest/v1/social/relationships?status=incoming&returnSize=true&limit=3', {
     method: 'GET',
   }).then((resp) => {
     if(resp && resp.ok) {
