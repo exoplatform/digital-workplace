@@ -32,7 +32,7 @@
       </v-layout>
     </v-flex>
     <div style="margin: auto">
-      <v-chart :options="option" style="width: 300px; height: 220px"/>
+      <v-chart :options="option" style="width: 390px; height: 220px"/>
     </div>
   </v-layout>
 </template>
@@ -42,6 +42,7 @@
   import 'echarts/lib/chart/pie';
   import 'echarts/lib/component/tooltip';
   import 'echarts/lib/component/graphic';
+  import 'echarts/lib/component/legend';
   import {getGamificationPointsStats, getGamificationPoints} from '../profilStatsAPI'
 
   export default {
@@ -53,7 +54,11 @@
         option : {
           tooltip : {
             trigger: 'item',
-            formatter: "{b} : {c}"
+            formatter: '{b} : {c} ({d}%)'
+          },
+          legend: {
+            orient: 'vertical',
+            left: 0,
           },
           graphic:{
             type:'text',
@@ -74,9 +79,7 @@
               radius: ['45%', '88%'],
               label: {
                 normal: {
-                  show: true,
-                  position: 'inside',
-                  formatter:"{d}%",
+                  show: false
                 },
                   
               },
@@ -105,6 +108,7 @@
               const optionSeriesName = this.option.series[0].data[i].name;
               this.option.series[0].data[i].name = optionSeriesName.charAt(0).toUpperCase() + optionSeriesName.slice(1);
             }
+            this.option.legend.data = this.option.series[0].data.name
           }
         )
       },
