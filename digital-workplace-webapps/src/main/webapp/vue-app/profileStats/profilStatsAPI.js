@@ -1,5 +1,5 @@
 export function getUsersByGamificationRank() {
-    return fetch( `/portal/rest/gamification/leaderboard/rank/all`, {
+    return fetch( `/portal/rest/gamification/leaderboard/rank/all?loadCapacity=false`, {
         method: 'GET',
     }).then((resp) => {
       if(resp && resp.ok) {
