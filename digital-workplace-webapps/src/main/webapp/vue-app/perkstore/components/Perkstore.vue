@@ -15,7 +15,7 @@
             d-flex
             xs12>
             <div class="pa-2">
-              <span class="subtitle-2 grey--text"><a class="grey--text" href="/portal/dw/perkstore">{{ this.$t('homepage.Perkstore.header') }}</a></span>
+              <span class="subtitle-2 grey--text"><a class="grey--text" @click="navigateTo('perkstore')">{{ this.$t('homepage.Perkstore.header') }}</a></span>
               <a ref="tooltip" :title="$t('homepage.perkstore.pendingOrders')">
                 <v-btn
                   color="amber lighten-1"
@@ -29,7 +29,7 @@
                   <a 
                     class="white--text caption" 
                     style="padding-right: 1px" 
-                    href="/portal/dw/perkstore?notProcessedOrders=true">{{ pendingOrdersSize }}</a>
+                    @click="navigateTo('perkstore?notProcessedOrders=true')">{{ pendingOrdersSize }}</a>
                 </v-btn>
               </a>
             </div>
@@ -42,7 +42,7 @@
               flat
               color="transparent">
               <v-list-item class="px-1 perkstore-info">
-                <span class="mr-1 my-0 font-weight-bold big-number"><a class="blueGrey-Color" href="/portal/dw/perkstore">{{ productsSize }}</a></span>
+                <span class="mr-1 my-0 font-weight-bold big-number"><a class="blueGrey-Color" @click="navigateTo('perkstore')">{{ productsSize }}</a></span>
                 <span class="mt-4 product-label">{{ this.$t('homepage.Perkstore.products') }}</span>
               </v-list-item>
             </v-card>
@@ -82,6 +82,9 @@
                   this.pendingOrdersSize = orders.size;
                 }
         )
+      },
+      navigateTo(pagelink) {
+        location.href=`${ eXo.env.portal.context }/${ eXo.env.portal.portalName }/${ pagelink }` ;
       },
     }
   }

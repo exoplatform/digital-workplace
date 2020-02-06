@@ -19,7 +19,7 @@
               class="white">
               <v-flex d-flex xs12>
                 <v-card flat>
-                  <v-card-text class="subtitle-2 grey--text pa-2"><a class="grey--text" href="/portal/dw/wallet">{{ this.$t('homepage.Wallet.header') }}</a></v-card-text>
+                  <v-card-text class="subtitle-2 grey--text pa-2"><a class="grey--text" @click="navigateTo('wallet')">{{ this.$t('homepage.Wallet.header') }}</a></v-card-text>
                 </v-card>
               </v-flex>
               <v-flex 
@@ -27,7 +27,7 @@
                 xs12 
                 justify-center>
                 <v-card flat>
-                  <v-card-text class="display-1 font-weight-bold pa-2 big-number"><a class="blueGrey-Color" href="/portal/dw/wallet">{{ walletBalance }} Ȼ</a></v-card-text>
+                  <v-card-text class="display-1 font-weight-bold pa-2 big-number"><a class="blueGrey-Color" @click="navigateTo('wallet')">{{ walletBalance }} Ȼ</a></v-card-text>
                 </v-card>
               </v-flex>
             </v-layout>
@@ -56,6 +56,9 @@
                   this.walletBalance = Math.trunc(data.tokenBalance);
                 }
         )
+      },
+      navigateTo(pagelink) {
+        location.href=`${ eXo.env.portal.context }/${ eXo.env.portal.portalName }/${ pagelink }` ;
       },
     }
   }
