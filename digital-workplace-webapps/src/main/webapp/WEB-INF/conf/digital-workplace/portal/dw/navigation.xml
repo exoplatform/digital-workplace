@@ -136,6 +136,14 @@
       <visibility>SYSTEM</visibility>
       <page-reference>portal::dw::allNotifications</page-reference>
     </node>
+    
+    <node>
+      <uri>appCenterUserSetup</uri>
+      <name>appCenterUserSetup</name>
+      <label>#{portal.dw.appCenterUserSetup}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::appCenterUserSetup</page-reference>
+    </node>
 
     <!--  Navigation for news addon (TO BE DEFINED LATER BY NEWS ADDON) -->
     
@@ -162,6 +170,8 @@
     </node>
     
     <!--  Navigation for news addon (TO BE DEFINED LATER BY NEWS ADDON) -->
+    
+    
 
   </page-nodes>
 

@@ -1,7 +1,0 @@
-<div id="<%=uicomponent.id%>">
-  <div class="dwMyApplications">
-    <button>
-         <i class="myApplicationIcon"></i>
-    </button>
-  </div>
-</div>
