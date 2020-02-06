@@ -32,7 +32,7 @@
       </v-layout>
     </v-flex>
     <div style="margin: auto">
-      <v-chart :options="option" style="width: 390px; height: 220px"/>
+      <v-chart :options="option" style="width: 315px; height: 220px"/>
     </div>
   </v-layout>
 </template>
@@ -58,15 +58,15 @@
           },
           legend: {
             orient: 'vertical',
-            left: 0,
+            left: 5,
+            top:12,
           },
           graphic:{
             type:'text',
-            left:'center',
-            top:'center',
+            right:96,
+            top: 95,
             style: {
               text: '',
-              textAlign: 'center',
               font: '16px arial',
               fill:'#4d5466',
               width: 30,
@@ -77,6 +77,7 @@
             {
               type: 'pie',
               radius: ['45%', '88%'],
+              center: ['65%', '50%'],
               label: {
                 normal: {
                   show: false
