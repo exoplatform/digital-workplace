@@ -95,7 +95,7 @@
         depressed
         small
         class="caption text-uppercase grey--text"
-        href="/portal/dw/connexions/receivedInvitations">{{ this.$t('homepage.seeAll') }}</v-btn>
+        @click="navigateTo('receivedInvitations')">{{ this.$t('homepage.seeAll') }}</v-btn>
     </v-flex>
   </v-layout>
 
@@ -165,7 +165,10 @@
             }
           }
         )
-      }
+      },
+      navigateTo(pagelink) {
+        location.href=`${ eXo.env.portal.context }/${ eXo.env.portal.portalName }/${ pagelink }` ;
+      },
     }
   }
 </script>

@@ -15,7 +15,7 @@
         <v-card
           flat>
           <v-list-item>
-            <a href="/portal/dw/profile">
+            <a @click="navigateTo('profile')">
               <v-list-item-avatar>
                 <v-img
                   :src="avatar" />
@@ -48,7 +48,7 @@
                     height="22"
                     width="22"
                     @click="getSpecificCard('SpacesRequests')">{{ spacesRequestsSize }}</v-btn>
-                  <a class="headline blue-grey--text font-weight-bold pa-1" href="/portal/dw/spaces">{{ spacesSize }}</a>
+                  <a class="headline blue-grey--text font-weight-bold pa-1" @click="navigateTo('spaces')">{{ spacesSize }}</a>
                 </v-badge>
               </a>
               <v-card-text class="pa-1 subtitle-1 blue-grey--text">{{ this.$t('homepage.profileStatus.spaces') }}</v-card-text>
@@ -72,7 +72,7 @@
                     height="22"
                     width="22"
                     @click="getSpecificCard('ConnectionsRequests')">{{ connectionsRequestsSize }}</v-btn>
-                  <a class="headline blue-grey--text font-weight-bold pa-1" href="/portal/dw/connexions/network">{{ connectionsSize }}</a>
+                  <a class="headline blue-grey--text font-weight-bold pa-1" @click="navigateTo('connexions/network')">{{ connectionsSize }}</a>
                 </v-badge>
               </a>
               <v-card-text class="pa-1 subtitle-1 blue-grey--text">{{ this.$t('homepage.profileStatus.connections') }}</v-card-text>
@@ -201,7 +201,10 @@
       },
       toProfileStats() {
         this.$emit('isProfileStats');
-      }
+      },
+      navigateTo(pagelink) {
+        location.href=`${ eXo.env.portal.context }/${ eXo.env.portal.portalName }/${ pagelink }` ;
+      },
     }
   }
 </script>

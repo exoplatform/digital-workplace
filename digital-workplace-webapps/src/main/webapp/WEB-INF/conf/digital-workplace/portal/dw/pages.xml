@@ -31,8 +31,40 @@
           <access-permissions>*:/platform/users</access-permissions>
           <portlet-application>
             <portlet>
-              <application-ref>digital-workplace</application-ref>
-              <portlet-ref>digitalWorkplaceNews</portlet-ref>
+              <application-ref>presentation</application-ref>
+              <portlet-ref>ContentListViewerByQueryPortlet</portlet-ref>
+                <preferences>
+                  <preference>
+                    <name>formViewTemplatePath</name>
+                    <value>/exo:ecm/views/templates/content-list-viewer/list/LatestNews.gtmpl</value>
+                    <read-only>false</read-only>
+                  </preference>
+                  <preference>
+                    <name>header</name>
+                    <value>Latest News Post</value>
+                    <read-only>false</read-only>
+                  </preference>
+                  <preference>
+                    <name>basePath</name>
+                    <value>newsDetail</value>
+                    <read-only>false</read-only>
+                  </preference>
+                  <preference>
+                    <name>folderPath</name>
+                    <value>repository:collaboration:/sites/dw</value>
+                    <read-only>false</read-only>
+                  </preference>
+                  <preference>
+                    <name>query</name>
+                    <value>SELECT * FROM exo:symlink WHERE jcr:path LIKE '/Application Data/News/Pinned/%' ORDER BY jcr:created DESC</value>
+                    <read-only>false</read-only>
+                  </preference>
+                  <preference>
+                    <name>sharedCache</name>
+                    <value>false</value>
+                    <read-only>false</read-only>
+                  </preference>
+                </preferences>
             </portlet>
             <title>News</title>
             <access-permissions>*:/platform/users</access-permissions>
@@ -673,5 +705,140 @@
       </container>
     </container>
   </page>
+
+  <page>
+    <name>appCenterUserSetup</name>
+    <title>App Center User Setup</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <container id="AppCenterUserSetup" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <access-permissions>*:/platform/users</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>app-center</application-ref>
+          <portlet-ref>AppCenterUserSetupPortlet</portlet-ref>
+        </portlet>
+        <title>App Center User Setup</title>
+        <access-permissions>*:/platform/users</access-permissions>
+        <show-info-bar>false</show-info-bar>
+        <show-application-state>true</show-application-state>
+      </portlet-application>
+    </container>
+  </page>
+  
+  <!--  Pages for news addon (TO BE DEFINED LATER BY NEWS ADDON) -->
+  
+  <page>
+    <name>news</name>
+    <title>News</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <container id="NewsParentContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <access-permissions>*:/platform/users</access-permissions>
+      <container id="NewsContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>*:/platform/users</access-permissions>
+        <portlet-application>
+          <portlet>
+            <application-ref>news</application-ref>
+            <portlet-ref>News</portlet-ref>
+          </portlet>
+          <title>News</title>
+          <access-permissions>*:/platform/users</access-permissions>
+          <show-info-bar>false</show-info-bar>
+        </portlet-application>
+      </container>
+    </container>
+  </page>
+
+  <page>
+    <name>newsComposer</name>
+    <title>News Composer</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <container id="NewsDetailContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <access-permissions>*:/platform/users</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>news</application-ref>
+          <portlet-ref>NewsComposer</portlet-ref>
+        </portlet>
+        <title>News Composer</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+        <show-application-state>false</show-application-state>
+        <show-application-mode>false</show-application-mode>
+      </portlet-application>
+    </container>
+  </page>
+
+  <page>
+    <name>newsDetail</name>
+    <title>News</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <container id="NewsDetailContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <access-permissions>*:/platform/users</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>presentation</application-ref>
+          <portlet-ref>SingleContentViewer</portlet-ref>
+          <preferences>
+            <preference>
+              <name>workspace</name>
+              <value>collaboration</value>
+              <read-only>false</read-only>
+            </preference>
+            <preference>
+              <name>nodeIdentifier</name>
+              <value>/sites/dw/web contents/site artifacts/Welcome</value>
+              <read-only>false</read-only>
+            </preference>
+            <preference>
+              <name>ShowPrintAction</name>
+              <value>false</value>
+              <read-only>false</read-only>
+            </preference>
+            <preference>
+              <name>ShowTitle</name>
+              <value>false</value>
+              <read-only>false</read-only>
+            </preference>
+            <preference>
+              <name>ShowDate</name>
+              <value>false</value>
+              <read-only>false</read-only>
+            </preference>
+            <preference>
+              <name>ShowOptionBar</name>
+              <value>false</value>
+              <read-only>false</read-only>
+            </preference>
+            <preference>
+              <name>ContextEnable</name>
+              <value>true</value>
+              <read-only>false</read-only>
+            </preference>
+            <preference>
+              <name>ParameterName</name>
+              <value>content-id</value>
+              <read-only>false</read-only>
+            </preference>
+            <preference>
+              <name>sharedCache</name>
+              <value>false</value>
+              <read-only>false</read-only>
+            </preference>
+          </preferences>
+        </portlet>
+        <title>News Detail</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+        <show-application-state>false</show-application-state>
+        <show-application-mode>false</show-application-mode>
+      </portlet-application>
+    </container>
+  </page>
+  
+  <!--  Pages for news addon (TO BE DEFINED LATER BY NEWS ADDON) -->
 
 </page-set>

@@ -66,7 +66,7 @@
                 class="text-uppercase caption primary--text seeAllNotif"
                 outlined 
                 small
-                @click="openURl('/portal/dw/allNotifications/')">{{ this.$t('homepage.topBar.notification.seeAll') }}</v-btn>
+                @click="navigateTo('allNotifications/')">{{ this.$t('homepage.topBar.notification.seeAll') }}</v-btn>
             </v-card>
           </v-row>
         </v-navigation-drawer>
@@ -120,8 +120,8 @@
         $('body').removeClass('open-notif-drawer');
       },
 
-      openURl(url) {
-        window.location.assign(url)
+      navigateTo(pagelink) {
+        location.href=`${ eXo.env.portal.context }/${ eXo.env.portal.portalName }/${ pagelink }` ;
       },
       applyActions(item) {
         $(`#${item}`).find('li').each(function (i) {

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<node-navigation
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_7 http://www.gatein.org/xml/ns/gatein_objects_1_7"
-        xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_7">
+<node-navigation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_7 http://www.gatein.org/xml/ns/gatein_objects_1_7"
+  xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_7">
   <priority>4</priority>
   <page-nodes>
     <node>
@@ -33,14 +32,14 @@
       <visibility>SYSTEM</visibility>
       <page-reference>portal::dw::wallet</page-reference>
     </node>
-    
+
     <node>
       <name>perkstore</name>
       <label>#{portal.dw.perkstore}</label>
       <visibility>SYSTEM</visibility>
       <page-reference>portal::dw::perkstore</page-reference>
     </node>
-    
+
     <node>
       <uri>notifications</uri>
       <name>notifications</name>
@@ -89,10 +88,10 @@
     </node>
 
     <node>
-    <uri>connexions</uri>
-    <name>connexions</name>
-    <label>#{portal.dw.people}</label>
-    <page-reference>portal::dw::people</page-reference>
+      <uri>connexions</uri>
+      <name>connexions</name>
+      <label>#{portal.dw.people}</label>
+      <page-reference>portal::dw::people</page-reference>
       <node>
         <uri>connexions/all-people</uri>
         <name>people</name>
@@ -137,6 +136,42 @@
       <visibility>SYSTEM</visibility>
       <page-reference>portal::dw::allNotifications</page-reference>
     </node>
+    
+    <node>
+      <uri>appCenterUserSetup</uri>
+      <name>appCenterUserSetup</name>
+      <label>#{portal.dw.appCenterUserSetup}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::appCenterUserSetup</page-reference>
+    </node>
+
+    <!--  Navigation for news addon (TO BE DEFINED LATER BY NEWS ADDON) -->
+    
+    <node>
+      <name>news</name>
+      <label>#{news.navigation.node.label}</label>
+      <page-reference>portal::dw::news</page-reference>
+
+      <node>
+        <uri>news/editor</uri>
+        <name>editor</name>
+        <label>#{portal.dw.newsEditor}</label>
+        <visibility>SYSTEM</visibility>
+        <page-reference>portal::dw::newsComposer</page-reference>
+      </node>
+
+      <node>
+        <uri>news/detail</uri>
+        <name>detail</name>
+        <label>#{portal.dw.newsDetail}</label>
+        <visibility>SYSTEM</visibility>
+        <page-reference>portal::dw::newsDetail</page-reference>
+      </node>
+    </node>
+    
+    <!--  Navigation for news addon (TO BE DEFINED LATER BY NEWS ADDON) -->
+    
+    
 
   </page-nodes>
 

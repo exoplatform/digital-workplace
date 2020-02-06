@@ -96,7 +96,7 @@
         depressed
         small
         class="caption text-uppercase grey--text"
-        href="/portal/dw/invitationSpace">{{ this.$t('homepage.seeAll') }}</v-btn>
+        @click="navigateTo('invitationSpace')">{{ this.$t('homepage.seeAll') }}</v-btn>
     </v-flex>
   </v-layout>
 </template>
@@ -165,7 +165,10 @@
             }
           }
         )
-      }
+      },
+      navigateTo(pagelink) {
+        location.href=`${ eXo.env.portal.context }/${ eXo.env.portal.portalName }/${ pagelink }` ;
+      },
     }
   }
 </script>

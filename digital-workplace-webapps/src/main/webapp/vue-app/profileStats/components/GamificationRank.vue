@@ -48,69 +48,53 @@
           align-end>
 
           <div v-if="(typeof leaderBoardArray[1] != 'undefined')" class="transparent mx-1 align-center">
-            <v-tooltip top>
-              <template v-slot:activator="{ on }">
-                <v-avatar 
-                  size="35" 
-                  class="mb-1 elevation-1" 
-                  v-on="on">
-                  <img
-                    :src="getUserAvatar(leaderBoardArray[1].remoteId)">
-                </v-avatar>
-              </template>
-              <span>{{ leaderBoardArray[1].fullname }}</span>
-
-            </v-tooltip>
+            <a ref="tooltip" :title="leaderBoardArray[1].fullname">
+              <v-avatar 
+                size="35" 
+                class="mb-1 elevation-1" 
+                v-on="on">
+                <img
+                  :src="getUserAvatar(leaderBoardArray[1].remoteId)">
+              </v-avatar>
+            </a>
             <v-card-text
               class="top2 grey lighten-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold"
               style="height: 40px">
               {{ leaderBoardArray[1].score }}
             </v-card-text>
-
-
           </div>
 
           <div v-if="(typeof leaderBoardArray[0] != 'undefined')" class="transparent mx-1 align-center" >
-            <v-tooltip top>
-              <template v-slot:activator="{ on }">
-                <v-avatar 
-                  size="35" 
-                  class="mb-1 elevation-1" 
-                  v-on="on">
-                  <img
-                    :src="getUserAvatar(leaderBoardArray[0].remoteId)">
-                </v-avatar>
-              </template>
-              <span>{{ leaderBoardArray[0].fullname }}</span>
-            </v-tooltip>
+            <a ref="tooltip" :title="leaderBoardArray[0].fullname">
+              <v-avatar 
+                size="35" 
+                class="mb-1 elevation-1" 
+                v-on="on">
+                <img
+                  :src="getUserAvatar(leaderBoardArray[0].remoteId)">
+              </v-avatar>
+            </a>
             <v-card-text
               class="top1 yellow darken-1 px-3 py-2 flex d-flex white--text  align-center font-weight-bold"
               style="height: 55px">
               {{ leaderBoardArray[0].score }}
             </v-card-text>
-
-
           </div>
 
           <div v-if="(typeof leaderBoardArray[2] != 'undefined')" class="transparent mx-1 align-center">
-            <v-tooltip top>
-              <template v-slot:activator="{ on1 }">
-                <v-avatar 
-                  size="35" 
-                  class="mb-1 elevation-1" 
-                  v-on="on1">
-                  <img :src="getUserAvatar(leaderBoardArray[2].remoteId)">
-                </v-avatar>
-              </template>
-              <span>{{ leaderBoardArray[2].fullname }}</span>
-            </v-tooltip>
-
+            <a ref="tooltip" :title="leaderBoardArray[2].fullname">
+              <v-avatar 
+                size="35" 
+                class="mb-1 elevation-1" 
+                v-on="on1">
+                <img :src="getUserAvatar(leaderBoardArray[2].remoteId)">
+              </v-avatar>
+            </a>
             <v-card-text
               class="top3 amber darken-1 px-3 py-2 flex d-flex white--text align-center font-weight-bold"
               style="height: 25px">
               {{ leaderBoardArray[2].score }}
             </v-card-text>
-
           </div>
         </v-flex>
       </v-layout>
@@ -164,7 +148,7 @@
             for (let i = 0; i < data.length; i++) {
               this.leaderBoardArray.push(data[i])
             }
-            if (data.length === 6 || index < 7) {
+            if (data.length === 6) {
               for (let i = 3; i < 6; i++) {
                 this.listBelowPoduim.push(data[i])
               }
