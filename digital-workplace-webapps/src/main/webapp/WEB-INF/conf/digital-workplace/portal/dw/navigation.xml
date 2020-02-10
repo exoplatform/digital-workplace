@@ -170,8 +170,15 @@
     </node>
     
     <!--  Navigation for news addon (TO BE DEFINED LATER BY NEWS ADDON) -->
-    
-    
+
+    <node>
+      <uri>settings</uri>
+      <name>settings</name>
+      <label>#{portal.dw.settings}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::settings</page-reference>
+    </node>
+
 
   </page-nodes>
 

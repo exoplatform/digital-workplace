@@ -2,7 +2,7 @@
   <v-app
     id="NotificationPopoverPortlet"      
     class="VuetifyApp">
-    <v-container class="white px-2 pt-3 pb-0">
+    <v-container class="white pl-2 pr-0 pt-3 pb-0">
       <v-layout class="white">
         <v-btn
           icon
@@ -26,13 +26,13 @@
           temporary
           width="420"
           class="notifDrawer">
-          <v-row class="mx-0 px-3">
-            <v-list-item class="notifDrawerHeader">
+          <v-row class="mx-0 px-3 notifDrawerHeader">
+            <v-list-item>
               <v-list-item-content>
                 <span class="notifDrawerTitle">{{ this.$t('homepage.topBar.notification') }}</span>
               </v-list-item-content>
               <v-list-item-action class="notifDrawerIcons">
-                <i class="uiSettingsIcon notifDrawerSettings mr-3"></i>
+                <i class="uiSettingsIcon notifDrawerSettings mr-3" @click="navigateTo('settings')"></i>
                 <i class="uiCloseIcon notifDrawerClose" @click="closeDrawer()"></i>
               </v-list-item-action>
             </v-list-item>
@@ -41,7 +41,7 @@
           <v-divider
             :inset="inset" 
             class="my-0"/>
-          <div class="notifDrawerItems">
+          <div v-if="notificationsSize > 0" class="notifDrawerItems">
             <div
               v-for="(notif, i) in notifications"
               :key="i"
@@ -51,7 +51,13 @@
               v-html="notif.notification">
             </div>
           </div>
-          <v-row class="notifFooterActions mx-0">
+          <div v-else class="noNoticationWrapper">
+            <div class="noNotificationsContent">
+              <i class="uiNoNotifIcon"></i>
+              <p>{{ this.$t('homepage.topBar.notification.noNotification') }}</p>
+            </div>
+          </div>
+          <v-row v-if="notificationsSize > 0" class="notifFooterActions mx-0">
             <v-card 
               flat
               tile 
@@ -59,7 +65,7 @@
               <v-btn 
                 text
                 small
-                class="text-uppercase caption "
+                class="text-uppercase caption markAllAsRead"
                 color="primary"
                 @click="markAllAsRead()">{{ this.$t('homepage.topBar.notification.MarkAllAsRead') }}</v-btn>
               <v-btn 
@@ -82,6 +88,7 @@
         drawerNotification: null,
         notifications: [],
         badge: 0,
+        notificationsSize: 0
       }
     },
     created() {
@@ -93,6 +100,7 @@
                 (data) => {
                   this.notifications = data.notifications;
                   this.badge = data.badge;
+                  this.notificationsSize = this.notifications.length;
                 }
         )
       },
