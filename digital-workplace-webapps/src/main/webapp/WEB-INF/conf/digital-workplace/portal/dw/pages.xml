@@ -123,19 +123,6 @@
       <container id="BottomContainer"
         template="system:/groovy/portal/webui/container/UIResponsiveTableColumnContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
-        <container id="EventsContainer"
-          template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-          <access-permissions>*:/platform/users</access-permissions>
-          <portlet-application>
-            <portlet>
-              <application-ref>digital-workplace</application-ref>
-              <portlet-ref>digitalWorkplaceEvents</portlet-ref>
-            </portlet>
-            <title>Events</title>
-            <access-permissions>*:/platform/users</access-permissions>
-            <show-info-bar>false</show-info-bar>
-          </portlet-application>
-        </container>
         <container id="TasksContainer"
           template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
           <access-permissions>*:/platform/users</access-permissions>
@@ -145,6 +132,19 @@
               <portlet-ref>digitalWorkplaceTasks</portlet-ref>
             </portlet>
             <title>Tasks</title>
+            <access-permissions>*:/platform/users</access-permissions>
+            <show-info-bar>false</show-info-bar>
+          </portlet-application>
+        </container>
+        <container id="EventsContainer"
+                   template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <portlet-application>
+            <portlet>
+              <application-ref>digital-workplace</application-ref>
+              <portlet-ref>digitalWorkplaceEvents</portlet-ref>
+            </portlet>
+            <title>Events</title>
             <access-permissions>*:/platform/users</access-permissions>
             <show-info-bar>false</show-info-bar>
           </portlet-application>
