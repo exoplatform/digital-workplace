@@ -78,8 +78,8 @@
                                   class="py-1"
                                   flat
                                   color="#F7FAFD">
-                                  <div class="title">12 {{ this.$t('homepage.tasks') }}</div>
-                                  <div class="caption color-title">{{ this.$t('homepage.tasks.inProgress') }}</div>
+                                  <div class="title">{{ incomingTasksSize }} {{ this.$t('homepage.tasks') }}</div>
+                                  <div class="caption color-title">{{ this.$t('homepage.tasks.incoming') }}</div>
                                 </v-card>
                               </v-flex>
                             </v-layout>
@@ -129,7 +129,7 @@
                                   class="py-1"
                                   flat
                                   color="#F7FAFD">
-                                  <div class="title">6 {{ this.$t('homepage.tasks') }}</div>
+                                  <div class="title">{{ overdueTasksSize }} {{ this.$t('homepage.tasks') }}</div>
                                   <div class="caption color-title">{{ this.$t('homepage.tasks.late') }}</div>
                                 </v-card>
                               </v-flex>
@@ -155,8 +155,8 @@
               xs12>
               <v-list>
                 <v-list-item
-                  v-for="item in items"
-                  :key="item.title"
+                  v-for="task in tasks"
+                  :key="task.title"
                   class="px-0"
                   @click="getTaskDrawer()">
                   <v-layout
@@ -178,14 +178,15 @@
                               <template v-slot:activator="{ on }">
                                 <v-list-item-title
                                   v-on="on"
-                                  v-text="item.title"/><br>
-                                <v-list-item-subtitle><div class="color-title">{{ item.date }}</div></v-list-item-subtitle>
+                                  v-text="task.title"/><br>
+                                <v-list-item-subtitle><div class="color-title">{{ dateFormatter(task.dueDate) }}</div></v-list-item-subtitle>
                               </template>
-                              <span>{{ item.title }}</span>
+                              <span>{{ task.title }}</span>
                             </v-tooltip>
                           </v-list-item-content>
                         </v-flex>
                         <v-flex
+                          v-if="(task.status != null)"
                           mt-n2
                           d-flex
                           xs5
@@ -193,16 +194,16 @@
                           align><v-tooltip bottom>
                             <template v-slot:activator="{ on }">
                               <v-card
-                                :color="item.color"
+                                :color="task.status.project.color"
                                 flex
                                 width="200"
                                 class="pa-2 my-3 Rectangular-card text-center flexCard"
                                 flat
                                 v-on="on" >
-                                <span>{{ item.project }}</span>
+                                <span>{{ task.status.project.name }}</span>
                               </v-card>
                               <v-card
-                                :style="{borderColor:item.color}"
+                                :style="{borderColor:task.status.project.color}"
                                 width="18"
                                 class="pa-2 my-3 Rectangular-card"
                                 flat
@@ -210,7 +211,7 @@
                                 center>
                                 <v-icon class="mt-n2" color="red">mdi-flag-variant</v-icon>
                               </v-card>
-                            </template><span>{{ item.project }}</span>
+                            </template><span>{{ task.status.project.name }}</span>
                         </v-tooltip></v-flex>
                       </v-layout>
                     </v-flex>
@@ -226,6 +227,7 @@
 
 <script>
   import TaskDrawer from "./TaskDrawer.vue";
+  import {getMyAllTasks, getMyIncomingTasks, getMyOverdueTasks} from '../TasksAPI'
 
   export default {
 
@@ -234,29 +236,51 @@
       return {
         drawer: false,
         placeholder: '',
-        items: [
-          {
-            title: 'Create new composer',
-            project: 'Lorsum iprem. Lorsum sur iprem et, lorsa sur iprem, valum sur ipdi.',
-            color: '#FFF0D8',
-            status: 'en cours',
-            date: "14-10-2019"
-          },
-          {title: 'Design new Home', project: 'Home page', color: '#E1E1E1', status: 'en retard', date: "14-10-2019"},
-          {title: 'New Badges', project: 'Gamification', color: '#ECC8C8', status: 'en cours', date: "14-10-2019"},
-          {title: 'My currencies', project: 'Wallet Feature', color: '#CEDEEF', status: 'en cours', date: "14-10-2019"},
-          {
-            title: 'File Activity design',
-            project: 'Only Office',
-            color: '#D4F0E7',
-            status: 'en cours',
-            date: "14-10-2019"
-          },
-          {title: 'Add domains', project: 'Gamification', color: '#ECC8C8', status: 'en cours', date: "14-10-2019"},
-        ],
+        tasks: [],
+        incomingTasksSize:'',
+        overdueTasksSize:''
       }
     },
+    created(){
+      this.getMyAllTasks();
+      this.getMyIncomingTasksSize();
+      this.getMyOverdueTasksSize();
+    },
     methods: {
+      getMyAllTasks() {
+        getMyAllTasks().then(
+          (tasks) => {
+            this.tasks = tasks;
+          }
+        )
+      },
+      getMyIncomingTasksSize() {
+        getMyIncomingTasks().then(
+          (data) => {
+            this.incomingTasksSize = data.size;
+          }
+        )
+      },
+      getMyOverdueTasksSize() {
+        getMyOverdueTasks().then(
+          (data) => {
+            this.overdueTasksSize = data.size;
+          }
+        )
+      },
+
+      dateFormatter(dueDate) {
+        if (dueDate) {
+          const date = new Date(dueDate.time);
+          const day = date.getDate();
+          const month = date.getMonth()+1;
+          const year = date.getFullYear();
+          const formattedTime = `${day  }-${  month  }-${  year}`;
+          return formattedTime
+        } else {
+          return "Due date"
+        }
+      },
       getTaskDrawer() {
         this.drawer = !this.drawer;
         document.body.style.overflow = this.drawer ? 'hidden' : 'auto';

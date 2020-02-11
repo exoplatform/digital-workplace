@@ -52,6 +52,7 @@
   "dependencies": {
     "@ckeditor/ckeditor5-build-inline": "^16.0.0",
     "echarts": "^4.2.1",
+    "moment": "^2.24.0",
     "vue-ckeditor5": "^0.4.1",
     "vue-echarts": "^4.0.3",
     "vuejs-datepicker": "^1.6.2"
