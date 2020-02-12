@@ -55,7 +55,7 @@
 
             <v-list-item-content class="py-0">
               <v-list-item-title class="font-weight-bold subtitle-2 primary-color--text darken-2" v-html="item.senderFullName"/>
-              <!-- <v-list-item-subtitle class="caption grey-color" v-text="item.communConnections + ' Commun connections'"/> -->
+              <v-list-item-subtitle class="caption grey-color" v-text="item.commonConnections+ ' ' + $t('homepage.profileStatus.commonConnections')"/>
             </v-list-item-content>
             <v-list-item-action>
               <v-btn-toggle
@@ -101,7 +101,7 @@
 
 </template>
 <script>
-  import {getConnectionsRequests, getConnectionRequestSender, replyInvitationToConnect} from '../profilStatsAPI'
+  import {getConnectionsRequests, getCommonConnections, replyInvitationToConnect} from '../profilStatsAPI'
   export default {
     data() {
       return {
@@ -139,7 +139,10 @@
                 }).then((data) => {
                   connection.senderAvatar = data.avatar !== undefined ? data.avatar : `/rest/v1/social/users/${data.username}/avatar`;
                   connection.senderFullName = data.fullname;
-                  this.connectionsRequests.splice(i, 0, connection);
+                  getCommonConnections(data.id).then((data) => {
+                    connection.commonConnections = data.size;
+                    this.connectionsRequests.splice(i, 0, connection);
+                  });
                 })
               }
             }

@@ -1,38 +1,40 @@
 export function getUsersByGamificationRank() {
-    return fetch( `/portal/rest/gamification/leaderboard/rank/all?loadCapacity=false`, {
-        method: 'GET',
-    }).then((resp) => {
-      if(resp && resp.ok) {
-            return resp.json();
-      } else {
-          throw new Error ('Error when getting users by gamification rank')
-      }
-    })
+  return fetch( `/portal/rest/gamification/leaderboard/rank/all?loadCapacity=false`, {
+    method: 'GET',
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+    } 
+    else {
+      throw new Error ('Error when getting users by gamification rank')
+    }
+  })
 }
 export function getReputationStatus() {
-    const url = window.location.pathname
-    return fetch( `/rest/gamification/reputation/status?url=${url}`, {
-        method: 'GET',
-    }).then((resp) => {
-      if(resp && resp.ok) {
-          return resp.json();
-      } else {
-          throw new Error ('Error when getting the user reputation status')
-      }
-    })
+  const url = window.location.pathname
+  return fetch( `/rest/gamification/reputation/status?url=${url}`, {
+    method: 'GET',
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+    } 
+    else {
+      throw new Error ('Error when getting the user reputation status')
+    }
+  })
 }
 
 export function getUserInformations() {
-    return fetch(`/portal/rest/v1/social/users/${eXo.env.portal.userName}`, {
-      method: 'GET',
-    }).then((resp) => {
-      if(resp && resp.ok) {
-        return resp.json();
-      } 
-      else {
-        throw new Error ('Error when getting user informations');
-      }
-    })
+  return fetch(`/portal/rest/v1/social/users/${eXo.env.portal.userName}`, {
+    method: 'GET',
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+    } 
+    else {
+      throw new Error ('Error when getting user informations');
+    }
+  })
 }
 
 export function getSpaces() {
@@ -141,10 +143,10 @@ export function getGamificationPoints() {
     method: 'GET',
   }).then((resp) => {
     if(resp && resp.ok) {
-    return resp.json();
+      return resp.json();
     }
     else {
-    throw new Error ('Error when getting gamification points');
+      throw new Error ('Error when getting gamification points');
     }
   })
 }
@@ -154,10 +156,23 @@ export function getGamificationPointsStats() {
     method: 'GET',
   }).then((resp) => {
     if(resp && resp.ok) {
-    return resp.json();
+      return resp.json();
     }
     else {
-    throw new Error ('Error when getting gamification points stats');
+      throw new Error ('Error when getting gamification points stats');
+    }
+  })
+}
+
+export function getCommonConnections(relationId) {
+  return fetch(`/portal/rest/v1/social/identities/${relationId}/commonConnections?returnSize=true`, {
+    method: 'GET',
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+    } 
+    else {
+      throw new Error ('Error when getting common connections');
     }
   })
 }
