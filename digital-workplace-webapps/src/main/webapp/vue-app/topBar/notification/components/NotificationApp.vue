@@ -12,7 +12,9 @@
             flat
             color="red"
             overlap>
-            <span v-if="badge > 0" slot="badge">{{ badge }}</span>
+            <span 
+              v-if="badge > 0" 
+              slot="badge"> {{ badge }}</span>
             <v-icon
               class="grey-color">
               notifications
@@ -88,21 +90,31 @@
         drawerNotification: null,
         notifications: [],
         badge: 0,
-        notificationsSize: 0
+        notificationsSize: 0,
+      }
+    },
+
+    watch: {
+      badge() {
+        return this.badge;
       }
     },
     created() {
       this.getNotifications();
+      notificationlAPI.getUserToken().then(
+              (data) => {
+                notificationlAPI.initCometd(data);
+              }
+      );
+      document.addEventListener('cometdNotifEvent', this.notificationUpdated);
     },
     methods: {
       getNotifications() {
-        notificationlAPI.getNotifications().then(
-                (data) => {
-                  this.notifications = data.notifications;
-                  this.badge = data.badge;
-                  this.notificationsSize = this.notifications.length;
-                }
-        )
+        notificationlAPI.getNotifications().then((data) => {
+          this.notifications = data.notifications;
+          this.badge = data.badge;
+          this.notificationsSize = this.notifications.length;
+        })
       },
 
       markAllAsRead() {
@@ -206,6 +218,14 @@
             $(this).parents('li:first').slideUp(600);
           });
         })
+      },
+
+      notificationUpdated(event) {
+        if(event && event.detail) {
+          this.badge = event.detail.numberOnbadge;
+          this.notifications.unshift({'notification' : event.detail.notifBody});
+          this.notifications.pop(this.notifications[this.notifications.length-1]);
+        }
       },
     }
   }
