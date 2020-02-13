@@ -123,19 +123,6 @@
       <container id="BottomContainer"
         template="system:/groovy/portal/webui/container/UIResponsiveTableColumnContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
-        <container id="EventsContainer"
-          template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-          <access-permissions>*:/platform/users</access-permissions>
-          <portlet-application>
-            <portlet>
-              <application-ref>digital-workplace</application-ref>
-              <portlet-ref>digitalWorkplaceEvents</portlet-ref>
-            </portlet>
-            <title>Events</title>
-            <access-permissions>*:/platform/users</access-permissions>
-            <show-info-bar>false</show-info-bar>
-          </portlet-application>
-        </container>
         <container id="TasksContainer"
           template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
           <access-permissions>*:/platform/users</access-permissions>
@@ -145,6 +132,19 @@
               <portlet-ref>digitalWorkplaceTasks</portlet-ref>
             </portlet>
             <title>Tasks</title>
+            <access-permissions>*:/platform/users</access-permissions>
+            <show-info-bar>false</show-info-bar>
+          </portlet-application>
+        </container>
+        <container id="EventsContainer"
+                   template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <portlet-application>
+            <portlet>
+              <application-ref>digital-workplace</application-ref>
+              <portlet-ref>digitalWorkplaceEvents</portlet-ref>
+            </portlet>
+            <title>Events</title>
             <access-permissions>*:/platform/users</access-permissions>
             <show-info-bar>false</show-info-bar>
           </portlet-application>
@@ -840,5 +840,25 @@
   </page>
   
   <!--  Pages for news addon (TO BE DEFINED LATER BY NEWS ADDON) -->
+
+  <page>
+    <name>settings</name>
+    <title>Settings</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <container id="AppCenterUserSetup" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <access-permissions>*:/platform/users</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>social-juzu</application-ref>
+          <portlet-ref>NotificationSettingsPortlet</portlet-ref>
+        </portlet>
+        <title>Notifications Settings</title>
+        <access-permissions>*:/platform/users</access-permissions>
+        <show-info-bar>false</show-info-bar>
+        <show-application-state>true</show-application-state>
+      </portlet-application>
+    </container>
+  </page>
 
 </page-set>

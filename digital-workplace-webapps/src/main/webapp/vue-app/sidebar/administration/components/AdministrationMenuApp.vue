@@ -12,7 +12,6 @@
     <administration-menu-item-app :administration-item="searchItems" item-title="Search"/>
     <administration-menu-item-app :administration-item="portalItems" item-title="Portal"/>
     <administration-menu-item-app :administration-item="spacesItems" item-title="Spaces"/>
-    <administration-menu-item-app :administration-item="applicationCenterItems" item-title="Application center"/>
     <administration-menu-item-app :administration-item="othersItems" item-title="Other"/>
   </v-navigation-drawer>
 </template>

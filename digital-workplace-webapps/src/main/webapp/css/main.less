@@ -773,7 +773,7 @@ body.open-drawer {
     display: none;
   }
   .NotificationPopoverPortletTDContainer {
-    padding-right: 12px;
+    padding-right: 8px;
   }
 }
 
@@ -966,7 +966,7 @@ body.open-drawer {
         #DWEditAdministration {
           .editAdministrationBtn {
             display: block;
-            padding: 18px 12px 0 12px;
+            padding: 19px 12px 0 10px;
             cursor: pointer;
             .uiEditAdminIcon {
               font-size: 24px;
@@ -1119,6 +1119,9 @@ body.open-drawer {
       /*---------- Notification CSS ----------------*/
 
       #NotificationPopoverPortlet {
+        .container.white{
+          width: auto!important;
+        }
         .VuetifyApp .v-badge__badge {
           padding: 0px;
           font-size: 12px;
@@ -1137,6 +1140,13 @@ body.open-drawer {
         }
         .notifDrawer {
           .notifDrawerHeader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 396px;
+            border-bottom: 1px solid #0000001f;
+            background: white;
+            z-index: 9999;
             .notifDrawerTitle {
               font-size: 18px;
               font-weight: bold;
@@ -1144,13 +1154,14 @@ body.open-drawer {
             }
             .notifDrawerIcons {
               flex-direction: row!important;
-              .notifDrawerClose {
+              i {
                 cursor: pointer;
               }
             }
           }
           .notifDrawerItems {
-            padding-bottom: 80px;
+            padding-bottom: 70px;
+            padding-top: 55px;
             .notifDrawerItem {
                 li {
                   list-style: none;
@@ -1348,13 +1359,45 @@ body.open-drawer {
             position: fixed;
             bottom: 0;
             left:0;
-            width: 407px;
+            width: 408px;
             padding-top: 20px;
             border-top: 1px solid @borderColor;
             background: white;
             padding-bottom: 20px;
+            padding-right: 12px;
             .seeAllNotif {
               border: 1px solid @primaryColor;
+            }
+            .markAllAsRead {
+              border: 1px solid transparent;
+            }
+          }
+          .noNoticationWrapper {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            background-color: @greyWhiteColor;
+            margin-top: -1px;
+            .noNotificationsContent {
+              text-align: center;
+              margin-top: -10%;
+              .uiNoNotifIcon {
+                color: @greyWhiteColor;
+                font-size: 10rem;
+                font-style: normal;
+                font-weight: normal;
+                &:before {
+                  font-family: 'PLF-FONT-ICONS';
+                  content: "\e965" !important;
+                }
+              }
+              p {
+                font-size: 15px;
+                color: #a8b3c5;
+                margin-top: -50px;
+                font-weight: bold;
+              }
             }
           }
         }

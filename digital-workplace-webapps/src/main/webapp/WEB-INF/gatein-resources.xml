@@ -413,6 +413,10 @@
       <module>jquery</module>
       <as>$</as>
     </depends>
+    <depends>
+      <module>commons-cometd3</module>
+      <as>cCometd</as>
+    </depends>
   </module>
 
   <portlet>

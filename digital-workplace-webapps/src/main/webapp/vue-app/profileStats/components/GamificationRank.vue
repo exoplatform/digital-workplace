@@ -104,6 +104,7 @@
       <v-list height="110">
         <template v-for="item in listBelowPoduim">
           <v-list-item
+            v-if="(typeof item != 'undefined')"
             :key="item.remoteId"
             class="py-0 px-4 mt-n3">
             <span v-if="(typeof item != 'undefined')" class="mr-2">{{ item.rank }}</span>
@@ -152,12 +153,16 @@
               for (let i = 3; i < 6; i++) {
                 this.listBelowPoduim.push(data[i])
               }
-            } else if (data.length < 3) {
+            } else if (data.length === 3) {
               for (let i = 0; i < data.length; i++) {
                 this.listBelowPoduim.push(data[i])
               }
             } else if ((data.length > 3 && data.length < 6) || index === data.length) {
               for (let i = data.length - 3; i < data.length; i++) {
+                this.listBelowPoduim.push(data[i])
+              }
+            } else if (index < 7) {
+              for (let i = 3; i < 6; i++) {
                 this.listBelowPoduim.push(data[i])
               }
             } else {
