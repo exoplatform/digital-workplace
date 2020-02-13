@@ -104,6 +104,7 @@
       <v-list height="110">
         <template v-for="item in listBelowPoduim">
           <v-list-item
+            v-if="(typeof item != 'undefined')"
             :key="item.remoteId"
             class="py-0 px-4 mt-n3">
             <span v-if="(typeof item != 'undefined')" class="mr-2">{{ item.rank }}</span>
