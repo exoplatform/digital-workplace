@@ -677,7 +677,17 @@ body.open-drawer {
     }
   }
 }
-
+@media (min-width: 1201px) {
+  .NotificationPopoverPortletTDContainer {
+    padding-right: 10px;
+  }
+  .DWAdminToolBarPortletTDContainer .uiAdminToolbarPortlet #DWEditAdministration .editAdministrationBtn {
+    padding-left: 0!important;
+  }
+  div#ToolBarSearch .dropdown-toggle {
+    padding-right: 6px!important;
+  }
+}
 @media (max-width: 1200px) {
   .LatestNewsContainerTDContainer {
     flex: 0 1 100%;
@@ -1789,3 +1799,22 @@ body.open-drawer {
         content: "\e6bc" !important;
       }
     }
+
+  @media (max-width: 420px) {
+    #NotificationPopoverPortlet {
+      .notifDrawer {
+        width: 100% !important;
+        .notifDrawerHeader {
+          width: 100%!important;
+          padding-left: 0!important;
+          padding-right: 0!important;
+          .v-list-item {
+            padding: 0 10px!important;
+          }
+        }
+        .notifFooterActions {
+          width: 100%!important;
+        }
+      }
+    }
+  }
