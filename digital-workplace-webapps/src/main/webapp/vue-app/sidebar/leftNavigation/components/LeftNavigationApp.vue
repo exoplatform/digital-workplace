@@ -15,11 +15,11 @@
           class="accountTitleItem py-3 "
           @click="navigateTo('profile')">
           <v-list-item-avatar size="44" class="mr-3 mt-0 mb-0 elevation-1">
-            <v-img src="/rest/v1/social/users/root/avatar"/>
+            <v-img :src="avatar"/>
           </v-list-item-avatar>
           <v-list-item-content class="py-0 accountTitleLabel">
-            <v-list-item-title class="font-weight-bold body-2 mb-0">Sara Boutej</v-list-item-title>
-            <v-list-item-subtitle class="font-italic caption">Frontend developer</v-list-item-subtitle>
+            <v-list-item-title class="font-weight-bold body-2 mb-0">{{ fullName }}</v-list-item-title>
+            <v-list-item-subtitle class="font-italic caption">{{ position }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
       </v-row>
@@ -51,8 +51,12 @@
   </v-app>
 </template>
 <script>
+  import {getUserInformations} from '../../../profileStats/profilStatsAPI'
   export default {
     data: () => ({
+      fullName: '',
+      avatar: '',
+      position: '',
       item: 1,
       items: [
         { text: 'Snapshot', url: '' },
@@ -61,7 +65,20 @@
         { text: 'People', url: 'connexions' },
       ],
     }),
+    created(){
+      this.avatar=`/portal/rest/v1/social/users/${eXo.env.portal.userName}/avatar`;
+      this.getUserInformations();
+    },
+    
     methods: {
+      getUserInformations() {
+        getUserInformations().then(
+          (data) => {
+            this.fullName = data.fullname;
+            this.position = data.position;
+          }
+        )
+      },
       navigateTo(pagelink) {
         location.href=`${eXo.env.portal.context}/${eXo.env.portal.portalName}/${pagelink}`;
       }
