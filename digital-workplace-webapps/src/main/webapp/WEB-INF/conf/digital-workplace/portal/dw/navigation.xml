@@ -12,6 +12,14 @@
     </node>
 
     <node>
+      <uri>stream</uri>
+      <name>stream</name>
+      <label>#{portal.dw.stream}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::activity</page-reference>
+    </node>
+
+    <node>
       <uri>profile</uri>
       <name>profile</name>
       <label>#{portal.dw.profile}</label>
@@ -136,7 +144,7 @@
       <visibility>SYSTEM</visibility>
       <page-reference>portal::dw::allNotifications</page-reference>
     </node>
-    
+
     <node>
       <uri>appCenterUserSetup</uri>
       <name>appCenterUserSetup</name>
@@ -145,8 +153,8 @@
       <page-reference>portal::dw::appCenterUserSetup</page-reference>
     </node>
 
-    <!--  Navigation for news addon (TO BE DEFINED LATER BY NEWS ADDON) -->
-    
+    <!-- Navigation for news addon (TO BE DEFINED LATER BY NEWS ADDON) -->
+
     <node>
       <name>news</name>
       <label>#{news.navigation.node.label}</label>
@@ -168,8 +176,8 @@
         <page-reference>portal::dw::newsDetail</page-reference>
       </node>
     </node>
-    
-    <!--  Navigation for news addon (TO BE DEFINED LATER BY NEWS ADDON) -->
+
+    <!-- Navigation for news addon (TO BE DEFINED LATER BY NEWS ADDON) -->
 
     <node>
       <uri>settings</uri>

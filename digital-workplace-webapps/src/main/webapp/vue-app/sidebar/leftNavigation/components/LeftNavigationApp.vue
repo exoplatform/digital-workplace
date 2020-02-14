@@ -38,7 +38,10 @@
                 <i :class="'icon'+item.text"></i>
               </v-list-item-icon>
               <v-list-item-content>
-                <v-list-item-title class="subtitle-1" v-text="item.text"/>
+                <v-list-item-title
+                  class="subtitle-1"
+                  @click="navigateTo(`${item.url}`)"
+                  v-text="item.text"/>
               </v-list-item-content>
             </v-list-item>
           </v-list-item-group>
@@ -52,15 +55,15 @@
     data: () => ({
       item: 1,
       items: [
-        { text: 'Snapshot' },
-        { text: 'Stream' },
-        { text: 'Spaces'},
-        { text: 'People' },
+        { text: 'Snapshot', url: '' },
+        { text: 'Stream', url: 'stream' },
+        { text: 'Spaces', url: 'spaces' },
+        { text: 'People', url: 'connexions' },
       ],
     }),
     methods: {
       navigateTo(pagelink) {
-        location.href=`${eXo.env.portal.context  }/${ eXo.env.portal.portalName }/${  pagelink}` ;
+        location.href=`${eXo.env.portal.context}/${eXo.env.portal.portalName}/${pagelink}`;
       }
     }
   }
