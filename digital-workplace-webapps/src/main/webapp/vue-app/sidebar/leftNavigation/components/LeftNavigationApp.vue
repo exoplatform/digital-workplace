@@ -57,7 +57,7 @@
       fullName: '',
       avatar: '',
       position: '',
-      item: 1,
+      item: 0,
       items: [
         { text: 'Snapshot', url: '' },
         { text: 'Stream', url: 'stream' },
@@ -68,6 +68,9 @@
     created(){
       this.avatar=`/portal/rest/v1/social/users/${eXo.env.portal.userName}/avatar`;
       this.getUserInformations();
+      const pageName = window.location.pathname.split(`${eXo.env.portal.context}/${eXo.env.portal.portalName}/`)[1];
+      const index = this.items.findIndex(obj => obj.url === pageName);
+      this.item = index;
     },
     
     methods: {
