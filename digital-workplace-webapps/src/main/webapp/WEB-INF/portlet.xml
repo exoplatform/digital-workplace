@@ -121,7 +121,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
 		<init-param>
 			<name>portlet-view-dispatched-file-path</name>
-			<value>/events.html</value>
+			<value>/events.jsp</value>
 		</init-param>
     <init-param>
       <description>List of profiles that can be used to enable this portlet</description>
