@@ -11,13 +11,13 @@
       <v-row class="mx-0 settingsTitle">
         <v-list-item class="settingsTitleWrapper" @click="navigateTo('settings')">
           <v-list-item-icon class="my-2 mr-6"><i class="settingsIcon"></i></v-list-item-icon>
-          <v-list-item-content class="subtitle-1 text-uppercase font-weight-bold settingsTitleLabel py-2">{{ this.$t('homepage.sidebar.settings.title') }}</v-list-item-content>
+          <v-list-item-content class="subtitle-1 settingsTitleLabel">{{ this.$t('homepage.sidebar.settings.title') }}</v-list-item-content>
         </v-list-item>
       </v-row>
       <v-row class="mx-0 logoutLinks">
         <v-list-item @click="logOut()">
           <v-list-item-icon class="my-2 mr-6"><i class="logoutIcon"></i></v-list-item-icon>
-          <v-list-item-content class="subtitle-1 text-uppercase font-weight-bold settingsTitleLabel py-2">{{ this.$t('homepage.sidebar.logout.label') }}</v-list-item-content>
+          <v-list-item-content class="subtitle-1 settingsTitleLabel">{{ this.$t('homepage.sidebar.logout.label') }}</v-list-item-content>
         </v-list-item>
       </v-row>
     </v-container>
