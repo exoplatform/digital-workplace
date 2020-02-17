@@ -179,6 +179,13 @@
       <page-reference>portal::dw::settings</page-reference>
     </node>
 
+    <!-- Navigation for tasks addon (TO BE DEFINED LATER BY TASKS ADDON) -->
+    <node>
+      <uri>tasks</uri>
+      <name>tasks</name>
+      <label>#{portal.dw.tasks}</label>
+      <page-reference>portal::dw::tasks</page-reference>
+    </node>
 
   </page-nodes>
 

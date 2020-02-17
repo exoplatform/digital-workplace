@@ -1,4 +1,4 @@
-<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+<template>
   <v-app
     id="digital-workplace-tasks"
     class="VuetifyApp"
@@ -22,7 +22,7 @@
               <v-card
                 flat
                 color="transparent">
-                <a href="#"><v-card-text class="body-1 text-uppercase color-title px-0">
+                <a @click="navigateTo('tasks/my-task')"><v-card-text class="body-1 text-uppercase color-title px-0">
                   {{ this.$t('homepage.tasks.header') }}
                 </v-card-text></a>
               </v-card>
@@ -77,7 +77,8 @@
                                 <v-card
                                   class="py-1"
                                   flat
-                                  color="#F7FAFD">
+                                  color="#F7FAFD"
+                                  @click="navigateTo('tasks')">
                                   <div class="title">{{ incomingTasksSize }} {{ this.$t('homepage.tasks') }}</div>
                                   <div class="caption color-title">{{ this.$t('homepage.tasks.incoming') }}</div>
                                 </v-card>
@@ -128,7 +129,8 @@
                                 <v-card
                                   class="py-1"
                                   flat
-                                  color="#F7FAFD">
+                                  color="#F7FAFD"
+                                  @click="navigateTo('tasks/my-task/overdue')">
                                   <div class="title">{{ overdueTasksSize }} {{ this.$t('homepage.tasks') }}</div>
                                   <div class="caption color-title">{{ this.$t('homepage.tasks.late') }}</div>
                                 </v-card>
@@ -288,7 +290,10 @@
       onCloseDrawer: function(drawer){
         this.drawer = drawer;
         document.body.style.overflow = 'auto';
-      }
+      },
+      navigateTo(pagelink) {
+        location.href=`${ eXo.env.portal.context }/${ eXo.env.portal.portalName }/${ pagelink }` ;
+      },
     }
   }
 </script>

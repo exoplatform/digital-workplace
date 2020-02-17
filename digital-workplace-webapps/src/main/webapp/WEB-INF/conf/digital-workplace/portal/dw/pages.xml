@@ -764,4 +764,20 @@
     </container>
   </page>
 
+  <page>
+    <name>tasks</name>
+    <title>Tasks</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <show-max-window>false</show-max-window>
+    <portlet-application>
+      <portlet>
+        <application-ref>task-management</application-ref>
+        <portlet-ref>TaskManagementApplication</portlet-ref>
+      </portlet>
+      <access-permissions>Everyone</access-permissions>
+      <show-info-bar>false</show-info-bar>
+    </portlet-application>
+  </page>
+
 </page-set>
