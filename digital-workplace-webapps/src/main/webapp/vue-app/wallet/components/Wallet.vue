@@ -9,7 +9,9 @@
         <v-layout
           row
           wrap
-          mx-0>
+          mx-0
+          style="cursor: pointer"
+          @click="navigateTo('wallet')">
           <v-flex
             d-flex
             sx12>
@@ -19,7 +21,7 @@
               class="white">
               <v-flex d-flex xs12>
                 <v-card flat>
-                  <v-card-text class="subtitle-2 grey--text pa-2"><a class="grey--text" @click="navigateTo('wallet')">{{ this.$t('homepage.Wallet.header') }}</a></v-card-text>
+                  <v-card-text class="subtitle-2 grey--text pa-2">{{ this.$t('homepage.Wallet.header') }}</v-card-text>
                 </v-card>
               </v-flex>
               <v-flex 
@@ -27,7 +29,7 @@
                 xs12 
                 justify-center>
                 <v-card flat>
-                  <v-card-text class="display-1 font-weight-bold pa-2 big-number"><a class="blueGrey-Color" @click="navigateTo('wallet')">{{ walletBalance }} Ȼ</a></v-card-text>
+                  <v-card-text class="display-1 font-weight-bold pa-2 big-number">{{ walletBalance }} Ȼ</v-card-text>
                 </v-card>
               </v-flex>
             </v-layout>
