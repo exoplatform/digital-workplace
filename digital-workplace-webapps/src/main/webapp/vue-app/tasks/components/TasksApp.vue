@@ -175,16 +175,15 @@
                         <v-flex
                           d-flex
                           xs6>
-                          <v-list-item-content class="py-0">
-                            <v-tooltip bottom>
-                              <template v-slot:activator="{ on }">
-                                <v-list-item-title
-                                  v-on="on"
-                                  v-text="task.title"/><br>
-                                <v-list-item-subtitle><div class="color-title">{{ dateFormatter(task.dueDate) }}</div></v-list-item-subtitle>
-                              </template>
-                              <span>{{ task.title }}</span>
-                            </v-tooltip>
+                          <v-list-item-content class="py-0" style="max-width: 350px ">
+                            <a
+                              ref="tooltip"
+                              :title="task.title"
+                              class="taskTitle">
+                              <v-list-item-title
+                                v-text="task.title"/>
+                              <v-list-item-subtitle><div class="color-title">{{ dateFormatter(task.dueDate) }}</div></v-list-item-subtitle>
+                            </a>
                           </v-list-item-content>
                         </v-flex>
                         <v-flex
@@ -193,28 +192,34 @@
                           d-flex
                           xs5
                           justify-end
-                          align><v-tooltip bottom>
-                            <template v-slot:activator="{ on }">
-                              <v-card
-                                :color="task.status.project.color"
-                                flex
-                                width="200"
-                                class="pa-2 my-3 Rectangular-card text-center flexCard"
-                                flat
-                                v-on="on" >
-                                <span>{{ task.status.project.name }}</span>
-                              </v-card>
-                              <v-card
-                                :style="{borderColor:task.status.project.color}"
-                                width="18"
-                                class="pa-2 my-3 Rectangular-card"
-                                flat
-                                outlined
-                                center>
-                                <v-icon class="mt-n2" color="red">mdi-flag-variant</v-icon>
-                              </v-card>
-                            </template><span>{{ task.status.project.name }}</span>
-                        </v-tooltip></v-flex>
+                          align><a
+                            ref="tooltip"
+                            :title="task.status.project.name"
+                            class="taskTitle">
+                            <v-card
+                              :color="task.status.project.color"
+                              flex
+                              width="200"
+                              class="pa-2 my-3 projectCard text-center flexCard"
+                              flat
+                              outlined
+                              v-on="on" >
+                              <span>{{ task.status.project.name }}</span>
+                            </v-card>
+                          </a>
+                          <v-card
+                            :style="{ borderColor: task.status.project.color }"
+                            width="18"
+                            height="21"
+                            class="pa-2 my-3 flagCard"
+                            flat
+                            outlined
+                            center>
+                            <v-icon
+                              :color="getTaskPriorityColor(task.priority)"
+                              class="ml-n1">mdi-flag-variant</v-icon>
+                          </v-card>
+                        </v-flex>
                       </v-layout>
                     </v-flex>
                   </v-layout>
@@ -252,9 +257,32 @@
       getMyAllTasks() {
         getMyAllTasks().then(
           (tasks) => {
-            this.tasks = tasks;
+            let tasksWithDuedate = [];
+            let tasksWithoutDuedate = [];
+            for (let i = 0; i < tasks.length; i++) {
+              if (tasks[i].dueDate) {
+                tasksWithDuedate.push(tasks[i])
+              } else {
+                tasksWithoutDuedate.push(tasks[i])
+              }
+            }
+            tasksWithDuedate = tasksWithDuedate.sort((a, b) => ((a.dueDate.time - b.dueDate.time)));
+            tasksWithoutDuedate = tasksWithoutDuedate.sort((a, b) => ((a.createdTime.time - b.createdTime.time)));
+            this.tasks = tasksWithDuedate.concat(tasksWithoutDuedate);
           }
         )
+      },
+      getTaskPriorityColor(priority) {
+        switch(priority) {
+          case "HIGH":
+            return "#bc4343";
+          case "NORMAL":
+            return "#ffb441";
+          case "LOW":
+            return "#2eb58c";
+          case "NONE":
+            return "#578dc9";
+        }
       },
       getMyIncomingTasksSize() {
         getMyIncomingTasks().then(
