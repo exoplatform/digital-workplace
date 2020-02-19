@@ -1008,6 +1008,53 @@ body.open-drawer {
   }
 }
 
+/*--------------- Stream Containers Structure ---------------------------*/
+
+#digitalWorkplaceStream {
+  margin: 20px;
+}
+
+#digitalWorkplaceStream tr {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.StreamMainContainerTDContainer {
+  flex: 0 1 74%;
+  overflow: hidden;
+  .uiSocApplication {
+    padding: 0 !important;
+  }
+}
+
+.StreamRightContainerTDContainer {
+  flex: 0 1 26%;
+  margin-left: 10px;
+}
+
+@media (max-width: 599px) {
+  #digitalWorkplaceHomePage {
+    margin: 10px;
+  }
+}
+
+@media (max-width: 1200px) {
+  #digitalWorkplaceStream tr {
+    flex-wrap: wrap;
+  }
+  
+  .StreamMainContainerTDContainer {
+    flex: 0 1 100%;
+    margin-right: 0;
+  }
+  
+  .StreamRightContainerTDContainer {
+    flex: 0 1 100%;
+    margin-left: 0;
+  }
+}
+
 /*--------------- Podium Animation ---------------------------*/
 @keyframes fadeIn {
   0% {
