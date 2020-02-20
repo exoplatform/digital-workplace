@@ -120,10 +120,14 @@
                 row>
                 <div style="white-space: nowrap">
                   <i class="uiIconTime uiIconBlue"></i>
-                  <select class="autocomplete grey-color my-n1" style="width: 60px;">
-                    <option value="1">{{ $t('homepage.task.drawer.ready') }}</option>
-                    <option value="2">{{ $t('homepage.task.drawer.doing') }}</option>
-                    <option value="3">{{ $t('homepage.task.drawer.done') }}</option>
+                  <select
+                    v-model="Task.status.name"
+                    class="autocomplete grey-color my-n1"
+                    style="width: 75px;">
+                    <option value="ToDo">{{ $t('homepage.task.status.toDo') }}</option>
+                    <option value="InProgress">{{ $t('homepage.task.status.inProgress') }}</option>
+                    <option value="WaitingOn">{{ $t('homepage.task.status.waitingOn') }}</option>
+                    <option value="Done">{{ $t('homepage.task.status.done') }}</option>
                   </select>
                 </div>
               </v-flex>
@@ -152,11 +156,15 @@
                 xs4
                 row>
                 <div style="white-space: nowrap">
-                  <v-icon>mdi-flag-variant</v-icon>
-                  <select class="autocomplete grey-color my-n2" style="width: 60px;">
-                    <option value="1">{{ $t('homepage.task.drawer.high') }}</option>
-                    <option value="2">{{ $t('homepage.task.drawer.normal') }}</option>
-                    <option value="3">{{ $t('homepage.task.drawer.low') }}</option>
+                  <v-icon :color="getTaskPriorityColor(Task.priority)">mdi-flag-variant</v-icon>
+                  <select
+                    v-model="Task.priority"
+                    class="autocomplete grey-color my-n2"
+                    style="width: 60px;">
+                    <option :value="priorities.high.toUpperCase()" >{{ $t('homepage.task.drawer.high') }}</option>
+                    <option :value="priorities.normal.toUpperCase()">{{ $t('homepage.task.drawer.normal') }}</option>
+                    <option :value="priorities.low.toUpperCase()">{{ $t('homepage.task.drawer.low') }}</option>
+                    <option :value="priorities.none.toUpperCase()">{{ $t('homepage.task.drawer.none') }}</option>
                   </select>
                 </div>
               </v-flex>
@@ -293,6 +301,12 @@
         commentPlaceholder : this.$t('homepage.task.drawer.addYourComment'),
         descriptionPlaceholder : this.$t('homepage.task.drawer.addDescription'),
         userFullName:'',
+        priorities : {
+          high : this.$t('homepage.task.drawer.high'),
+          normal : this.$t('homepage.task.drawer.normal'),
+          low : this.$t('homepage.task.drawer.low'),
+          none : this.$t('homepage.task.drawer.none'),
+        },
         items: [
           {
             avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
@@ -328,12 +342,24 @@
       getUserAvatar(username) {
         return `/rest/v1/social/users/${username}/avatar`;
       },
-        getUserFullName(useName) {
-          getUserInformations(useName).then((userInfo) => {
-              this.userFullName = userInfo.fullname;
-              }
-          )
+      getUserFullName(useName) {
+        getUserInformations(useName).then((userInfo) => {
+            this.userFullName = userInfo.fullname;
+            }
+        )
+      },
+      getTaskPriorityColor(priority) {
+        switch (priority) {
+          case "HIGH":
+            return "#bc4343";
+          case "NORMAL":
+            return "#ffb441";
+          case "LOW":
+            return "#2eb58c";
+          case "NONE":
+            return "#578dc9";
         }
+      }
     }
   }
 </script>
