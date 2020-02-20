@@ -42,6 +42,6 @@
 
           cCometd.subscribe('/eXo/Application/web/NotificationMessage', null, (event) => {
               const data = JSON.parse(event.data);
-              document.dispatchEvent(new CustomEvent('cometdNotifEvent', {'detail': {'numberOnbadge' : data.numberOnBadge, 'notifBody' : data.body}}));
+              document.dispatchEvent(new CustomEvent('cometdNotifEvent', {'detail': {'data' : data}}));
           });
   }

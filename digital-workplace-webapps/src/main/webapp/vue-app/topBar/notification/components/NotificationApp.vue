@@ -90,10 +90,9 @@
         drawerNotification: null,
         notifications: [],
         badge: 0,
-        notificationsSize: 0,
+        notificationsSize: 0
       }
     },
-
     watch: {
       badge() {
         return this.badge;
@@ -222,9 +221,8 @@
 
       notificationUpdated(event) {
         if(event && event.detail) {
-          this.badge = event.detail.numberOnbadge;
-          this.notifications.unshift({'notification' : event.detail.notifBody});
-          this.notifications.pop(this.notifications[this.notifications.length-1]);
+          this.badge = event.detail.data.numberOnBadge;
+          this.getNotifications();
         }
       },
     }

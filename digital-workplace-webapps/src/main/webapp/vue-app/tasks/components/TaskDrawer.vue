@@ -41,13 +41,15 @@
                 row
                 class="ml-1">
                 <i class="uiIconFolder uiIconBlue px-4 py-3"></i>
-                <div id="ProjectName">
-                  <v-text-field
-                    v-model="projet"
-                    solo
-                    hide-details
-                    style="border-radius: 5px"
-                    class="pt-0 pr-3"/>
+                <div id="">
+                  <input
+                    v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                    v-if="Task.status != null"
+                    v-model="Task.status.project.name"
+                    :style="{backgroundColor:Task.status.project.color}"
+                    style="border-radius: 5px;font-weight: bold"
+                    type="text"
+                    placeholder="No project">
                 </div>
               </v-flex>
             </v-layout>
@@ -57,19 +59,38 @@
             row 
             class="ml-1">
             <i class="uiIconTag uiIconBlue px-4 py-3"></i>
-            <v-text-field
-              placeholder="Label"
-              solo
-              hide-details
-              class="pt-0 pr-3 custom-placeholer-color"/>
+            <input
+              v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+              type="text"
+              placeholder="Labels">
           </v-flex>
-          <v-flex xs9 class="ml-4 mt-2">
-            <v-checkbox
-              v-model="checkbox"
-              :label="task"
-              color="#578DC9"
-              class="pt-0 pr-3"/>
+          <v-flex
+            xs8
+            row
+            class="ml-1">
+            <v-btn 
+              class="ml-2 mr-1" 
+              icon
+              color="#578dc9"
+              dark
+              @click="markAsCompleted(Task)">
+              <v-icon>mdi-check</v-icon>
+            </v-btn>
+            <input 
+              v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+              v-if="!Task.completed"
+              v-model="Task.title"
+              type="text"
+              placeholder="title">
+            <input 
+              v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+              v-else
+              v-model="Task.title"
+              style="text-decoration: line-through;"
+              type="text"
+              placeholder="title">
           </v-flex>
+          <v-flex xs9 class="ml-4 mt-2"/>
           <v-flex xs12 class="ml-1">
             <v-layout row ml-4>
               <v-flex
@@ -79,14 +100,15 @@
                 <v-layout row>
                   <i class="uiIconClock my-2"></i>
                   <datepicker
+                    v-model="Task.dueDate.time"
                     :value="date"/>
                 </v-layout>
               </v-flex>
               <v-flex 
                 xs4>
                 <v-layout row>
-                  <v-avatar size="24"><img src="https://cdn.vuetifyjs.com/images/lists/1.jpg"></v-avatar>
-                  <a class="pl-3 pt-1" href="#">{{ items[0].title }}</a>
+                  <v-avatar size="24"><img :src="getUserAvatar(Task.assignee)"></v-avatar>
+                  <a class="pl-3 pt-1">{{ userFullName }}</a>          
                 </v-layout>
               </v-flex>
               <v-flex 
@@ -106,7 +128,7 @@
           <v-flex xs12>
             <div id="app" class="py-3 px-4 mr-4">
               <div>
-                <vue-ckeditor :editor-data="editorData"/>
+                <vue-ckeditor :editor-data="Task.description" :placeholder="descriptionPlaceholder"/>
               </div>
             </div>
           </v-flex>
@@ -213,7 +235,7 @@
                       <v-img :src="items[0].avatar"/>
                     </v-list-item-avatar>
                     <v-layout row>
-                      <vue-ckeditor class="mr-4"/>
+                      <vue-ckeditor :placeholder="commentPlaceholder" class="mr-4"/>
                       <v-btn
                         depressed
                         small
@@ -242,6 +264,7 @@
 <script>
   import VueCkeditor from './CkeditorVue.vue';
   import Datepicker from 'vuejs-datepicker';
+  import {getUserInformations} from '../TasksAPI';
 
   export default {
     components: {VueCkeditor, Datepicker},
@@ -249,7 +272,13 @@
       drawer: {
         type: Boolean,
         default: false
-      }
+      },
+      Task: {
+        type: Object,
+        default: () => {
+          return {};
+        }
+      },
     },
     data() {
       return {
@@ -257,8 +286,9 @@
         editorData: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>',
         checkbox: true,
         showEditor : false,
-        projet: 'Project name',
-        task: 'Design new Home',
+        commentPlaceholder : this.$t('homepage.task.drawer.addYourComment'),
+        descriptionPlaceholder : this.$t('homepage.task.drawer.addDescription'),
+        userFullName:'',
         items: [
           {
             avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
@@ -275,15 +305,31 @@
         ]
       }
     },
+      created() {
+        this.getUserFullName(this.Task.assignee);
+      },
     methods: {
       closeDrawer() {
-        this.$emit('closeDrawer', false);
+        this.drawer = false;
+        this.$emit('closeDrawer',this.drawer)
         this.showEditor=false;
       },
       openEditor() {
           this.showEditor = true;
         
-      }
+      },
+      markAsCompleted(task){
+        task.completed = !task.completed;
+      },
+      getUserAvatar(username) {
+        return `/rest/v1/social/users/${username}/avatar`;
+      },
+        getUserFullName(useName) {
+          getUserInformations(useName).then((userInfo) => {
+              this.userFullName = userInfo.fullname;
+              }
+          )
+        }
     }
   }
 </script>

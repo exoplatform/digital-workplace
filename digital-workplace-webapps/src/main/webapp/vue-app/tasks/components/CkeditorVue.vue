@@ -1,4 +1,3 @@
-<script src="vue-ckeditor5.js"></script>
 <template>
   <ckeditor
     v-model="editorData"
@@ -14,21 +13,23 @@
     editors: {
       classic: InlineEditor,
     },
-
     name: 'ckeditor',
-  }
+  };
   export default {
     props: {
       editorData: {
         type: String,
         default: ''
-      }
+      },
+      placeholder:{
+        type: String,
+        default: ''
+      },
     },
     data: function () {
       return {
-        editorData: '',
         editorConfig: {
-          placeholder:this.$t('homepage.task.drawer.addYourComment'),
+          placeholder:this.placeholder,
           toolbar: {
             items: [
               'bold',

@@ -1,4 +1,4 @@
-<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+<template>
   <v-app
     id="digital-workplace-tasks"
     class="VuetifyApp"
@@ -22,7 +22,7 @@
               <v-card
                 flat
                 color="transparent">
-                <a href="#"><v-card-text class="body-1 text-uppercase color-title px-0">
+                <a @click="navigateTo('tasks/my-task')"><v-card-text class="body-1 text-uppercase color-title px-0">
                   {{ this.$t('homepage.tasks.header') }}
                 </v-card-text></a>
               </v-card>
@@ -77,7 +77,8 @@
                                 <v-card
                                   class="py-1"
                                   flat
-                                  color="#F7FAFD">
+                                  color="#F7FAFD"
+                                  @click="navigateTo('tasks')">
                                   <div class="title">{{ incomingTasksSize }} {{ this.$t('homepage.tasks') }}</div>
                                   <div class="caption color-title">{{ this.$t('homepage.tasks.incoming') }}</div>
                                 </v-card>
@@ -128,7 +129,8 @@
                                 <v-card
                                   class="py-1"
                                   flat
-                                  color="#F7FAFD">
+                                  color="#F7FAFD"
+                                  @click="navigateTo('tasks/my-task/overdue')">
                                   <div class="title">{{ overdueTasksSize }} {{ this.$t('homepage.tasks') }}</div>
                                   <div class="caption color-title">{{ this.$t('homepage.tasks.late') }}</div>
                                 </v-card>
@@ -157,71 +159,13 @@
                 <v-list-item
                   v-for="task in tasks"
                   :key="task.title"
-                  class="px-0"
-                  @click="getTaskDrawer()">
-                  <v-layout
-                    row
-                    mx-0
-                    class="white">
-                    <v-flex
-                      d-flex
-                      xs12
-                      pl-3>
-                      <v-layout
-                        row
-                        mx-0>
-                        <v-flex
-                          d-flex
-                          xs6>
-                          <v-list-item-content class="py-0">
-                            <v-tooltip bottom>
-                              <template v-slot:activator="{ on }">
-                                <v-list-item-title
-                                  v-on="on"
-                                  v-text="task.title"/><br>
-                                <v-list-item-subtitle><div class="color-title">{{ dateFormatter(task.dueDate) }}</div></v-list-item-subtitle>
-                              </template>
-                              <span>{{ task.title }}</span>
-                            </v-tooltip>
-                          </v-list-item-content>
-                        </v-flex>
-                        <v-flex
-                          v-if="(task.status != null)"
-                          mt-n2
-                          d-flex
-                          xs5
-                          justify-end
-                          align><v-tooltip bottom>
-                            <template v-slot:activator="{ on }">
-                              <v-card
-                                :color="task.status.project.color"
-                                flex
-                                width="200"
-                                class="pa-2 my-3 Rectangular-card text-center flexCard"
-                                flat
-                                v-on="on" >
-                                <span>{{ task.status.project.name }}</span>
-                              </v-card>
-                              <v-card
-                                :style="{borderColor:task.status.project.color}"
-                                width="18"
-                                class="pa-2 my-3 Rectangular-card"
-                                flat
-                                outlined
-                                center>
-                                <v-icon class="mt-n2" color="red">mdi-flag-variant</v-icon>
-                              </v-card>
-                            </template><span>{{ task.status.project.name }}</span>
-                        </v-tooltip></v-flex>
-                      </v-layout>
-                    </v-flex>
-                  </v-layout>
+                  class="px-0">
+                  <task-details :task="task"/>
                 </v-list-item>
               </v-list>
         </v-flex></v-layout></v-flex>
       </v-layout>
     </v-container>
-    <task-drawer :drawer="drawer" @closeDrawer="onCloseDrawer"/>
   </v-app>
 </template>
 
@@ -250,7 +194,18 @@
       getMyAllTasks() {
         getMyAllTasks().then(
           (tasks) => {
-            this.tasks = tasks;
+            let tasksWithDuedate = [];
+            let tasksWithoutDuedate = [];
+            for (let i = 0; i < tasks.length; i++) {
+              if (tasks[i].dueDate) {
+                tasksWithDuedate.push(tasks[i])
+              } else {
+                tasksWithoutDuedate.push(tasks[i])
+              }
+            }
+            tasksWithDuedate = tasksWithDuedate.sort((a, b) => ((a.dueDate.time - b.dueDate.time)));
+            tasksWithoutDuedate = tasksWithoutDuedate.sort((a, b) => ((a.createdTime.time - b.createdTime.time)));
+            this.tasks = tasksWithDuedate.concat(tasksWithoutDuedate);
           }
         )
       },
@@ -268,27 +223,9 @@
           }
         )
       },
-
-      dateFormatter(dueDate) {
-        if (dueDate) {
-          const date = new Date(dueDate.time);
-          const day = date.getDate();
-          const month = date.getMonth()+1;
-          const year = date.getFullYear();
-          const formattedTime = `${day  }-${  month  }-${  year}`;
-          return formattedTime
-        } else {
-          return "Due date"
-        }
+      navigateTo(pagelink) {
+        location.href=`${ eXo.env.portal.context }/${ eXo.env.portal.portalName }/${ pagelink }` ;
       },
-      getTaskDrawer() {
-        this.drawer = !this.drawer;
-        document.body.style.overflow = this.drawer ? 'hidden' : 'auto';
-      },
-      onCloseDrawer: function(drawer){
-        this.drawer = drawer;
-        document.body.style.overflow = 'auto';
-      }
     }
   }
 </script>

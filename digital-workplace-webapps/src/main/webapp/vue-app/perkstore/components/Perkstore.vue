@@ -11,32 +11,32 @@
           wrap
           mx-0
           style="cursor: pointer"
-          class="white"
           @click="navigateTo('perkstore?notProcessedOrders=true')">
           <v-flex
             d-flex
-            xs12>
-            <div class="pa-2">
-              <span class="subtitle-2 grey--text">{{ this.$t('homepage.Perkstore.myOrders') }}</span>
-            </div>
-          </v-flex>
-          <v-flex 
-            d-flex 
-            xs12 
-            justify-center>
-            <v-card
-              flat
-              color="transparent">
-              <v-list-item class="px-1 perkstore-info">
-                <span class="mr-1 my-0 font-weight-bold big-number">{{ pendingOrdersSize }}</span>
-                <span class="mt-4 product-label">{{ this.$t('homepage.Perkstore.orders') }}</span>
-              </v-list-item>
-            </v-card>
+            sx12>
+            <v-layout
+              row
+              ma-0
+              class="white">
+              <v-flex d-flex xs12>
+                <v-card flat>
+                  <v-card-text class="subtitle-2 grey--text pa-2">{{ this.$t('homepage.Perkstore.myOrders') }}</v-card-text>
+                </v-card>
+              </v-flex>
+              <v-flex
+                d-flex
+                xs12
+                justify-center>
+                <v-card flat>
+                  <v-card-text class="display-1 font-weight-bold pa-2 big-number">{{ pendingOrdersSize }}<span class="mt-4 product-label">{{ this.$t('homepage.Perkstore.orders') }}</span></v-card-text>
+                </v-card>
+              </v-flex>
+            </v-layout>
           </v-flex>
         </v-layout>
       </v-container>
     </main>
-    <order-list/>
   </v-app>
 </template>
 
