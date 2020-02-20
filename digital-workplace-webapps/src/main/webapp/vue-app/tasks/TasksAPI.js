@@ -34,3 +34,15 @@ export function getMyOverdueTasks() {
     }
   })
 }
+export function getUserInformations(userName) {
+  return fetch(`/rest/v1/social/users/${userName}`, {
+    method: 'GET',
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+    }
+    else {
+      throw new Error ('Error when getting user informations');
+    }
+  })
+}

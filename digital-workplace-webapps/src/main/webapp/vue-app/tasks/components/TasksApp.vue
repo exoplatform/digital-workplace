@@ -159,76 +159,13 @@
                 <v-list-item
                   v-for="task in tasks"
                   :key="task.title"
-                  class="px-0"
-                  @click="getTaskDrawer()">
-                  <v-layout
-                    row
-                    mx-0
-                    class="white">
-                    <v-flex
-                      d-flex
-                      xs12
-                      pl-3>
-                      <v-layout
-                        row
-                        mx-0>
-                        <v-flex
-                          d-flex
-                          xs6>
-                          <v-list-item-content class="py-0" style="max-width: 350px ">
-                            <a
-                              ref="tooltip"
-                              :title="task.title"
-                              class="taskTitle">
-                              <v-list-item-title
-                                v-text="task.title"/>
-                              <v-list-item-subtitle><div class="color-title">{{ dateFormatter(task.dueDate) }}</div></v-list-item-subtitle>
-                            </a>
-                          </v-list-item-content>
-                        </v-flex>
-                        <v-flex
-                          v-if="(task.status != null)"
-                          mt-n2
-                          d-flex
-                          xs5
-                          justify-end
-                          align><a
-                            ref="tooltip"
-                            :title="task.status.project.name"
-                            class="taskTitle">
-                            <v-card
-                              :color="task.status.project.color"
-                              flex
-                              width="200"
-                              class="pa-2 my-3 projectCard text-center flexCard"
-                              flat
-                              outlined
-                              v-on="on" >
-                              <span>{{ task.status.project.name }}</span>
-                            </v-card>
-                          </a>
-                          <v-card
-                            :style="{ borderColor: task.status.project.color }"
-                            width="18"
-                            height="21"
-                            class="pa-2 my-3 flagCard"
-                            flat
-                            outlined
-                            center>
-                            <v-icon
-                              :color="getTaskPriorityColor(task.priority)"
-                              class="ml-n1">mdi-flag-variant</v-icon>
-                          </v-card>
-                        </v-flex>
-                      </v-layout>
-                    </v-flex>
-                  </v-layout>
+                  class="px-0">
+                  <task-details :task="task"/>
                 </v-list-item>
               </v-list>
         </v-flex></v-layout></v-flex>
       </v-layout>
     </v-container>
-    <task-drawer :drawer="drawer" @closeDrawer="onCloseDrawer"/>
   </v-app>
 </template>
 
@@ -272,18 +209,6 @@
           }
         )
       },
-      getTaskPriorityColor(priority) {
-        switch(priority) {
-          case "HIGH":
-            return "#bc4343";
-          case "NORMAL":
-            return "#ffb441";
-          case "LOW":
-            return "#2eb58c";
-          case "NONE":
-            return "#578dc9";
-        }
-      },
       getMyIncomingTasksSize() {
         getMyIncomingTasks().then(
           (data) => {
@@ -297,27 +222,6 @@
             this.overdueTasksSize = data.size;
           }
         )
-      },
-
-      dateFormatter(dueDate) {
-        if (dueDate) {
-          const date = new Date(dueDate.time);
-          const day = date.getDate();
-          const month = date.getMonth()+1;
-          const year = date.getFullYear();
-          const formattedTime = `${day  }-${  month  }-${  year}`;
-          return formattedTime
-        } else {
-          return "Due date"
-        }
-      },
-      getTaskDrawer() {
-        this.drawer = !this.drawer;
-        document.body.style.overflow = this.drawer ? 'hidden' : 'auto';
-      },
-      onCloseDrawer: function(drawer){
-        this.drawer = drawer;
-        document.body.style.overflow = 'auto';
       },
       navigateTo(pagelink) {
         location.href=`${ eXo.env.portal.context }/${ eXo.env.portal.portalName }/${ pagelink }` ;
