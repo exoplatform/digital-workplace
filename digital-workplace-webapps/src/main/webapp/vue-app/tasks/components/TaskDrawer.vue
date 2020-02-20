@@ -100,7 +100,11 @@
                 <v-layout row>
                   <i class="uiIconClock my-2"></i>
                   <datepicker
+                    v-if="Task.dueDate != null"
                     v-model="Task.dueDate.time"
+                    :value="date"/>
+                  <datepicker
+                    v-else
                     :value="date"/>
                 </v-layout>
               </v-flex>
@@ -282,7 +286,7 @@
     },
     data() {
       return {
-        date: new Date(2016, 9, 16),
+        date: "",
         editorData: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>',
         checkbox: true,
         showEditor : false,
