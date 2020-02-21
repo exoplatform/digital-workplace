@@ -4,6 +4,7 @@
     right
     temporary
     stateless
+    absolute
     width="33%">
     <div class="drawer-header">
       <v-flex xs12>
@@ -102,7 +103,9 @@
                   <datepicker
                     v-if="Task.dueDate != null"
                     v-model="Task.dueDate.time"
-                    :value="date"/>
+                    :bootstrap-styling="true"
+                    :value="date"
+                    class="form-control"/>
                   <datepicker
                     v-else
                     :value="date"/>
@@ -149,7 +152,7 @@
                 <v-layout row>
                   <i class="uiIconCalCreateEvent uiIconBlue my-2"></i>
                   <datepicker
-                    :value="date"/>
+                    :highlighted="date"/>
                 </v-layout>
               </v-flex>
               <v-flex 
@@ -294,7 +297,28 @@
     },
     data() {
       return {
-        date: "",
+        date : {
+        to: new Date(2016, 0, 5), // Highlight all dates up to specific date
+                from: new Date(2016, 0, 26), // Highlight all dates after specific date
+                days: [6, 0], // Highlight Saturday's and Sunday's
+                daysOfMonth: [15, 20, 31], // Highlight 15th, 20th and 31st of each month
+                dates: [ // Highlight an array of dates
+          new Date(2016, 9, 16),
+          new Date(2016, 9, 17),
+          new Date(2016, 9, 18)
+        ],
+                // a custom function that returns true of the date is highlighted
+                // this can be used for wiring you own logic to highlight a date if none
+                // of the above conditions serve your purpose
+                // this function should accept a date and return true if is highlighted
+                customPredictor: function(date) {
+          // highlights the date if it is a multiple of 4
+          if(date.getDate() % 4 === 0){
+            return true
+          }
+        },
+        includeDisabled: true // Highlight disabled dates
+      },
         editorData: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>',
         checkbox: true,
         showEditor : false,

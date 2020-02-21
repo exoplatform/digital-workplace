@@ -1705,11 +1705,15 @@ body.open-drawer {
     /*----------- Task Drawer CSS ---------------*/
 
     #digital-workplace-tasks {
-      .v-navigation-drawer--temporary {
-        z-index: 1050;
+      .v-overlay__scrim {
+        position: fixed!important;
       }
+      .theme--dark.v-overlay {  
+        z-index: 9999!important;
+      } 
       .theme--light.v-navigation-drawer {
         position: fixed;
+        z-index: 9999;
       }
       @media (max-width: 1200px) {
         .theme--light.v-navigation-drawer {
