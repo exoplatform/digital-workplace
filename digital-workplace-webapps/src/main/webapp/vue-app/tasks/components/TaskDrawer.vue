@@ -49,8 +49,13 @@
                     v-model="Task.status.project.name"
                     :style="{backgroundColor:Task.status.project.color}"
                     style="border-radius: 5px;font-weight: bold"
-                    type="text"
-                    placeholder="No project">
+                    type="text"> 
+                  <input
+                    v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
+                    v-else
+                    :value="noProject"
+                    style="border-radius: 5px;font-weight: bold"
+                    type="text">
                 </div>
               </v-flex>
             </v-layout>
@@ -106,9 +111,10 @@
                     :bootstrap-styling="true"
                     :value="date"
                     class="form-control"/>
-                  <datepicker
+                  <input
                     v-else
-                    :value="date"/>
+                    :value="dueDate"
+                    style="width: 60px;">
                 </v-layout>
               </v-flex>
               <v-flex 
@@ -121,10 +127,9 @@
               <v-flex 
                 xs4
                 row>
-                <div style="white-space: nowrap">
+                <div v-if="Task.status != null" style="white-space: nowrap">
                   <i class="uiIconTime uiIconBlue"></i>
                   <select
-                    v-if="Task.status != null"
                     v-model="Task.status.name"
                     class="autocomplete grey-color my-n1"
                     style="width: 75px;">
@@ -147,15 +152,16 @@
           <v-flex xs12 ml-1>
             <v-layout row ml-4>
               <v-flex
-                xs4
                 class="px-4"
                 style="margin: -6px">
-                <v-layout row>
+                <v-layout>
                   <i class="uiIconCalCreateEvent uiIconBlue my-2"></i>
-                  <datepicker
-                    :highlighted="date"/>
-                </v-layout>
-              </v-flex>
+                  <input 
+                    v-if="Task.startDate !=null" 
+                    :value="workPlaned.replace('{0}',dateFormatter(Task.startDate)).replace('{1}',dateFormatter(Task.endDate)).replace('{2}',getworkPlanedHours(Task))" 
+                    style="width: 280px">
+                  <input v-else :value="Unscheduled">
+              </v-layout></v-flex>
               <v-flex 
                 xs4
                 row>
@@ -298,13 +304,16 @@
     },
     data() {
       return {
-        date : '',
         editorData: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>',
         checkbox: true,
         showEditor : false,
         commentPlaceholder : this.$t('homepage.task.drawer.addYourComment'),
         descriptionPlaceholder : this.$t('homepage.task.drawer.addDescription'),
         userFullName:'',
+        dueDate:'Due date',
+        workPlaned:'Work planned from {0} to {1} ({2} hours)',
+        Unscheduled:'Unscheduled',
+        noProject:'No project',
         items: [
           {
             avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
@@ -357,6 +366,23 @@
           case "NONE":
             return "#578dc9";
         }
+      },
+      dateFormatter(dueDate) {
+        if (dueDate) {
+          const date = new Date(dueDate.time);
+          const day = date.getDate();
+          const month = date.getMonth()+1;
+          const formattedTime = `${day  }-${  month  }`;
+          return formattedTime
+        } else {
+          return "Due date"
+        }
+      },
+      getworkPlanedHours(Task) {
+        const fromDate = new Date(Task.startDate.time);
+        const toDate = new Date(Task.endDate.time);
+        const hours =  Math.abs(toDate - fromDate) / 36e5;
+        return Math.trunc(hours)
       }
     }
   }
