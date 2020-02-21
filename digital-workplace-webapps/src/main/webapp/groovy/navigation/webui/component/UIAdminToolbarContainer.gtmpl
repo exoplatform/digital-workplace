@@ -34,6 +34,24 @@ if( portalName.equals('dw')) {
 
 %>
 <div class="uiAdminToolbarPortlet uiDropdownWithIcon VuetifyApp" id="$uicomponent.id">
+<script type="text/javascript">
+  require(['SHARED/vuetify'], function(vuetify){
+        new Vue({
+          el: '#DWEditAdministration',
+          vuetify: new Vuetify(),
+          data () {
+              return {
+                editDrawer: null,
+              }
+          },
+          methods: {
+            closeDrawer() {
+              this.editDrawer = !this.editDrawer;
+            }
+          }
+        })
+      });
+</script>
 <div id="DWEditAdministration">
   <a class="editAdministrationBtn" @click="closeDrawer()">
     <i class="uiEditAdminIcon"></i>
@@ -210,32 +228,12 @@ if( portalName.equals('dw')) {
 <%uicomponent.renderChildren();%>
 
 <script type="text/javascript">
-  require(['SHARED/vuetify'], function(vuetify){
-        new Vue({
-          el: '#DWEditAdministration',
-          vuetify: new Vuetify(),
-          data () {
-              return {
-                editDrawer: null,
-              }
-          },
-          methods: {
-            closeDrawer() {
-              this.editDrawer = !this.editDrawer;
-            }
-          }
-        })
-      });
   require(['SHARED/jquery'], function(jquery){
               jquery(document).ready(function() {
 
               jquery(document).on('click','.editNavigationItem',function(e) {
                         jquery('body').addClass('hiddenDrawer');
 
-                });
-
-                jquery(document).on('click','.uiIconClose',function(e) {
-                        window.location.reload();
                 });
             });
         });

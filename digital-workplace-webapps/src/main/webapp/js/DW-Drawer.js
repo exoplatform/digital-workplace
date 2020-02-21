@@ -41,10 +41,6 @@
                         $('body').addClass('hiddenDrawer');
                     });
 
-                    $(document).on('click','.popupHeader .uiIconClose',function(e) {
-                        window.location.reload();
-                    });
-
                     $(document).on('click','#DWLeftNavigationContainer',function(e) {
                         if(e.target == this) {
                             $('body').removeClass('open-drawer');
