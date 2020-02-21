@@ -42,7 +42,7 @@
                 row
                 class="ml-1">
                 <i class="uiIconFolder uiIconBlue px-4 py-3"></i>
-                <div id="">
+                <div>
                   <input
                     v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
                     v-if="Task.status != null"
@@ -124,6 +124,7 @@
                 <div style="white-space: nowrap">
                   <i class="uiIconTime uiIconBlue"></i>
                   <select
+                    v-if="Task.status != null"
                     v-model="Task.status.name"
                     class="autocomplete grey-color my-n1"
                     style="width: 75px;">
@@ -164,10 +165,10 @@
                     v-model="Task.priority"
                     class="autocomplete grey-color my-n2"
                     style="width: 60px;">
-                    <option :value="priorities.high.toUpperCase()" >{{ $t('homepage.task.drawer.high') }}</option>
-                    <option :value="priorities.normal.toUpperCase()">{{ $t('homepage.task.drawer.normal') }}</option>
-                    <option :value="priorities.low.toUpperCase()">{{ $t('homepage.task.drawer.low') }}</option>
-                    <option :value="priorities.none.toUpperCase()">{{ $t('homepage.task.drawer.none') }}</option>
+                    <option value="HIGH" >{{ $t('homepage.task.drawer.high') }}</option>
+                    <option value="NORMAL">{{ $t('homepage.task.drawer.normal') }}</option>
+                    <option value="LOW">{{ $t('homepage.task.drawer.low') }}</option>
+                    <option value="NONE">{{ $t('homepage.task.drawer.none') }}</option>
                   </select>
                 </div>
               </v-flex>
@@ -297,40 +298,13 @@
     },
     data() {
       return {
-        date : {
-        to: new Date(2016, 0, 5), // Highlight all dates up to specific date
-                from: new Date(2016, 0, 26), // Highlight all dates after specific date
-                days: [6, 0], // Highlight Saturday's and Sunday's
-                daysOfMonth: [15, 20, 31], // Highlight 15th, 20th and 31st of each month
-                dates: [ // Highlight an array of dates
-          new Date(2016, 9, 16),
-          new Date(2016, 9, 17),
-          new Date(2016, 9, 18)
-        ],
-                // a custom function that returns true of the date is highlighted
-                // this can be used for wiring you own logic to highlight a date if none
-                // of the above conditions serve your purpose
-                // this function should accept a date and return true if is highlighted
-                customPredictor: function(date) {
-          // highlights the date if it is a multiple of 4
-          if(date.getDate() % 4 === 0){
-            return true
-          }
-        },
-        includeDisabled: true // Highlight disabled dates
-      },
+        date : '',
         editorData: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>',
         checkbox: true,
         showEditor : false,
         commentPlaceholder : this.$t('homepage.task.drawer.addYourComment'),
         descriptionPlaceholder : this.$t('homepage.task.drawer.addDescription'),
         userFullName:'',
-        priorities : {
-          high : this.$t('homepage.task.drawer.high'),
-          normal : this.$t('homepage.task.drawer.normal'),
-          low : this.$t('homepage.task.drawer.low'),
-          none : this.$t('homepage.task.drawer.none'),
-        },
         items: [
           {
             avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
