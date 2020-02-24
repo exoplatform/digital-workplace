@@ -324,11 +324,10 @@
 
 <script>
   import VueCkeditor from './CkeditorVue.vue';
-  import Datepicker from 'vuejs-datepicker';
   import {getUserInformations} from '../TasksAPI';
 
   export default {
-    components: {VueCkeditor, Datepicker},
+    components: {VueCkeditor},
     props: {
       drawer: {
         type: Boolean,
