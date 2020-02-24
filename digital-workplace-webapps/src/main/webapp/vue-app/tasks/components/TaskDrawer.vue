@@ -33,117 +33,165 @@
       </v-flex>
     </div>
     <div class="drawer-content">
-      <v-container>
+      <v-container pt-0>
         <v-layout row>
-          <v-flex xs12>
-            <v-layout align-center>
-              <v-flex 
-                xs9
-                row
-                class="ml-1">
-                <i class="uiIconFolder uiIconBlue px-4 py-3"></i>
-                <div>
-                  <input
-                    v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
-                    v-if="Task.status != null"
-                    v-model="Task.status.project.name"
-                    :style="{backgroundColor:Task.status.project.color}"
-                    style="border-radius: 5px;font-weight: bold"
-                    type="text"> 
-                  <input
-                    v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
-                    v-else
-                    :value="noProject"
-                    style="border-radius: 5px;font-weight: bold"
-                    type="text">
-                </div>
-              </v-flex>
-            </v-layout>
-          </v-flex>
-          <v-flex 
-            xs9 
-            row 
-            class="ml-1">
-            <i class="uiIconTag uiIconBlue px-4 py-3"></i>
-            <input
-              v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
-              type="text"
-              placeholder="Labels">
-          </v-flex>
-          <v-flex
-            xs8
-            row
-            class="ml-1">
-            <v-btn 
-              class="ml-2 mr-1" 
+          <v-col>
+            <v-combobox
+              v-if="Task.status != null"
+              v-model="Task.status.project.name"
+              :background-color="Task.status.project.color"
+              prepend-icon
+              solo
+              class="pt-0 centered-input projectName"
+              placeholder="No project">
+              <template v-slot:prepend>
+                <i class="uiIconFolder uiIconBlue"></i>
+              </template>
+            </v-combobox>
+            <v-combobox
+              v-else
+              prepend-icon
+              solo
+              class="pt-0 centered-input projectName"
+              placeholder="No project">
+              <template v-slot:prepend>
+                <i class="uiIconFolder uiIconBlue"></i>
+              </template>
+            </v-combobox>
+            <v-combobox
+              v-model="chips"
+              :items="labels"
+              class="pt-0"
+              chips
+              clearable
+              placeholder="Labels"
+              multiple
+              solo
+              prepend-icon>
+              <template v-slot:selection="{ attrs, item, select, selected }">
+                <v-chip
+                  close
+                  @click="select"
+                  @click:close="remove(item)">
+                  <strong>{{ item }}</strong>
+                </v-chip>
+              </template>
+              <template v-slot:prepend>
+                <i class="uiIconTag uiIconBlue mr-1"></i>
+              </template>
+            </v-combobox>
+            <v-btn
+              class="ml-n2"
               icon
               color="#578dc9"
               dark
               @click="markAsCompleted(Task)">
-              <v-icon>mdi-check</v-icon>
+              <v-icon dark >mdi-checkbox-marked-circle</v-icon>
             </v-btn>
-            <input 
+            <input
               v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
               v-if="!Task.completed"
               v-model="Task.title"
+              class="pl-0"
               type="text"
+              style="color:#578DC9;font-weight: bold"
               placeholder="title">
-            <input 
+            <input
               v-autowidth="{maxWidth: '960px', minWidth: '20px', comfortZone: 0}"
               v-else
               v-model="Task.title"
-              style="text-decoration: line-through;"
+              class="pl-0"
+              style="text-decoration: line-through;color:#578DC9;font-weight: bold"
               type="text"
               placeholder="title">
-          </v-flex>
-          <v-flex xs9 class="ml-4 mt-2"/>
-          <v-flex xs12 class="ml-1">
-            <v-layout row ml-4>
-              <v-flex
-                xs4
-                class="px-4"
-                style="margin: -6px">
-                <v-layout row>
-                  <i class="uiIconClock my-2"></i>
-                  <datepicker
+          </v-col>
+          <v-container py-0>
+            <v-flex xs12>
+              <v-layout>
+                <v-flex
+                  xs4
+                  style="height: 0px">
+                  <v-menu
                     v-if="Task.dueDate != null"
-                    v-model="Task.dueDate.time"
-                    :bootstrap-styling="true"
-                    :value="date"
-                    class="form-control"/>
-                  <input
+                    ref="menu"
+                    v-model="menu"
+                    :close-on-content-click="false"
+                    :return-value.sync="date"
+                    transition="scale-transition"
+                    offset-y
+                    min-width="290px">
+                    <template v-slot:activator="{ on }">
+                      <v-text-field
+                        v-model="date"
+                        class="pt-0 dateFont"
+                        solo
+                        prepend-icon
+                        readonly
+                        v-on="on"><template v-slot:prepend>
+                          <i class="uiIconClock" style="margin-top: 3px"></i>
+                      </template></v-text-field>
+                    </template>
+                    <v-date-picker
+                      v-model="date"
+                      color="#578DC9"
+                      no-title 
+                      scrollable>
+                      <v-spacer/>
+                      <v-btn 
+                        text 
+                        color="primary" 
+                        @click="menu = false">Cancel</v-btn>
+                      <v-btn 
+                        text 
+                        color="primary" 
+                        @click="$refs.menu.save(date)">OK</v-btn>
+                    </v-date-picker>
+                  </v-menu>
+                  <v-text-field
                     v-else
-                    :value="dueDate"
-                    style="width: 60px;">
-                </v-layout>
-              </v-flex>
-              <v-flex 
-                xs4>
-                <v-layout row>
-                  <v-avatar size="24"><img :src="getUserAvatar(Task.assignee)"></v-avatar>
-                  <a class="pl-3 pt-1">{{ userFullName }}</a>          
-                </v-layout>
-              </v-flex>
-              <v-flex 
-                xs4
-                row>
-                <div v-if="Task.status != null" style="white-space: nowrap">
-                  <i class="uiIconTime uiIconBlue"></i>
-                  <select
-                    v-model="Task.status.name"
-                    class="autocomplete grey-color my-n1"
-                    style="width: 75px;">
-                    <option value="ToDo">{{ $t('homepage.task.status.toDo') }}</option>
-                    <option value="InProgress">{{ $t('homepage.task.status.inProgress') }}</option>
-                    <option value="WaitingOn">{{ $t('homepage.task.status.waitingOn') }}</option>
-                    <option value="Done">{{ $t('homepage.task.status.done') }}</option>
-                  </select>
-                </div>
-              </v-flex>
-            </v-layout>
-          </v-flex>
+                    v-model="dueDate"
+                    class="pt-0 dateFont"
+                    solo
+                    prepend-icon
+                    readonly
+                    v-on="on"><template v-slot:prepend>
+                      <i class="uiIconClock" style="margin-top: 3px"></i>
+                  </template></v-text-field>
+                </v-flex>
+                <v-flex 
+                  xs4>
+                  <v-layout row>
+                    <v-list-item >
+                      <v-list-item-avatar size="22" class="mr-2 pt-1">
+                        <v-img :src="getUserAvatar(Task.assignee)"/>                    
+                      </v-list-item-avatar>
+                      <v-list-item-content>
+                        <v-list-item-title><span class="user-name">{{ userFullName }}</span></v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </v-layout>
+                </v-flex>
+                <v-flex 
+                  xs4>
+                  <div v-if="Task.status != null">
+                    <v-select
+                      v-model="Task.status.name"
+                      :items="taskStatus"
+                      item-value="key"
+                      item-text="value"
+                      class="pt-0 selectFont"
+                      solo>
+                      <template v-slot:prepend>
+                        <i class="uiIconTime uiIconBlue"></i>
+                      </template>
+                    </v-select>
+                  </div>
+                </v-flex>
+              </v-layout>
+            </v-flex>
+          </v-container>
           <v-flex xs12>
-            <div id="app" class="py-3 px-4 mr-4">
+            <div class="py-3 px-4 mr-4">
               <div>
                 <vue-ckeditor :editor-data="Task.description" :placeholder="descriptionPlaceholder"/>
               </div>
@@ -151,31 +199,22 @@
           </v-flex>
           <v-flex xs12 ml-1>
             <v-layout row ml-4>
-              <v-flex
-                class="px-4"
-                style="margin: -6px">
-                <v-layout>
-                  <i class="uiIconCalCreateEvent uiIconBlue my-2"></i>
-                  <input 
-                    v-if="Task.startDate !=null" 
-                    :value="workPlaned.replace('{0}',dateFormatter(Task.startDate)).replace('{1}',dateFormatter(Task.endDate)).replace('{2}',getworkPlanedHours(Task))" 
-                    style="width: 280px">
-                  <input v-else :value="Unscheduled">
-              </v-layout></v-flex>
               <v-flex 
                 xs4
                 row>
                 <div style="white-space: nowrap">
-                  <v-icon :color="getTaskPriorityColor(Task.priority)">mdi-flag-variant</v-icon>
-                  <select
+                  <v-select
                     v-model="Task.priority"
-                    class="autocomplete grey-color my-n2"
-                    style="width: 60px;">
-                    <option value="HIGH" >{{ $t('homepage.task.drawer.high') }}</option>
-                    <option value="NORMAL">{{ $t('homepage.task.drawer.normal') }}</option>
-                    <option value="LOW">{{ $t('homepage.task.drawer.low') }}</option>
-                    <option value="NONE">{{ $t('homepage.task.drawer.none') }}</option>
-                  </select>
+                    :items="priorities"
+                    item-value="key"
+                    item-text="value"
+                    solo
+                    class="pt-0 selectFont">
+                    <template v-slot:prepend>
+                      <v-icon :color="getTaskPriorityColor(Task.priority)">mdi-flag-variant</v-icon>
+                    </template>
+                    <v-icon>mdi-flag-variant</v-icon>
+                  </v-select>
                 </div>
               </v-flex>
             </v-layout>
@@ -304,16 +343,24 @@
     },
     data() {
       return {
-        editorData: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>',
-        checkbox: true,
+        priorities: [{key:'HIGH',value:this.$t('homepage.task.drawer.high')},
+          {key:'NORMAL',value:this.$t('homepage.task.drawer.normal')},
+          {key:'LOW',value:this.$t('homepage.task.drawer.low')},
+          {key:'NONE',value:this.$t('homepage.task.drawer.none')}],
+
+        taskStatus: [{key:'ToDo',value:this.$t('homepage.task.status.toDo')},
+          {key:'InProgress',value:this.$t('homepage.task.status.inProgress')},
+          {key:'WaitingOn',value:this.$t('homepage.task.status.waitingOn')},
+          {key:'Done',value:this.$t('homepage.task.status.done')}],
+        
+        date: '',
+        menu: false,
+        modal: false,
         showEditor : false,
         commentPlaceholder : this.$t('homepage.task.drawer.addYourComment'),
         descriptionPlaceholder : this.$t('homepage.task.drawer.addDescription'),
         userFullName:'',
         dueDate:'Due date',
-        workPlaned:'Work planned from {0} to {1} ({2} hours)',
-        Unscheduled:'Unscheduled',
-        noProject:'No project',
         items: [
           {
             avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
@@ -327,11 +374,17 @@
             title: 'Sara',
             comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
           },
-        ]
+        ],
+        chips: [],
+        labels: ['label 1','label 2','label 3'],
+        search: ""
       }
     },
       created() {
         this.getUserFullName(this.Task.assignee);
+        if (this.Task.dueDate) {
+          this.date = new Date(this.Task.dueDate.time).toISOString().substr(0, 10)
+        }
       },
     methods: {
       closeDrawer() {
@@ -378,12 +431,10 @@
           return "Due date"
         }
       },
-      getworkPlanedHours(Task) {
-        const fromDate = new Date(Task.startDate.time);
-        const toDate = new Date(Task.endDate.time);
-        const hours =  Math.abs(toDate - fromDate) / 36e5;
-        return Math.trunc(hours)
-      }
+      remove (item) {
+        this.chips.splice(this.chips.indexOf(item), 1)
+        this.chips = [...this.chips]
+      },
     }
   }
 </script>
