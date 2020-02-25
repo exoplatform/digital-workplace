@@ -26,7 +26,7 @@
               <v-list-item-subtitle><div class="color-title">{{ dateFormatter(task.dueDate) }}</div></v-list-item-subtitle>
             </a>
             <task-drawer 
-              :drawer="drawer" 
+              :drawer="drawer"
               :task="task" 
               @closeDrawer="onCloseDrawer"/>
           </v-list-item-content>

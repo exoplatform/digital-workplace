@@ -1754,6 +1754,21 @@ body.open-drawer {
           top: 10px;
         }
       }
+      .mx-icon-calendar {
+        display: none;
+      }
+      .mx-datepicker {
+        width: 82%;
+      }
+      .mx-input {
+        width: 92% !important;
+        color: @greyColor;
+        cursor: pointer;
+        &:focus {
+          border: none;
+          box-shadow: none;
+        }
+      }
       #Task-title {
         color: @primaryColor;
       }
@@ -1840,6 +1855,7 @@ body.open-drawer {
       }
       input[type="text"] {
         margin-bottom: 0px;
+        width: auto;
       }
       .v-tab {
         box-sizing: border-box;
@@ -1849,15 +1865,8 @@ body.open-drawer {
         height: 3px !important;
       }
       .uiIconClock:before {
-        font-size: 20px;
+        font-size: 15px;
         color: @primaryColor;
-      }
-      .vdp-datepicker * {
-        box-sizing: border-box !important;
-
-        input[type="text"] {
-          color: @greyColor;
-        }
       }
       .custom-placeholer-color input::placeholder {
         color: @greyColor!important;
@@ -1866,9 +1875,7 @@ body.open-drawer {
       .theme--light.v-tabs > .v-tabs-bar .v-tab:not(.v-tab--active) {
         color: @greyColor;
       }
-      .uiIconClock:before {
-        font-size: 18px!important;
-      }
+
       .ck.ck-content ul,
       .ck.ck-content ul li{
         list-style-type: inherit;
