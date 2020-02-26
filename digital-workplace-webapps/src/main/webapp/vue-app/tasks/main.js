@@ -1,15 +1,12 @@
 import tasksApp from './components/TasksApp.vue';
 import TaskDrawer from './components/TaskDrawer.vue';
 import TaskDetails from './components/TaskDetails.vue';
-import VueInputAutowidth from 'vue-input-autowidth';
 
 import '../../css/main.less';
 
 Vue.use(Vuetify);
 Vue.component('task-drawer', TaskDrawer);
 Vue.component('task-details', TaskDetails);
-Vue.use(VueInputAutowidth);
-
 
 const vuetify = new Vuetify({
     dark: true,

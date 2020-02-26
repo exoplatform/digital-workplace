@@ -1,6 +1,6 @@
 <template>
   <ckeditor
-    v-model="editorData"
+    v-model="inputVal"
     :config="editorConfig"
     type="classic"/>
 </template>
@@ -17,7 +17,7 @@
   };
   export default {
     props: {
-      editorData: {
+      value: {
         type: String,
         default: ''
       },
@@ -42,8 +42,14 @@
             ]
           }
         },
+        inputVal: this.value,
       };
-    }
+    },
+    watch: {
+      inputVal(val) {
+        this.$emit('input', val);
+      }
+    },
   }
   Vue.use(VueCkeditor.plugin, options);
 

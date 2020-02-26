@@ -9,6 +9,7 @@ export function getMyAllTasks() {
     }
   })
 }
+
 export function getMyIncomingTasks() {
   return fetch('/rest/tasks?status=incoming&returnSize=true', {
     method: 'GET',
@@ -43,6 +44,23 @@ export function getUserInformations(userName) {
     }
     else {
       throw new Error ('Error when getting user informations');
+    }
+  })
+}
+
+export function updateTask(taskId, task) {
+  return fetch(`/rest/tasks/${taskId}`, {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'PUT',
+    body: JSON.stringify(task)
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+    }
+    else {
+      throw new Error ('Error when updating task');
     }
   })
 }

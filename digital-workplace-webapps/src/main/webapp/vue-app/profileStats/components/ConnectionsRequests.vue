@@ -95,7 +95,7 @@
         depressed
         small
         class="caption text-uppercase grey--text"
-        @click="navigateTo('receivedInvitations')">{{ this.$t('homepage.seeAll') }}</v-btn>
+        @click="navigateTo('connexions/receivedInvitations')">{{ this.$t('homepage.seeAll') }}</v-btn>
     </v-flex>
   </v-layout>
 
