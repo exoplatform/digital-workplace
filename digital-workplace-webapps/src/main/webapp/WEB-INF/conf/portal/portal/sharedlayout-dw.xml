@@ -11,95 +11,85 @@
   51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA, or see the FSF site: 
   http://www.fsf.org. -->
 <container id="DWNavigationPortlet"
-  template="system:/groovy/portal/webui/container/UISharedLayoutContainer.gtmpl">
-  <container
-    template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+  <access-permissions>*:/platform/users</access-permissions>
+  <container id="UIDWToolbarContainer"
+    template="system:/groovy/portal/webui/container/UIDWToolbarcontainer.gtmpl">
     <access-permissions>*:/platform/users</access-permissions>
-
-<!--     DW -->
-    <container id="UIDWToolbarContainer"
-      template="system:/groovy/portal/webui/container/UIDWToolbarcontainer.gtmpl">
-      <access-permissions>*:/platform/users</access-permissions>
-      <container id="left-topNavigation-container"
-        template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
-        <name>left-topNavigation-container</name>
-        <factory-id>addonContainer</factory-id>
-      </container>
-      <container id="HamburgerContainer"
-        template="war:/groovy/portal/webui/container/HamburgerContainer.gtmpl">
-        <access-permissions>*:/platform/users</access-permissions>
-      </container>
-      <container id="right-topNavigation-container"
-        template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
-        <name>right-topNavigation-container</name>
-        <factory-id>addonContainer</factory-id>
-      </container>
-      <container id="DWAdminToolBarPortlet"
-                 template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
-        <name>DWAdminToolBarPortlet</name>
-        <access-permissions>*:/platform/administrators;editor:/platform/web-contributors</access-permissions>
-        <factory-id>addonContainer</factory-id>
-      </container>
-      <container id="NotificationPopoverPortlet"
-        template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <portlet-application>
-          <portlet>
-            <application-ref>digital-workplace</application-ref>
-            <portlet-ref>digitalWorkplaceNotification</portlet-ref>
-          </portlet>
-          <title>Notification</title>
-          <access-permissions>*:/platform/users</access-permissions>
-          <show-info-bar>false</show-info-bar>
-        </portlet-application>
-      </container>
-      <container id="MyApplicationsContainer"
-                 template="war:/groovy/portal/webui/container/MyApplicationsContainer.gtmpl">
-        <access-permissions>*:/platform/users</access-permissions>
-      </container>
-      <container id="middle-topNavigation-container"
-                 template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
-        <name>middle-topNavigation-container</name>
-        <factory-id>addonContainer</factory-id>
-      </container>
-      <container id="SearchPortlet"
-        template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <portlet-application>
-          <portlet>
-            <application-ref>unified-search</application-ref>
-            <portlet-ref>QuicksearchPortlet</portlet-ref>
-          </portlet>
-          <access-permissions>*:/platform/users</access-permissions>
-          <show-info-bar>false</show-info-bar>
-        </portlet-application>
-      </container>
-      <container id="NavigationToolbarPortlet"
-                 template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <portlet-application>
-          <portlet>
-            <application-ref>digital-workplace</application-ref>
-            <portlet-ref>digitalWorkplaceLogo</portlet-ref>
-          </portlet>
-          <title>Top Navigation</title>
-          <access-permissions>*:/platform/users</access-permissions>
-          <show-info-bar>false</show-info-bar>
-        </portlet-application>
-      </container>
-      <!--<container id="NavigationToolbarPortlet"
-                 template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <portlet-application>
-          <portlet>
-            <application-ref>digital-workplace</application-ref>
-            <portlet-ref>digitalWorkplaceTopBottomNavigation</portlet-ref>
-          </portlet>
-          <title>Top Navigation</title>
-          <access-permissions>*:/platform/users</access-permissions>
-          <show-info-bar>false</show-info-bar>
-        </portlet-application>
-      </container>-->
-
+    <container id="left-topNavigation-container"
+      template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+      <name>left-topNavigation-container</name>
+      <factory-id>addonContainer</factory-id>
     </container>
+    <container id="HamburgerContainer"
+      template="war:/groovy/portal/webui/container/HamburgerContainer.gtmpl">
+      <access-permissions>*:/platform/users</access-permissions>
+    </container>
+    <container id="right-topNavigation-container"
+      template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+      <name>right-topNavigation-container</name>
+      <factory-id>addonContainer</factory-id>
+    </container>
+    <container id="DWAdminToolBarPortlet"
+      template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+      <name>DWAdminToolBarPortlet</name>
+      <access-permissions>*:/platform/administrators;editor:/platform/web-contributors</access-permissions>
+      <factory-id>addonContainer</factory-id>
+    </container>
+    <container id="NotificationPopoverPortlet"
+      template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <portlet-application>
+        <portlet>
+          <application-ref>digital-workplace</application-ref>
+          <portlet-ref>digitalWorkplaceNotification</portlet-ref>
+        </portlet>
+        <title>Notification</title>
+        <access-permissions>*:/platform/users</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+    </container>
+    <container id="AppCenterAppLauncherPortlet"
+      template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+      <name>AppCenterAppLauncherPortlet</name>
+      <access-permissions>*:/platform/users</access-permissions>
+      <factory-id>addonContainer</factory-id>
+    </container>
+    <container id="middle-topNavigation-container"
+      template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+      <name>middle-topNavigation-container</name>
+      <factory-id>addonContainer</factory-id>
+    </container>
+    <container id="SearchPortlet"
+      template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <portlet-application>
+        <portlet>
+          <application-ref>unified-search</application-ref>
+          <portlet-ref>QuicksearchPortlet</portlet-ref>
+        </portlet>
+        <access-permissions>*:/platform/users</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+    </container>
+    <container id="NavigationToolbarPortlet"
+      template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <portlet-application>
+        <portlet>
+          <application-ref>digital-workplace</application-ref>
+          <portlet-ref>digitalWorkplaceLogo</portlet-ref>
+        </portlet>
+        <title>Top Navigation</title>
+        <access-permissions>*:/platform/users</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+    </container>
+    <!--<container id="NavigationToolbarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl"> 
+      <portlet-application> <portlet> <application-ref>digital-workplace</application-ref> 
+      <portlet-ref>digitalWorkplaceTopBottomNavigation</portlet-ref> </portlet> 
+      <title>Top Navigation</title> <access-permissions>*:/platform/users</access-permissions> 
+      <show-info-bar>false</show-info-bar> </portlet-application> </container> -->
+
   </container>
-<!--     DW -->
+
   <container id="DWLeftNavigationContainer"
     template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
     <access-permissions>Everyone</access-permissions>
@@ -119,20 +109,20 @@
         </portlet-application>
       </container>
       <container id="DWSpacesNavigationPortlet"
-                   template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-            <access-permissions>*:/platform/users</access-permissions>
-            <portlet-application>
-                <portlet>
-                    <application-ref>digital-workplace</application-ref>
-                    <portlet-ref>digitalWorkplaceSpacesNavigation</portlet-ref>
-                </portlet>
-                <access-permissions>*:/platform/users</access-permissions>
-                <show-info-bar>false</show-info-bar>
-            </portlet-application>
-        </container>
+        template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>*:/platform/users</access-permissions>
+        <portlet-application>
+          <portlet>
+            <application-ref>digital-workplace</application-ref>
+            <portlet-ref>digitalWorkplaceSpacesNavigation</portlet-ref>
+          </portlet>
+          <access-permissions>*:/platform/users</access-permissions>
+          <show-info-bar>false</show-info-bar>
+        </portlet-application>
+      </container>
 
       <container id="DWAdministrationPortlet"
-                 template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
         <access-permissions>*:/platform/administrators</access-permissions>
         <portlet-application>
           <portlet>
