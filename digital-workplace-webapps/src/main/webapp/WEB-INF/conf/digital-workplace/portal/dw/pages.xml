@@ -36,8 +36,7 @@
               <preferences>
                 <preference>
                   <name>formViewTemplatePath</name>
-                  <value>/exo:ecm/views/templates/content-list-viewer/list/LatestNews.gtmpl
-                  </value>
+                  <value>/exo:ecm/views/templates/content-list-viewer/list/LatestNews.gtmpl</value>
                   <read-only>false</read-only>
                 </preference>
                 <preference>
@@ -57,10 +56,7 @@
                 </preference>
                 <preference>
                   <name>query</name>
-                  <value>SELECT * FROM exo:symlink WHERE jcr:path LIKE
-                    '/Application Data/News/Pinned/%' ORDER BY
-                    jcr:created DESC
-                  </value>
+                  <value>SELECT * FROM exo:symlink WHERE jcr:path LIKE '/Application Data/News/Pinned/%' ORDER BY jcr:created DESC</value>
                   <read-only>false</read-only>
                 </preference>
                 <preference>
@@ -103,8 +99,7 @@
                   <portlet-ref>digitalWorkplacePerkstore</portlet-ref>
                 </portlet>
                 <title>Perkstore</title>
-                <access-permissions>*:/platform/users
-                </access-permissions>
+                <access-permissions>*:/platform/users</access-permissions>
                 <show-info-bar>false</show-info-bar>
               </portlet-application>
             </container>
@@ -117,8 +112,7 @@
                   <portlet-ref>digitalWorkplaceWallet</portlet-ref>
                 </portlet>
                 <title>Wallet</title>
-                <access-permissions>*:/platform/users
-                </access-permissions>
+                <access-permissions>*:/platform/users</access-permissions>
                 <show-info-bar>false</show-info-bar>
               </portlet-application>
             </container>
@@ -168,12 +162,10 @@
               <portlet-application>
                 <portlet>
                   <application-ref>digital-workplace</application-ref>
-                  <portlet-ref>digitalWorkplaceRecentDocuments
-                  </portlet-ref>
+                  <portlet-ref>digitalWorkplaceRecentDocuments</portlet-ref>
                 </portlet>
                 <title>Recent documents</title>
-                <access-permissions>*:/platform/users
-                </access-permissions>
+                <access-permissions>*:/platform/users</access-permissions>
                 <show-info-bar>false</show-info-bar>
               </portlet-application>
             </container>
@@ -184,12 +176,10 @@
               <portlet-application>
                 <portlet>
                   <application-ref>digital-workplace</application-ref>
-                  <portlet-ref>digitalWorkplaceSharedDocuments
-                  </portlet-ref>
+                  <portlet-ref>digitalWorkplaceSharedDocuments</portlet-ref>
                 </portlet>
                 <title>Shared with me documents</title>
-                <access-permissions>*:/platform/users
-                </access-permissions>
+                <access-permissions>*:/platform/users</access-permissions>
                 <show-info-bar>false</show-info-bar>
               </portlet-application>
             </container>
@@ -200,12 +190,10 @@
               <portlet-application>
                 <portlet>
                   <application-ref>digital-workplace</application-ref>
-                  <portlet-ref>digitalWorkplaceFavoriteDocuments
-                  </portlet-ref>
+                  <portlet-ref>digitalWorkplaceFavoriteDocuments</portlet-ref>
                 </portlet>
                 <title>Favorite documents</title>
-                <access-permissions>*:/platform/users
-                </access-permissions>
+                <access-permissions>*:/platform/users</access-permissions>
                 <show-info-bar>false</show-info-bar>
               </portlet-application>
             </container>
@@ -796,8 +784,7 @@
             </preference>
             <preference>
               <name>nodeIdentifier</name>
-              <value>/sites/dw/web contents/site artifacts/Welcome
-              </value>
+              <value>/sites/dw/web contents/site artifacts/Welcome</value>
               <read-only>false</read-only>
             </preference>
             <preference>
