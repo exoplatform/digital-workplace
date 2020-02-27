@@ -43,10 +43,18 @@ body.open-drawer {
 #DWNavigationPortlet {
   background: #f2f2f2;
   padding-top: 58px;
-}
-
-#DWNavigationPortlet .LeftNavigationTDContainer {
-  display: none;
+  .LeftNavigationTDContainer {
+    display: none;
+  }
+  .RightBodyTDContainer {
+    padding-top: 0;
+  }
+  .sticky {
+    .uiProfileMenu, .uiSpaceMenu {
+	  left: 0;
+	}
+	
+  }
 }
 
 #DWLeftNavigationContainer {
