@@ -185,6 +185,13 @@
       <label>#{portal.dw.tasks}</label>
       <page-reference>portal::dw::tasks</page-reference>
     </node>
+    
+    <node>
+      <name>search</name>
+      <label>#{portal.dw.searchResult}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::search</page-reference>
+    </node>
 
   </page-nodes>
 
