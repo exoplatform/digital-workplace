@@ -1902,6 +1902,18 @@ body.open-drawer {
       #reply_btn {
           padding: 0px !important;
       }
+      .v-input {
+        display: inline-flex;
+      }
+      .task-name {
+        input[type="text"] {
+          color: @primaryColor !important;
+          font-weight: bold
+        }
+      }
+      .theme--light.v-text-field > .v-input__control > .v-input__slot:before {
+        display: none;
+      }
     }
 
 /*=============== Drawer Event component ===========*/

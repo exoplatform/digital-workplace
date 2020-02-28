@@ -158,7 +158,7 @@
               <v-list>
                 <v-list-item
                   v-for="task in tasks"
-                  :key="task.title"
+                  :key="task.id"
                   class="px-0">
                   <task-details :task="task"/>
                 </v-list-item>

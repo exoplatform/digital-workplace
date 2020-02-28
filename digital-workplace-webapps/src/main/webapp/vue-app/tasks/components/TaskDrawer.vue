@@ -88,20 +88,21 @@
               @click="markAsCompleted()">
               <v-icon dark >mdi-checkbox-marked-circle</v-icon>
             </v-btn>
-            <input
+            <v-text-field
               v-if="!task.completed"
               v-model="task.title"
               :placeholder="$t('homepage.task.drawer.title')"
-              class="pl-0"
+              class="pl-0 pt-0 task-name"
               type="text"
-              style="color:#578DC9;font-weight: bold">
-            <input
+              color="#578DC9"
+              @change="updateTask"/>
+            <v-text-field
               v-else
               v-model="task.title"
               :placeholder="$t('homepage.task.drawer.title')"
-              class="pl-0"
-              style="text-decoration: line-through;color:#578DC9;font-weight: bold"
-              type="text">
+              class="pl-0 pt-0 task-name"
+              style="text-decoration: line-through"
+              type="text"/>
           </v-col>
           <v-container py-0>
             <v-flex xs12>
