@@ -40,6 +40,10 @@ body.open-drawer {
   display: none;
 }
 
+.UIToolbarContainer .uiSearchPlatformToolBarPortlet > a {
+    display: inline-block;
+}
+
 #DWNavigationPortlet {
   background: #f2f2f2;
   padding-top: 58px;
@@ -53,7 +57,12 @@ body.open-drawer {
     .uiProfileMenu, .uiSpaceMenu {
 	  left: 0;
 	}
-	
+  }
+  .UIToolbarContainerLight .uiDropdownWithIcon > a:hover, .UIToolbarContainerLight .uiDropdownWithIcon.open > a {
+    border: none;
+  }
+  #PlatformAdminToolbarContainer {
+    padding-top: 0;
   }
 }
 
