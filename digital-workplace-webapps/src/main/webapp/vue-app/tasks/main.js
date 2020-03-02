@@ -1,12 +1,14 @@
 import tasksApp from './components/TasksApp.vue';
 import TaskDrawer from './components/TaskDrawer.vue';
 import TaskDetails from './components/TaskDetails.vue';
+import TaskLabels from './components/TaskLabels.vue';
 
 import '../../css/main.less';
 
 Vue.use(Vuetify);
 Vue.component('task-drawer', TaskDrawer);
 Vue.component('task-details', TaskDetails);
+Vue.component('task-labels', TaskLabels);
 
 const vuetify = new Vuetify({
     dark: true,

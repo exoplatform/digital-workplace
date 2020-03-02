@@ -58,28 +58,7 @@
                 <i class="uiIconFolder uiIconBlue"></i>
               </template>
             </v-combobox>
-            <v-combobox
-              v-model="chips"
-              :items="labels"
-              :placeholder="$t('homepage.task.drawer.labels')"
-              class="pt-0"
-              chips
-              clearable
-              multiple
-              solo
-              prepend-icon>
-              <template v-slot:selection="{ attrs, item, select, selected }">
-                <v-chip
-                  close
-                  @click="select"
-                  @click:close="remove(item)">
-                  <strong>{{ item }}</strong>
-                </v-chip>
-              </template>
-              <template v-slot:prepend>
-                <i class="uiIconTag uiIconBlue mr-1"></i>
-              </template>
-            </v-combobox>
+            <task-labels :task="task"/>
             <v-btn
               class="ml-n2"
               icon
@@ -139,8 +118,9 @@
                 </v-flex>
                 <v-flex 
                   xs3>
-                  <div v-if="task.status != null">
+                  <div v-if="task.status != null" @click.stop>
                     <v-select
+                      ref="selectStatus"
                       v-model="task.status.name"
                       :items="taskStatus"
                       item-value="key"
@@ -171,8 +151,9 @@
               <v-flex 
                 xs4
                 row>
-                <div style="white-space: nowrap">
+                <div style="white-space: nowrap" @click.stop>
                   <v-select
+                    ref="selectPriority"
                     v-model="task.priority"
                     :items="priorities"
                     item-value="key"
@@ -297,7 +278,7 @@
   import VueDatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';
 
-  import {getUserInformations,updateTask} from '../TasksAPI';
+  import {getUserInformations, updateTask} from '../tasksAPI';
 
   export default {
     components: {VueCkeditor, VueDatePicker},
@@ -326,8 +307,6 @@
           {key:'Done',value:this.$t('homepage.task.status.done')}],
         
         date: null,
-        menu: false,
-        modal: false,
         showEditor : false,
         commentPlaceholder : this.$t('homepage.task.drawer.addYourComment'),
         descriptionPlaceholder : this.$t('homepage.task.drawer.addDescription'),
@@ -347,7 +326,6 @@
           },
         ],
         chips: [],
-        labels: ['label 1','label 2','label 3'],
         autoSaveDelay: 1000,
         saveDescription: '',
       }
@@ -358,6 +336,12 @@
           this.autoSaveDescription(); 
         } 
       }
+    },
+    mounted() {
+      window.addEventListener("click",() => {
+        this.$refs.selectPriority.blur();
+        this.$refs.selectStatus.blur();
+      });
     },
     created() {
       this.getUserFullName(this.task.assignee);
@@ -391,10 +375,6 @@
           case "NONE":
             return "#578dc9";
         }
-      },
-      remove(item) {
-        this.chips.splice(this.chips.indexOf(item), 1);
-        this.chips = [...this.chips];
       },
       markAsCompleted(){
         this.task.completed = !this.task.completed;

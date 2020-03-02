@@ -64,3 +64,59 @@ export function updateTask(taskId, task) {
     }
   })
 }
+
+export function getMyAllLabels() {
+  return fetch('rest/tasks/labels', {
+    method: 'GET',
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+    } 
+    else {
+      throw new Error ('Error when getting my all labels');
+    }
+  })
+}
+
+export function getTaskLabels(taskId) {
+  return fetch(`rest/tasks/labels/${taskId}`, {
+    method: 'GET',
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+    }
+    else {
+      throw new Error ('Error when getting task labels');
+    }
+  })
+}
+
+export function addTaskToLabel(taskId, label) {
+  return fetch(`/rest/tasks/labels/${taskId}`, {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    body: JSON.stringify(label)
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+    }
+    else {
+      throw new Error ('Error when adding task to label');
+    }
+  })
+}
+
+export function removeTaskFromLabel(taskId, labelId) {
+  return fetch(`/rest/tasks/labels/${taskId}/${labelId}`, {
+    method: "delete",
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp;
+    }
+    else {
+      throw new Error ('Error when deleting task from label');
+    }
+  })
+}

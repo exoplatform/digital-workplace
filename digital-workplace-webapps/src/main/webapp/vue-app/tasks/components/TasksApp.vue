@@ -171,7 +171,7 @@
 
 <script>
   import TaskDrawer from "./TaskDrawer.vue";
-  import {getMyAllTasks, getMyIncomingTasks, getMyOverdueTasks} from '../TasksAPI'
+  import {getMyAllTasks, getMyIncomingTasks, getMyOverdueTasks} from '../tasksAPI'
 
   export default {
 
