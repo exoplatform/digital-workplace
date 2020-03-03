@@ -113,10 +113,36 @@ export function removeTaskFromLabel(taskId, labelId) {
     method: "delete",
   }).then((resp) => {
     if(resp && resp.ok) {
-      return resp;
+      return resp.json();
     }
     else {
       throw new Error ('Error when deleting task from label');
+    }
+  })
+}
+
+export function getProjects() {
+  return fetch('/rest/tasks/projects', {
+    method: 'GET',
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+    } 
+    else {
+      throw new Error ('Error when getting projects');
+    }
+  })
+}
+
+export function getDefaultStatusByProjectId(projectId) {
+  return fetch(`rest/tasks/projects/status/${projectId}`, {
+    method: 'GET',
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+    }
+    else {
+      throw new Error ('Error when getting default status');
     }
   })
 }

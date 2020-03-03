@@ -14,8 +14,8 @@
       small-chips
       prepend-icon
       solo>
-      <template v-slot:prepend>
-        <i class="uiIconTag uiIconBlue mr-1"></i>
+      <template v-slot:prepend class="mr-4">
+        <i class="uiIconTag uiIconBlue"></i>
       </template>
       <template v-slot:no-data>
         <v-list-item>

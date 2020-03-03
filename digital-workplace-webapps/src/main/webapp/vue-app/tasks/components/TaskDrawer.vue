@@ -36,28 +36,7 @@
       <v-container pt-0>
         <v-layout row>
           <v-col>
-            <v-combobox
-              v-if="task.status != null"
-              v-model="task.status.project.name"
-              :background-color="task.status.project.color"
-              :placeholder="$t('homepage.task.drawer.noProject')"
-              prepend-icon
-              solo
-              class="pt-0 centered-input projectName">
-              <template v-slot:prepend>
-                <i class="uiIconFolder uiIconBlue"></i>
-              </template>
-            </v-combobox>
-            <v-combobox
-              v-else
-              :placeholder="$t('homepage.task.drawer.noProject')"
-              prepend-icon
-              solo
-              class="pt-0 centered-input projectName">
-              <template v-slot:prepend>
-                <i class="uiIconFolder uiIconBlue"></i>
-              </template>
-            </v-combobox>
+            <task-projects :task="task"/>
             <task-labels :task="task"/>
             <v-btn
               class="ml-n2"
@@ -278,7 +257,7 @@
   import VueDatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';
 
-  import {getUserInformations, updateTask} from '../tasksAPI';
+  import {getUserInformations,updateTask} from '../tasksAPI';
 
   export default {
     components: {VueCkeditor, VueDatePicker},
