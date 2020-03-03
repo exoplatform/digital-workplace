@@ -16,7 +16,8 @@
             <v-flex xs1>
               <v-btn
                 class="my-2"
-                icon>
+                icon
+                @click="navigateTo(`tasks/taskDetail/${task.id}`)">
                 <i class="uiIconAndroidOpen grey-color"></i>
               </v-btn>
             </v-flex>
@@ -420,7 +421,10 @@
         this.saveDescription = setTimeout(() => {
           Vue.nextTick(() => this.updateTask(this.task.id));
         }, this.autoSaveDelay);
-      }
+      },
+      navigateTo(pagelink) {
+        window.open(`${ eXo.env.portal.context }/${ eXo.env.portal.portalName }/${ pagelink }`, '_blank');
+      },
     }
   }
 </script>
