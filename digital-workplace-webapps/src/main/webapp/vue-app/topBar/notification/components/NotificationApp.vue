@@ -9,12 +9,11 @@
           class="text-xs-center"
           @click="openDrawer()" >
           <v-badge
+            :value="badge > 0"
+            :content="badge"
             flat
             color="red"
             overlap>
-            <span 
-              v-if="badge > 0" 
-              slot="badge"> {{ badge }}</span>
             <v-icon
               class="grey-color">
               notifications

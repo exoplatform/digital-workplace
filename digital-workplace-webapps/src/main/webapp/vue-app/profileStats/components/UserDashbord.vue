@@ -39,9 +39,8 @@
             <v-card
               flat>
               <a class="white--text">
-                <v-badge class="badge-color">
+                <v-badge :value="spacesRequestsSize > 0" class="badge-color">
                   <v-btn
-                    v-if="spacesRequestsSize > 0"
                     slot="badge"
                     icon
                     dark
@@ -63,14 +62,16 @@
               tile
               flat>
               <a class="white--text">
-                <v-badge pa-0 class="badge-color">
+                <v-badge
+                  :value="connectionsRequestsSize > 0"
+                  pa-0
+                  class="badge-color">
                   <v-btn
-                    v-if="connectionsRequestsSize > 0"
                     slot="badge"
                     icon
                     dark
-                    height="22"
-                    width="22"
+                    height="20"
+                    width="20"
                     @click="getSpecificCard('ConnectionsRequests')">{{ connectionsRequestsSize }}</v-btn>
                   <a class="headline blue-grey--text font-weight-bold pa-1" @click="navigateTo('connexions/network')">{{ connectionsSize }}</a>
                 </v-badge>
