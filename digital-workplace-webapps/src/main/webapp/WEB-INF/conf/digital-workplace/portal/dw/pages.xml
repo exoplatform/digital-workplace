@@ -695,27 +695,6 @@
     </container>
   </page>
 
-  <page>
-    <name>appCenterUserSetup</name>
-    <title>App Center User Setup</title>
-    <access-permissions>*:/platform/users</access-permissions>
-    <edit-permission>manager:/platform/administrators</edit-permission>
-    <container id="AppCenterUserSetup"
-      template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-      <access-permissions>*:/platform/users</access-permissions>
-      <portlet-application>
-        <portlet>
-          <application-ref>app-center</application-ref>
-          <portlet-ref>AppCenterUserSetupPortlet</portlet-ref>
-        </portlet>
-        <title>App Center User Setup</title>
-        <access-permissions>*:/platform/users</access-permissions>
-        <show-info-bar>false</show-info-bar>
-        <show-application-state>true</show-application-state>
-      </portlet-application>
-    </container>
-  </page>
-
   <!-- Pages for news addon (TO BE DEFINED LATER BY NEWS ADDON) -->
 
   <page>
@@ -840,7 +819,7 @@
     <title>Settings</title>
     <access-permissions>*:/platform/users</access-permissions>
     <edit-permission>manager:/platform/administrators</edit-permission>
-    <container id="AppCenterUserSetup"
+    <container id="NotificationSettingsContainer"
       template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
       <access-permissions>*:/platform/users</access-permissions>
       <portlet-application>
