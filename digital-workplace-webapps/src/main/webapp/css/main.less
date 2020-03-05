@@ -40,6 +40,10 @@ body.open-drawer {
   display: none;
 }
 
+.UIToolbarContainer .uiSearchPlatformToolBarPortlet > a {
+    display: inline-block;
+}
+
 #DWNavigationPortlet {
   background: #f2f2f2;
   padding-top: 58px;
@@ -53,7 +57,29 @@ body.open-drawer {
     .uiProfileMenu, .uiSpaceMenu {
 	  left: 0;
 	}
-	
+  }
+  .UIToolbarContainerLight .uiDropdownWithIcon > a:hover, .UIToolbarContainerLight .uiDropdownWithIcon.open > a {
+    border: none;
+  }
+  #PlatformAdminToolbarContainer {
+    padding-top: 0;
+  }
+  
+  .uiSocApplication {
+    padding-right: 100px;
+    padding-left: 100px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .uiUserActivityStreamPortlet .activityTop {
+      margin-top: -25px;  
+    }
+  }
+  
+  @media screen and (max-width: 630px) {
+    .uiSocApplication {
+      padding: 20px;
+    }
   }
 }
 
@@ -601,6 +627,39 @@ body.open-drawer {
       text-overflow: ellipsis;
       white-space: nowrap;
     }
+    .noTasks {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      margin-top: -1px;
+      .noTasksContent {
+        text-align: center;
+        margin-top: 6%;
+        .uiNoTaskIcon {
+          color: #6d7d9821;
+          font-size: 10rem;
+          font-style: normal;
+          font-weight: normal;
+          &:before {
+            font-family: 'PLF-FONT-ICONS';
+            content: "\e690" !important;
+          }
+        } 
+        .noTasksTitle {
+         color: black;
+         font-weight: normal;
+         font-size: 15px;
+         margin-top: -50px;
+        }
+        p {
+          font-weight: normal;
+          font-size: 15px;
+          color: #a8b3c5;
+          margin-top: -50px;
+        }
+      }
+    }
   }
 
   #digital-workplace-profile-stats {
@@ -927,6 +986,7 @@ body.open-drawer {
 @media (max-width: 599px) {
   .EventsContainerTDContainer, .TasksContainerTDContainer {
     flex: 0 0 100%;
+    margin-top: 20px;
   }
   .TasksContainerTDContainer {
     margin-top: 20px;
@@ -1902,8 +1962,27 @@ body.open-drawer {
       #reply_btn {
           padding: 0px !important;
       }
+      .v-input {
+        display: inline-flex;
+      }
+      .task-name {
+        input[type="text"] {
+          color: @primaryColor !important;
+          font-weight: bold
+        }
+      }
+      .theme--light.v-text-field > .v-input__control > .v-input__slot:before {
+        display: none;
+      }
     }
-
+      .v-autocomplete__content.v-menu__content {
+        .v-card {
+          pointer-events: none;
+        }
+      }
+      .v-chip.v-size--small {
+        pointer-events: initial;
+      }
 /*=============== Drawer Event component ===========*/
     #ExoCalendarEventForm {
       .drawer-backdrop {

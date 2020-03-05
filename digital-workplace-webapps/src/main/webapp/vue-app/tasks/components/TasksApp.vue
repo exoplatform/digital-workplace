@@ -40,7 +40,7 @@
               d-flex
               xs12>
               <v-layout mx-0>
-                <v-flex xs12>
+                <v-flex v-if="tasks.length > 0" xs12>
                   <v-card
                     class="mx-auto"
                     flat
@@ -90,7 +90,7 @@
                     </v-layout>
                   </v-card>
                 </v-flex>
-                <v-flex xs12>
+                <v-flex v-if="tasks.length > 0" xs12>
                   <v-card
                     class="mx-auto"
                     flat
@@ -155,14 +155,21 @@
             mx-0>
             <v-flex
               xs12>
-              <v-list>
+              <v-list v-if="tasks.length > 0">
                 <v-list-item
                   v-for="task in tasks"
-                  :key="task.title"
+                  :key="task.id"
                   class="px-0">
                   <task-details :task="task"/>
                 </v-list-item>
               </v-list>
+              <div v-else class="noTasks">
+                <div class="noTasksContent">
+                  <i class="uiNoTaskIcon"></i>
+                  <p class="pt-4 noTasksTitle">{{ this.$t('homepage.tasks.noTasks') }}</p>
+                  <p class="pt-10">{{ this.$t('homepage.tasks.thereIsNoTasks') }}</p>
+                </div>
+              </div>
         </v-flex></v-layout></v-flex>
       </v-layout>
     </v-container>
@@ -171,7 +178,7 @@
 
 <script>
   import TaskDrawer from "./TaskDrawer.vue";
-  import {getMyAllTasks, getMyIncomingTasks, getMyOverdueTasks} from '../TasksAPI'
+  import {getMyAllTasks, getMyIncomingTasks, getMyOverdueTasks} from '../tasksAPI'
 
   export default {
 

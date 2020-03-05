@@ -1,0 +1,155 @@
+<template>
+  <div @click.stop>
+    <v-combobox
+      ref="select"
+      v-model="model"
+      :filter="filter"
+      :hide-no-data="!search"
+      :items="items"
+      :search-input.sync="search"
+      :label="$t('homepage.task.drawer.labels')"
+      class="pt-0"
+      hide-selected
+      multiple
+      small-chips
+      prepend-icon
+      solo>
+      <template v-slot:prepend class="mr-4">
+        <i class="uiIconTag uiIconBlue"></i>
+      </template>
+      <template v-slot:no-data>
+        <v-list-item>
+          <span class="subheading">{{ $t('homepage.task.drawer.create') }}</span>
+          <v-chip
+            label
+            small>
+            {{ search }}
+          </v-chip>
+        </v-list-item>
+      </template>
+      <template v-slot:selection="{ attrs, item, parent, selected }">
+        <v-chip
+          v-if="item === Object(item)"
+          v-bind="attrs"
+          :color="`${item.color} lighten-3`"
+          :input-value="selected"
+          label
+          small>
+          <span class="pr-2">
+            {{ item.text }}
+          </span>
+          <v-icon
+            small
+            @click="parent.selectItem(item);removeTaskFromLabel(item)">close</v-icon>
+        </v-chip>
+      </template>
+      <template v-slot:item="{ index, item }">
+        <v-chip
+          :color="`${item.color} lighten-3`"
+          dark
+          label
+          small
+          @click="addTaskToLabel(item)">
+          {{ item.text }}
+        </v-chip>
+      </template>
+    </v-combobox>
+  </div>
+</template>
+
+<script>
+    import {getMyAllLabels, getTaskLabels, addTaskToLabel, removeTaskFromLabel} from '../tasksAPI';
+
+    export default {
+        props: {
+            task: {
+                type: Object,
+                default: () => {
+                    return {};
+                }
+            },
+        },
+        data() {
+            return {
+                index: -1,
+                items: [],
+                nonce: 1,
+                model: [],
+                x: 0,
+                search: null,
+                y: 0,
+            }
+        },
+        watch: {
+            model(val, prev) {
+
+                if (val.length === prev.length) {
+                    return
+                }
+                this.model = val.map(v => {
+                    if (typeof v === 'string') {
+                        v = {
+                            text: v,
+                            name: v,
+                        }
+                        this.items.push(v)
+                        this.nonce++
+                        this.addTaskToLabel(v)
+                    }
+                    return v
+                })
+            },
+        },
+        mounted() {
+            window.addEventListener("click", () => {
+                this.$refs.select.blur();
+            });
+        },
+        created() {
+            this.getMyAllLabels();
+            this.getTaskLabels();
+        },
+        methods: {
+            filter(item, queryText, itemText) {
+                if (item.header) {
+                    return false
+                }
+
+                const hasValue = function (val) {
+                    return val != null ? val : ''
+                };
+
+                const text = hasValue(itemText)
+                const query = hasValue(queryText)
+                return text.toString()
+                    .toLowerCase()
+                    .indexOf(query.toString().toLowerCase()) > -1
+            },
+            getMyAllLabels() {
+                getMyAllLabels().then((labels) => {
+                    this.items = labels.map(function (el) {
+                        const o = Object.assign({}, el);
+                        o.text = o.name;
+                        return o;
+                    });
+                })
+            },
+            getTaskLabels() {
+                getTaskLabels(this.task.id).then((labels) => {
+                        this.model = labels.map(function (el) {
+                            const o = Object.assign({}, el);
+                            o.text = o.name;
+                            return o;
+                        });
+                    }
+                )
+            },
+            addTaskToLabel(label) {
+                addTaskToLabel(this.task.id, label)
+            },
+            removeTaskFromLabel(item) {
+                removeTaskFromLabel(this.task.id, item.id)
+            },
+        }
+    }
+</script>

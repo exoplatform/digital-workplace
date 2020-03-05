@@ -8,7 +8,6 @@
       <set-method>initListener</set-method>
       <type>org.exoplatform.portal.config.NewPortalConfigListener</type>
       <description>This listener creates a page for Digital Workplace Home Page</description>
-      <priority>-1</priority>
       <init-params>
         <value-param>
           <name>override</name>

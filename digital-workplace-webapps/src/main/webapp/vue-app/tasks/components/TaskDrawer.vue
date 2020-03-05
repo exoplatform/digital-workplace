@@ -16,7 +16,8 @@
             <v-flex xs1>
               <v-btn
                 class="my-2"
-                icon>
+                icon
+                @click="navigateTo(`tasks/taskDetail/${task.id}`)">
                 <i class="uiIconAndroidOpen grey-color"></i>
               </v-btn>
             </v-flex>
@@ -36,50 +37,8 @@
       <v-container pt-0>
         <v-layout row>
           <v-col>
-            <v-combobox
-              v-if="task.status != null"
-              v-model="task.status.project.name"
-              :background-color="task.status.project.color"
-              :placeholder="$t('homepage.task.drawer.noProject')"
-              prepend-icon
-              solo
-              class="pt-0 centered-input projectName">
-              <template v-slot:prepend>
-                <i class="uiIconFolder uiIconBlue"></i>
-              </template>
-            </v-combobox>
-            <v-combobox
-              v-else
-              :placeholder="$t('homepage.task.drawer.noProject')"
-              prepend-icon
-              solo
-              class="pt-0 centered-input projectName">
-              <template v-slot:prepend>
-                <i class="uiIconFolder uiIconBlue"></i>
-              </template>
-            </v-combobox>
-            <v-combobox
-              v-model="chips"
-              :items="labels"
-              :placeholder="$t('homepage.task.drawer.labels')"
-              class="pt-0"
-              chips
-              clearable
-              multiple
-              solo
-              prepend-icon>
-              <template v-slot:selection="{ attrs, item, select, selected }">
-                <v-chip
-                  close
-                  @click="select"
-                  @click:close="remove(item)">
-                  <strong>{{ item }}</strong>
-                </v-chip>
-              </template>
-              <template v-slot:prepend>
-                <i class="uiIconTag uiIconBlue mr-1"></i>
-              </template>
-            </v-combobox>
+            <task-projects :task="task"/>
+            <task-labels :task="task"/>
             <v-btn
               class="ml-n2"
               icon
@@ -88,20 +47,21 @@
               @click="markAsCompleted()">
               <v-icon dark >mdi-checkbox-marked-circle</v-icon>
             </v-btn>
-            <input
+            <v-text-field
               v-if="!task.completed"
               v-model="task.title"
               :placeholder="$t('homepage.task.drawer.title')"
-              class="pl-0"
+              class="pl-0 pt-0 task-name"
               type="text"
-              style="color:#578DC9;font-weight: bold">
-            <input
+              color="#578DC9"
+              @change="updateTask"/>
+            <v-text-field
               v-else
               v-model="task.title"
               :placeholder="$t('homepage.task.drawer.title')"
-              class="pl-0"
-              style="text-decoration: line-through;color:#578DC9;font-weight: bold"
-              type="text">
+              class="pl-0 pt-0 task-name"
+              style="text-decoration: line-through"
+              type="text"/>
           </v-col>
           <v-container py-0>
             <v-flex xs12>
@@ -125,21 +85,13 @@
                 </v-flex>
                 <v-flex 
                   xs5>
-                  <v-layout row>
-                    <v-list-item>
-                      <v-list-item-avatar size="22" class="mr-2 pt-1">
-                        <v-img :src="getUserAvatar(task.assignee)"/>                    
-                      </v-list-item-avatar>
-                      <v-list-item-content>
-                        <v-list-item-title><span class="user-name">{{ userFullName }}</span></v-list-item-title>
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-layout>
+                  <task-assignment :task="task"/>
                 </v-flex>
                 <v-flex 
                   xs3>
-                  <div v-if="task.status != null">
+                  <div v-if="task.status != null" @click.stop>
                     <v-select
+                      ref="selectStatus"
                       v-model="task.status.name"
                       :items="taskStatus"
                       item-value="key"
@@ -170,8 +122,9 @@
               <v-flex 
                 xs4
                 row>
-                <div style="white-space: nowrap">
+                <div style="white-space: nowrap" @click.stop>
                   <v-select
+                    ref="selectPriority"
                     v-model="task.priority"
                     :items="priorities"
                     item-value="key"
@@ -296,7 +249,7 @@
   import VueDatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';
 
-  import {getUserInformations,updateTask} from '../TasksAPI';
+  import {getUserInformations,updateTask} from '../tasksAPI';
 
   export default {
     components: {VueCkeditor, VueDatePicker},
@@ -325,12 +278,9 @@
           {key:'Done',value:this.$t('homepage.task.status.done')}],
         
         date: null,
-        menu: false,
-        modal: false,
         showEditor : false,
         commentPlaceholder : this.$t('homepage.task.drawer.addYourComment'),
         descriptionPlaceholder : this.$t('homepage.task.drawer.addDescription'),
-        userFullName:'',
         items: [
           {
             avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
@@ -346,7 +296,6 @@
           },
         ],
         chips: [],
-        labels: ['label 1','label 2','label 3'],
         autoSaveDelay: 1000,
         saveDescription: '',
       }
@@ -358,8 +307,11 @@
         } 
       }
     },
-    created() {
-      this.getUserFullName(this.task.assignee);
+    mounted() {
+      window.addEventListener("click",() => {
+        this.$refs.selectPriority.blur();
+        this.$refs.selectStatus.blur();
+      });
     },
     methods: {
       closeDrawer() {
@@ -373,12 +325,6 @@
       getUserAvatar(username) {
         return `/rest/v1/social/users/${username}/avatar`;
       },
-      getUserFullName(useName) {
-        getUserInformations(useName).then((userInfo) => {
-            this.userFullName = userInfo.fullname;
-            }
-        )
-      },
       getTaskPriorityColor(priority) {
         switch (priority) {
           case "HIGH":
@@ -390,10 +336,6 @@
           case "NONE":
             return "#578dc9";
         }
-      },
-      remove(item) {
-        this.chips.splice(this.chips.indexOf(item), 1);
-        this.chips = [...this.chips];
       },
       markAsCompleted(){
         this.task.completed = !this.task.completed;
@@ -460,7 +402,10 @@
         this.saveDescription = setTimeout(() => {
           Vue.nextTick(() => this.updateTask(this.task.id));
         }, this.autoSaveDelay);
-      }
+      },
+      navigateTo(pagelink) {
+        window.open(`${ eXo.env.portal.context }/${ eXo.env.portal.portalName }/${ pagelink }`, '_blank');
+      },
     }
   }
 </script>

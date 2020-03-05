@@ -26,6 +26,13 @@
       <visibility>SYSTEM</visibility>
       <page-reference>portal::dw::profile</page-reference>
     </node>
+    
+    <node>
+      <name>edit-profile</name>
+      <label>#{portal.dw.edit-profile}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::edit-profile</page-reference>
+    </node>
 
     <node>
       <name>achievements</name>
@@ -177,6 +184,13 @@
       <name>tasks</name>
       <label>#{portal.dw.tasks}</label>
       <page-reference>portal::dw::tasks</page-reference>
+    </node>
+    
+    <node>
+      <name>search</name>
+      <label>#{portal.dw.searchResult}</label>
+      <visibility>SYSTEM</visibility>
+      <page-reference>portal::dw::search</page-reference>
     </node>
 
   </page-nodes>
