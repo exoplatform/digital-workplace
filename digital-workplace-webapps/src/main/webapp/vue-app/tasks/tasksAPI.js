@@ -146,3 +146,16 @@ export function getDefaultStatusByProjectId(projectId) {
     }
   })
 }
+
+export function getAllUsers() {
+  return fetch('/rest/v1/social/users', {
+    method: 'GET',
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+    }
+    else {
+      throw new Error ('Error when getting users');
+    }
+  })
+}

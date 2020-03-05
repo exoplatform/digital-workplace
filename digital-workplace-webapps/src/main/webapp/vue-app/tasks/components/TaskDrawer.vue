@@ -85,16 +85,7 @@
                 </v-flex>
                 <v-flex 
                   xs5>
-                  <v-layout row>
-                    <v-list-item>
-                      <v-list-item-avatar size="22" class="mr-2 pt-1">
-                        <v-img :src="getUserAvatar(task.assignee)"/>                    
-                      </v-list-item-avatar>
-                      <v-list-item-content>
-                        <v-list-item-title><span class="user-name">{{ userFullName }}</span></v-list-item-title>
-                      </v-list-item-content>
-                    </v-list-item>
-                  </v-layout>
+                  <task-assignment :task="task"/>
                 </v-flex>
                 <v-flex 
                   xs3>
@@ -290,7 +281,6 @@
         showEditor : false,
         commentPlaceholder : this.$t('homepage.task.drawer.addYourComment'),
         descriptionPlaceholder : this.$t('homepage.task.drawer.addDescription'),
-        userFullName:'',
         items: [
           {
             avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
@@ -323,9 +313,6 @@
         this.$refs.selectStatus.blur();
       });
     },
-    created() {
-      this.getUserFullName(this.task.assignee);
-    },
     methods: {
       closeDrawer() {
         this.drawer = false;
@@ -337,12 +324,6 @@
       },
       getUserAvatar(username) {
         return `/rest/v1/social/users/${username}/avatar`;
-      },
-      getUserFullName(useName) {
-        getUserInformations(useName).then((userInfo) => {
-            this.userFullName = userInfo.fullname;
-            }
-        )
       },
       getTaskPriorityColor(priority) {
         switch (priority) {
