@@ -24,12 +24,12 @@
             :color="`${item.color} lighten-3`"
             :input-value="selected"
             label
-            style="height: 32px"
+            style="height: 32px;display: inline-table"
             small
             @click="updateTaskProject(item)">
             <span 
+              :title="$t('homepage.tasks.drawer.clickToEdit')" 
               style="font-size: 17px"
-              title="click to edit" 
               class="px-4" 
               @click="parent.selectItem(item);deleteProject()">
               {{ item.name }}
@@ -65,12 +65,13 @@
             :input-value="selected"
             label
             lagre>
-            <span class="pr-2">
+            <span
+              style="font-size: 17px"
+              title="click to edit"
+              class="px-4"
+              @click="parent.selectItem(item);deleteProject()">
               {{ item.name }}
             </span>
-            <v-icon
-              small
-              @click="parent.selectItem(item);deleteProject()">close</v-icon>
           </v-chip>
         </template>
         <template v-slot:item="{ index, item }">
