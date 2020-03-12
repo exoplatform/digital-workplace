@@ -33,6 +33,7 @@
           v-bind="attrs"
           :color="`${item.color} lighten-3`"
           :input-value="selected"
+          class="pr-1"
           label
           small>
           <span class="pr-2">
@@ -44,14 +45,15 @@
         </v-chip>
       </template>
       <template v-slot:item="{ index, item }">
-        <v-chip
-          :color="`${item.color} lighten-3`"
-          dark
-          label
-          small
-          @click="addTaskToLabel(item)">
-          {{ item.text }}
-        </v-chip>
+        <v-list-item @click="addTaskToLabel(item)">
+          <v-chip
+            :color="`${item.color} lighten-3`"
+            dark
+            label
+            small>
+            {{ item.text }}
+          </v-chip>
+        </v-list-item>
       </template>
     </v-combobox>
   </div>
@@ -146,6 +148,7 @@
             },
             addTaskToLabel(label) {
                 addTaskToLabel(this.task.id, label)
+                this.model.push(label)
             },
             removeTaskFromLabel(item) {
                 removeTaskFromLabel(this.task.id, item.id)

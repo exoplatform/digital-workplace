@@ -14,15 +14,47 @@
       <container id="SliderContainer"
         template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
-        <portlet-application>
-          <portlet>
-            <application-ref>digital-workplace</application-ref>
-            <portlet-ref>digitalWorkplaceSlider</portlet-ref>
-          </portlet>
-          <title>Slider</title>
-          <access-permissions>*:/platform/users</access-permissions>
-          <show-info-bar>false</show-info-bar>
-        </portlet-application>
+          <portlet-application>
+            <portlet>
+              <application-ref>presentation</application-ref>
+              <portlet-ref>ContentListViewerByQueryPortlet</portlet-ref>
+              <preferences>
+                <preference>
+                  <name>formViewTemplatePath</name>
+                  <value>/exo:ecm/views/templates/content-list-viewer/list/Slider.gtmpl</value>
+                  <read-only>false</read-only>
+                </preference>
+                <preference>
+                  <name>header</name>
+                  <value>Slider</value>
+                  <read-only>false</read-only>
+                </preference>
+                <preference>
+                  <name>basePath</name>
+                  <value>newsDetail</value>
+                  <read-only>false</read-only>
+                </preference>
+                <preference>
+                  <name>folderPath</name>
+                  <value>repository:collaboration:/sites/dw</value>
+                  <read-only>false</read-only>
+                </preference>
+                <preference>
+                  <name>query</name>
+                  <value>SELECT * FROM exo:news WHERE jcr:path LIKE '/Groups/spaces/communication/News/%' and exo:pinned='true' ORDER BY jcr:created DESC</value>
+                  <read-only>false</read-only>
+                </preference>
+                <preference>
+                  <name>sharedCache</name>
+                  <value>false</value>
+                  <read-only>false</read-only>
+                </preference>
+              </preferences>
+            </portlet>
+            <title>Slider</title>
+            <access-permissions>*:/platform/users</access-permissions>
+            <show-info-bar>false</show-info-bar>
+          </portlet-application>
       </container>
       <container id="MiddleContainer"
         template="system:/groovy/portal/webui/container/UIResponsiveTableColumnContainer.gtmpl">

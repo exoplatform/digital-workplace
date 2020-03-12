@@ -235,7 +235,16 @@
                     @click="showEditor=!showEditor">{{ $t('homepage.task.drawer.comment') }}</v-btn>
                 </v-list>
               </v-tab-item>
-              <v-tab-item/>
+              <v-tab-item class="pt-5">
+                <v-list>
+                  <v-list-item
+                    v-for="(item, i) in logs"
+                    :key="i"
+                    class="pr-0">
+                    <log-details :change-log="item"/>
+                  </v-list-item>
+                </v-list>
+              </v-tab-item>
             </v-tabs>
           </v-flex>
         </v-layout>
@@ -248,11 +257,12 @@
   import VueCkeditor from './CkeditorVue.vue';
   import VueDatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';
+  import LogDetails from './LogDetails.vue'
 
-  import {getUserInformations,updateTask} from '../tasksAPI';
+  import {updateTask, getTaskLogs} from '../tasksAPI';
 
   export default {
-    components: {VueCkeditor, VueDatePicker},
+    components: {VueCkeditor, VueDatePicker,LogDetails},
     props: {
       drawer: {
         type: Boolean,
@@ -298,6 +308,7 @@
         chips: [],
         autoSaveDelay: 1000,
         saveDescription: '',
+        logs:[],
       }
     },
     watch: {
@@ -306,6 +317,9 @@
           this.autoSaveDescription(); 
         } 
       }
+    },
+    created() {
+      this.retrieveTaskLogs()
     },
     mounted() {
       window.addEventListener("click",() => {
@@ -403,6 +417,14 @@
           Vue.nextTick(() => this.updateTask(this.task.id));
         }, this.autoSaveDelay);
       },
+      retrieveTaskLogs() {
+        getTaskLogs(this.task.id).then(
+                (data) => {
+                  this.logs = data;
+                });
+        return this.logs
+      },
+     
       navigateTo(pagelink) {
         window.open(`${ eXo.env.portal.context }/${ eXo.env.portal.portalName }/${ pagelink }`, '_blank');
       },
