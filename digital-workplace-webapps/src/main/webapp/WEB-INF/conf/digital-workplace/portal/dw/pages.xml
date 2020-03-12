@@ -21,7 +21,7 @@
               <preferences>
                 <preference>
                   <name>formViewTemplatePath</name>
-                  <value>/exo:ecm/views/templates/content-list-viewer/list/Slider.gtmpl</value>
+                  <value>/exo:ecm/views/templates/content-list-viewer/list/NewsSlider.gtmpl</value>
                   <read-only>false</read-only>
                 </preference>
                 <preference>
