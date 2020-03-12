@@ -16,13 +16,7 @@ let config = {
     sharedDocuments: './src/main/webapp/vue-app/sharedDocuments/main.js',
     recentDocuments: './src/main/webapp/vue-app/recentDocuments/main.js',
     favoriteDocuments: './src/main/webapp/vue-app/favoriteDocuments/main.js',
-    leftNavigation: './src/main/webapp/vue-app/sidebar/leftNavigation/main.js',
-    spacesNavigation: './src/main/webapp/vue-app/sidebar/spacesNavigation/main.js',
-    dwAdministration: './src/main/webapp/vue-app/sidebar/administration/main.js',
-    mySettings: './src/main/webapp/vue-app/sidebar/mySettings/main.js',
-    notification: './src/main/webapp/vue-app/topBar/notification/main.js',
     topBottomNavigation: './src/main/webapp/vue-app/topBar/topBottomNavigation/main.js',
-    logo: './src/main/webapp/vue-app/topBar/logo/main.js'
   },
   output: {
     filename: 'js/[name].bundle.js',
