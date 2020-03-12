@@ -37,21 +37,17 @@
           d-flex
           xs5
           justify-end
-          align><a
-            ref="tooltip"
+          align>
+          <v-card
             :title="task.status.project.name"
-            class="taskTitle">
-            <v-card
-              :color="task.status.project.color"
-              flex
-              width="200"
-              class="pa-2 my-3 projectCard text-center flexCard"
-              flat
-              outlined
-              v-on="on" >
-              <span>{{ task.status.project.name }}</span>
-            </v-card>
-          </a>
+            :color="task.status.project.color"
+            flex
+            width="200"
+            class="pa-2 my-3 projectCard text-center flexCard taskTitle"
+            flat
+            outlined>
+            <span>{{ task.status.project.name }}</span>
+          </v-card>
           <v-card
             :style="{ borderColor: task.status.project.color }"
             width="18"

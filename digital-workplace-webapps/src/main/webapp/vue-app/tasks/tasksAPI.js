@@ -1,5 +1,5 @@
 export function getMyAllTasks() {
-  return fetch('/rest/tasks', {
+  return fetch('/portal/rest/tasks', {
     method: 'GET',
   }).then((resp) => {
     if(resp && resp.ok) {
@@ -11,7 +11,7 @@ export function getMyAllTasks() {
 }
 
 export function getMyIncomingTasks() {
-  return fetch('/rest/tasks?status=incoming&returnSize=true', {
+  return fetch('/portal/rest/tasks?status=incoming&returnSize=true', {
     method: 'GET',
   }).then((resp) => {
     if(resp && resp.ok) {
@@ -24,7 +24,7 @@ export function getMyIncomingTasks() {
 }
 
 export function getMyOverdueTasks() {
-  return fetch('/rest/tasks?status=overdue&returnSize=true', {
+  return fetch('/portal/rest/tasks?status=overdue&returnSize=true', {
     method: 'GET',
   }).then((resp) => {
     if(resp && resp.ok) {
@@ -36,7 +36,7 @@ export function getMyOverdueTasks() {
   })
 }
 export function getUserInformations(userName) {
-  return fetch(`/rest/v1/social/users/${userName}`, {
+  return fetch(`/portal/rest/v1/social/users/${userName}`, {
     method: 'GET',
   }).then((resp) => {
     if(resp && resp.ok) {
@@ -49,7 +49,7 @@ export function getUserInformations(userName) {
 }
 
 export function updateTask(taskId, task) {
-  return fetch(`/rest/tasks/${taskId}`, {
+  return fetch(`/portal/rest/tasks/${taskId}`, {
     headers: {
       'Content-Type': 'application/json'
     },
@@ -66,7 +66,7 @@ export function updateTask(taskId, task) {
 }
 
 export function getMyAllLabels() {
-  return fetch('rest/tasks/labels', {
+  return fetch('/portal/rest/tasks/labels', {
     method: 'GET',
   }).then((resp) => {
     if(resp && resp.ok) {
@@ -79,7 +79,7 @@ export function getMyAllLabels() {
 }
 
 export function getTaskLabels(taskId) {
-  return fetch(`rest/tasks/labels/${taskId}`, {
+  return fetch(`/portal/rest/tasks/labels/${taskId}`, {
     method: 'GET',
   }).then((resp) => {
     if(resp && resp.ok) {
@@ -92,7 +92,7 @@ export function getTaskLabels(taskId) {
 }
 
 export function addTaskToLabel(taskId, label) {
-  return fetch(`/rest/tasks/labels/${taskId}`, {
+  return fetch(`/portal/rest/tasks/labels/${taskId}`, {
     headers: {
       'Content-Type': 'application/json'
     },
@@ -109,7 +109,7 @@ export function addTaskToLabel(taskId, label) {
 }
 
 export function removeTaskFromLabel(taskId, labelId) {
-  return fetch(`/rest/tasks/labels/${taskId}/${labelId}`, {
+  return fetch(`/portal/rest/tasks/labels/${taskId}/${labelId}`, {
     method: "delete",
   }).then((resp) => {
     if(resp && resp.ok) {
@@ -122,7 +122,7 @@ export function removeTaskFromLabel(taskId, labelId) {
 }
 
 export function getProjects() {
-  return fetch('/rest/tasks/projects', {
+  return fetch('/portal/rest/tasks/projects', {
     method: 'GET',
   }).then((resp) => {
     if(resp && resp.ok) {
@@ -135,7 +135,7 @@ export function getProjects() {
 }
 
 export function getDefaultStatusByProjectId(projectId) {
-  return fetch(`rest/tasks/projects/status/${projectId}`, {
+  return fetch(`/portal/rest/tasks/projects/status/${projectId}`, {
     method: 'GET',
   }).then((resp) => {
     if(resp && resp.ok) {
@@ -148,7 +148,7 @@ export function getDefaultStatusByProjectId(projectId) {
 }
 
 export function getAllUsers() {
-  return fetch('/rest/v1/social/users', {
+  return fetch('/portal/rest/v1/social/users', {
     method: 'GET',
   }).then((resp) => {
     if(resp && resp.ok) {
