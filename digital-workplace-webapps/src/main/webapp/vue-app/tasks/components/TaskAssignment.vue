@@ -3,12 +3,15 @@
     <v-menu
       v-model="menu"
       :close-on-content-click="false"
-      :nudge-width="150"
-      left="850"
-      offset-x>
+      :nudge-width="170"
+      :nudge-bottom="22"
+      :nudge-left="250"
+      transition="slide-y-transition"
+      bottom
+      absolute>
       <template v-slot:activator="{ on }">
         <v-list-item :title="$t('homepage.tasks.drawer.clickToEdit')" style="cursor: pointer;">
-          <v-list-item-avatar size="22" class="mr-2 pt-1">
+          <v-list-item-avatar size="22" class="mr-2 ml-0 pt-1">
             <v-img :src="getUserAvatar(task.assignee)"/>
           </v-list-item-avatar>
           <span
@@ -20,7 +23,6 @@
             class="user-name"
             v-on="on"
             v-html="getUserFullName(task.assignee)"></span>
-          
         </v-list-item>
       </template>
       <v-card>
@@ -33,7 +35,7 @@
           deletable-chips
           flat
           solo
-          style="width: 300px"
+          style="width: 90%"
           chips
           class="pt-0 ml-4"
           @change="updateTask()">
@@ -75,7 +77,7 @@
           flat
           multiple
           solo
-          style="width: 300px"
+          style="width: 90%"
           chips
           class="pt-0 ml-4"
           @change="updateTask()">
@@ -111,8 +113,8 @@
           <v-spacer/>
           <v-btn 
             color="primary" 
-            text 
-            @click="menu = false">Save</v-btn>
+            text
+            @click="menu = false">{{ $t('homepage.task.drawer.close') }}</v-btn>
         </v-card-actions>
       </v-card>
     </v-menu>
