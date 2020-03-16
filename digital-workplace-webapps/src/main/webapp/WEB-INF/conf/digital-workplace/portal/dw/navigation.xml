@@ -18,14 +18,6 @@
     </node>
 
     <node>
-      <uri>settings</uri>
-      <name>settings</name>
-      <label>#{portal.dw.settings}</label>
-      <visibility>SYSTEM</visibility>
-      <page-reference>portal::dw::settings</page-reference>
-    </node>
-
-    <node>
       <name>account</name>
       <label>#{portal.dw.account}</label>
       <visibility>SYSTEM</visibility>
