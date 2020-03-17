@@ -24,7 +24,7 @@
             :input-value="selected"
             :title="$t('homepage.tasks.drawer.clickToEdit')"
             label
-            style="height: 32px;display: inline-table;width: 220px;"
+            class="projectName"
             small
             @click="updateTaskProject(item)">
             <span 
