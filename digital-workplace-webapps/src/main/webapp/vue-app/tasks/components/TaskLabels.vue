@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-combobox
+      ref="combobox"
       v-model="model"
       :filter="filter"
       :hide-no-data="!search"
@@ -85,6 +86,7 @@
             model(val, prev) {
 
                 if (val.length === prev.length) {
+                    this.$refs['combobox'].blur();
                     return
                 }
                 this.model = val.map(v => {
