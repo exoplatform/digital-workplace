@@ -71,6 +71,7 @@
           Coworkers :
         </v-card-text>
         <v-combobox
+          id="coworkerInput"
           v-model="task.coworker"
           :items="users"
           deletable-chips
