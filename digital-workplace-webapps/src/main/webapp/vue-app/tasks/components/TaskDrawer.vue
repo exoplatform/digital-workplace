@@ -149,94 +149,15 @@
               <v-tab-item class="pt-5">
                 <v-list>
                   <v-list-item
-                    v-for="(item, i) in items"
-                    :key="i">
-                    <v-list-item-avatar 
-                      size="35" 
-                      tile 
-                      class="mr-3">
-                      <v-img :src="item.avatar"/>
-                    </v-list-item-avatar>
-                    <v-layout>
-                      <v-list-item-content class="pt-1">
-                        <v-list-item-title
-                          style="color: #578DC9;font-weight: bold"
-                          color="#578DC9"
-                          v-html="item.title"/>
-                        <span>{{ item.comment }}</span>
-                        <v-btn 
-                          id="reply_btn"
-                          depressed
-                          text 
-                          small
-                          color="primary"
-                          @click="openEditor()">{{ $t('homepage.task.drawer.reply') }}</v-btn>
-                        <v-list >
-                          <v-list-item>
-                            <v-list-item-avatar 
-                              size="30" 
-                              tile 
-                              class="mr-3">
-                              <v-img :src="items2[0].avatar"/>
-                            </v-list-item-avatar>
-                            <v-layout>
-                              <v-list-item-content class="pt-1">
-                                <v-list-item-title
-                                  style="color: #578DC9;font-weight: bold"
-                                  color="#578DC9"
-                                  v-html="items2[0].title"/>
-                                <span>{{ items2[0].comment }}</span>
-                                <v-btn
-                                  id="reply_btn"
-                                  depressed
-                                  text
-                                  small
-                                  color="primary"
-                                  @click="openEditor()">{{ $t('homepage.task.drawer.reply') }}</v-btn>
-                              </v-list-item-content>
-                            </v-layout>
-                          </v-list-item>
-                          <v-list-item v-if="showEditor">
-                            <v-list-item-avatar size="30" tile>
-                              <v-img :src="items[0].avatar"/>
-                            </v-list-item-avatar>
-                            <v-layout row>
-                              <vue-ckeditor/>
-                              <v-btn
-                                depressed
-                                small
-                                dark
-                                class="primary-color mt-1">{{ $t('homepage.task.drawer.comment') }}</v-btn>
-                            </v-layout>
-                          </v-list-item>
-                        </v-list>
-                      </v-list-item-content>
-                    </v-layout>
+                    v-for="(item, i) in comments"
+                    :key="i"
+                    class="pr-0">
+                    <task-comments :comment="item"/>
                   </v-list-item>
-                  <v-list-item v-if="!showEditor">
-                    <v-list-item-avatar size="35" tile>
-                      <v-img :src="items[0].avatar"/>
-                    </v-list-item-avatar>
-                    <v-layout row>
-                      <vue-ckeditor :placeholder="commentPlaceholder" class="mr-4"/>
-                      <v-btn
-                        depressed
-                        small
-                        dark
-                        class="primary-color mt-1">{{ $t('homepage.task.drawer.comment') }}</v-btn>
-                    </v-layout>
-                  </v-list-item>
-                  <v-btn
-                    v-else
-                    depressed
-                    text
-                    small
-                    color="primary"
-                    @click="showEditor=!showEditor">{{ $t('homepage.task.drawer.comment') }}</v-btn>
                 </v-list>
               </v-tab-item>
               <v-tab-item class="pt-5">
-                <v-list>
+                <v-list class="py-0">
                   <v-list-item
                     v-for="(item, i) in logs"
                     :key="i"
@@ -258,11 +179,12 @@
   import VueDatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';
   import LogDetails from './LogDetails.vue'
+  import TaskComments from './TaskComments.vue'
 
-  import {updateTask, getTaskLogs} from '../tasksAPI';
+  import {updateTask, getTaskLogs, getTaskComments} from '../tasksAPI';
 
   export default {
-    components: {VueCkeditor, VueDatePicker,LogDetails},
+    components: {VueCkeditor, VueDatePicker,LogDetails,TaskComments},
     props: {
       drawer: {
         type: Boolean,
@@ -291,24 +213,11 @@
         showEditor : false,
         commentPlaceholder : this.$t('homepage.task.drawer.addYourComment'),
         descriptionPlaceholder : this.$t('homepage.task.drawer.addDescription'),
-        items: [
-          {
-            avatar: 'https://cdn.vuetifyjs.com/images/lists/1.jpg',
-            title: 'Azmi Touil',
-            comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation",
-          },
-        ],
-        items2: [
-          {
-            avatar: 'https://cdn.vuetifyjs.com/images/lists/3.jpg',
-            title: 'Sara',
-            comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
-          },
-        ],
         chips: [],
         autoSaveDelay: 1000,
         saveDescription: '',
         logs:[],
+        comments:[],
       }
     },
     watch: {
@@ -319,7 +228,8 @@
       }
     },
     created() {
-      this.retrieveTaskLogs()
+      this.retrieveTaskLogs();
+      this.getTaskComments();
     },
     mounted() {
       window.addEventListener("click",() => {
@@ -423,6 +333,13 @@
                   this.logs = data;
                 });
         return this.logs
+      },
+      getTaskComments() {
+        getTaskComments(this.task.id).then(
+                (data) => {
+                  this.comments = data;
+                });
+        return this.comments
       },
      
       navigateTo(pagelink) {
