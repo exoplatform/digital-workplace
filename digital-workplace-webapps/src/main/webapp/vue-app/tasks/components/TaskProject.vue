@@ -12,7 +12,8 @@
         :label="$t('homepage.task.drawer.noProject')"
         class="pt-0"
         solo
-        prepend-icon>
+        prepend-icon
+        @change="deleteProject()">
         <template v-slot:prepend>
           <i class="uiIconFolder uiIconBlue mr-1"></i>
         </template>
@@ -24,7 +25,7 @@
             :input-value="selected"
             :title="$t('homepage.tasks.drawer.clickToEdit')"
             label
-            style="height: 32px;display: inline-table;width: 220px;"
+            class="projectName"
             small
             @click="updateTaskProject(item)">
             <span 

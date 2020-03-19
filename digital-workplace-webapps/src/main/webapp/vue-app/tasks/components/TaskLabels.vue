@@ -1,7 +1,7 @@
 <template>
-  <div @click.stop>
+  <div>
     <v-combobox
-      ref="select"
+      ref="combobox"
       v-model="model"
       :filter="filter"
       :hide-no-data="!search"
@@ -86,6 +86,7 @@
             model(val, prev) {
 
                 if (val.length === prev.length) {
+                    this.$refs['combobox'].blur();
                     return
                 }
                 this.model = val.map(v => {
@@ -101,11 +102,6 @@
                     return v
                 })
             },
-        },
-        mounted() {
-            window.addEventListener("click", () => {
-                this.$refs.select.blur();
-            });
         },
         created() {
             this.getMyAllLabels();

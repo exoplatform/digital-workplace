@@ -13,7 +13,6 @@
     <node>
       <name>stream</name>
       <label>#{portal.dw.stream}</label>
-      <visibility>SYSTEM</visibility>
       <page-reference>portal::dw::stream</page-reference>
     </node>
 
