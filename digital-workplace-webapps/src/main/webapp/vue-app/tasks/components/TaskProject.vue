@@ -12,7 +12,8 @@
         :label="$t('homepage.task.drawer.noProject')"
         class="pt-0"
         solo
-        prepend-icon>
+        prepend-icon
+        @change="deleteProject()">
         <template v-slot:prepend>
           <i class="uiIconFolder uiIconBlue mr-1"></i>
         </template>
