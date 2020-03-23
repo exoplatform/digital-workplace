@@ -29,7 +29,7 @@
               <boolean>true</boolean>
             </field>
             <field name="importMode">
-              <string>${dw.portalConfig.metadata.importmode:overwrite}</string>
+              <string>${dw.portalConfig.metadata.importmode:merge}</string>
             </field>
             <field name="predefinedOwner">
               <collection type="java.util.HashSet">
