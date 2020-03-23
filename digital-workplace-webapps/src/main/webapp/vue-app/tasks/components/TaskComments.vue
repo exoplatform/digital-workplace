@@ -1,11 +1,11 @@
 <template>
-  <v-layout 
+  <v-layout
     @mouseover="hover = true"
     @mouseleave="hover = false">
     <v-list-item-avatar size="30" class="mt-0">
       <v-img :src="getUserAvatar(comment.author.username)"/>
     </v-list-item-avatar>
-    <v-list-item-content 
+    <v-list-item-content
       class="pt-1 pb-0">
       <v-flex xs12>
         <v-layout>
@@ -17,13 +17,52 @@
           <v-flex xs6>
             <span class="grey-color caption">{{ relativeTime }}</span>
           </v-flex>
-          <v-flex xs1 >
-            <v-btn 
-              v-show="hover"
-              class="deleteComment" 
-              icon>
-              <i class="uiIconTrashMini uiIconLightGray "></i>
-            </v-btn> 
+          <v-flex xs1>
+            <v-dialog
+              v-model="confirmDeleteComment"
+              width="500">
+              <template v-slot:activator="{ on }">
+                <v-btn
+                  v-show="showDeleteButtom"
+                  class="deleteComment"
+                  icon
+                  v-on="on">
+                  <i class="uiIconTrashMini uiIconLightGray "></i>
+                </v-btn>
+              </template>
+
+              <v-card>
+                <v-card-title
+                  class="font-weight-black grey lighten-2 py-2"
+                  primary-title>
+                  {{ $t('homepage.task.drawer.comment.confirmation') }}
+                </v-card-title>
+
+                <v-card-text class="pt-5">
+                  <i class="uiIconColorQuestion"></i>
+                  {{ $t('homepage.task.drawer.comment.confirmDeleteComment') }}
+                </v-card-text>
+
+                <v-divider/>
+
+                <v-card-actions>
+                  <v-spacer/>
+                  <v-btn
+                    depressed
+                    small
+                    color="primary"
+                    dark
+                    @click="confirmDeleteComment=!confirmDeleteComment;removeTaskComment()">{{ $t('homepage.task.drawer.comment.ok') }}
+                  </v-btn>
+                  <v-btn
+                    depressed
+                    text
+                    small
+                    @click="confirmDeleteComment=!confirmDeleteComment">{{ $t('homepage.task.drawer.comment.cancel') }}
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
           </v-flex>
         </v-layout>
       </v-flex>
@@ -40,8 +79,33 @@
         <v-list-item
           v-for="(item, i) in comment.subComments"
           :key="i"
-          class="pr-0">
-          <task-sub-comments :sub-comment="item"/>
+          class="pr-0 pb-2">
+          <task-comments
+            :comment="item"
+            :task="task"
+            :sub="true"
+            :comments="comment.subComments"/>
+        </v-list-item>
+        <v-list-item v-if="showEditor">
+          <v-list-item-avatar size="35" tile>
+            <v-img :src="currentUserAvatar"/>
+          </v-list-item-avatar>
+          <v-layout row>
+            <vue-ckeditor
+              v-model="editorData"
+              :placeholder="commentPlaceholder"
+              :reset="reset"
+              class="mr-4"
+              @subShowEditor="openEditor"/>
+            <v-btn
+              :disabled="disabledComment"
+              depressed
+              small
+              dark
+              class="primary-color mt-1 mb-2"
+              @click="addTaskSubComment()">{{ $t('homepage.task.drawer.comment') }}
+            </v-btn>
+          </v-layout>
         </v-list-item>
       </v-list>
     </v-list-item-content>
@@ -49,11 +113,12 @@
 </template>
 
 <script>
-    import TaskSubComments from './TaskSubComments.vue'
+    import VueCkeditor from './CkeditorVue.vue';
+    import {addTaskSubComment, removeTaskComment} from '../tasksAPI';
 
     export default {
         name: "TaskComments",
-        components: {TaskSubComments},
+        components: {VueCkeditor},
         props: {
             comment: {
                 type: Object,
@@ -61,49 +126,108 @@
                     return {};
                 }
             },
+            comments: {
+                type: Object,
+                default: () => {
+                    return {};
+                }
+            },
+            task: {
+                type: Boolean,
+                default: false
+            },
+            sub: {
+                type: Object,
+                default: () => {
+                    return {};
+                }
+            },
         },
         data() {
-          return {
-            hover : false,
-          }
+            return {
+                hover: false,
+                showEditor: false,
+                editorData: '',
+                disabledComment: '',
+                confirmDeleteComment: false,
+                commentPlaceholder: this.$t('homepage.task.drawer.addYourComment'),
+            }
         },
         computed: {
             relativeTime() {
-                return this.getRelativeTime(this.comment.createdTime.time);
+                return this.getRelativeTime(this.comment.createdTime.time)
+            },
+            currentUserAvatar() {
+                return `/rest/v1/social/users/${eXo.env.portal.userName}/avatar`;
+            },
+            showDeleteButtom() {
+                return this.hover && eXo.env.portal.userName === this.comment.author.username;
+            }
+        },
+        watch: {
+            editorData(val) {
+              this.disabledComment = val === '';
             }
         },
         methods: {
             getUserAvatar(username) {
                 return `/rest/v1/social/users/${username}/avatar`;
             },
-          getRelativeTime(previous) {
-            const msPerMinute = 60 * 1000;
-            const msPerHour = msPerMinute * 60;
-            const msPerDay = msPerHour * 24;
-            const msPerMonth = msPerDay * 30;
-            const elapsed = new Date().getTime() - previous;
+            openEditor() {
+                this.showEditor = true;
+                this.editorData = '';
+            },
+            addTaskSubComment() {
+                if (this.sub === true) {
+                    addTaskSubComment(this.task.id, this.comment.parentCommentId, this.editorData).then((comment => {
+                            this.comments = this.comments || [];
+                            this.comments.push(comment)
+                        })
+                    );
+                } else {
+                    addTaskSubComment(this.task.id, this.comment.id, this.editorData).then((comment => {
+                            this.comment.subComments = this.comment.subComments || [];
+                            this.comment.subComments.push(comment)
+                        })
+                    );
+                }
+                this.showEditor = false;
+            },
+          removeTaskComment: function () {
+              removeTaskComment(this.comment.id);
+                for (let i = 0; i < this.comments.length; i++) {
+                    if (this.comments[i] === this.comment) {
+                        this.comments.splice(i, 1);
+                    }
+                }
+            },
+            getRelativeTime(previous) {
+                const msPerMinute = 60 * 1000;
+                const msPerHour = msPerMinute * 60;
+                const msPerDay = msPerHour * 24;
+                const msPerMonth = msPerDay * 30;
+                const elapsed = new Date().getTime() - previous;
 
-            if (elapsed < msPerMinute) {
-              return this.$t('homepage.task.timeConvert.Less_Than_A_Minute');
-            } else if (elapsed === msPerMinute) {
-              return this.$t('homepage.task.timeConvert.About_A_Minute');
-            } else if (elapsed < msPerHour) {
-              return this.$t('homepage.task.timeConvert.About_?_Minutes').replace('{0}', Math.round(elapsed / msPerMinute));
-            } else if (elapsed === msPerHour) {
-              return this.$t('homepage.task.timeConvert.About_An_Hour');
-            } else if (elapsed < msPerDay) {
-              return this.$t('homepage.task.timeConvert.About_?_Hours').replace('{0}', Math.round(elapsed / msPerHour));
-            } else if (elapsed === msPerDay) {
-              return this.$t('homepage.task.timeConvert.About_A_Day');
-            } else if (elapsed < msPerMonth) {
-              return this.$t('homepage.task.timeConvert.About_?_Days').replace('{0}', Math.round(elapsed / msPerDay));
-            } else if (elapsed === msPerMonth) {
-              return this.$t('homepage.task.timeConvert.About_A_Month');
-            } else {
-              return this.$t('homepage.task.timeConvert.About_?_Months').replace('{0}', Math.round(elapsed / msPerMonth));
+                if (elapsed < msPerMinute) {
+                    return this.$t('homepage.task.timeConvert.Less_Than_A_Minute');
+                } else if (elapsed === msPerMinute) {
+                    return this.$t('homepage.task.timeConvert.About_A_Minute');
+                } else if (elapsed < msPerHour) {
+                    return this.$t('homepage.task.timeConvert.About_?_Minutes').replace('{0}', Math.round(elapsed / msPerMinute));
+                } else if (elapsed === msPerHour) {
+                    return this.$t('homepage.task.timeConvert.About_An_Hour');
+                } else if (elapsed < msPerDay) {
+                    return this.$t('homepage.task.timeConvert.About_?_Hours').replace('{0}', Math.round(elapsed / msPerHour));
+                } else if (elapsed === msPerDay) {
+                    return this.$t('homepage.task.timeConvert.About_A_Day');
+                } else if (elapsed < msPerMonth) {
+                    return this.$t('homepage.task.timeConvert.About_?_Days').replace('{0}', Math.round(elapsed / msPerDay));
+                } else if (elapsed === msPerMonth) {
+                    return this.$t('homepage.task.timeConvert.About_A_Month');
+                } else {
+                    return this.$t('homepage.task.timeConvert.About_?_Months').replace('{0}', Math.round(elapsed / msPerMonth));
+                }
             }
-          },
-
         }
     }
 </script>

@@ -13,6 +13,7 @@
 @lightBlueHover: #e3eef7;
 @borderColor: #0000001f;
 @notifIconColor: #abc8e6;
+@btnPrimaryDisableBackground: #afc9e5;
 
 /*-------------------------Global page Container--------------------------*/
 
@@ -1517,7 +1518,7 @@ body.open-drawer {
         }
       }
       .selectFont {
-        .v-select__selections {
+        .v-select__selection--comma {
           font-size: 15px;
           color: @greyColor !important;
           min-width: max-content!important;
@@ -1672,8 +1673,12 @@ body.open-drawer {
         flex: none;
       }
       #reply_btn {
-          padding: 0px !important;
-          display: -webkit-box;
+        padding: 0px !important;
+        margin-bottom: 8px !important;
+        display: -webkit-box;
+      }
+      #check_btn {
+        color: @primaryColor!important;
       }
       .v-input {
         display: inline-flex;
@@ -1686,6 +1691,10 @@ body.open-drawer {
       }
       .theme--light.v-text-field > .v-input__control > .v-input__slot:before {
         display: none;
+      }
+      .theme--dark.v-btn.v-btn--disabled:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
+        background-color: @btnPrimaryDisableBackground !important;
+        border-color : @btnPrimaryDisableBackground !important;
       }
       
 	  .taskContentComment {

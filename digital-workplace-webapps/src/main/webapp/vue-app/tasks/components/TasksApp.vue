@@ -211,7 +211,7 @@
               }
             }
             tasksWithDuedate = tasksWithDuedate.sort((a, b) => ((a.dueDate.time - b.dueDate.time)));
-            tasksWithoutDuedate = tasksWithoutDuedate.sort((a, b) => ((a.createdTime.time - b.createdTime.time)));
+            tasksWithoutDuedate = tasksWithoutDuedate.sort((a, b) => ((a.createdTime - b.createdTime)));
             this.tasks = tasksWithDuedate.concat(tasksWithoutDuedate);
           }
         )
