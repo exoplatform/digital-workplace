@@ -2,28 +2,27 @@
   <v-layout
     @mouseover="hover = true"
     @mouseleave="hover = false">
-    <v-list-item-avatar size="30" class="mt-0">
+    <v-list-item-avatar size="30" class="mt-2">
       <v-img :src="getUserAvatar(comment.author.username)"/>
     </v-list-item-avatar>
     <v-list-item-content
       class="pt-1 pb-0">
       <v-flex xs12>
         <v-layout>
-          <v-flex xs5>
+          <div>
             <v-list-item-title
               class="primary-color--text font-weight-bold subtitle-2"
               v-html="comment.author.displayName"/>
-          </v-flex>
-          <v-flex xs6>
-            <span class="grey-color caption">{{ relativeTime }}</span>
-          </v-flex>
-          <v-flex xs1>
+          </div>
+          <div class="grey-color caption pl-4">{{ relativeTime }}</div>
+          <v-flex class="d-flex flex-row-reverse">
             <v-dialog
               v-model="confirmDeleteComment"
               width="500">
               <template v-slot:activator="{ on }">
                 <v-btn
                   v-show="showDeleteButtom"
+                  :title="$t('homepage.task.drawer.comment.remove')"
                   class="deleteComment"
                   icon
                   v-on="on">
@@ -66,7 +65,9 @@
           </v-flex>
         </v-layout>
       </v-flex>
-      <span class="taskContentComment" v-html="comment.comment"></span>
+      <span 
+        class="taskContentComment" 
+        v-html="comment.comment"></span>
       <v-btn
         id="reply_btn"
         depressed
@@ -87,22 +88,22 @@
             :comments="comment.subComments"/>
         </v-list-item>
         <v-list-item v-if="showEditor">
-          <v-list-item-avatar size="35" tile>
+          <v-list-item-avatar size="30" tile>
             <v-img :src="currentUserAvatar"/>
           </v-list-item-avatar>
-          <v-layout row>
+          <v-layout row class="editorContent">
             <vue-ckeditor
               v-model="editorData"
               :placeholder="commentPlaceholder"
               :reset="reset"
-              class="mr-4"
+              class="mr-4 subComment"
               @subShowEditor="openEditor"/>
             <v-btn
               :disabled="disabledComment"
               depressed
               small
               dark
-              class="primary-color mt-1 mb-2"
+              class="commentBtn mt-1 mb-2"
               @click="addTaskSubComment()">{{ $t('homepage.task.drawer.comment') }}
             </v-btn>
           </v-layout>

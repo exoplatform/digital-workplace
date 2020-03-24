@@ -158,21 +158,21 @@
                       :comments="comments"/>
                   </v-list-item>
                   <v-list-item v-if="!showEditor">
-                    <v-list-item-avatar size="35" tile>
+                    <v-list-item-avatar size="30" tile>
                       <v-img :src="currentUserAvatar"/>
                     </v-list-item-avatar>
-                    <v-layout row>
-                      <vue-ckeditor 
-                        v-model="editorData"
+                    <v-layout row class="editorContent">
+                      <vue-ckeditor
+                        v-model="editorData"      
                         :placeholder="commentPlaceholder"
                         :reset="reset"
-                        class="mr-4"/>
+                        class="mr-4 comment"/>
                       <v-btn
                         :disabled="disabledComment"
                         depressed
                         small
                         dark
-                        class="primary-color mt-1 mb-2"
+                        class="mt-1 mb-2 commentBtn"
                         @click="addTaskComment()">{{ $t('homepage.task.drawer.comment') }}</v-btn>
                     </v-layout>
                   </v-list-item>

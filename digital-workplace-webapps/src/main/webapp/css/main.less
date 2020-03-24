@@ -1608,6 +1608,14 @@ body.open-drawer {
       .v-text-field.v-text-field--enclosed > .v-input__control > .v-input__slot {
         padding: 0px;
       }
+      .editorContent {
+        .subComment {
+          max-width: 228px
+        }
+        .comment {
+          max-width: 290px
+        }
+      }
       .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-rounded-corners {
         border: 2px solid #a8b3c521;
         border-radius: 0.5rem;
@@ -1677,6 +1685,15 @@ body.open-drawer {
         margin-bottom: 8px !important;
         display: -webkit-box;
       }
+
+      .commentBtn {
+        color: @primaryColor !important;
+        background-color: @primaryColor !important;
+
+        .v-btn__content {
+          color: white;
+        }
+      }
       #check_btn {
         color: @primaryColor!important;
       }
@@ -1699,6 +1716,8 @@ body.open-drawer {
       
 	  .taskContentComment {
         line-height: 20px;
+        word-break: break-word;
+        max-width: 300px;
 
         p {
           margin: 0px;
