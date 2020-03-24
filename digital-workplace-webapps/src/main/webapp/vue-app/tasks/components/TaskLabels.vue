@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click.stop>
     <v-combobox
       ref="combobox"
       v-model="model"
@@ -13,7 +13,8 @@
       multiple
       small-chips
       prepend-icon
-      solo>
+      solo
+      @change="search = ''">
       <template v-slot:prepend class="mr-4">
         <i class="uiIconTag uiIconBlue"></i>
       </template>
@@ -86,8 +87,8 @@
             model(val, prev) {
 
                 if (val.length === prev.length) {
-                    this.$refs['combobox'].blur();
-                    return
+                  this.search = null
+                  return
                 }
                 this.model = val.map(v => {
                     if (typeof v === 'string') {
@@ -102,6 +103,11 @@
                     return v
                 })
             },
+        },
+        mounted() {
+          window.addEventListener("click", () => {
+            this.$refs.combobox.blur();
+          });
         },
         created() {
             this.getMyAllLabels();
