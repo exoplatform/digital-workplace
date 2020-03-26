@@ -40,9 +40,9 @@
             <task-projects :task="task"/>
             <task-labels :task="task"/>
             <v-btn
+              id="check_btn"
               class="ml-n2"
               icon
-              color="#578dc9"
               dark
               @click="markAsCompleted()">
               <v-icon dark >mdi-checkbox-marked-circle</v-icon>
@@ -152,7 +152,29 @@
                     v-for="(item, i) in comments"
                     :key="i"
                     class="pr-0">
-                    <task-comments :comment="item"/>
+                    <task-comments 
+                      :task="task" 
+                      :comment="item" 
+                      :comments="comments"/>
+                  </v-list-item>
+                  <v-list-item v-if="!showEditor">
+                    <v-list-item-avatar size="30" tile>
+                      <v-img :src="currentUserAvatar"/>
+                    </v-list-item-avatar>
+                    <v-layout row class="editorContent">
+                      <vue-ckeditor
+                        v-model="editorData"      
+                        :placeholder="commentPlaceholder"
+                        :reset="reset"
+                        class="mr-4 comment"/>
+                      <v-btn
+                        :disabled="disabledComment"
+                        depressed
+                        small
+                        dark
+                        class="mt-1 mb-2 commentBtn"
+                        @click="addTaskComment()">{{ $t('homepage.task.drawer.comment') }}</v-btn>
+                    </v-layout>
                   </v-list-item>
                 </v-list>
               </v-tab-item>
@@ -181,7 +203,7 @@
   import LogDetails from './LogDetails.vue'
   import TaskComments from './TaskComments.vue'
 
-  import {updateTask, getTaskLogs, getTaskComments} from '../tasksAPI';
+  import {updateTask, getTaskLogs, getTaskComments, addTaskComments} from '../tasksAPI';
 
   export default {
     components: {VueCkeditor, VueDatePicker,LogDetails,TaskComments},
@@ -199,6 +221,10 @@
     },
     data() {
       return {
+        editorData: '',
+        emptyValue: '',
+        reset: false,
+        disabledComment: true,
         priorities: [{key:'HIGH',value:this.$t('homepage.task.drawer.high')},
           {key:'NORMAL',value:this.$t('homepage.task.drawer.normal')},
           {key:'LOW',value:this.$t('homepage.task.drawer.low')},
@@ -220,12 +246,20 @@
         comments:[],
       }
     },
+    computed: {
+      currentUserAvatar() {
+        return `/rest/v1/social/users/${eXo.env.portal.userName}/avatar`;
+      }
+    },
     watch: {
       'task.description': function(newValue, oldValue) {  
         if (newValue !== oldValue) { 
           this.autoSaveDescription(); 
         } 
-      }
+      },
+      editorData(val) {
+        this.disabledComment = val === '';
+      } 
     },
     created() {
       this.retrieveTaskLogs();
@@ -245,6 +279,13 @@
       },
       openEditor() {
           this.showEditor = true;
+      },
+      addTaskComment() {
+        addTaskComments(this.task.id,this.editorData).then((comment => {
+          this.comments.push(comment)
+        })
+        );
+        this.reset = !this.reset;
       },
       getUserAvatar(username) {
         return `/rest/v1/social/users/${username}/avatar`;

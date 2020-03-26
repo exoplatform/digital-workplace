@@ -21,6 +21,10 @@
         type: String,
         default: ''
       },
+      reset:{
+        type:Boolean,
+        default:false,
+      },
       placeholder:{
         type: String,
         default: ''
@@ -48,6 +52,9 @@
     watch: {
       inputVal(val) {
         this.$emit('input', val);
+      },
+      reset() {
+          this.inputVal = '';
       }
     },
   }

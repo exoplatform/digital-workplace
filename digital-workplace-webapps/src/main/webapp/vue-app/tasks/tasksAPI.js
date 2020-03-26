@@ -185,3 +185,56 @@ export function getTaskComments(taskId) {
     }
   })
 }
+
+export function addTaskComments(taskId, comment) {
+  return fetch(`/portal/rest/tasks/comments/${taskId}`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(comment)
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+    }
+    else {
+      throw new Error ('Error when adding task comment');
+    }
+  })
+}
+
+export function addTaskSubComment(taskId,parentCommentId, comment) {
+  return fetch(`/portal/rest/tasks/comments/${parentCommentId}/${taskId}`, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(comment)
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+    }
+    else {
+      throw new Error ('Error when adding task sub comment');
+    }
+  })
+}
+
+export function removeTaskComment(commentId) {
+  return fetch(`/portal/rest/tasks/comments/${commentId}`, {
+    method: "delete",
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+  }).then((resp) => {
+    if(resp && resp.ok) {
+      return resp.json();
+    }
+    else {
+      throw new Error ('Error when removing task comment');
+    }
+  })
+}

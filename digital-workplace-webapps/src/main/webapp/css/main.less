@@ -13,6 +13,7 @@
 @lightBlueHover: #e3eef7;
 @borderColor: #0000001f;
 @notifIconColor: #abc8e6;
+@btnPrimaryDisableBackground: #afc9e5;
 
 /*-------------------------Global page Container--------------------------*/
 
@@ -1517,7 +1518,7 @@ body.open-drawer {
         }
       }
       .selectFont {
-        .v-select__selections {
+        .v-select__selection--comma {
           font-size: 15px;
           color: @greyColor !important;
           min-width: max-content!important;
@@ -1607,6 +1608,14 @@ body.open-drawer {
       .v-text-field.v-text-field--enclosed > .v-input__control > .v-input__slot {
         padding: 0px;
       }
+      .editorContent {
+        .subComment {
+          max-width: 228px
+        }
+        .comment {
+          max-width: 290px
+        }
+      }
       .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-rounded-corners {
         border: 2px solid #a8b3c521;
         border-radius: 0.5rem;
@@ -1672,8 +1681,21 @@ body.open-drawer {
         flex: none;
       }
       #reply_btn {
-          padding: 0px !important;
-          display: -webkit-box;
+        padding: 0px !important;
+        margin-bottom: 8px !important;
+        display: -webkit-box;
+      }
+
+      .commentBtn {
+        color: @primaryColor !important;
+        background-color: @primaryColor !important;
+
+        .v-btn__content {
+          color: white;
+        }
+      }
+      #check_btn {
+        color: @primaryColor!important;
       }
       .v-input {
         display: inline-flex;
@@ -1687,9 +1709,15 @@ body.open-drawer {
       .theme--light.v-text-field > .v-input__control > .v-input__slot:before {
         display: none;
       }
+      .theme--dark.v-btn.v-btn--disabled:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
+        background-color: @btnPrimaryDisableBackground !important;
+        border-color : @btnPrimaryDisableBackground !important;
+      }
       
 	  .taskContentComment {
         line-height: 20px;
+        word-break: break-word;
+        max-width: 300px;
 
         p {
           margin: 0px;
