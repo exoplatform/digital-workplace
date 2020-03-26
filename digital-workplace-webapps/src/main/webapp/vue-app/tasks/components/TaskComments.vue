@@ -10,11 +10,11 @@
       <v-flex xs12>
         <v-layout>
           <div>
-            <v-list-item-title
+            <a
               class="primary-color--text font-weight-bold subtitle-2"
-              v-html="comment.author.displayName"/>
+              v-html="comment.author.displayName"></a>
+            <span class="grey-color caption pl-4">{{ relativeTime }}</span>
           </div>
-          <div class="grey-color caption pl-4">{{ relativeTime }}</div>
           <v-flex class="d-flex flex-row-reverse">
             <v-dialog
               v-model="confirmDeleteComment"
@@ -85,9 +85,10 @@
             :comment="item"
             :task="task"
             :sub="true"
-            :comments="comment.subComments"/>
+            :comments="comment.subComments"
+            @openSubEditor="openEditor()"/>
         </v-list-item>
-        <v-list-item v-if="showEditor">
+        <v-list-item v-focus v-if="showEditor && !sub">
           <v-list-item-avatar size="30" tile>
             <v-img :src="currentUserAvatar"/>
           </v-list-item-avatar>
@@ -120,6 +121,13 @@
     export default {
         name: "TaskComments",
         components: {VueCkeditor},
+        directives: {
+          focus: {
+            inserted: function (el) {
+              el.focus()
+            }
+          }
+        },
         props: {
             comment: {
                 type: Object,
@@ -138,10 +146,8 @@
                 default: false
             },
             sub: {
-                type: Object,
-                default: () => {
-                    return {};
-                }
+              type: Boolean,
+              default: false
             },
         },
         data() {
@@ -168,6 +174,9 @@
         watch: {
             editorData(val) {
               this.disabledComment = val === '';
+            },
+            showEditor(val) {
+              this.$emit('showSubEditor', val);
             }
         },
         methods: {
@@ -175,26 +184,21 @@
                 return `/rest/v1/social/users/${username}/avatar`;
             },
             openEditor() {
-                this.showEditor = true;
-                this.editorData = '';
+              this.showEditor = true;
+              this.editorData = '';
+              if (this.sub) {
+                this.$emit('openSubEditor')
+              }
             },
             addTaskSubComment() {
-                if (this.sub === true) {
-                    addTaskSubComment(this.task.id, this.comment.parentCommentId, this.editorData).then((comment => {
-                            this.comments = this.comments || [];
-                            this.comments.push(comment)
-                        })
-                    );
-                } else {
-                    addTaskSubComment(this.task.id, this.comment.id, this.editorData).then((comment => {
-                            this.comment.subComments = this.comment.subComments || [];
-                            this.comment.subComments.push(comment)
-                        })
-                    );
-                }
-                this.showEditor = false;
+              addTaskSubComment(this.task.id, this.comment.id, this.editorData).then((comment => {
+                      this.comment.subComments = this.comment.subComments || [];
+                      this.comment.subComments.push(comment)
+                  })
+              );
+              this.showEditor = false;
             },
-          removeTaskComment: function () {
+            removeTaskComment: function () {
               removeTaskComment(this.comment.id);
                 for (let i = 0; i < this.comments.length; i++) {
                     if (this.comments[i] === this.comment) {

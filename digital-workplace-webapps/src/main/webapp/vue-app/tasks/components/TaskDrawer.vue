@@ -152,12 +152,13 @@
                     v-for="(item, i) in comments"
                     :key="i"
                     class="pr-0">
-                    <task-comments 
-                      :task="task" 
+                    <task-comments
+                      :task="task"
                       :comment="item" 
-                      :comments="comments"/>
+                      :comments="comments"
+                      @showSubEditor="showEditor = !showEditor"/>
                   </v-list-item>
-                  <v-list-item v-if="!showEditor">
+                  <v-list-item v-if="showEditor">
                     <v-list-item-avatar size="30" tile>
                       <v-img :src="currentUserAvatar"/>
                     </v-list-item-avatar>
@@ -176,6 +177,10 @@
                         @click="addTaskComment()">{{ $t('homepage.task.drawer.comment') }}</v-btn>
                     </v-layout>
                   </v-list-item>
+                  <a 
+                    v-else 
+                    class="pl-4" 
+                    @click="openEditor">{{ $t('homepage.task.drawer.comment') }}</a>
                 </v-list>
               </v-tab-item>
               <v-tab-item class="pt-5">
@@ -236,7 +241,7 @@
           {key:'Done',value:this.$t('homepage.task.status.done')}],
         
         date: null,
-        showEditor : false,
+        showEditor : true,
         commentPlaceholder : this.$t('homepage.task.drawer.addYourComment'),
         descriptionPlaceholder : this.$t('homepage.task.drawer.addDescription'),
         chips: [],
