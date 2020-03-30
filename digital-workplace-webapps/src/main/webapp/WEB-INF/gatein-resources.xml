@@ -218,6 +218,14 @@
     <depends>
       <module>eXoVueI18n</module>
     </depends>
+    <depends>
+      <module>commons-editor</module>
+      <as>editor</as>
+    </depends>
+    <depends>
+      <module>jquery</module>
+      <as>$</as>
+    </depends>
   </module>
 
   <portlet>

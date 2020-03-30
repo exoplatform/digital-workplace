@@ -111,7 +111,7 @@
           <v-flex xs12>
             <div class="py-3 px-4 mr-4">
               <div>
-                <vue-ckeditor 
+                <task-description-editor 
                   v-model="task.description" 
                   :placeholder="descriptionPlaceholder"/>
               </div>
@@ -159,11 +159,14 @@
                       @showSubEditor="showEditor = !showEditor"/>
                   </v-list-item>
                   <v-list-item v-if="showEditor">
-                    <v-list-item-avatar size="30" tile>
+                    <v-list-item-avatar 
+                      class="mt-0" 
+                      size="30" 
+                      tile>
                       <v-img :src="currentUserAvatar"/>
                     </v-list-item-avatar>
                     <v-layout row class="editorContent">
-                      <vue-ckeditor
+                      <task-comment-editor
                         v-model="editorData"      
                         :placeholder="commentPlaceholder"
                         :reset="reset"
@@ -202,7 +205,8 @@
 </template>
 
 <script>
-  import VueCkeditor from './CkeditorVue.vue';
+  import TaskCommentEditor from './TaskCommentEditor.vue';
+  import TaskDescriptionEditor from './TaskDescriptionEditor.vue';
   import VueDatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';
   import LogDetails from './LogDetails.vue'
@@ -211,7 +215,7 @@
   import {updateTask, getTaskLogs, getTaskComments, addTaskComments} from '../tasksAPI';
 
   export default {
-    components: {VueCkeditor, VueDatePicker,LogDetails,TaskComments},
+    components: {TaskCommentEditor, TaskDescriptionEditor,VueDatePicker,LogDetails,TaskComments},
     props: {
       drawer: {
         type: Boolean,
@@ -226,7 +230,7 @@
     },
     data() {
       return {
-        editorData: '',
+        editorData: null,
         emptyValue: '',
         reset: false,
         disabledComment: true,
@@ -286,6 +290,7 @@
           this.showEditor = true;
       },
       addTaskComment() {
+        this.editorData=this.editorData.replace(/\n|\r/g,'');
         addTaskComments(this.task.id,this.editorData).then((comment => {
           this.comments.push(comment)
         })

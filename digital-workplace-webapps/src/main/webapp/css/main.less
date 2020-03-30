@@ -1616,11 +1616,19 @@ body.open-drawer {
           max-width: 290px
         }
       }
-      .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-rounded-corners {
-        border: 2px solid #a8b3c521;
-        border-radius: 0.5rem;
-        min-height: 80px;
-        width: -webkit-fill-available;
+      .hiddenEditor {
+        visibility: hidden !important;
+        display: none !important;
+      }
+      [contenteditable=true] {
+        &:empty {
+          &:before {
+            content: attr(placeholder);
+            pointer-events: none;
+            display: block;
+            color: @greyColor!important;
+          }
+        }
       }
       .uiIconAndroidOpen:before {
         font-family: 'PLF-FONT-ICONS';

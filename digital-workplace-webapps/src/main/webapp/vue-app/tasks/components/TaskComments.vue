@@ -89,11 +89,14 @@
             @openSubEditor="openEditor()"/>
         </v-list-item>
         <v-list-item v-focus v-if="showEditor && !sub">
-          <v-list-item-avatar size="30" tile>
+          <v-list-item-avatar
+            class="mt-0"
+            size="30"
+            tile>
             <v-img :src="currentUserAvatar"/>
           </v-list-item-avatar>
           <v-layout row class="editorContent">
-            <vue-ckeditor
+            <task-comment-editor
               v-model="editorData"
               :placeholder="commentPlaceholder"
               :reset="reset"
@@ -115,12 +118,12 @@
 </template>
 
 <script>
-    import VueCkeditor from './CkeditorVue.vue';
+    import TaskCommentEditor from './TaskCommentEditor.vue';
     import {addTaskSubComment, removeTaskComment} from '../tasksAPI';
 
     export default {
         name: "TaskComments",
-        components: {VueCkeditor},
+        components: {TaskCommentEditor},
         directives: {
           focus: {
             inserted: function (el) {
@@ -191,6 +194,7 @@
               }
             },
             addTaskSubComment() {
+              this.editorData=this.editorData.replace(/\n|\r/g,'');
               addTaskSubComment(this.task.id, this.comment.id, this.editorData).then((comment => {
                       this.comment.subComments = this.comment.subComments || [];
                       this.comment.subComments.push(comment)
