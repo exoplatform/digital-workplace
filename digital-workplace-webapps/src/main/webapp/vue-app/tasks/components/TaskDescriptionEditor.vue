@@ -1,18 +1,18 @@
 <template>
-  <div>
+  <div class="taskDescription">
     <div
       v-if="!editorReady" 
       :placeholder="placeholder"
+      :title="$t('homepage.tasks.drawer.clickToEdit')"
       contenteditable="true"
-      class="hoverStatus editableField editable editable-click"
-      title="click to edit"
+      class="py-1 px-2"
       @click="showDescriptionEditor()" 
       v-html="inputVal">{{ placeholder }}</div>
     <textarea
-      v-show="editorReady"
       id="descriptionContent"
       ref="editor"
       v-model="inputVal"
+      class="d-none"
       cols="30"
       rows="10"></textarea>
   </div>
@@ -44,18 +44,21 @@
             inputVal(val) {
                 this.$emit('input', val);
             },
-          editorReady(val) {
-           if (val === true)  {
-             this.initCKEditor();
-             const doc = document.getElementById('cke_descriptionContent');
-             doc.classList.remove('hiddenEditor');
-           } else {
-             const doc1 = document.getElementById('descriptionContent');
-             const doc = document.getElementById('cke_descriptionContent');
-               doc.classList.add('hiddenEditor');
-               doc1.classList.add('hiddenEditor');
-           }
-          },
+            editorReady(val) {
+              const ckeContent = document.querySelectorAll('[id=cke_descriptionContent]');
+              if (val === true) {
+                this.initCKEditor();
+                if (ckeContent) {
+                  for (let i = 0; i < ckeContent.length; i++) {
+                    ckeContent[i].classList.remove('hiddenEditor');
+                  }
+                }
+              } else {
+                for (let i = 0; i < ckeContent.length; i++) {
+                  ckeContent[i].classList.add('hiddenEditor');
+                }
+              }
+            },
             reset() {
                 CKEDITOR.instances['descriptionContent'].destroy(true);
                 this.initCKEditor();

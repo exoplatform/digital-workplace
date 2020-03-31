@@ -112,7 +112,9 @@
         },
         mounted() {
             window.addEventListener("click", () => {
+              if (typeof this.$refs.select !== 'undefined') {
                 this.$refs.select.blur();
+              }
             });
         },
         created() {

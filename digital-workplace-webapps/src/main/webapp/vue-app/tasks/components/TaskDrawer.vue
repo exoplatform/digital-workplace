@@ -276,8 +276,12 @@
     },
     mounted() {
       window.addEventListener("click",() => {
-        this.$refs.selectPriority.blur();
-        this.$refs.selectStatus.blur();
+        if (typeof this.$refs.selectPriority !== 'undefined') {
+          this.$refs.selectPriority.blur();
+        }
+        if (typeof this.$refs.selectStatus !== 'undefined') {
+          this.$refs.selectStatus.blur();
+        }
       });
     },
     methods: {

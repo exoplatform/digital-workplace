@@ -65,8 +65,6 @@
               const newData = evt.editor.getData();
 
               self.inputVal = newData;
-
-              self.charsCount = newData.length;
             },
             destroy: function () {
               self.inputVal = '';
