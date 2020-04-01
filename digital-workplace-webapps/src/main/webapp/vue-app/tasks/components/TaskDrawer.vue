@@ -69,19 +69,53 @@
                 <v-flex
                   xs4
                   class="mt-1">
-                  <i class="uiIconClock"></i>
-                  <vue-date-picker
-                    v-if="task.dueDate != null"
-                    v-model="task.dueDate.time"
-                    :placeholder="$t('homepage.task.drawer.dueDate')"
-                    clearable
-                    value-type="timestamp" 
-                    @change="updateDueDate()"/>
-                  <vue-date-picker 
-                    v-else
-                    v-model="date"
-                    :placeholder="$t('homepage.task.drawer.dueDate')"
-                    @change="addDueDate()"/>
+                  <v-menu
+                    ref="menu"
+                    v-model="menu"
+                    :close-on-content-click="false"
+                    :return-value.sync="date"
+                    transition="scale-transition"
+                    offset-y
+                    min-width="290px">
+                    <template v-slot:activator="{ on }">
+                      <v-text-field
+                        v-model="date"
+                        :placeholder="$t('homepage.task.drawer.dueDate')"
+                        class="pt-0 mt-0 dateFont"
+                        prepend-icon
+                        readonly
+                        @change="updateDueDate"
+                        v-on="on">
+                        <template v-slot:prepend class="mr-4 ">
+                          <i class="uiIconClock uiIconBlue pt-1"></i>
+                        </template>
+                      </v-text-field>
+                    </template>
+                    <v-date-picker
+                      v-model="date" 
+                      no-title 
+                      scrollable>
+                      <v-spacer/>
+                      <v-btn
+                        text
+                        color="primary"
+                        @click="date=null;updateDueDate()">{{ $t('homepage.task.drawer.clear') }}</v-btn>
+                      <v-btn 
+                        text 
+                        color="primary" 
+                        @click="menu = false">{{ $t('homepage.task.drawer.cancel') }}</v-btn>
+                      <v-btn
+                        v-if="task.dueDate != null"
+                        text 
+                        color="primary" 
+                        @click="$refs.menu.save(date);updateDueDate()">OK</v-btn>
+                      <v-btn
+                        v-else
+                        text 
+                        color="primary" 
+                        @click="$refs.menu.save(date);addDueDate()">OK</v-btn>
+                    </v-date-picker>
+                  </v-menu>
                 </v-flex>
                 <v-flex 
                   xs5>
@@ -207,15 +241,13 @@
 <script>
   import TaskCommentEditor from './TaskCommentEditor.vue';
   import TaskDescriptionEditor from './TaskDescriptionEditor.vue';
-  import VueDatePicker from 'vue2-datepicker';
-  import 'vue2-datepicker/index.css';
   import LogDetails from './LogDetails.vue'
   import TaskComments from './TaskComments.vue'
 
   import {updateTask, getTaskLogs, getTaskComments, addTaskComments} from '../tasksAPI';
 
   export default {
-    components: {TaskCommentEditor, TaskDescriptionEditor,VueDatePicker,LogDetails,TaskComments},
+    components: {TaskCommentEditor, TaskDescriptionEditor,LogDetails,TaskComments},
     props: {
       drawer: {
         type: Boolean,
@@ -245,6 +277,7 @@
           {key:'Done',value:this.$t('homepage.task.status.done')}],
         
         date: null,
+        menu: false,
         showEditor : true,
         commentPlaceholder : this.$t('homepage.task.drawer.addYourComment'),
         descriptionPlaceholder : this.$t('homepage.task.drawer.addDescription'),
@@ -273,6 +306,9 @@
     created() {
       this.retrieveTaskLogs();
       this.getTaskComments();
+      if (this.task.dueDate != null) {
+        this.date = new Date(this.task.dueDate.time).toISOString().substr(0, 10);
+      }
     },
     mounted() {
       window.addEventListener("click",() => {
@@ -321,32 +357,38 @@
         this.updateTask()
       },
       addDueDate() {
-        const dueDate = {};
-        dueDate.time = this.date.getTime();
-        dueDate.year = this.date.getUTCFullYear()-1900;
-        dueDate.month = this.date.getMonth();
-        dueDate.day = this.date.getDay();
-        dueDate.hours = this.date.getHours();
-        dueDate.minutes = this.date.getMinutes();
-        dueDate.seconds = this.date.getSeconds();
-        dueDate.timezoneOffset = this.date.getTimezoneOffset();
-        dueDate.date = this.date.getDate();
-        this.task.dueDate = dueDate;
+        if (this.date === null) {
+          this.task.dueDate = null;
+        } else {
+          const dueDate = {};
+          const date = new Date(this.date);
+          dueDate.time = date.getTime();
+          dueDate.year = date.getUTCFullYear() - 1900;
+          dueDate.month = date.getMonth();
+          dueDate.day = date.getDay();
+          dueDate.hours = date.getHours();
+          dueDate.minutes = date.getMinutes();
+          dueDate.seconds = date.getSeconds();
+          dueDate.timezoneOffset = date.getTimezoneOffset();
+          dueDate.date = date.getDate();
+          this.task.dueDate = dueDate;
+        }
         this.updateTask();
       },
       updateDueDate() {
-        const date = new Date(this.task.dueDate.time);
-        this.task.dueDate.time = date.getTime();
-        this.task.dueDate.year = date.getUTCFullYear()-1900;
-        this.task.dueDate.month = date.getMonth();
-        this.task.dueDate.day = date.getDay();
-        this.task.dueDate.hours = date.getHours();
-        this.task.dueDate.minutes = date.getMinutes();
-        this.task.dueDate.seconds = date.getSeconds();
-        this.task.dueDate.timezoneOffset = date.getTimezoneOffset();
-        this.task.dueDate.date = date.getDate();
-        if (date.getTime() === 0) {
+        if (this.date === null) {
           this.task.dueDate = null;
+        } else {
+          const date = new Date(this.date);
+          this.task.dueDate.time = date.getTime();
+          this.task.dueDate.year = date.getUTCFullYear() - 1900;
+          this.task.dueDate.month = date.getMonth();
+          this.task.dueDate.day = date.getDay();
+          this.task.dueDate.hours = date.getHours();
+          this.task.dueDate.minutes = date.getMinutes();
+          this.task.dueDate.seconds = date.getSeconds();
+          this.task.dueDate.timezoneOffset = date.getTimezoneOffset();
+          this.task.dueDate.date = date.getDate();
         }
         this.updateTask()
       },

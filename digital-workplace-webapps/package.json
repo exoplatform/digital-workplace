@@ -51,9 +51,7 @@
   },
   "dependencies": {
     "echarts": "^4.2.1",
-    "moment": "^2.24.0",
-    "vue-echarts": "^4.0.3",
-    "vue2-datepicker": "^3.3.1"
+    "vue-echarts": "^4.0.3"
   },
   "jest": {
     "projects": [
