@@ -94,7 +94,8 @@ export function getTaskLabels(taskId) {
 export function addTaskToLabel(taskId, label) {
   return fetch(`/portal/rest/tasks/labels/${taskId}`, {
     headers: {
-      'Content-Type': 'application/json'
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
     method: 'POST',
     body: JSON.stringify(label)
@@ -110,6 +111,10 @@ export function addTaskToLabel(taskId, label) {
 
 export function removeTaskFromLabel(taskId, labelId) {
   return fetch(`/portal/rest/tasks/labels/${taskId}/${labelId}`, {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
     method: "delete",
   }).then((resp) => {
     if(resp && resp.ok) {

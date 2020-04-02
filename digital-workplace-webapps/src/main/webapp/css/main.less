@@ -1398,6 +1398,9 @@ body.open-drawer {
       .v-select__selection {
         max-width: 100%;
       }
+      .v-menu__content {
+        max-width: 100% !important;
+      }
       .v-select.v-text-field {
         input {
           display: none;
@@ -1416,7 +1419,7 @@ body.open-drawer {
       }
       .dateFont {
         input[type="text"] {
-          font-size: 15px;
+          font-size: 15px!important;
           cursor: pointer!important;
           color: @greyColor !important;
           width: 84px;
@@ -1486,6 +1489,9 @@ body.open-drawer {
             width: fit-content;
           }
         }
+      }
+      .v-navigation-drawer .v-list {
+        background-color: white;
       }
       .mdi-menu-down {
         &::before {

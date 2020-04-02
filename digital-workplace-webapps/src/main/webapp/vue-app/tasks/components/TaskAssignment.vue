@@ -1,15 +1,14 @@
 <template>
-  <div class="text-center">
+  <div>
     <v-menu
+      v-custom-click-outside="closeMenu"
       v-model="menu"
       :close-on-content-click="false"
-      :nudge-width="170"
-      :nudge-bottom="22"
-      :nudge-left="250"
+      :nudge-left="40"
+      attach
       transition="scale-transition"
       offset-y
-      bottom
-      absolute>
+      bottom>
       <template v-slot:activator="{ on }">
         <v-list-item :title="$t('homepage.tasks.drawer.clickToEdit')" style="cursor: pointer;">
           <v-list-item-avatar size="22" class="mr-2 ml-0 pt-1">
@@ -110,14 +109,6 @@
             </v-chip>
           </template>
         </v-combobox>
-          
-        <v-card-actions>
-          <v-spacer/>
-          <v-btn 
-            color="primary" 
-            text
-            @click="menu = false">{{ $t('homepage.task.drawer.close') }}</v-btn>
-        </v-card-actions>
       </v-card>
     </v-menu>
   </div>
@@ -166,6 +157,9 @@
       updateTask() {
         updateTask(this.task.id, this.task);
       },
+      closeMenu() {
+        this.menu = false;
+      }
     }
   }
 </script>

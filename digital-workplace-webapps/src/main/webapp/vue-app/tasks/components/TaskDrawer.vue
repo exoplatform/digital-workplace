@@ -70,6 +70,7 @@
                   xs4
                   class="mt-1">
                   <v-menu
+                    v-custom-click-outside="closeDatePickerMenu"
                     ref="menu"
                     v-model="menu"
                     :close-on-content-click="false"
@@ -102,13 +103,7 @@
                         min-width="40"
                         text
                         color="primary"
-                        @click="date=null;updateDueDate()">{{ $t('homepage.task.drawer.clear') }}</v-btn>
-                      <v-btn
-                        small
-                        min-width="40"
-                        text 
-                        color="primary" 
-                        @click="menu = false">{{ $t('homepage.task.drawer.cancel') }}</v-btn>
+                        @click="date=null;$refs.menu.save(date);updateDueDate()">{{ $t('homepage.task.drawer.clear') }}</v-btn>
                       <v-btn
                         v-if="task.dueDate != null"
                         min-width="40"
@@ -132,13 +127,15 @@
                 </v-flex>
                 <v-flex 
                   xs3>
-                  <div v-if="task.status != null" @click.stop>
+                  <div v-if="task.status != null">
                     <v-select
+                      v-custom-click-outside="closeStatusList"
                       ref="selectStatus"
                       v-model="task.status.name"
                       :items="taskStatus"
                       item-value="key"
                       item-text="value"
+                      attach
                       class="pt-0 selectFont"
                       solo
                       @change="updateTaskStatus()">
@@ -165,13 +162,15 @@
               <v-flex 
                 xs4
                 row>
-                <div style="white-space: nowrap" @click.stop>
+                <div style="white-space: nowrap">
                   <v-select
+                    v-custom-click-outside="closePrioritiesList"
                     ref="selectPriority"
                     v-model="task.priority"
                     :items="priorities"
                     item-value="key"
                     item-text="value"
+                    attach
                     solo
                     class="pt-0 selectFont"
                     @change="updateTask(task.id)">
@@ -319,16 +318,6 @@
         this.date = new Date(this.task.dueDate.time).toISOString().substr(0, 10);
       }
     },
-    mounted() {
-      window.addEventListener("click",() => {
-        if (typeof this.$refs.selectPriority !== 'undefined') {
-          this.$refs.selectPriority.blur();
-        }
-        if (typeof this.$refs.selectStatus !== 'undefined') {
-          this.$refs.selectStatus.blur();
-        }
-      });
-    },
     methods: {
       closeDrawer() {
         this.drawer = false;
@@ -451,6 +440,19 @@
       navigateTo(pagelink) {
         window.open(`${ eXo.env.portal.context }/${ eXo.env.portal.portalName }/${ pagelink }`, '_blank');
       },
+      closeDatePickerMenu() {
+        this.menu = false;
+      },
+      closeStatusList() {
+        if (typeof this.$refs.selectStatus !== 'undefined') {
+          this.$refs.selectStatus.isMenuActive = false;
+        }
+      },
+      closePrioritiesList() {
+        if (typeof this.$refs.selectPriority !== 'undefined') {
+          this.$refs.selectPriority.isMenuActive = false;
+        }
+      }
     }
   }
 </script>
