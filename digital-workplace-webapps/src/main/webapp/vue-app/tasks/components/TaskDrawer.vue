@@ -74,6 +74,7 @@
                     v-model="menu"
                     :close-on-content-click="false"
                     :return-value.sync="date"
+                    attach
                     transition="scale-transition"
                     offset-y
                     min-width="290px">
@@ -97,20 +98,28 @@
                       scrollable>
                       <v-spacer/>
                       <v-btn
+                        small
+                        min-width="40"
                         text
                         color="primary"
                         @click="date=null;updateDueDate()">{{ $t('homepage.task.drawer.clear') }}</v-btn>
-                      <v-btn 
+                      <v-btn
+                        small
+                        min-width="40"
                         text 
                         color="primary" 
                         @click="menu = false">{{ $t('homepage.task.drawer.cancel') }}</v-btn>
                       <v-btn
                         v-if="task.dueDate != null"
+                        min-width="40"
+                        small
                         text 
                         color="primary" 
                         @click="$refs.menu.save(date);updateDueDate()">OK</v-btn>
                       <v-btn
                         v-else
+                        min-width="40"
+                        small
                         text 
                         color="primary" 
                         @click="$refs.menu.save(date);addDueDate()">OK</v-btn>
