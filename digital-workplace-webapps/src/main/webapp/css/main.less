@@ -482,6 +482,9 @@ body.open-drawer {
   .color-title {
     color: #a8b3c5;
   }
+  .v-date-picker-table .v-btn {
+    box-sizing: border-box!important;
+  }
   
   /*--------------Task Project Colors ------------------*/
   .asparagus {
@@ -1515,7 +1518,22 @@ body.open-drawer {
           font-size: 15px;
           cursor: pointer!important;
           color: @greyColor !important;
+          width: 84px;
         }
+        .v-icon.v-icon.v-icon--link {
+          color: @greyColor;
+          padding-top: 8px;
+          font-size: 20px;
+        }
+      }
+      .v-date-picker-table--date {
+        td {
+          width: 38px;
+        }
+      }
+
+      .v-date-picker-table {
+        height: 190px;
       }
       .selectFont {
         .v-select__selection--comma {
@@ -1616,12 +1634,28 @@ body.open-drawer {
           max-width: 290px
         }
       }
-      .ck.ck-editor__editable:not(.ck-editor__nested-editable).ck-rounded-corners {
-        border: 2px solid #a8b3c521;
-        border-radius: 0.5rem;
-        min-height: 80px;
-        width: -webkit-fill-available;
+      .hiddenEditor {
+        visibility: hidden !important;
+        display: none !important;
       }
+
+      .taskDescription {
+        border: 1px solid @greyBackground;
+        border-radius: 5px;
+        padding-top: 8px;
+        padding-bottom: 8px
+      }
+      [contenteditable=true] {
+        &:empty {
+          &:before {
+            content: attr(placeholder);
+            pointer-events: none;
+            display: block;
+            color: @greyColor!important;
+          }
+        }
+      }
+      
       .uiIconAndroidOpen:before {
         font-family: 'PLF-FONT-ICONS';
         font-style: normal;

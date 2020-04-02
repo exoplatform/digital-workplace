@@ -106,7 +106,9 @@
         },
         mounted() {
           window.addEventListener("click", () => {
-            this.$refs.combobox.blur();
+            if (typeof this.$refs.combobox !== 'undefined') {
+              this.$refs.combobox.blur();
+            }
           });
         },
         created() {

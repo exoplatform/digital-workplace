@@ -6,7 +6,8 @@
       :nudge-width="170"
       :nudge-bottom="22"
       :nudge-left="250"
-      transition="slide-y-transition"
+      transition="scale-transition"
+      offset-y
       bottom
       absolute>
       <template v-slot:activator="{ on }">
