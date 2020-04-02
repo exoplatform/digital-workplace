@@ -199,7 +199,7 @@
                       tile>
                       <v-img :src="currentUserAvatar"/>
                     </v-list-item-avatar>
-                    <v-layout row class="editorContent">
+                    <v-layout row class="editorContent ml-0">
                       <task-comment-editor
                         v-model="editorData"      
                         :placeholder="commentPlaceholder"
