@@ -772,10 +772,9 @@ body.open-drawer {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.EventsContainerTDContainer,
 .TasksContainerTDContainer,
 .DocumentsContainerTDContainer {
-  flex: 0 1 32%;
+  flex: 0 1 49.2%;
   background: #fff;
   overflow: hidden;
 }
@@ -858,15 +857,6 @@ body.open-drawer {
   .profileCard {
     margin-bottom: 0!important;
   }
-  .EventsContainerTDContainer, .TasksContainerTDContainer {
-    flex: 0 0 48.7%;
-    background: #fff;
-    margin-right: 0;
-  }
-  .DocumentsContainerTDContainer {
-    flex: 1 1 100%!important;
-    margin-top: 20px;
-  }
   #MiddleContainer tr {
     flex-wrap: wrap;
   }
@@ -906,12 +896,12 @@ body.open-drawer {
 }
 
 @media (max-width: 599px) {
-  .EventsContainerTDContainer, .TasksContainerTDContainer {
+  .TasksContainerTDContainer,
+  .DocumentsContainerTDContainer {
     flex: 0 0 100%;
-    margin-top: 20px;
   }
-  .TasksContainerTDContainer {
-    margin-top: 20px;
+  .DocumentsContainerTDContainer {
+    margin-top: 10px;
   }
   #ProfileStatsContainer {
     flex: 0 1 100%;
