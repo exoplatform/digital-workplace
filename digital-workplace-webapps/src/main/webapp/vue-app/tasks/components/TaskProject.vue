@@ -11,7 +11,7 @@
         :items="projects"
         :label="$t('homepage.task.drawer.noProject')"
         attach
-        class="pt-0"
+        class="pt-0 mb-0"
         solo
         prepend-icon
         @change="deleteProject()">

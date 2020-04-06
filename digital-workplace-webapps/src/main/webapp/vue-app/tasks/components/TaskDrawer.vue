@@ -36,7 +36,7 @@
     <div class="drawer-content">
       <v-container pt-0>
         <v-layout row>
-          <v-col>
+          <v-col class="pb-0">
             <task-projects :task="task"/>
             <task-labels :task="task"/>
             <v-btn
@@ -45,7 +45,7 @@
               icon
               dark
               @click="markAsCompleted()">
-              <v-icon dark >mdi-checkbox-marked-circle</v-icon>
+              <v-icon dark size="18">mdi-checkbox-marked-circle</v-icon>
             </v-btn>
             <v-text-field
               v-if="!task.completed"
@@ -68,11 +68,11 @@
               <v-layout>
                 <v-flex
                   xs4
-                  class="mt-1">
+                  class="mt-1 pl-1">
                   <v-menu
                     v-custom-click-outside="closeDatePickerMenu"
                     ref="menu"
-                    v-model="menu"
+                    v-model="datePickerMenu"
                     :close-on-content-click="false"
                     :return-value.sync="date"
                     attach
@@ -285,7 +285,7 @@
           {key:'Done',value:this.$t('homepage.task.status.done')}],
         
         date: null,
-        menu: false,
+        datePickerMenu: false,
         showEditor : true,
         commentPlaceholder : this.$t('homepage.task.drawer.addYourComment'),
         descriptionPlaceholder : this.$t('homepage.task.drawer.addDescription'),
@@ -317,6 +317,10 @@
       if (this.task.dueDate != null) {
         this.date = new Date(this.task.dueDate.time).toISOString().substr(0, 10);
       }
+      document.addEventListener('keyup', this.escapeKeyListener);
+    },
+    destroyed: function() {
+      document.removeEventListener('keyup', this.escapeKeyListener);
     },
     methods: {
       closeDrawer() {
@@ -441,7 +445,7 @@
         window.open(`${ eXo.env.portal.context }/${ eXo.env.portal.portalName }/${ pagelink }`, '_blank');
       },
       closeDatePickerMenu() {
-        this.menu = false;
+        this.datePickerMenu = false;
       },
       closeStatusList() {
         if (typeof this.$refs.selectStatus !== 'undefined') {
@@ -451,6 +455,13 @@
       closePrioritiesList() {
         if (typeof this.$refs.selectPriority !== 'undefined') {
           this.$refs.selectPriority.isMenuActive = false;
+        }
+      },
+      escapeKeyListener: function(evt) {
+        if (evt.keyCode === 27) {
+          this.$refs.selectPriority.isMenuActive = false;
+          this.$refs.selectStatus.isMenuActive = false;
+          this.datePickerMenu = false;
         }
       }
     }

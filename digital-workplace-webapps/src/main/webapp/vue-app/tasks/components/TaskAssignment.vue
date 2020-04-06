@@ -25,19 +25,21 @@
             v-html="getUserFullName(task.assignee)"></span>
         </v-list-item>
       </template>
-      <v-card>
+      <v-card class="pb-4">
         <v-card-text class="pb-0">
           Assigned to :
         </v-card-text>
-        <v-combobox
+        <v-autocomplete
+          v-custom-click-outside="closeAssigneeMenu"
+          ref="assigneeMenu"
           v-model="task.assignee"
           :items="users"
-          deletable-chips
+          hide-selected
           flat
           solo
           style="width: 90%"
           chips
-          class="pt-0 ml-4"
+          class="pt-0 ml-4 assignTo"
           @change="updateTask()">
           <template v-slot:selection="{ attrs, item, parent, selected }">
             <v-chip
@@ -65,28 +67,34 @@
               {{ item }}
             </v-chip>
           </template>
-        </v-combobox>
-        <v-divider/>
+        </v-autocomplete>
+        <a class="ml-4" @click="assignToMe()">{{ $t('homepage.task.drawer.assignToMe') }}</a>
+        <v-divider class="mt-2"/>
         <v-card-text class="pb-0">
           Coworkers :
         </v-card-text>
-        <v-combobox
+        <v-autocomplete
+          v-custom-click-outside="closeCoworkerMenu"
           id="coworkerInput"
+          ref="coworkerMenu"
           v-model="task.coworker"
           :items="users"
           deletable-chips
           flat
+          autofocus
+          hide-selected
           multiple
           solo
           style="width: 90%"
           chips
-          class="pt-0 ml-4"
+          class="pt-0 ml-4 assignTo"
           @change="updateTask()">
           <template v-slot:selection="{ attrs, item, parent, selected }">
             <v-chip
               v-bind="attrs"
               label
               dark
+              class="pr-1"
               color="#578DC9"
               small>
               <v-avatar left>
@@ -95,6 +103,10 @@
               <span class="pr-2">
                 {{ item }}
               </span>
+              <v-icon
+                x-small
+                class="pa-0"
+                @click="parent.selectItem(item)">close</v-icon>
             </v-chip>
           </template>
           <template v-slot:item="{ index, item }">
@@ -108,7 +120,8 @@
               {{ item }}
             </v-chip>
           </template>
-        </v-combobox>
+        </v-autocomplete>
+        <a class="ml-4" @click="setMeAsCoworker()">{{ $t('homepage.task.drawer.SetMeAsCoworker') }}</a>
       </v-card>
     </v-menu>
   </div>
@@ -156,6 +169,26 @@
       },
       updateTask() {
         updateTask(this.task.id, this.task);
+      },
+      assignToMe() {
+        this.task.assignee = eXo.env.portal.userName;
+        this.updateTask()
+      },
+      setMeAsCoworker() {
+        if (!this.task.coworker.includes(eXo.env.portal.userName)) {
+          this.task.coworker.push(eXo.env.portal.userName);
+          this.updateTask()
+        }
+      },
+      closeCoworkerMenu() {
+        if (typeof this.$refs.coworkerMenu !== 'undefined') {
+          this.$refs.coworkerMenu.isMenuActive = false;
+        }
+      }, 
+      closeAssigneeMenu() {
+        if (typeof this.$refs.assigneeMenu !== 'undefined') {
+          this.$refs.assigneeMenu.isMenuActive = false;
+        }
       },
       closeMenu() {
         this.menu = false;

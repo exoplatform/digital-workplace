@@ -1,5 +1,5 @@
 <template>
-  <div class="taskDescription">
+  <div id="taskDescriptionId" class="taskDescription">
     <div
       v-if="!editorReady" 
       :placeholder="placeholder"
@@ -53,9 +53,13 @@
                     ckeContent[i].classList.remove('hiddenEditor');
                   }
                 }
+                document.getElementById('taskDescriptionId').classList.remove("taskDescription")
+                CKEDITOR.instances['descriptionContent'].focus(true);
+
               } else {
                 for (let i = 0; i < ckeContent.length; i++) {
                   ckeContent[i].classList.add('hiddenEditor');
+                  document.getElementById('taskDescriptionId').classList.add("taskDescription")
                 }
               }
             },
