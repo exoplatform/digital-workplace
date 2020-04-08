@@ -12,7 +12,7 @@ const vuetify = new Vuetify({
 // getting language of user
 const lang = eXo && eXo.env && eXo.env.portal && eXo.env.portal.language || 'en';
 
-const resourceBundleName = 'locale.addon.DigitalWorkplace';
+const resourceBundleName = 'locale.portlet.dw.Portlets';
 const url = `${eXo.env.portal.context}/${eXo.env.portal.rest}/i18n/bundle/${resourceBundleName}-${lang}.json`;
 const eventUrl = `${eXo.env.portal.context}/${eXo.env.portal.rest}/i18n/bundle/locale.portlet.calendar.CalendarPortlet-${lang}.json`;
 
