@@ -112,8 +112,8 @@
             <access-permissions>*:/platform/users</access-permissions>
             <portlet-application>
               <portlet>
-                <application-ref>digital-workplace</application-ref>
-                <portlet-ref>digitalWorkplaceProfileStats</portlet-ref>
+                <application-ref>gamification-portlets</application-ref>
+                <portlet-ref>ProfileStats</portlet-ref>
               </portlet>
               <title>Profile stats</title>
               <access-permissions>*:/platform/users</access-permissions>
@@ -128,10 +128,10 @@
               <access-permissions>*:/platform/users</access-permissions>
               <portlet-application>
                 <portlet>
-                  <application-ref>digital-workplace</application-ref>
-                  <portlet-ref>digitalWorkplacePerkstore</portlet-ref>
+                  <application-ref>perk-store</application-ref>
+                  <portlet-ref>PerkstoreOrder</portlet-ref>
                 </portlet>
-                <title>Perkstore</title>
+                <title>Perkstore Order</title>
                 <access-permissions>*:/platform/users</access-permissions>
                 <show-info-bar>false</show-info-bar>
               </portlet-application>
@@ -141,8 +141,8 @@
               <access-permissions>*:/platform/users</access-permissions>
               <portlet-application>
                 <portlet>
-                  <application-ref>digital-workplace</application-ref>
-                  <portlet-ref>digitalWorkplaceWallet</portlet-ref>
+                  <application-ref>wallet</application-ref>
+                  <portlet-ref>WalletBalance</portlet-ref>
                 </portlet>
                 <title>Wallet</title>
                 <access-permissions>*:/platform/users</access-permissions>
@@ -266,8 +266,8 @@
           <access-permissions>*:/platform/users</access-permissions>
           <portlet-application>
             <portlet>
-              <application-ref>digital-workplace</application-ref>
-              <portlet-ref>digitalWorkplaceProfileStats</portlet-ref>
+              <application-ref>gamification-portlets</application-ref>
+              <portlet-ref>ProfileStats</portlet-ref>
             </portlet>
             <title>Profile stats</title>
             <access-permissions>*:/platform/users</access-permissions>

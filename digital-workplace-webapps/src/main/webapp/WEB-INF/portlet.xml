@@ -42,26 +42,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 	</portlet>
 
 	<portlet>
-		<portlet-name>digitalWorkplaceProfileStats</portlet-name>
-		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
-		<init-param>
-			<name>portlet-view-dispatched-file-path</name>
-			<value>/profileStats.html</value>
-		</init-param>
-    <init-param>
-      <description>List of profiles that can be used to enable this portlet</description>
-      <name>exo.profiles</name>
-      <value>gamification,social</value>
-    </init-param>
-		<supports>
-			<mime-type>text/html</mime-type>
-		</supports>
-		<portlet-info>
-			<title>Digital Workplace Profile Stats</title>
-		</portlet-info>
-	</portlet>
-
-	<portlet>
 		<portlet-name>digitalWorkplaceRecentDocuments</portlet-name>
 		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
 		<init-param>
@@ -153,46 +133,6 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http:/
 		</supports>
 		<portlet-info>
 			<title>Digital Workplace Tasks</title>
-		</portlet-info>
-	</portlet>
-
-	<portlet>
-		<portlet-name>digitalWorkplacePerkstore</portlet-name>
-		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
-		<init-param>
-			<name>portlet-view-dispatched-file-path</name>
-			<value>/perkstore.html</value>
-		</init-param>
-    <init-param>
-      <description>List of profiles that can be used to enable this portlet</description>
-      <name>exo.profiles</name>
-      <value>perk-store</value>
-    </init-param>
-		<supports>
-			<mime-type>text/html</mime-type>
-		</supports>
-		<portlet-info>
-			<title>Digital Workplace Perkstore</title>
-		</portlet-info>
-	</portlet>
-
-	<portlet>
-		<portlet-name>digitalWorkplaceWallet</portlet-name>
-		<portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
-		<init-param>
-			<name>portlet-view-dispatched-file-path</name>
-			<value>/wallet.html</value>
-		</init-param>
-    <init-param>
-      <description>List of profiles that can be used to enable this portlet</description>
-      <name>exo.profiles</name>
-      <value>wallet</value>
-    </init-param>
-		<supports>
-			<mime-type>text/html</mime-type>
-		</supports>
-		<portlet-info>
-			<title>Digital Workplace Wallet</title>
 		</portlet-info>
 	</portlet>
 

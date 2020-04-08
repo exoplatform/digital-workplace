@@ -62,32 +62,6 @@
   </module>
 
   <portlet>
-    <name>digitalWorkplaceProfileStats</name>
-    <module>
-      <depends>
-        <module>digitalWorkplaceProfileStatsBundle</module>
-      </depends>
-    </module>
-  </portlet>
-
-  <module>
-    <name>digitalWorkplaceProfileStatsBundle</name>
-    <script>
-      <minify>false</minify>
-      <path>/js/profileStats.bundle.js</path>
-    </script>
-    <depends>
-      <module>vue</module>
-    </depends>
-    <depends>
-      <module>vuetify</module>
-    </depends>
-    <depends>
-      <module>eXoVueI18n</module>
-    </depends>
-  </module>
-
-  <portlet>
     <name>digitalWorkplaceRecentDocuments</name>
     <module>
       <depends>
@@ -225,59 +199,6 @@
     <depends>
       <module>jquery</module>
       <as>$</as>
-    </depends>
-  </module>
-
-  <portlet>
-    <name>digitalWorkplacePerkstore</name>
-    <module>
-      <depends>
-        <module>digitalWorkplacePerkstoreBundle</module>
-      </depends>
-    </module>
-  </portlet>
-
-  <module>
-    <name>digitalWorkplacePerkstoreBundle</name>
-    <script>
-      <minify>false</minify>
-      <path>/js/perkstore.bundle.js</path>
-    </script>
-    <depends>
-      <module>vue</module>
-    </depends>
-    <depends>
-      <module>vuetify</module>
-    </depends>
-    <depends>
-      <module>eXoVueI18n</module>
-    </depends>
-  </module>
-
-
-  <portlet>
-    <name>digitalWorkplaceWallet</name>
-    <module>
-      <depends>
-        <module>digitalWorkplaceWalletBundle</module>
-      </depends>
-    </module>
-  </portlet>
-
-  <module>
-    <name>digitalWorkplaceWalletBundle</name>
-    <script>
-      <minify>false</minify>
-      <path>/js/wallet.bundle.js</path>
-    </script>
-    <depends>
-      <module>vue</module>
-    </depends>
-    <depends>
-      <module>vuetify</module>
-    </depends>
-    <depends>
-      <module>eXoVueI18n</module>
     </depends>
   </module>
 

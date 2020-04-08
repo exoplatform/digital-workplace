@@ -8,9 +8,6 @@ let config = {
   entry: {
     slider: './src/main/webapp/vue-app/slider/main.js',
     news: './src/main/webapp/vue-app/news/main.js',
-    profileStats: './src/main/webapp/vue-app/profileStats/main.js',
-    wallet: './src/main/webapp/vue-app/wallet/main.js',
-    perkstore: './src/main/webapp/vue-app/perkstore/main.js',
     tasks: './src/main/webapp/vue-app/tasks/main.js',
     events: './src/main/webapp/vue-app/events/main.js',
     sharedDocuments: './src/main/webapp/vue-app/sharedDocuments/main.js',
