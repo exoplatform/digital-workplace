@@ -1,5 +1,5 @@
-export function getMyAllTasks() {
-  return fetch('/portal/rest/tasks', {
+export function getMyAllTasks(itemsLimit) {
+  return fetch(`/portal/rest/tasks?limit=${itemsLimit}`, {
     method: 'GET',
   }).then((resp) => {
     if(resp && resp.ok) {
@@ -10,8 +10,8 @@ export function getMyAllTasks() {
   })
 }
 
-export function getMyIncomingTasks() {
-  return fetch('/portal/rest/tasks?status=incoming&returnSize=true', {
+export function getMyIncomingTasks(itemsLimit) {
+  return fetch(`/portal/rest/tasks?status=incoming&limit=${itemsLimit}&returnSize=true`, {
     method: 'GET',
   }).then((resp) => {
     if(resp && resp.ok) {
@@ -23,8 +23,8 @@ export function getMyIncomingTasks() {
   })
 }
 
-export function getMyOverdueTasks() {
-  return fetch('/portal/rest/tasks?status=overdue&returnSize=true', {
+export function getMyOverdueTasks(itemsLimit) {
+  return fetch(`/portal/rest/tasks?status=overdue&limit=${itemsLimit}&returnSize=true`, {
     method: 'GET',
   }).then((resp) => {
     if(resp && resp.ok) {

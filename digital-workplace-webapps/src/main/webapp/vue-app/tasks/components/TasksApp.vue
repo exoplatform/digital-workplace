@@ -193,13 +193,14 @@
       }
     },
     created(){
+      this.itemsLimit = this.$parent.$data.itemsLimit;
       this.getMyAllTasks();
       this.getMyIncomingTasksSize();
       this.getMyOverdueTasksSize();
     },
     methods: {
       getMyAllTasks() {
-        getMyAllTasks().then(
+        getMyAllTasks(this.itemsLimit).then(
           (tasks) => {
             let tasksWithDuedate = [];
             let tasksWithoutDuedate = [];
@@ -217,14 +218,14 @@
         )
       },
       getMyIncomingTasksSize() {
-        getMyIncomingTasks().then(
+        getMyIncomingTasks(this.itemsLimit).then(
           (data) => {
             this.incomingTasksSize = data.size;
           }
         )
       },
       getMyOverdueTasksSize() {
-        getMyOverdueTasks().then(
+        getMyOverdueTasks(this.itemsLimit).then(
           (data) => {
             this.overdueTasksSize = data.size;
           }
