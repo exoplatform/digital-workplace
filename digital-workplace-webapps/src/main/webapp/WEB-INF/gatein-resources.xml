@@ -88,35 +88,6 @@
   </module>
 
   <portlet>
-    <name>digitalWorkplaceEvents</name>
-    <module>
-      <depends>
-        <module>digitalWorkplaceEventsBundle</module>
-      </depends>
-    </module>
-  </portlet>
-
-  <module>
-    <name>digitalWorkplaceEventsBundle</name>
-    <script>
-      <minify>false</minify>
-      <path>/js/events.bundle.js</path>
-    </script>
-    <depends>
-      <module>vue</module>
-    </depends>
-    <depends>
-      <module>vuetify</module>
-    </depends>
-    <depends>
-      <module>eXoVueI18n</module>
-    </depends>
-    <depends>
-      <module>calendarEvent</module>
-    </depends>
-  </module>
-
-  <portlet>
     <name>digitalWorkplaceTasks</name>
     <module>
       <depends>

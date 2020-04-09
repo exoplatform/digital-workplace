@@ -59,26 +59,6 @@
   </portlet>
 
   <portlet>
-    <portlet-name>digitalWorkplaceEvents</portlet-name>
-    <portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
-    <init-param>
-      <name>portlet-view-dispatched-file-path</name>
-      <value>/events.jsp</value>
-    </init-param>
-    <init-param>
-      <description>List of profiles that can be used to enable this portlet</description>
-      <name>exo.profiles</name>
-      <value>calendar</value>
-    </init-param>
-    <supports>
-      <mime-type>text/html</mime-type>
-    </supports>
-    <portlet-info>
-      <title>Digital Workplace Events</title>
-    </portlet-info>
-  </portlet>
-
-  <portlet>
     <portlet-name>digitalWorkplaceTasks</portlet-name>
     <portlet-class>org.exoplatform.commons.api.portlet.GenericDispatchedViewPortlet</portlet-class>
     <init-param>

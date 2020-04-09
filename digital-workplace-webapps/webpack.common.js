@@ -7,7 +7,6 @@ let config = {
   // can use multiple entry
   entry: {
     tasks: './src/main/webapp/vue-app/tasks/main.js',
-    events: './src/main/webapp/vue-app/events/main.js',
     sharedDocuments: './src/main/webapp/vue-app/sharedDocuments/main.js',
     recentDocuments: './src/main/webapp/vue-app/recentDocuments/main.js',
     favoriteDocuments: './src/main/webapp/vue-app/favoriteDocuments/main.js',
