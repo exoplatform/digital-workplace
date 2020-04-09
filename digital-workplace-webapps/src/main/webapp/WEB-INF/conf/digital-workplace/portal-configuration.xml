@@ -11,7 +11,7 @@
       <init-params>
         <value-param>
           <name>override</name>
-          <value>${dw.portalConfig.metadata.override:true}</value>
+          <value>${exo.dw.portalConfig.metadata.override:true}</value>
         </value-param>
         <value-param>
           <name>default.portal</name>
@@ -29,7 +29,7 @@
               <boolean>true</boolean>
             </field>
             <field name="importMode">
-              <string>${dw.portalConfig.metadata.importmode:merge}</string>
+              <string>${exo.dw.portalConfig.metadata.importmode:merge}</string>
             </field>
             <field name="predefinedOwner">
               <collection type="java.util.HashSet">

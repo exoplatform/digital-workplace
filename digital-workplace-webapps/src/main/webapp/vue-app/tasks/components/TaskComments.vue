@@ -13,7 +13,7 @@
             <a
               class="primary-color--text font-weight-bold subtitle-2"
               v-html="comment.author.displayName"></a>
-            <span class="grey-color caption pl-4">{{ relativeTime }}</span>
+            <span class="dateTime caption pl-4">{{ relativeTime }}</span>
           </div>
           <v-flex class="d-flex flex-row-reverse">
             <v-dialog

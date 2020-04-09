@@ -10,58 +10,6 @@
   </portal-skin>
 
   <portlet>
-    <name>digitalWorkplaceSlider</name>
-    <module>
-      <depends>
-        <module>digitalWorkplaceSliderBundle</module>
-      </depends>
-    </module>
-  </portlet>
-
-  <module>
-    <name>digitalWorkplaceSliderBundle</name>
-    <script>
-      <minify>false</minify>
-      <path>/js/slider.bundle.js</path>
-    </script>
-    <depends>
-      <module>vue</module>
-    </depends>
-    <depends>
-      <module>vuetify</module>
-    </depends>
-    <depends>
-      <module>eXoVueI18n</module>
-    </depends>
-  </module>
-
-  <portlet>
-    <name>digitalWorkplaceNews</name>
-    <module>
-      <depends>
-        <module>digitalWorkplaceNewsBundle</module>
-      </depends>
-    </module>
-  </portlet>
-
-  <module>
-    <name>digitalWorkplaceNewsBundle</name>
-    <script>
-      <minify>false</minify>
-      <path>/js/news.bundle.js</path>
-    </script>
-    <depends>
-      <module>vue</module>
-    </depends>
-    <depends>
-      <module>vuetify</module>
-    </depends>
-    <depends>
-      <module>eXoVueI18n</module>
-    </depends>
-  </module>
-
-  <portlet>
     <name>digitalWorkplaceRecentDocuments</name>
     <module>
       <depends>
@@ -86,7 +34,7 @@
       <module>eXoVueI18n</module>
     </depends>
   </module>
-  
+
   <portlet>
     <name>digitalWorkplaceSharedDocuments</name>
     <module>
@@ -112,7 +60,7 @@
       <module>eXoVueI18n</module>
     </depends>
   </module>
-  
+
   <portlet>
     <name>digitalWorkplaceFavoriteDocuments</name>
     <module>
@@ -136,35 +84,6 @@
     </depends>
     <depends>
       <module>eXoVueI18n</module>
-    </depends>
-  </module>
-
-  <portlet>
-    <name>digitalWorkplaceEvents</name>
-    <module>
-      <depends>
-        <module>digitalWorkplaceEventsBundle</module>
-      </depends>
-    </module>
-  </portlet>
-
-  <module>
-    <name>digitalWorkplaceEventsBundle</name>
-    <script>
-      <minify>false</minify>
-      <path>/js/events.bundle.js</path>
-    </script>
-    <depends>
-      <module>vue</module>
-    </depends>
-    <depends>
-      <module>vuetify</module>
-    </depends>
-    <depends>
-      <module>eXoVueI18n</module>
-    </depends>
-    <depends>
-      <module>calendarEvent</module>
     </depends>
   </module>
 
@@ -201,31 +120,4 @@
       <as>$</as>
     </depends>
   </module>
-
-  <portlet>
-    <name>digitalWorkplaceTopBottomNavigation</name>
-    <module>
-      <depends>
-        <module>digitalWorkplaceTopBottomNavigationBundle</module>
-      </depends>
-    </module>
-  </portlet>
-
-  <module>
-    <name>digitalWorkplaceTopBottomNavigationBundle</name>
-    <script>
-      <minify>false</minify>
-      <path>/js/topBottomNavigation.bundle.js</path>
-    </script>
-    <depends>
-      <module>vue</module>
-    </depends>
-    <depends>
-      <module>vuetify</module>
-    </depends>
-    <depends>
-      <module>eXoVueI18n</module>
-    </depends>
-  </module>
-
 </gatein-resources>

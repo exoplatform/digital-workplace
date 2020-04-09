@@ -37,15 +37,5 @@
       <scope>provided</scope>
       <outputFileNameMapping>digital-workplace.war</outputFileNameMapping>
     </dependencySet>
-    <!-- Libraries -->
-    <dependencySet>
-      <useProjectArtifact>false</useProjectArtifact>
-      <outputDirectory>/lib</outputDirectory>
-      <includes>
-        <include>${project.groupId}:digital-workplace-services:jar</include>
-      </includes>
-      <scope>provided</scope>
-      <outputFileNameMapping>digital-workplace-services.jar</outputFileNameMapping>
-    </dependencySet>
   </dependencySets>
 </assembly>

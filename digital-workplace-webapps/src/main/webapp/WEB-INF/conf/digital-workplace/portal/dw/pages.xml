@@ -169,19 +169,6 @@
             <show-info-bar>false</show-info-bar>
           </portlet-application>
         </container>
-        <container id="EventsContainer"
-          template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-          <access-permissions>*:/platform/users</access-permissions>
-          <portlet-application>
-            <portlet>
-              <application-ref>digital-workplace</application-ref>
-              <portlet-ref>digitalWorkplaceEvents</portlet-ref>
-            </portlet>
-            <title>Events</title>
-            <access-permissions>*:/platform/users</access-permissions>
-            <show-info-bar>false</show-info-bar>
-          </portlet-application>
-        </container>
         <container id="DocumentsContainer"
           template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
           <access-permissions>*:/platform/users</access-permissions>

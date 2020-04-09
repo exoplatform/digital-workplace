@@ -1,13 +1,15 @@
 <template>
   <div @click.stop>
     <v-combobox
-      ref="combobox"
+      v-custom-click-outside="closeDropDownList"
+      ref="selectLabel"
       v-model="model"
       :filter="filter"
       :hide-no-data="!search"
       :items="items"
       :search-input.sync="search"
       :label="$t('homepage.task.drawer.labels')"
+      attach
       class="pt-0"
       hide-selected
       multiple
@@ -104,13 +106,6 @@
                 })
             },
         },
-        mounted() {
-          window.addEventListener("click", () => {
-            if (typeof this.$refs.combobox !== 'undefined') {
-              this.$refs.combobox.blur();
-            }
-          });
-        },
         created() {
             this.getMyAllLabels();
             this.getTaskLabels();
@@ -157,6 +152,11 @@
             removeTaskFromLabel(item) {
                 removeTaskFromLabel(this.task.id, item.id)
             },
+            closeDropDownList() {
+              if (typeof this.$refs.selectLabel !== 'undefined') {
+                this.$refs.selectLabel.isMenuActive = false;
+              }
+            }
         }
     }
 </script>

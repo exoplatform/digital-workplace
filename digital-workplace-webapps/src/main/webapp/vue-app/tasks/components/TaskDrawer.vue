@@ -36,7 +36,7 @@
     <div class="drawer-content">
       <v-container pt-0>
         <v-layout row>
-          <v-col>
+          <v-col class="pb-0">
             <task-projects :task="task"/>
             <task-labels :task="task"/>
             <v-btn
@@ -45,7 +45,7 @@
               icon
               dark
               @click="markAsCompleted()">
-              <v-icon dark >mdi-checkbox-marked-circle</v-icon>
+              <v-icon dark size="18">mdi-checkbox-marked-circle</v-icon>
             </v-btn>
             <v-text-field
               v-if="!task.completed"
@@ -68,10 +68,11 @@
               <v-layout>
                 <v-flex
                   xs4
-                  class="mt-1">
+                  class="mt-1 pl-1">
                   <v-menu
+                    v-custom-click-outside="closeDatePickerMenu"
                     ref="menu"
-                    v-model="menu"
+                    v-model="datePickerMenu"
                     :close-on-content-click="false"
                     :return-value.sync="date"
                     attach
@@ -102,13 +103,7 @@
                         min-width="40"
                         text
                         color="primary"
-                        @click="date=null;updateDueDate()">{{ $t('homepage.task.drawer.clear') }}</v-btn>
-                      <v-btn
-                        small
-                        min-width="40"
-                        text 
-                        color="primary" 
-                        @click="menu = false">{{ $t('homepage.task.drawer.cancel') }}</v-btn>
+                        @click="date=null;$refs.menu.save(date);updateDueDate()">{{ $t('homepage.task.drawer.clear') }}</v-btn>
                       <v-btn
                         v-if="task.dueDate != null"
                         min-width="40"
@@ -132,13 +127,15 @@
                 </v-flex>
                 <v-flex 
                   xs3>
-                  <div v-if="task.status != null" @click.stop>
+                  <div v-if="task.status != null">
                     <v-select
+                      v-custom-click-outside="closeStatusList"
                       ref="selectStatus"
                       v-model="task.status.name"
                       :items="taskStatus"
                       item-value="key"
                       item-text="value"
+                      attach
                       class="pt-0 selectFont"
                       solo
                       @change="updateTaskStatus()">
@@ -165,13 +162,15 @@
               <v-flex 
                 xs4
                 row>
-                <div style="white-space: nowrap" @click.stop>
+                <div style="white-space: nowrap">
                   <v-select
+                    v-custom-click-outside="closePrioritiesList"
                     ref="selectPriority"
                     v-model="task.priority"
                     :items="priorities"
                     item-value="key"
                     item-text="value"
+                    attach
                     solo
                     class="pt-0 selectFont"
                     @change="updateTask(task.id)">
@@ -286,7 +285,7 @@
           {key:'Done',value:this.$t('homepage.task.status.done')}],
         
         date: null,
-        menu: false,
+        datePickerMenu: false,
         showEditor : true,
         commentPlaceholder : this.$t('homepage.task.drawer.addYourComment'),
         descriptionPlaceholder : this.$t('homepage.task.drawer.addDescription'),
@@ -318,16 +317,10 @@
       if (this.task.dueDate != null) {
         this.date = new Date(this.task.dueDate.time).toISOString().substr(0, 10);
       }
+      document.addEventListener('keyup', this.escapeKeyListener);
     },
-    mounted() {
-      window.addEventListener("click",() => {
-        if (typeof this.$refs.selectPriority !== 'undefined') {
-          this.$refs.selectPriority.blur();
-        }
-        if (typeof this.$refs.selectStatus !== 'undefined') {
-          this.$refs.selectStatus.blur();
-        }
-      });
+    destroyed: function() {
+      document.removeEventListener('keyup', this.escapeKeyListener);
     },
     methods: {
       closeDrawer() {
@@ -451,6 +444,26 @@
       navigateTo(pagelink) {
         window.open(`${ eXo.env.portal.context }/${ eXo.env.portal.portalName }/${ pagelink }`, '_blank');
       },
+      closeDatePickerMenu() {
+        this.datePickerMenu = false;
+      },
+      closeStatusList() {
+        if (typeof this.$refs.selectStatus !== 'undefined') {
+          this.$refs.selectStatus.isMenuActive = false;
+        }
+      },
+      closePrioritiesList() {
+        if (typeof this.$refs.selectPriority !== 'undefined') {
+          this.$refs.selectPriority.isMenuActive = false;
+        }
+      },
+      escapeKeyListener: function(evt) {
+        if (evt.keyCode === 27) {
+          this.$refs.selectPriority.isMenuActive = false;
+          this.$refs.selectStatus.isMenuActive = false;
+          this.datePickerMenu = false;
+        }
+      }
     }
   }
 </script>

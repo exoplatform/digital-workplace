@@ -17,7 +17,7 @@
           })"></span>
         </v-flex>
         <v-flex xs4>
-          <span class="grey-color caption">{{ relativeTime }}</span>
+          <span class="dateTime caption">{{ relativeTime }}</span>
         </v-flex>
       </v-layout>
     </v-flex>

@@ -25,16 +25,12 @@
 	<name>eXo Add-on:: Digital Workplace - Parent POM</name>
 	<description>Digital Workplace Addon</description>
 	<modules>
-		<module>digital-workplace-services</module>
 		<module>digital-workplace-webapps</module>
 		<module>digital-workplace-packaging</module>
 	</modules>
 	<properties>
 		<!-- 3rd party libraries versions -->
-		<org.exoplatform.ecms.version>6.0.x-SNAPSHOT</org.exoplatform.ecms.version>
-		<org.exoplatform.wiki.version>6.0.x-SNAPSHOT</org.exoplatform.wiki.version>
-		<org.exoplatform.forum.version>6.0.x-SNAPSHOT</org.exoplatform.forum.version>
-		<org.exoplatform.calendar.version>6.0.x-SNAPSHOT</org.exoplatform.calendar.version>
+		<org.exoplatform.gatein.version>6.0.x-SNAPSHOT</org.exoplatform.gatein.version>
 		<!-- Maven Plugin for JS and CSS bundling and Unit Test execution -->
 		<com.github.eirslett.frontend.version>1.6</com.github.eirslett.frontend.version>
 	</properties>
@@ -42,40 +38,13 @@
 		<dependencies>
 			<!-- Import versions from projects -->
 			<dependency>
-				<groupId>org.exoplatform.ecms</groupId>
-				<artifactId>ecms</artifactId>
-				<version>${org.exoplatform.ecms.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.exoplatform.wiki</groupId>
-				<artifactId>wiki</artifactId>
-				<version>${org.exoplatform.wiki.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.exoplatform.forum</groupId>
-				<artifactId>forum</artifactId>
-				<version>${org.exoplatform.forum.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.exoplatform.calendar</groupId>
-				<artifactId>calendar</artifactId>
-				<version>${org.exoplatform.calendar.version}</version>
+				<groupId>org.exoplatform.gatein.portal</groupId>
+				<artifactId>exo.portal.parent</artifactId>
+				<version>${org.exoplatform.gatein.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 			<!-- Current project artifacts -->
-			<dependency>
-				<groupId>${project.groupId}</groupId>
-				<artifactId>digital-workplace-services</artifactId>
-				<version>${project.version}</version>
-				<scope>provided</scope>
-			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
 				<artifactId>digital-workplace-webapps</artifactId>

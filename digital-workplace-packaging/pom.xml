@@ -25,11 +25,6 @@
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>digital-workplace-services</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
 			<artifactId>digital-workplace-webapps</artifactId>
 			<scope>provided</scope>
 			<type>war</type>
