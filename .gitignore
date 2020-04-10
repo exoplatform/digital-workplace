@@ -22,6 +22,7 @@ pom.xml.versionsBackup
 
 # Npm
 node_modules/
+package-lock.json
 
 # IntelliJ project files
 *.iml
