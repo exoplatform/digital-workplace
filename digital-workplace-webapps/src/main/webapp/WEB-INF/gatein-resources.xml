@@ -86,38 +86,5 @@
       <module>eXoVueI18n</module>
     </depends>
   </module>
-
-  <portlet>
-    <name>digitalWorkplaceTasks</name>
-    <module>
-      <depends>
-        <module>digitalWorkplaceTasksBundle</module>
-      </depends>
-    </module>
-  </portlet>
-
-  <module>
-    <name>digitalWorkplaceTasksBundle</name>
-    <script>
-      <minify>false</minify>
-      <path>/js/tasks.bundle.js</path>
-    </script>
-    <depends>
-      <module>vue</module>
-    </depends>
-    <depends>
-      <module>vuetify</module>
-    </depends>
-    <depends>
-      <module>eXoVueI18n</module>
-    </depends>
-    <depends>
-      <module>commons-editor</module>
-      <as>editor</as>
-    </depends>
-    <depends>
-      <module>jquery</module>
-      <as>$</as>
-    </depends>
-  </module>
+  
 </gatein-resources>
