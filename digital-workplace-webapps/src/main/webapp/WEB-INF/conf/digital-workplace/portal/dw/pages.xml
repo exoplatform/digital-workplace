@@ -280,15 +280,4 @@
     </container>
   </page>
 
-  <page>
-    <name>account</name>
-    <title>Account Settings</title>
-    <access-permissions>*:/platform/users</access-permissions>
-    <edit-permission>manager:/platform/administrators</edit-permission>
-    <container id="digitalWorkplaceAccountPage"
-      template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-      <access-permissions>*:/platform/users</access-permissions>
-    </container>
-  </page>
-
 </page-set>
