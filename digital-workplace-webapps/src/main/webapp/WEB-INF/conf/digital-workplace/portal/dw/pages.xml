@@ -161,8 +161,8 @@
           <access-permissions>*:/platform/users</access-permissions>
           <portlet-application>
             <portlet>
-              <application-ref>digital-workplace</application-ref>
-              <portlet-ref>digitalWorkplaceTasks</portlet-ref>
+              <application-ref>task-management</application-ref>
+              <portlet-ref>tasks</portlet-ref>
             </portlet>
             <title>Tasks</title>
             <access-permissions>*:/platform/users</access-permissions>
@@ -277,17 +277,6 @@
           </portlet-application>
         </container>
       </container>
-    </container>
-  </page>
-
-  <page>
-    <name>account</name>
-    <title>Account Settings</title>
-    <access-permissions>*:/platform/users</access-permissions>
-    <edit-permission>manager:/platform/administrators</edit-permission>
-    <container id="digitalWorkplaceAccountPage"
-      template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-      <access-permissions>*:/platform/users</access-permissions>
     </container>
   </page>
 

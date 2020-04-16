@@ -6,7 +6,6 @@ let config = {
   // set the entry point of the application
   // can use multiple entry
   entry: {
-    tasks: './src/main/webapp/vue-app/tasks/main.js',
     sharedDocuments: './src/main/webapp/vue-app/sharedDocuments/main.js',
     recentDocuments: './src/main/webapp/vue-app/recentDocuments/main.js',
     favoriteDocuments: './src/main/webapp/vue-app/favoriteDocuments/main.js',

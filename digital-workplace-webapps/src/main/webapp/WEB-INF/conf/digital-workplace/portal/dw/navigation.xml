@@ -16,13 +16,6 @@
       <page-reference>portal::dw::stream</page-reference>
     </node>
 
-    <node>
-      <name>account</name>
-      <label>#{portal.dw.account}</label>
-      <visibility>SYSTEM</visibility>
-      <page-reference>portal::dw::account</page-reference>
-    </node>
-
   </page-nodes>
 
 </node-navigation>
