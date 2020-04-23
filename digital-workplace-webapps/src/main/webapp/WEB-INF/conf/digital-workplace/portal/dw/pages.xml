@@ -181,8 +181,20 @@
               <access-permissions>*:/platform/users</access-permissions>
               <portlet-application>
                 <portlet>
-                  <application-ref>digital-workplace</application-ref>
-                  <portlet-ref>digitalWorkplaceRecentDocuments</portlet-ref>
+                  <application-ref>documents</application-ref>
+                  <portlet-ref>DocumentsPortlet</portlet-ref>
+                  <preferences>
+                    <preference>
+                      <name>appId</name>
+                      <value>recentDocuments</value>
+                      <read-only>false</read-only>
+                    </preference>
+                    <preference>
+                      <name>type</name>
+                      <value>recent</value>
+                      <read-only>false</read-only>
+                    </preference>
+                  </preferences>
                 </portlet>
                 <title>Recent documents</title>
                 <access-permissions>*:/platform/users</access-permissions>
@@ -195,8 +207,20 @@
               <access-permissions>*:/platform/users</access-permissions>
               <portlet-application>
                 <portlet>
-                  <application-ref>digital-workplace</application-ref>
-                  <portlet-ref>digitalWorkplaceSharedDocuments</portlet-ref>
+                  <application-ref>documents</application-ref>
+                  <portlet-ref>DocumentsPortlet</portlet-ref>
+                  <preferences>
+                    <preference>
+                      <name>appId</name>
+                      <value>sharedDocuments</value>
+                      <read-only>false</read-only>
+                    </preference>
+                    <preference>
+                      <name>type</name>
+                      <value>shared</value>
+                      <read-only>false</read-only>
+                    </preference>
+                  </preferences>
                 </portlet>
                 <title>Shared with me documents</title>
                 <access-permissions>*:/platform/users</access-permissions>
@@ -209,8 +233,20 @@
               <access-permissions>*:/platform/users</access-permissions>
               <portlet-application>
                 <portlet>
-                  <application-ref>digital-workplace</application-ref>
-                  <portlet-ref>digitalWorkplaceFavoriteDocuments</portlet-ref>
+                  <application-ref>documents</application-ref>
+                  <portlet-ref>DocumentsPortlet</portlet-ref>
+                  <preferences>
+                    <preference>
+                      <name>appId</name>
+                      <value>favoriteDocuments</value>
+                      <read-only>false</read-only>
+                    </preference>
+                    <preference>
+                      <name>type</name>
+                      <value>favorite</value>
+                      <read-only>false</read-only>
+                    </preference>
+                  </preferences>
                 </portlet>
                 <title>Favorite documents</title>
                 <access-permissions>*:/platform/users</access-permissions>

@@ -5,86 +5,8 @@
   <portal-skin>
     <skin-name>Enterprise</skin-name>
     <skin-module>customModuleDigitalWorkplace</skin-module>
-    <css-path>/css/main.css</css-path>
+    <css-path>/skin/css/main.css</css-path>
     <css-priority>11</css-priority>
   </portal-skin>
-
-  <portlet>
-    <name>digitalWorkplaceRecentDocuments</name>
-    <module>
-      <depends>
-        <module>digitalWorkplaceRecentDocumentsBundle</module>
-      </depends>
-    </module>
-  </portlet>
-
-  <module>
-    <name>digitalWorkplaceRecentDocumentsBundle</name>
-    <script>
-      <minify>false</minify>
-      <path>/js/recentDocuments.bundle.js</path>
-    </script>
-    <depends>
-      <module>vue</module>
-    </depends>
-    <depends>
-      <module>vuetify</module>
-    </depends>
-    <depends>
-      <module>eXoVueI18n</module>
-    </depends>
-  </module>
-
-  <portlet>
-    <name>digitalWorkplaceSharedDocuments</name>
-    <module>
-      <depends>
-        <module>digitalWorkplaceSharedDocumentsBundle</module>
-      </depends>
-    </module>
-  </portlet>
-
-  <module>
-    <name>digitalWorkplaceSharedDocumentsBundle</name>
-    <script>
-      <minify>false</minify>
-      <path>/js/sharedDocuments.bundle.js</path>
-    </script>
-    <depends>
-      <module>vue</module>
-    </depends>
-    <depends>
-      <module>vuetify</module>
-    </depends>
-    <depends>
-      <module>eXoVueI18n</module>
-    </depends>
-  </module>
-
-  <portlet>
-    <name>digitalWorkplaceFavoriteDocuments</name>
-    <module>
-      <depends>
-        <module>digitalWorkplaceFavoriteDocumentsBundle</module>
-      </depends>
-    </module>
-  </portlet>
-
-  <module>
-    <name>digitalWorkplaceFavoriteDocumentsBundle</name>
-    <script>
-      <minify>false</minify>
-      <path>/js/favoriteDocuments.bundle.js</path>
-    </script>
-    <depends>
-      <module>vue</module>
-    </depends>
-    <depends>
-      <module>vuetify</module>
-    </depends>
-    <depends>
-      <module>eXoVueI18n</module>
-    </depends>
-  </module>
   
 </gatein-resources>
