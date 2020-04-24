@@ -203,6 +203,32 @@
             </container>
             <container
               template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+              <title>inSpacesDocuments</title>
+              <access-permissions>*:/platform/users</access-permissions>
+              <portlet-application>
+                <portlet>
+                  <application-ref>documents</application-ref>
+                  <portlet-ref>DocumentsPortlet</portlet-ref>
+                  <preferences>
+                    <preference>
+                      <name>appId</name>
+                      <value>recentSpacesDocuments</value>
+                      <read-only>false</read-only>
+                    </preference>
+                    <preference>
+                      <name>type</name>
+                      <value>recentSpaces</value>
+                      <read-only>false</read-only>
+                    </preference>
+                  </preferences>
+                </portlet>
+                <title>Recent spaces documents</title>
+                <access-permissions>*:/platform/users</access-permissions>
+                <show-info-bar>false</show-info-bar>
+              </portlet-application>
+            </container>
+            <container
+              template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
               <title>sharedDocuments</title>
               <access-permissions>*:/platform/users</access-permissions>
               <portlet-application>
