@@ -29,21 +29,11 @@
 		<module>digital-workplace-packaging</module>
 	</modules>
 	<properties>
-		<!-- 3rd party libraries versions -->
-		<org.exoplatform.gatein.version>6.0.x-SNAPSHOT</org.exoplatform.gatein.version>
 		<!-- Maven Plugin for JS and CSS bundling and Unit Test execution -->
 		<com.github.eirslett.frontend.version>1.6</com.github.eirslett.frontend.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
-			<!-- Import versions from projects -->
-			<dependency>
-				<groupId>org.exoplatform.gatein.portal</groupId>
-				<artifactId>exo.portal.parent</artifactId>
-				<version>${org.exoplatform.gatein.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
 			<!-- Current project artifacts -->
 			<dependency>
 				<groupId>${project.groupId}</groupId>

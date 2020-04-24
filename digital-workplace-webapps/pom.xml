@@ -21,15 +21,6 @@
   <artifactId>digital-workplace-webapps</artifactId>
   <packaging>war</packaging>
   <name>eXo Add-on:: Digital Workplace - Webapp</name>
-  <dependencies>
-    <dependency>
-      <groupId>org.exoplatform.platform-ui</groupId>
-      <artifactId>platform-ui-skin</artifactId>
-      <version>${org.exoplatform.gatein.version}</version>
-      <classifier>sources</classifier>
-      <scope>provided</scope>
-    </dependency>
-  </dependencies>
   <build>
     <finalName>digital-workplace</finalName>
     <plugins>
