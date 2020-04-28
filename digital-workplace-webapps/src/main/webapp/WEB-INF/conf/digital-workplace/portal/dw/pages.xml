@@ -290,11 +290,9 @@
     <title>Stream</title>
     <access-permissions>*:/platform/users</access-permissions>
     <edit-permission>manager:/platform/administrators</edit-permission>
-    <container id="digitalWorkplaceStream"
-      template="system:/groovy/portal/webui/container/UIResponsiveTableColumnContainer.gtmpl">
+    <container id="StreamPage" template="system:/groovy/portal/webui/container/UIMobileSwipeContainer.gtmpl">
       <access-permissions>*:/platform/users</access-permissions>
-      <container id="StreamMainContainer"
-        template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <container id="StreamMainContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
         <portlet-application>
           <portlet>
@@ -307,24 +305,48 @@
           <show-application-state>true</show-application-state>
         </portlet-application>
       </container>
-      <container id="StreamRightContainer"
-        template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+      <container id="StreamRightContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
-        <container id="StreamProfileStatsContainer"
-          template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <container id="GettingStartedContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <portlet-application>
+            <portlet>
+              <application-ref>social-vue-portlet</application-ref>
+              <portlet-ref>GettingStarted</portlet-ref>
+            </portlet>
+            <title>Getting Started</title>
+            <access-permissions>*:/platform/users</access-permissions>
+            <show-info-bar>false</show-info-bar>
+            <show-application-state>true</show-application-state>
+          </portlet-application>
+        </container>
+        <container id="ProfileStatsContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
           <access-permissions>*:/platform/users</access-permissions>
           <portlet-application>
             <portlet>
               <application-ref>gamification-portlets</application-ref>
               <portlet-ref>ProfileStats</portlet-ref>
             </portlet>
-            <title>Profile stats</title>
+            <title>Profile Stats</title>
             <access-permissions>*:/platform/users</access-permissions>
             <show-info-bar>false</show-info-bar>
+            <show-application-state>true</show-application-state>
           </portlet-application>
         </container>
-        <container id="WhoIsOnLineContainer"
-          template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <container id="PerkstoreWalletContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <container id="PerkstoreWidgetContainer" template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
+            <name>PerkstoreWidgetContainer</name>
+            <access-permissions>*:/platform/users</access-permissions>
+            <factory-id>addonContainer</factory-id>
+          </container>
+          <container id="WalletWidgetContainer" template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
+            <name>WalletWidgetContainer</name>
+            <access-permissions>*:/platform/users</access-permissions>
+            <factory-id>addonContainer</factory-id>
+          </container>
+        </container>
+        <container id="WhoIsOnLineContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
           <access-permissions>*:/platform/users</access-permissions>
           <portlet-application>
             <portlet>
@@ -332,6 +354,20 @@
               <portlet-ref>WhoIsOnLinePortlet</portlet-ref>
             </portlet>
             <title>Who is on line</title>
+            <access-permissions>*:/platform/users</access-permissions>
+            <show-info-bar>false</show-info-bar>
+            <show-application-state>false</show-application-state>
+            <show-application-mode>false</show-application-mode>
+          </portlet-application>
+        </container>
+        <container id="SuggestionsContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+          <access-permissions>*:/platform/users</access-permissions>
+          <portlet-application>
+            <portlet>
+              <application-ref>social-vue-portlet</application-ref>
+              <portlet-ref>SuggestionsPeopleAndSpace</portlet-ref>
+            </portlet>
+            <title>Suggestions peoples and spaces</title>
             <access-permissions>*:/platform/users</access-permissions>
             <show-info-bar>false</show-info-bar>
             <show-application-state>false</show-application-state>
