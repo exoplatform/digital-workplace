@@ -156,6 +156,12 @@
       <container id="BottomContainer"
         template="system:/groovy/portal/webui/container/UIResponsiveTableColumnContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
+        <container id="rightbottom-spaces-container"
+          template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
+          <name>rightbottom-spaces-container</name>
+          <access-permissions>*:/platform/users</access-permissions>
+          <factory-id>addonContainer</factory-id>
+        </container>
         <container id="TasksContainer"
           template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
           <access-permissions>*:/platform/users</access-permissions>
