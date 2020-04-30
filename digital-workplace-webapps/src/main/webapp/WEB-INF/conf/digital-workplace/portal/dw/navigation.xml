@@ -9,13 +9,6 @@
       <label>#{portal.dw.home}</label>
       <page-reference>portal::dw::homepage</page-reference>
     </node>
-
-    <node>
-      <name>stream</name>
-      <label>#{portal.dw.stream}</label>
-      <page-reference>portal::dw::stream</page-reference>
-    </node>
-
   </page-nodes>
 
 </node-navigation>
