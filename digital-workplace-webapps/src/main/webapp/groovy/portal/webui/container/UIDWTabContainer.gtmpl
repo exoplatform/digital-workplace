@@ -98,7 +98,7 @@ def modeState = Util.getUIPortalApplication().getModeState();
                 <% /*End Popup Menu*/ %>
             </div>
             <%} else {%>
-            <a data-toggle="tab" data-target="#$tabId-tab" onclick="<%= selectTab %>" class="tabsTitle"><%=title%></a>
+            <a class="tabsTitle"><%=title%></a>
             <%} %>
         </v-tab>
         <%
@@ -158,10 +158,4 @@ def modeState = Util.getUIPortalApplication().getModeState();
     			},
     		})
     	});
-    	require(['SHARED/jquery'], function(jquery){
-            jquery(document).ready(function() {
-               jquery(".docs-wrapper").delay(1000).fadeIn(100);
-            });
-        });
 </script>
-

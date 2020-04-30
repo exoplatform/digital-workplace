@@ -568,6 +568,12 @@ body.open-drawer {
 
 #digitalWorkplaceHomePage {
   margin: 20px;
+  .TasksContainerTDContainer, .DocumentsContainerTDContainer, .rightbottom-spaces-containerTDContainer {
+    flex: 0 1 32%;
+    background: #fff;
+    overflow: hidden;
+  }
+  
 }
 #SliderContainer, #MiddleContainer {
   margin-bottom: 20px;
@@ -591,12 +597,6 @@ body.open-drawer {
   width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
-}
-.TasksContainerTDContainer,
-.DocumentsContainerTDContainer {
-  flex: 0 1 49.2%;
-  background: #fff;
-  overflow: hidden;
 }
 .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
   flex: 0 1 49%;
@@ -677,6 +677,17 @@ body.open-drawer {
   .profileCard {
     margin-bottom: 0!important;
   }
+  #digitalWorkplaceHomePage {
+    .rightbottom-spaces-containerTDContainer, .TasksContainerTDContainer {
+      flex: 0 0 48.7%;
+      background: #fff;
+      margin-right: 0;
+    }
+    .DocumentsContainerTDContainer {
+      flex: 1 1 100%!important;
+      margin-top: 20px;
+    }
+  }
   #MiddleContainer tr {
     flex-wrap: wrap;
   }
@@ -716,12 +727,12 @@ body.open-drawer {
 }
 
 @media (max-width: 599px) {
-  .TasksContainerTDContainer,
-  .DocumentsContainerTDContainer {
-    flex: 0 0 100%;
-  }
-  .DocumentsContainerTDContainer {
-    margin-top: 10px;
+
+  #digitalWorkplaceHomePage {
+    .rightbottom-spaces-containerTDContainer, .TasksContainerTDContainer {
+      flex: 0 0 100%;
+      margin-top: 20px;
+    }
   }
   #ProfileStatsContainer {
     flex: 0 1 100%;
