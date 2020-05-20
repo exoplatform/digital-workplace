@@ -29,7 +29,7 @@
               <boolean>true</boolean>
             </field>
             <field name="importMode">
-              <string>${exo.dw.portalConfig.metadata.importmode:merge}</string>
+              <string>${exo.dw.portalConfig.metadata.importmode:insert}</string>
             </field>
             <field name="predefinedOwner">
               <collection type="java.util.HashSet">
