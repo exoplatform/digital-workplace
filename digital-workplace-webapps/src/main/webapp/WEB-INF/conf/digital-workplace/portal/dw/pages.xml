@@ -179,11 +179,12 @@
           template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
           <access-permissions>*:/platform/users</access-permissions>
           <container
-            template="system:/groovy/portal/webui/container/UIDWTabContainer.gtmpl">
+            template="system:/groovy/portal/webui/container/UITabContainer.gtmpl">
+            <title>homepage.documents</title>
             <factory-id>TabContainer</factory-id>
             <container
               template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-              <title>recentDocuments</title>
+              <title>homepage.documents.tab.recentDocuments</title>
               <access-permissions>*:/platform/users</access-permissions>
               <portlet-application>
                 <portlet>
@@ -209,7 +210,7 @@
             </container>
             <container
               template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-              <title>favoriteDocuments</title>
+              <title>homepage.documents.tab.favoriteDocuments</title>
               <access-permissions>*:/platform/users</access-permissions>
               <portlet-application>
                 <portlet>
@@ -235,7 +236,7 @@
             </container>
             <container
               template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-              <title>sharedDocuments</title>
+              <title>homepage.documents.tab.sharedDocuments</title>
               <access-permissions>*:/platform/users</access-permissions>
               <portlet-application>
                 <portlet>
@@ -261,7 +262,7 @@
             </container>
             <container
               template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-              <title>inSpacesDocuments</title>
+              <title>homepage.documents.tab.inSpacesDocuments</title>
               <access-permissions>*:/platform/users</access-permissions>
               <portlet-application>
                 <portlet>
