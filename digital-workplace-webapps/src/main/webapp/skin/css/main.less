@@ -54,67 +54,45 @@
   #PerkstoreContainer, #WalletContainer {
     height: 100%;
   }
+  #DocumentsContainer {
+    .header {
+      font-size: 1rem;
+      text-transform: uppercase;
+      padding: 16px;
+      padding-bottom: 8px;
+      color: @greyColor;
+    }
+    .v-slide-group__next,
+    .v-slide-group__prev {
+      flex:0 1 25px;
+      min-width: 25px;
+    }
+    .v-slide-group__next > i,
+    .v-slide-group__prev > i {
+      color: @primaryColor;
+    }
+    .v-tabs-slider-wrapper {
+      height: 3px!important;
+    }
+    .v-tab {
+      box-sizing: border-box;
+    }
+    .v-tab > .tabsTitle {
+      color:@greyColor
+    }
+    .v-tab--active > .tabsTitle {
+      color:@primaryColor
+    }
+    .tabsTitle {
+      font-size: 1rem!important;
+      font-weight: 400;
+      letter-spacing: .009375em!important;
+      line-height: 1.75rem;  text-transform: capitalize;
+    }
+  }
 }
 
 @media (max-width: 1200px) {
-  .LatestNewsContainerTDContainer {
-    flex: 0 1 100%;
-    margin-right: 0;
-  }
-  .UserProfileContainerTDContainer {
-    flex: 0 1 100%;
-    margin-left: 0;
-  }
-  #UserProfileContainer {
-    margin-top: 20px;
-  }
-  #UserProfileContainer .NormalContainerBlock .VIEW-CONTAINER div .UIRowContainer {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-  #PerkstoreContainer , #WalletContainer{
-    .NormalContainerBlock {
-      .VIEW-CONTAINER {
-        div {
-          .UIRowContainer {
-            div {
-              width: inherit;
-            }
-          }
-        }
-      }
-    }
-  }
-  #ProfileStatsContainer {
-    flex: 0 1 68.5%;
-    background: #fff;
-  }
-  #PerkstoreWalletContainer {
-    flex: 0 1 30%;
-  }
-  #ProfileStatsContainer .UIRowContainer {
-    display: block!important;
-  }
-  .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
-    flex: 0 1 100%;
-    min-height: 138px;
-  }
-  .PerkstoreContainerTDContainer {
-    margin-bottom: 10px;
-  }
-
-  #digital-workplace-profile-stats {
-    background: transparent;
-    .profileCard {
-      max-height: 280px!important;
-      height: 280px!important;
-    }
-  }
-  .profileCard {
-    margin-bottom: 0!important;
-  }
   #digitalWorkplaceHomePage {
     .rightbottom-spaces-containerTDContainer, .TasksContainerTDContainer {
       flex: 0 0 48.7%;
@@ -125,125 +103,104 @@
       flex: 1 1 100%!important;
       margin-top: 20px;
     }
-  }
-  #MiddleContainer tr {
-    flex-wrap: wrap;
-  }
-
-  #digital-workplace-slider {
-    .carousel-text {
-      font-size: 1.5rem !important;
+    .LatestNewsContainerTDContainer {
+      flex: 0 1 100%;
+      margin-right: 0;
     }
-  }
-
-  #digital-workplace-news {
-    .news-container {
-      min-height: auto!important;
+    .UserProfileContainerTDContainer {
+      flex: 0 1 100%;
+      margin-left: 0;
     }
-  }
-
-  #DocumentsContainer {
-    .v-slide-group__wrapper{
-      padding-left: 18px;
+    #UserProfileContainer {
+      margin-top: 20px;
+      .NormalContainerBlock .VIEW-CONTAINER div .UIRowContainer {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }  
     }
-  }
-  #NavigationToolbarPortlet {
-    max-width: 300px!important;
-    .v-tab {
-      margin-left: 0px!important;
+    #PerkstoreContainer , #WalletContainer{
+      .NormalContainerBlock {
+        .VIEW-CONTAINER {
+          div {
+            .UIRowContainer {
+              div {
+                width: inherit;
+              }
+            }
+          }
+        }
+      }
     }
-  }
-  #administration-navigation {
-    display: none;
-  }
-  .DWAdminToolBarPortletTDContainer {
-    display: none;
-  }
-  .NotificationPopoverPortletTDContainer {
-    padding-right: 8px;
-  }
+    #ProfileStatsContainer {
+      flex: 0 1 68.5%;
+      background: #fff;
+      .UIRowContainer {
+        display: block!important;
+      }
+    }
+    #PerkstoreWalletContainer {
+      flex: 0 1 30%;
+    }
+    .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
+      flex: 0 1 100%;
+      min-height: 138px;
+    }
+    .PerkstoreContainerTDContainer {
+      margin-bottom: 10px;
+    }
+    .profileCard {
+      margin-bottom: 0!important;
+    }
+    #MiddleContainer tr {
+      flex-wrap: wrap;
+    }
+    #DocumentsContainer {
+      .v-slide-group__wrapper {
+        padding-left: 18px;
+      }
+    }
+  } 
 }
 
 @media (max-width: 599px) {
-
-  #digitalWorkplaceHomePage {
-    .rightbottom-spaces-containerTDContainer, .TasksContainerTDContainer {
-      flex: 0 0 100%;
-      margin-top: 20px;
-    }
-  }
-  #ProfileStatsContainer {
-    flex: 0 1 100%;
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-  #PerkstoreWalletContainer {
-    flex: 0 1 100%;
-  }
-  .PerkstoreContainerTDContainer {
-    margin-bottom: 0;
-  }
-  .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
-    flex: 0 1 49%;
-    min-height: 110px;
-  }
   #digitalWorkplaceHomePage {
     margin: 10px;
-  }
-  #SliderContainer, #MiddleContainer {
-    margin-bottom: 10px;
-  }
-  #UserProfileContainer {
-    margin-top: 10px;
+    .rightbottom-spaces-containerTDContainer, .TasksContainerTDContainer {
+      flex: 0 0 100%;
+    }
+    .TasksContainerTDContainer {
+      margin-top: 20px;
+    }
+    #ProfileStatsContainer {
+      flex: 0 1 100%;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+    #PerkstoreWalletContainer {
+      flex: 0 1 100%;
+    }
+    .PerkstoreContainerTDContainer {
+      margin-bottom: 0;
+    }
+    .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
+      flex: 0 1 49%;
+      min-height: 110px;
+    }
+    #SliderContainer, #MiddleContainer {
+      margin-bottom: 10px;
+    }
+    #UserProfileContainer {
+      margin-top: 10px;
+    }
   }
 }
 @media (max-width: 500px) {
-  .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
-    flex: 0 1 48.3%;
-    min-height: 90px;
-  }
-}
-
-@media (max-width: 599px) {
   #digitalWorkplaceHomePage {
-    margin: 10px;
-  }
-}
-
-/*--------------- Documents Tabs CSS ---------------------------*/
-#DocumentsContainer {
-    .header {
-      font-size: 1rem;
-      text-transform: uppercase;
-      padding: 16px;
-      padding-bottom: 8px;
-      color: @greyColor;
+    .PerkstoreContainerTDContainer, .WalletContainerTDContainer {
+      flex: 0 1 48.3%;
+      min-height: 90px;
     }
-  .v-slide-group__next,
-  .v-slide-group__prev {
-    flex:0 1 25px;
-    min-width: 25px;
-  }
-  .v-slide-group__next > i,
-  .v-slide-group__prev > i{
-    color: @primaryColor;
-  }
-  .v-tabs-slider-wrapper{
-    height: 3px!important;
-  }
-  .v-tab {
-    box-sizing: border-box;
-  }
-  .v-tab > .tabsTitle {
-    color:@greyColor
-  }
-  .v-tab--active > .tabsTitle {
-    color:@primaryColor
-  }
-  .tabsTitle {
-    font-size: 1rem!important;
-    font-weight: 400;
-    letter-spacing: .009375em!important;
-    line-height: 1.75rem;  text-transform: capitalize;
   }
 }
