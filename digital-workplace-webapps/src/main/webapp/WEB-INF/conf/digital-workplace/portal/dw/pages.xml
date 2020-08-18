@@ -41,7 +41,7 @@
                 </preference>
                 <preference>
                   <name>query</name>
-                  <value>SELECT * FROM exo:news WHERE jcr:path LIKE '/Groups/spaces/communication/News/%' and exo:pinned='true' ORDER BY jcr:created DESC</value>
+                  <value>SELECT * FROM exo:news WHERE jcr:path LIKE '/Groups/spaces/communication/News/%' and exo:pinned='true' ORDER BY exo:dateCreated DESC</value>
                   <read-only>false</read-only>
                 </preference>
                 <preference>
