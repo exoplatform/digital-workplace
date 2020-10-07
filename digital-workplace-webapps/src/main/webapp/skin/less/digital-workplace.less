@@ -1,0 +1,290 @@
+@import "./variables.less";
+
+/*--------------- HomePage Containers Structure ---------------------------*/
+#digitalWorkplaceHomePage {
+
+  #digitalWorkplaceHomePageChildren {
+    margin: 20px;
+
+    > * {
+      max-width: 100%;
+    }
+  }
+  
+  #MiddleContainer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    #MiddleContainerChildren {
+      display: flex;
+
+      > :first-child {
+        flex-basis: auto;
+        flex-grow: 1;
+      }
+
+      > :nth-child(2) {
+        flex: 0 1 26%;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  #UserProfileContainer {
+    max-height: 404px;
+
+    #UserProfileContainerChildren {
+      display: flex;
+      flex-direction: column;
+
+      > :first-child {
+        flex-basis: auto;
+        flex-grow: 1;
+      }
+
+      > :nth-child(2) {
+        flex: 0 1 26%;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  #PerkstoreWalletContainer {
+    height: 94px;
+
+    #PerkstoreWalletContainerChildren {
+      display: flex;
+      flex-direction: row;
+
+      > :first-child {
+        flex: 1 1 auto;
+        min-width: 48%;
+      }
+
+      > :nth-child(2) {
+        flex: 1 1 48%;
+        min-width: 48%;
+        margin-left: 2%;
+      }
+    }
+  }
+
+  #BottomContainer {
+    #BottomContainerChildren {
+      display: flex;
+      flex-direction: row;
+      max-width: 100%;
+
+      > * {
+        min-height: 100%;
+        flex: 1 1 auto;
+        min-width: 32%;
+        background: #fff !important;
+        overflow: hidden;
+        max-width: 100%;
+      }
+
+      > :nth-child(2), > :nth-child(3) {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .UICLVPortlet, .UICLVFolderMode {
+    border: 0 !important;
+  }
+
+  #profile-stats-portlet {
+    margin: 0 !important;
+  }
+
+  #latestNewsDetails, #profile-stats-portlet, #perkstoreOrderPortlet, #walletBalancePortlet,#tasks {
+    .container {
+    	margin: 0;
+      max-width: initial;
+    }
+  }
+
+  #latestNewsDetails {
+    background: #fff !important;
+    height: 404px;
+  }
+
+  #DocumentsContainer {
+    .header {
+      font-size: 1rem;
+      text-transform: uppercase;
+      padding: 16px;
+      padding-bottom: 8px;
+      color: @greyColorLighten1;
+    }
+    .v-slide-group__next,
+    .v-slide-group__prev {
+      flex:0 1 25px;
+      min-width: 25px;
+    }
+    .v-slide-group__next > i,
+    .v-slide-group__prev > i {
+      color: @primaryColor;
+    }
+    .v-tabs-slider-wrapper {
+      height: 3px!important;
+    }
+    .v-tab {
+      box-sizing: border-box;
+    }
+    .v-tab > .tabsTitle {
+      color: @greyColorLighten1;
+    }
+    .v-tab--active > .tabsTitle {
+      color: @primaryColor
+    }
+    .tabsTitle {
+      font-size: 1rem!important;
+      font-weight: 400;
+      letter-spacing: .009375em!important;
+      line-height: 1.75rem;  text-transform: capitalize;
+    }
+  }
+}
+
+@media (min-width: @minLargeDesktop) {
+  #digitalWorkplaceHomePage {
+    #UserProfileContainerChildren {
+      #ProfileStatsContainer:only-child {
+        #profile-stats-portlet .profileCard {
+          min-height: 404px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: @maxDesktop) {
+  #digitalWorkplaceHomePage {
+
+    #MiddleContainer {
+      margin-top: 10px;
+
+      #MiddleContainerChildren {
+        flex-direction: column;
+  
+        > :nth-child(2) {
+          margin-left: 0;
+        }
+      }
+    }
+
+    #UserProfileContainer #UserProfileContainerChildren {
+      flex-direction: row;
+      margin-top: 10px;
+
+      > :nth-child(2) {
+        margin-top: 0;
+        margin-left: 10px;
+      }
+    }
+
+    #PerkstoreWalletContainer {
+      min-height: 100%;
+      height: auto;
+
+      #PerkstoreWalletContainerChildren {
+        flex-direction: column;
+        height: 300px;
+
+        > :first-child {
+          min-height: 50%;
+
+          .big-number {
+            margin: 17px 0 38px !important;
+            display: block;
+          }
+        }
+
+        > :nth-child(2) {
+          min-height: 50%;
+          margin-left: 0;
+          margin-top: 10px;
+
+          .big-number {
+            margin: 12px 0 34px !important;
+            display: block;
+          }
+        }
+      }
+    }
+
+    #BottomContainer #BottomContainerChildren {
+      flex-wrap: wrap;
+
+      :nth-child(3) {
+        margin-left: 0;
+        min-width: 100%;
+        margin-top: 20px;
+      }
+    }
+
+    #DocumentsContainer {
+      .v-slide-group__wrapper {
+        padding-left: 18px;
+      }
+    }
+
+  }
+}
+
+@media (max-width: @maxMobileWidth) {
+  .VuetifyApp .v-btn:not(.v-btn--round).v-size--small {
+    margin-top: 0 !important;
+  }
+  #digitalWorkplaceHomePage {
+    #UserProfileContainer #UserProfileContainerChildren {
+      flex-direction: column;
+  
+      > :nth-child(2) {
+        margin-top: 10px;
+        margin-left: 0;
+      }
+    }
+  
+    #PerkstoreWalletContainer #PerkstoreWalletContainerChildren {
+      flex-direction: row;
+      height: 94px;
+  
+      > :first-child {
+        min-height: 100%;
+  
+        .big-number {
+          margin: 0 !important;
+          display: block;
+        }
+      }
+  
+      > :nth-child(2) {
+        min-height: 100%;
+        margin-left: 10px;
+        margin-top: 0;
+  
+        .big-number {
+          margin: 0 !important;
+          display: block;
+        }
+      }
+    }
+
+    #BottomContainer #BottomContainerChildren {
+      flex-direction: column;
+
+      > * {
+        min-width: auto !important;
+      }
+
+      > :nth-child(2), > :nth-child(3) {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+
+  }
+}

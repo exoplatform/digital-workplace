@@ -31,9 +31,18 @@
 	<properties>
 		<!-- Maven Plugin for JS and CSS bundling and Unit Test execution -->
 		<com.github.eirslett.frontend.version>1.6</com.github.eirslett.frontend.version>
+    <org.exoplatform.platform-ui.version>6.1.x-SNAPSHOT</org.exoplatform.platform-ui.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
+      <!-- Import versions from platform-ui project -->
+      <dependency>
+        <groupId>org.exoplatform.platform-ui</groupId>
+        <artifactId>platform-ui</artifactId>
+        <version>${org.exoplatform.platform-ui.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
 			<!-- Current project artifacts -->
 			<dependency>
 				<groupId>${project.groupId}</groupId>

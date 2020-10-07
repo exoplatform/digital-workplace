@@ -5,7 +5,7 @@
   <portal-skin>
     <skin-name>Enterprise</skin-name>
     <skin-module>customModuleDigitalWorkplace</skin-module>
-    <css-path>/skin/css/main.css</css-path>
+    <css-path>/skin/css/digital-workplace.css</css-path>
     <css-priority>11</css-priority>
   </portal-skin>
   
