@@ -145,10 +145,17 @@
       </container>
       <container id="BottomContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
-        <container id="rightbottom-spaces-container" template="system:/groovy/portal/webui/container/UIAddOnColumnContainer.gtmpl">
-          <name>rightbottom-spaces-container</name>
+        <container id="AgendaContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" profiles="agenda">
           <access-permissions>*:/platform/users</access-permissions>
-          <factory-id>addonContainer</factory-id>
+          <portlet-application>
+            <portlet>
+              <application-ref>agenda</application-ref>
+              <portlet-ref>AgendaTimeline</portlet-ref>
+            </portlet>
+            <title>Agenda Timeline</title>
+            <access-permissions>*:/platform/users</access-permissions>
+            <show-info-bar>false</show-info-bar>
+          </portlet-application>
         </container>
         <container id="TasksContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" profiles="task">
           <access-permissions>*:/platform/users</access-permissions>
