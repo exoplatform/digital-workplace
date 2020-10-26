@@ -1,0 +1,33 @@
+{
+  "name": "eXo Platform",
+  "short_name": "exo-platform",
+  "icons": [
+    {
+       "src": "/digital-workplace/skin/images/eXo-large.png",
+       "sizes": "512x512",
+       "type": "image/png"
+    },
+    {
+       "src": "/digital-workplace/skin/images/eXo.png",
+       "sizes": "225x225",
+       "type": "image/png"
+    },
+    {
+      "src": "/eXoResources/skin/images/ShareImages/Background/maskable.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+       "src": "/portal/favicon.ico",
+       "sizes": "16x16",
+       "type": "image/x-icon"
+    }
+  ],
+  "scope": "/",
+  "start_url": "/portal/dw/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#578dc9",
+  "prefer_related_applications": false
+}
