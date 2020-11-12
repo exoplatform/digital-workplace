@@ -44,7 +44,7 @@
               </preference>
               <preference>
                 <name>sharedCache</name>
-                <value>false</value>
+                <value>true</value>
                 <read-only>false</read-only>
               </preference>
             </preferences>
@@ -90,7 +90,7 @@
                 </preference>
                 <preference>
                   <name>sharedCache</name>
-                  <value>false</value>
+                  <value>true</value>
                   <read-only>false</read-only>
                 </preference>
               </preferences>
