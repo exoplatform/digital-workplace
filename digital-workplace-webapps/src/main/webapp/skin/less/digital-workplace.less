@@ -147,12 +147,12 @@
     }
   }
 }
-@media only screen and (min-width: 1280px) {
+@media only screen and (min-width: @minDesktop) {
   #digitalWorkplaceHomePage #latestNewsDetails {
     height: 404px;
   }
 }
-@media (min-width: @minLargeDesktop) {
+@media (min-width: @minDesktop) {
   #digitalWorkplaceHomePage {
     #UserProfileContainerChildren {
       #ProfileStatsContainer:only-child {
@@ -164,7 +164,7 @@
   }
 }
 
-@media (max-width: @maxDesktop) {
+@media (max-width: @minDesktop) {
   #digitalWorkplaceHomePage {
 
     #MiddleContainer {
