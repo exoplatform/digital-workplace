@@ -4,7 +4,6 @@
   import org.exoplatform.portal.webui.util.Util;
   import org.exoplatform.web.application.JavascriptManager;
   import org.exoplatform.commons.utils.HTMLEntityEncoder;
-  import org.json.simple.JSONObject;
 
   def rcontext = _ctx.getRequestContext();
   ResourceBundle res = rcontext.getApplicationResourceBundle();
@@ -43,132 +42,133 @@
   String id = uicomponent.getId();
   def modeState = Util.getUIPortalApplication().getModeState();
   def header = uicomponent.getTitle() != null ? _ctx.appRes(uicomponent.getTitle()) : null;
+  def attachmentsApp = jsmanager.require("SHARED/AttachmentsApp", "attachmentsApp").addScripts("attachmentsApp.init();");
 %>
 <% if(children != null && children.size() > 0) { %>
+<v-app id=">$id" class="<%=uiComponentClass%>">
   <div class="VuetifyApp">
-    <div class="v-application document-application border-box-sizing transparent">
-      <div id="tab$id" style="width:100%">
-          <% if(modeState == 0 && header != null){ %>
-          <header>
-              <v-flex class="document-timeline-header d-flex mx-3 my-2">
-                  <div class="header d-flex align-center">
-                      <a class="body-1 text-uppercase text-sub-title px-0" href="#">$header</a>
-                  </div>
-                  <v-spacer></v-spacer>
-                  <v-btn
-                      icon
-                      text
-                      onclick="javascript:openDrawer.call(this);">
-                      <v-icon>mdi-plus</v-icon>
-                  </v-btn>
-                  <div id="attachmentsApp"></div>
-              </v-flex>
-          </header>
-
-          <%}%>
-          <v-tabs v-model="tab" class="v-tabs theme--light v-item-group v-slide-group v-tabs-bar primary--text">
-          <%
-             if(modeState > 0){
-               jsmanager.require("SHARED/portalDragDrop", "portalDragDrop").addScripts("portalDragDrop.init(['UIContainer']);");
-             }
-            int counter = 1;
-            String tabClass = "v-tab--active";
-            for(uiChild in uicomponent.getChildren()) {
-              String status = "";
-              if(uiChild.isRendered()) status = "active";
-              String title = uiChild.getTitle();
-              String tabId = uiChild.getId();
-              if(title == null || title.trim().length() < 1 ) {
-                 title = _ctx.appRes("UITabContainer.tab") + String.valueOf(counter);
-                                 uiChild.setTitle(title);
-              }
-              else title = _ctx.appRes(title);
-              String selectTab = uicomponent.event("SelectTab", tabId);
-              String tabState = uicomponent.getTabState(uiChild, uicomponent);
-              title = HTMLEntityEncoder.getInstance().encode(title);
-          %>
-              <v-tab class="v-tab $tabClass">
-                 <%
-                   if(modeState > 0){
-                     String actionLink = uicomponent.event("EditContainer", "$uiChild.id") - "javascript:";
-                     String moveLeftAction = uicomponent.event("MoveLeft", tabId);
-                     String moveRightAction = uicomponent.event("MoveRight", tabId);
-                 %>
-                <a data-toggle="tab" data-target="#$tabId-tab" onclick="<%= selectTab %>"><%=title%></a>
-               <v-menu
-                  v-custom-click-outside="closeDropDownList"
-                  bottom
-                  left
-                  >
-                  <template v-slot:activator="{ on, attrs }">
-                     <v-btn
+      <div class="v-application document-application border-box-sizing transparent">
+        <div id="tab$id" style="width:100%">
+            <% if(modeState == 0 && header != null){ %>
+            <header>
+                <v-flex class="document-timeline-header d-flex mx-3 my-2">
+                    <div class="header">$header</div>
+                    <v-spacer></v-spacer>
+                    <v-btn
                         icon
-                        class="align-self-center mr-4"
-                        v-bind="attrs"
-                        v-on="on"
-                        >
-                        <v-icon>mdi-menu-down</v-icon>
-                     </v-btn>
-                  </template>
-                  <v-list>
-                     <% if (!tabState.equals(org.exoplatform.portal.webui.container.UITabContainer.FIRST_TAB)) {%>
-                     <v-list-item onclick="$moveLeftAction" style="cursor: pointer;">
-                        <%= _ctx.appRes("UITabContainer.label.moveLeft") %>
-                     </v-list-item>
-                     <% } %>
-                     <% if (!tabState.equals(org.exoplatform.portal.webui.container.UITabContainer.LAST_TAB)) { %>
-                     <v-list-item onclick="$moveRightAction" style="cursor: pointer;">
-                        <%= _ctx.appRes("UITabContainer.label.moveRight") %>
-                     </v-list-item>
-                     <% } %>
-                  </v-list>
-               </v-menu>
-                 <%} else {%>
-                     <a class="tabsTitle"><%=title%></a>
-                 <%} %>
-              </v-tab>
-          <%
-              counter++;
-              tabClass = "";
-            }
-          %>
-          <% String addTabLink = uicomponent.event("AddTab");
-             if (modeState > 0) {
-          %>
-             <li class="AddTab" onclick="$addTabLink">
-                <span class="uiIconLightGray uiIconSimplePlusMini"></span>
-             </li>
-          <% } %>
-          </v-tabs>
-          <%
-             String style = "";
-             String width = uicomponent.getWidth();
-             String height  = uicomponent.getHeight();
-             if(width != null || height != null) style="style=\"";
-             if(width != null) style += "width: "+width+"px;"
-             if(height != null) style += "height: "+height+"px;"
-             if(style.length() > 0) style += "\"";
-          %>
-          <v-tabs-items v-model="tab" class="v-window v-item-group theme--light v-tabs-items v-window__container">
-            <%
+                        text
+                        onclick="javascript:openDrawer.call(this);">
+                        <v-icon>mdi-plus</v-icon>
+                    </v-btn>
+                    <div id="attachmentsApp"></div>
+                </v-flex>
+            </header>
 
-              String tabItemClass = "v-window-item--active";
-              String tabItemStyle = "";
-              for(uiChild in uicomponent.getChildren()) {
-                String active = "";
-                if(uiChild.isRendered()) active = "in active";
-            %>
-                <v-tab-item eager class="v-window-item $tabItemClass" $tabItemStyle>
-                    <% uicomponent.renderUIComponent(uiChild);%>
-                </v-tab-item>
+            <%}%>
+            <v-tabs v-model="tab" class="v-tabs theme--light v-item-group v-slide-group v-tabs-bar primary--text">
             <%
-                tabItemClass = "";
-                tabItemStyle = "style='display: none;'";
+	           if(modeState > 0){
+	             jsmanager.require("SHARED/portalDragDrop", "portalDragDrop").addScripts("portalDragDrop.init(['UIContainer']);");
+	           }
+              int counter = 1;
+              String tabClass = "v-tab--active";
+              for(uiChild in uicomponent.getChildren()) {
+                String status = "";
+                if(uiChild.isRendered()) status = "active";
+                String title = uiChild.getTitle();
+                String tabId = uiChild.getId();
+                if(title == null || title.trim().length() < 1 ) {
+                   title = _ctx.appRes("UITabContainer.tab") + String.valueOf(counter);
+                                   uiChild.setTitle(title);
+                }
+                else title = _ctx.appRes(title);
+                String selectTab = uicomponent.event("SelectTab", tabId);
+                String tabState = uicomponent.getTabState(uiChild, uicomponent);
+                title = HTMLEntityEncoder.getInstance().encode(title);
+            %>
+                <v-tab class="v-tab $tabClass">
+                   <%
+                     if(modeState > 0){
+                       String actionLink = uicomponent.event("EditContainer", "$uiChild.id") - "javascript:";
+                       String moveLeftAction = uicomponent.event("MoveLeft", tabId);
+                       String moveRightAction = uicomponent.event("MoveRight", tabId);
+                   %>
+                  <a data-toggle="tab" data-target="#$tabId-tab" onclick="<%= selectTab %>"><%=title%></a>
+                 <v-menu
+                    v-custom-click-outside="closeDropDownList"
+                    bottom
+                    left
+                    >
+                    <template v-slot:activator="{ on, attrs }">
+                       <v-btn
+                          icon
+                          class="align-self-center mr-4"
+                          v-bind="attrs"
+                          v-on="on"
+                          >
+                          <v-icon>mdi-menu-down</v-icon>
+                       </v-btn>
+                    </template>
+                    <v-list>
+                       <% if (!tabState.equals(org.exoplatform.portal.webui.container.UITabContainer.FIRST_TAB)) {%>
+                       <v-list-item onclick="$moveLeftAction" style="cursor: pointer;">
+                          <%= _ctx.appRes("UITabContainer.label.moveLeft") %>
+                       </v-list-item>
+                       <% } %>
+                       <% if (!tabState.equals(org.exoplatform.portal.webui.container.UITabContainer.LAST_TAB)) { %>
+                       <v-list-item onclick="$moveRightAction" style="cursor: pointer;">
+                          <%= _ctx.appRes("UITabContainer.label.moveRight") %>
+                       </v-list-item>
+                       <% } %>
+                    </v-list>
+                 </v-menu>
+                   <%} else {%>
+                       <a class="tabsTitle"><%=title%></a>
+                   <%} %>
+                </v-tab>
+            <%
+                counter++;
+                tabClass = "";
               }
             %>
-          </v-tabs-items>
-      </div>
+            <% String addTabLink = uicomponent.event("AddTab");
+               if (modeState > 0) {
+            %>
+               <li class="AddTab" onclick="$addTabLink">
+                  <span class="uiIconLightGray uiIconSimplePlusMini"></span>
+               </li>
+            <% } %>
+  </v-tabs>
+  <%
+     String style = "";
+     String width = uicomponent.getWidth();
+     String height  = uicomponent.getHeight();
+     if(width != null || height != null) style="style=\"";
+     if(width != null) style += "width: "+width+"px;"
+     if(height != null) style += "height: "+height+"px;"
+     if(style.length() > 0) style += "\"";
+  %>
+  <v-tabs-items v-model="tab" class="v-window v-item-group theme--light v-tabs-items v-window__container">
+    <%
+
+      String tabItemClass = "v-window-item--active";
+      String tabItemStyle = "";
+      for(uiChild in uicomponent.getChildren()) {
+        String active = "";
+        if(uiChild.isRendered()) active = "in active";
+    %>
+        <v-tab-item eager class="v-window-item $tabItemClass" $tabItemStyle>
+            <% uicomponent.renderUIComponent(uiChild);%>
+        </v-tab-item>
+    <%
+        tabItemClass = "";
+        tabItemStyle = "style='display: none;'";
+      }
+    %>
+  </v-tabs-items>
   </div>
+  </div>
+</div>
 <% } %>
 
 <script type="text/javascript">
@@ -204,15 +204,6 @@
                 }
     		})
     	});
-	require(['SHARED/AttachmentsApp'], function(attachmentsApp){
-      const defaultDrive = {
-        isSelected: true,
-        name: 'Personal Documents',
-        title: 'Personal Documents'
-      }
-      const defaultFolder = 'Documents';
-      attachmentsApp.init('','',defaultDrive, defaultFolder, '');
-    });
     function openDrawer() {
       window.require(['SHARED/AttachmentsApp'], attachmentsApp => {
         attachmentsApp.openAttachmentsDrawer();
