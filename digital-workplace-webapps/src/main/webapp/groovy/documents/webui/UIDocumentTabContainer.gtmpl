@@ -4,6 +4,7 @@
   import org.exoplatform.portal.webui.util.Util;
   import org.exoplatform.web.application.JavascriptManager;
   import org.exoplatform.commons.utils.HTMLEntityEncoder;
+  import org.json.simple.JSONObject;
 
   def rcontext = _ctx.getRequestContext();
   ResourceBundle res = rcontext.getApplicationResourceBundle();
@@ -42,7 +43,6 @@
   String id = uicomponent.getId();
   def modeState = Util.getUIPortalApplication().getModeState();
   def header = uicomponent.getTitle() != null ? _ctx.appRes(uicomponent.getTitle()) : null;
-  def attachmentsApp = jsmanager.require("SHARED/AttachmentsApp", "attachmentsApp").addScripts("attachmentsApp.init();");
 %>
 <% if(children != null && children.size() > 0) { %>
 <v-app id=">$id" class="<%=uiComponentClass%>">
@@ -52,7 +52,9 @@
             <% if(modeState == 0 && header != null){ %>
             <header>
                 <v-flex class="document-timeline-header d-flex mx-3 my-2">
-                    <div class="header">$header</div>
+                    <div class="header d-flex align-center">
+                        <a class="body-1 text-uppercase text-sub-title px-0" href="#">$header</a>
+                    </div>
                     <v-spacer></v-spacer>
                     <v-btn
                         icon
@@ -204,6 +206,15 @@
                 }
     		})
     	});
+	require(['SHARED/AttachmentsApp'], function(attachmentsApp){
+      const defaultDrive = {
+        isSelected: true,
+        name: 'Personal Documents',
+        title: 'Personal Documents'
+      }
+      const defaultFolder = 'Documents';
+      attachmentsApp.init('','',defaultDrive, defaultFolder, '');
+    });
     function openDrawer() {
       window.require(['SHARED/AttachmentsApp'], attachmentsApp => {
         attachmentsApp.openAttachmentsDrawer();
