@@ -171,7 +171,7 @@
         </container>
         <container id="DocumentsContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" profiles="ecms">
           <access-permissions>*:/platform/users</access-permissions>
-          <container template="system:/groovy/portal/webui/container/UITabContainer.gtmpl">
+          <container template="war:/groovy/documents/webui/UIDocumentTabContainer.gtmpl">
             <title>homepage.documents</title>
             <factory-id>TabContainer</factory-id>
             <container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
