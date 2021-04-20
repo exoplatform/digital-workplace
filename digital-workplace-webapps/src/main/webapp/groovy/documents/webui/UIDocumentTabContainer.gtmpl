@@ -43,6 +43,11 @@
   String id = uicomponent.getId();
   def modeState = Util.getUIPortalApplication().getModeState();
   def header = uicomponent.getTitle() != null ? _ctx.appRes(uicomponent.getTitle()) : null;
+
+  String portalName = rcontext.getPortalOwner();
+  String context =  rcontext.getRequestContextPath();
+  def documentsBaseLink = context + "/" + portalName +"/documents";
+
 %>
 <% if(children != null && children.size() > 0) { %>
   <div class="VuetifyApp">
@@ -52,7 +57,7 @@
           <header>
               <v-flex class="document-timeline-header d-flex mx-3 my-2">
                   <div class="header d-flex align-center">
-                      <a class="body-1 text-uppercase text-sub-title px-0" href="#">$header</a>
+                      <a class="body-1 text-uppercase text-sub-title px-0" href="$documentsBaseLink">$header</a>
                   </div>
                   <v-spacer></v-spacer>
                   <v-btn
