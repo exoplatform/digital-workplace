@@ -40,7 +40,6 @@
       max-width: 100%;
       margin-left: auto ~'; /** orientation=lt */ ';
       margin-right: auto ~'; /** orientation=rt */ ';
-      width: 370px;
 
       > :first-child {
         flex-basis: auto;
@@ -154,6 +153,7 @@
 @media (min-width: @minDesktop) {
   #digitalWorkplaceHomePage {
     #UserProfileContainerChildren {
+      min-width: 370px;
       #ProfileStatsContainer:only-child {
         #profile-stats-portlet .profileCard {
           min-height: 404px;
