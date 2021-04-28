@@ -43,16 +43,21 @@
   String id = uicomponent.getId();
   def modeState = Util.getUIPortalApplication().getModeState();
   def header = uicomponent.getTitle() != null ? _ctx.appRes(uicomponent.getTitle()) : null;
+
+  String portalName = rcontext.getPortalOwner();
+  String context =  rcontext.getRequestContextPath();
+  def documentsBaseLink = context + "/" + portalName +"/documents";
+
 %>
 <% if(children != null && children.size() > 0) { %>
   <div class="VuetifyApp">
-    <div class="v-application document-application border-box-sizing transparent">
-      <div id="tab$id" style="width:100%">
+    <v-app id="tab$id">
+      <div style="width:100%" class="document-application border-box-sizing transparent">
           <% if(modeState == 0 && header != null){ %>
           <header>
               <v-flex class="document-timeline-header d-flex mx-3 my-2">
                   <div class="header d-flex align-center">
-                      <a class="body-1 text-uppercase text-sub-title px-0" href="#">$header</a>
+                      <a class="body-1 text-uppercase text-sub-title px-0" href="$documentsBaseLink">$header</a>
                   </div>
                   <v-spacer></v-spacer>
                   <v-btn
@@ -168,7 +173,7 @@
             %>
           </v-tabs-items>
       </div>
-  </div>
+  </v-app>
 <% } %>
 
 <script type="text/javascript">
@@ -188,7 +193,7 @@
               });
     		new Vue({
     			el: `#tab$id`,
-    			vuetify: new Vuetify(),
+    			vuetify: new Vuetify(eXo.env.portal.vuetifyPreset),
     			data () {
     			    return {
     			      tab: null,
@@ -219,3 +224,4 @@
       });
     }
 </script>
+</div>
