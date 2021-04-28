@@ -192,6 +192,11 @@
                       <value>recent</value>
                       <read-only>false</read-only>
                     </preference>
+                    <preference>
+                      <name>cacheRecentDocuments</name>
+                      <value>true</value>
+                      <read-only>false</read-only>
+                    </preference>
                   </preferences>
                 </portlet>
                 <title>Recent documents</title>
