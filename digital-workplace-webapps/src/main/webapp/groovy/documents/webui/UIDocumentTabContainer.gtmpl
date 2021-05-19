@@ -46,7 +46,7 @@
 
   String portalName = rcontext.getPortalOwner();
   String context =  rcontext.getRequestContextPath();
-  def documentsBaseLink = context + "/" + portalName +"/documents";
+  def documentsBaseLink = context + "/" + portalName +"/drives";
 
 %>
 <% if(children != null && children.size() > 0) { %>
@@ -66,7 +66,6 @@
                       onclick="javascript:openDrawer.call(this);">
                       <v-icon>mdi-plus</v-icon>
                   </v-btn>
-                  <div id="attachmentsApp"></div>
               </v-flex>
           </header>
 
@@ -209,19 +208,18 @@
                 }
     		})
     	});
-	require(['SHARED/AttachmentsApp'], function(attachmentsApp){
+	function openDrawer() {
       const defaultDrive = {
         isSelected: true,
         name: 'Personal Documents',
         title: 'Personal Documents'
       }
       const defaultFolder = 'Documents';
-      attachmentsApp.init('','',defaultDrive, defaultFolder, '');
-    });
-    function openDrawer() {
-      window.require(['SHARED/AttachmentsApp'], attachmentsApp => {
-        attachmentsApp.openAttachmentsDrawer();
-      });
+      const attachmentAppConfiguration = {
+        'defaultDrive' : defaultDrive,
+        'defaultFolder' : defaultFolder,
+      };
+      document.dispatchEvent(new CustomEvent('open-attachments-app-drawer', {detail: attachmentAppConfiguration}));
     }
 </script>
 </div>
