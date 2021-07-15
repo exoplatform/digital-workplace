@@ -56,7 +56,7 @@
       </container>
       <container id="MiddleContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" profiles="news,wallet,perk-store,gamification">
         <access-permissions>*:/platform/users</access-permissions>
-        <container id="LatestNewsContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <container id="LatestNewsContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" profiles="news">
           <access-permissions>*:/platform/users</access-permissions>
           <portlet-application>
             <portlet>
