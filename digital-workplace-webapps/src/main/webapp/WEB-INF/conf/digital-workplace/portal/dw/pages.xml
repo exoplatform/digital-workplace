@@ -14,10 +14,24 @@
         <access-permissions>*:/platform/users</access-permissions>
         <portlet-application>
           <portlet>
-            <application-ref>new-listView-portlets</application-ref>
+            <application-ref>news-listView-portlets</application-ref>
             <portlet-ref>NewsListView</portlet-ref>
+            <preferences>
+              <preference>
+                <name>newsTarget</name>
+                <value>snapshotSliderNews</value>
+                <value>snapshotLatestNews</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>viewTemplate</name>
+                <value>NewsLatest</value>
+                <value>NewsSlider</value>
+                <read-only>false</read-only>
+              </preference>
+            </preferences>
           </portlet>
-          <title>News</title>
+          <title>Slider</title>
           <access-permissions>*:/platform/users</access-permissions>
           <show-info-bar>false</show-info-bar>
         </portlet-application>
@@ -30,6 +44,20 @@
             <portlet>
               <application-ref>new-listView-portlets</application-ref>
               <portlet-ref>NewsListView</portlet-ref>
+              <preferences>
+                <preference>
+                  <name>newsTarget</name>
+                  <value>snapshotSliderNews</value>
+                  <value>snapshotLatestNews</value>
+                  <read-only>false</read-only>
+                </preference>
+                <preference>
+                  <name>viewTemplate</name>
+                  <value>NewsLatest</value>
+                  <value>NewsSlider</value>
+                  <read-only>false</read-only>
+                </preference>
+              </preferences>
             </portlet>
             <title>News</title>
             <access-permissions>*:/platform/users</access-permissions>
