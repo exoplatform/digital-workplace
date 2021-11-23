@@ -18,6 +18,11 @@
             <portlet-ref>NewsListView</portlet-ref>
             <preferences>
               <preference>
+                <name>header</name>
+                <value>News Slider</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
                 <name>newsTarget</name>
                 <value>snapshotSliderNews</value>
                 <read-only>false</read-only>
@@ -43,6 +48,11 @@
               <application-ref>news-listView-portlets</application-ref>
               <portlet-ref>NewsListView</portlet-ref>
               <preferences>
+                <preference>
+                  <name>header</name>
+                  <value>Latest News</value>
+                  <read-only>false</read-only>
+                </preference>
                 <preference>
                   <name>newsTarget</name>
                   <value>snapshotLatestNews</value>
