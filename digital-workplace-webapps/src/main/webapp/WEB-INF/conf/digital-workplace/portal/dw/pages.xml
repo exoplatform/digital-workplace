@@ -14,37 +14,22 @@
         <access-permissions>*:/platform/users</access-permissions>
         <portlet-application>
           <portlet>
-            <application-ref>presentation</application-ref>
-            <portlet-ref>ContentListViewerByQueryPortlet</portlet-ref>
+            <application-ref>news</application-ref>
+            <portlet-ref>NewsListView</portlet-ref>
             <preferences>
               <preference>
-                <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/content-list-viewer/list/NewsSlider.gtmpl</value>
-                <read-only>false</read-only>
-              </preference>
-              <preference>
                 <name>header</name>
-                <value>Slider</value>
+                <value>News Slider</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
-                <name>basePath</name>
-                <value>newsDetail</value>
+                <name>newsTarget</name>
+                <value>snapshotSliderNews</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
-                <name>folderPath</name>
-                <value>repository:collaboration:/sites/dw</value>
-                <read-only>false</read-only>
-              </preference>
-              <preference>
-                <name>query</name>
-                <value>SELECT * FROM exo:news WHERE jcr:path LIKE '/Groups/spaces/communication/News/%' and exo:pinned='true' ORDER BY exo:dateCreated DESC</value>
-                <read-only>false</read-only>
-              </preference>
-              <preference>
-                <name>sharedCache</name>
-                <value>true</value>
+                <name>viewTemplate</name>
+                <value>NewsSlider</value>
                 <read-only>false</read-only>
               </preference>
             </preferences>
@@ -60,37 +45,22 @@
           <access-permissions>*:/platform/users</access-permissions>
           <portlet-application>
             <portlet>
-              <application-ref>presentation</application-ref>
-              <portlet-ref>ContentListViewerByQueryPortlet</portlet-ref>
+              <application-ref>news</application-ref>
+              <portlet-ref>NewsListView</portlet-ref>
               <preferences>
                 <preference>
-                  <name>formViewTemplatePath</name>
-                  <value>/exo:ecm/views/templates/content-list-viewer/list/LatestNews.gtmpl</value>
-                  <read-only>false</read-only>
-                </preference>
-                <preference>
                   <name>header</name>
-                  <value>Latest News Post</value>
+                  <value>Latest News</value>
                   <read-only>false</read-only>
                 </preference>
                 <preference>
-                  <name>basePath</name>
-                  <value>newsDetail</value>
+                  <name>newsTarget</name>
+                  <value>snapshotLatestNews</value>
                   <read-only>false</read-only>
                 </preference>
                 <preference>
-                  <name>folderPath</name>
-                  <value>repository:collaboration:/sites/dw</value>
-                  <read-only>false</read-only>
-                </preference>
-                <preference>
-                  <name>query</name>
-                  <value>SELECT * FROM exo:symlink WHERE jcr:path LIKE '/Application Data/News/Pinned/%' ORDER BY jcr:created DESC</value>
-                  <read-only>false</read-only>
-                </preference>
-                <preference>
-                  <name>sharedCache</name>
-                  <value>true</value>
+                  <name>viewTemplate</name>
+                  <value>NewsLatest</value>
                   <read-only>false</read-only>
                 </preference>
               </preferences>
