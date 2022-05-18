@@ -24,6 +24,7 @@
       > :first-child {
         flex-basis: auto;
         flex-grow: 1;
+        max-width: ~"calc( 100% - 390px )";
       }
 
       > :nth-child(2) {
@@ -177,10 +178,15 @@
 
       #MiddleContainerChildren {
         flex-direction: column;
+
+        > :first-child {
+          max-width: 100%;
+        }
   
         > :nth-child(2) {
           margin-left: 0 !important;
           margin-right: 0 !important;
+          max-height: none;
         }
       }
     }
@@ -229,14 +235,17 @@
       }
     }
 
-    #BottomContainer #BottomContainerChildren {
-      flex-wrap: wrap;
-
-      > :nth-child(3) {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        min-width: 100%;
-        margin-top: 20px;
+    #BottomContainer {
+      margin-top: 10px;
+      #BottomContainerChildren {
+        flex-wrap: wrap;
+  
+        > :nth-child(3) {
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          min-width: 100%;
+          margin-top: 20px;
+        }
       }
     }
 
