@@ -29,8 +29,8 @@
 		<module>digital-workplace-packaging</module>
 	</modules>
 	<properties>
-    <org.exoplatform.platform-ui.version>6.5.x-exo-SNAPSHOT</org.exoplatform.platform-ui.version>
-		
+		<org.exoplatform.social.version>6.5.x-exo-SNAPSHOT</org.exoplatform.social.version>
+
 		<!-- Sonar properties -->
 		<sonar.organization>exoplatform</sonar.organization>
 	</properties>
@@ -38,9 +38,9 @@
 		<dependencies>
       <!-- Import versions from platform-ui project -->
       <dependency>
-        <groupId>org.exoplatform.platform-ui</groupId>
-        <artifactId>platform-ui</artifactId>
-        <version>${org.exoplatform.platform-ui.version}</version>
+        <groupId>org.exoplatform.social</groupId>
+        <artifactId>social</artifactId>
+        <version>${org.exoplatform.social.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>

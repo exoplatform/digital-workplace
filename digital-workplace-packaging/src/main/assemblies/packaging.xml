@@ -37,5 +37,24 @@
       <scope>provided</scope>
       <outputFileNameMapping>digital-workplace.war</outputFileNameMapping>
     </dependencySet>
+    <!-- Add Deprecated WebUI & Bootstrap Skin & JS War -->
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <outputDirectory>/webapps</outputDirectory>
+      <includes>
+        <include>org.exoplatform.gatein.portal:exo.portal.web.eXoResources:war</include>
+      </includes>
+      <scope>provided</scope>
+      <outputFileNameMapping>eXoResources.war</outputFileNameMapping>
+    </dependencySet>
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <outputDirectory>/webapps</outputDirectory>
+      <includes>
+        <include>org.exoplatform.gatein.portal:exo.portal.web.eXoSkin:war</include>
+      </includes>
+      <scope>provided</scope>
+      <outputFileNameMapping>eXoSkin.war</outputFileNameMapping>
+    </dependencySet>
   </dependencySets>
 </assembly>
