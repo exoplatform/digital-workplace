@@ -4,258 +4,52 @@
   xmlns="http://www.exoplatform.org/xml/ns/gatein_objects_1_8">
 
   <page>
-    <name>homepage</name>
-    <title>Home Page</title>
-    <access-permissions>*:/platform/users</access-permissions>
-    <edit-permission>*:/platform/administrators</edit-permission>
-    <container id="digitalWorkplaceHomePage"
-               template="system:/groovy/portal/webui/container/UIContainer.gtmpl"
-               cssClass="singlePageApplication">
+      <name>homepage</name>
+      <title>Home Page</title>
       <access-permissions>*:/platform/users</access-permissions>
-      <container id="SliderContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" profiles="news">
+      <edit-permission>*:/platform/administrators</edit-permission>
+      <container id="digitalWorkplaceHomePage" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
         <access-permissions>*:/platform/users</access-permissions>
-        <portlet-application>
-          <portlet>
-            <application-ref>news</application-ref>
-            <portlet-ref>NewsListView</portlet-ref>
-            <preferences>
-              <preference>
-                <name>header</name>
-                <value>News Slider</value>
-                <read-only>false</read-only>
-              </preference>
-              <preference>
-                <name>newsTarget</name>
-                <value>snapshotSliderNews</value>
-                <read-only>false</read-only>
-              </preference>
-              <preference>
-                <name>viewTemplate</name>
-                <value>NewsSlider</value>
-                <read-only>false</read-only>
-              </preference>
-            </preferences>
-          </portlet>
-          <title>Slider</title>
-          <access-permissions>*:/platform/users</access-permissions>
-          <show-info-bar>false</show-info-bar>
-        </portlet-application>
-      </container>
-      <container id="MiddleContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" profiles="news,wallet,perk-store,gamification">
-        <access-permissions>*:/platform/users</access-permissions>
-        <container id="LatestNewsContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" profiles="news">
-          <access-permissions>*:/platform/users</access-permissions>
           <portlet-application>
             <portlet>
-              <application-ref>news</application-ref>
-              <portlet-ref>NewsListView</portlet-ref>
+              <application-ref>presentation</application-ref>
+              <portlet-ref>SingleContentViewer</portlet-ref>
               <preferences>
                 <preference>
-                  <name>header</name>
-                  <value>Latest News</value>
+                  <name>workspace</name>
+                  <value>collaboration</value>
                   <read-only>false</read-only>
                 </preference>
                 <preference>
-                  <name>newsTarget</name>
-                  <value>snapshotLatestNews</value>
+                  <name>nodeIdentifier</name>
+                  <value>/sites/dw/web contents/site artifacts/homepage</value>
                   <read-only>false</read-only>
                 </preference>
                 <preference>
-                  <name>viewTemplate</name>
-                  <value>NewsLatest</value>
+                  <name>ShowQuickEdit</name>
+                  <value>true</value>
                   <read-only>false</read-only>
                 </preference>
-              </preferences>
-            </portlet>
-            <title>News</title>
-            <access-permissions>*:/platform/users</access-permissions>
-            <show-info-bar>false</show-info-bar>
-          </portlet-application>
-        </container>
-        <container id="UserProfileContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" profiles="wallet,perk-store,gamification">
-          <access-permissions>*:/platform/users</access-permissions>
-          <container id="ProfileStatsContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" profiles="gamification">
-            <access-permissions>*:/platform/users</access-permissions>
-            <portlet-application>
-              <portlet>
-                <application-ref>gamification-portlets</application-ref>
-                <portlet-ref>ProfileStats</portlet-ref>
-              </portlet>
-              <title>Profile stats</title>
-              <access-permissions>*:/platform/users</access-permissions>
-              <show-info-bar>false</show-info-bar>
-            </portlet-application>
-          </container>
-          <container id="PerkstoreWalletContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" profiles="wallet,perk-store">
-            <access-permissions>*:/platform/users</access-permissions>
-            <container id="PerkstoreContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" profiles="perk-store">
-              <access-permissions>*:/platform/users</access-permissions>
-              <portlet-application>
-                <portlet>
-                  <application-ref>perk-store</application-ref>
-                  <portlet-ref>PerkstoreOrder</portlet-ref>
-                </portlet>
-                <title>Perkstore Order</title>
-                <access-permissions>*:/platform/users</access-permissions>
-                <show-info-bar>false</show-info-bar>
-              </portlet-application>
-            </container>
-            <container id="WalletContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" profiles="wallet">
-              <access-permissions>*:/platform/users</access-permissions>
-              <portlet-application>
-                <portlet>
-                  <application-ref>wallet</application-ref>
-                  <portlet-ref>WalletBalance</portlet-ref>
-                </portlet>
-                <title>Wallet</title>
-                <access-permissions>*:/platform/users</access-permissions>
-                <show-info-bar>false</show-info-bar>
-              </portlet-application>
-            </container>
-          </container>
-        </container>
+                <preference>
+                  <name>ShowPrintAction</name>
+                  <value>false</value>
+                  <read-only>false</read-only>
+                </preference>
+                <preference>
+                  <name>ShowTitle</name>
+                  <value>false</value>
+                  <read-only>false</read-only>
+                </preference>
+               </preferences>
+             </portlet>
+             <title>Homepage</title>
+             <access-permissions>Everyone</access-permissions>
+             <show-info-bar>false</show-info-bar>
+             <show-application-state>false</show-application-state>
+             <show-application-mode>false</show-application-mode>
+         </portlet-application>
       </container>
-      <container id="BottomContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <access-permissions>*:/platform/users</access-permissions>
-        <container id="AgendaContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" profiles="agenda">
-          <access-permissions>*:/platform/users</access-permissions>
-          <portlet-application>
-            <portlet>
-              <application-ref>agenda</application-ref>
-              <portlet-ref>AgendaTimeline</portlet-ref>
-            </portlet>
-            <title>Agenda Timeline</title>
-            <access-permissions>*:/platform/users</access-permissions>
-            <show-info-bar>false</show-info-bar>
-          </portlet-application>
-        </container>
-        <container id="TasksContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" profiles="task">
-          <access-permissions>*:/platform/users</access-permissions>
-          <portlet-application>
-            <portlet>
-              <application-ref>task-management</application-ref>
-              <portlet-ref>tasks</portlet-ref>
-            </portlet>
-            <title>Tasks</title>
-            <access-permissions>*:/platform/users</access-permissions>
-            <show-info-bar>false</show-info-bar>
-          </portlet-application>
-        </container>
-        <container id="DocumentsContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" profiles="ecms">
-          <access-permissions>*:/platform/users</access-permissions>
-          <container template="war:/groovy/documents/webui/UIDocumentTabContainer.gtmpl">
-            <title>homepage.documents</title>
-            <factory-id>TabContainer</factory-id>
-            <container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-              <title>homepage.documents.tab.recentDocuments</title>
-              <access-permissions>*:/platform/users</access-permissions>
-              <portlet-application>
-                <portlet>
-                  <application-ref>documents</application-ref>
-                  <portlet-ref>DocumentsPortlet</portlet-ref>
-                  <preferences>
-                    <preference>
-                      <name>appId</name>
-                      <value>recentDocuments</value>
-                      <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                      <name>type</name>
-                      <value>recent</value>
-                      <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                      <name>cacheRecentDocuments</name>
-                      <value>true</value>
-                      <read-only>false</read-only>
-                    </preference>
-                  </preferences>
-                </portlet>
-                <title>Recent documents</title>
-                <access-permissions>*:/platform/users</access-permissions>
-                <show-info-bar>false</show-info-bar>
-              </portlet-application>
-            </container>
-            <container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-              <title>homepage.documents.tab.favoriteDocuments</title>
-              <access-permissions>*:/platform/users</access-permissions>
-              <portlet-application>
-                <portlet>
-                  <application-ref>documents</application-ref>
-                  <portlet-ref>DocumentsPortlet</portlet-ref>
-                  <preferences>
-                    <preference>
-                      <name>appId</name>
-                      <value>favoriteDocuments</value>
-                      <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                      <name>type</name>
-                      <value>favorite</value>
-                      <read-only>false</read-only>
-                    </preference>
-                  </preferences>
-                </portlet>
-                <title>Favorite documents</title>
-                <access-permissions>*:/platform/users</access-permissions>
-                <show-info-bar>false</show-info-bar>
-              </portlet-application>
-            </container>
-            <container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-              <title>homepage.documents.tab.sharedDocuments</title>
-              <access-permissions>*:/platform/users</access-permissions>
-              <portlet-application>
-                <portlet>
-                  <application-ref>documents</application-ref>
-                  <portlet-ref>DocumentsPortlet</portlet-ref>
-                  <preferences>
-                    <preference>
-                      <name>appId</name>
-                      <value>sharedDocuments</value>
-                      <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                      <name>type</name>
-                      <value>shared</value>
-                      <read-only>false</read-only>
-                    </preference>
-                  </preferences>
-                </portlet>
-                <title>Shared with me documents</title>
-                <access-permissions>*:/platform/users</access-permissions>
-                <show-info-bar>false</show-info-bar>
-              </portlet-application>
-            </container>
-            <container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-              <title>homepage.documents.tab.inSpacesDocuments</title>
-              <access-permissions>*:/platform/users</access-permissions>
-              <portlet-application>
-                <portlet>
-                  <application-ref>documents</application-ref>
-                  <portlet-ref>DocumentsPortlet</portlet-ref>
-                  <preferences>
-                    <preference>
-                      <name>appId</name>
-                      <value>recentSpacesDocuments</value>
-                      <read-only>false</read-only>
-                    </preference>
-                    <preference>
-                      <name>type</name>
-                      <value>recentSpaces</value>
-                      <read-only>false</read-only>
-                    </preference>
-                  </preferences>
-                </portlet>
-                <title>Recent spaces documents</title>
-                <access-permissions>*:/platform/users</access-permissions>
-                <show-info-bar>false</show-info-bar>
-              </portlet-application>
-            </container>
-          </container>
-        </container>
-      </container>
-    </container>
-  </page>
+    </page>
   
   <page>
     <name>stream</name>
