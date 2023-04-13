@@ -29,7 +29,7 @@
 		<module>digital-workplace-packaging</module>
 	</modules>
 	<properties>
-		<org.exoplatform.social.version>6.5.x-exo-SNAPSHOT</org.exoplatform.social.version>
+		<org.exoplatform.social.version>6.5.0-exo-20230413</org.exoplatform.social.version>
 
 		<!-- Sonar properties -->
 		<sonar.organization>exoplatform</sonar.organization>
