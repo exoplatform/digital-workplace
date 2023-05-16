@@ -14,9 +14,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<artifactId>addons-parent-pom</artifactId>
+		<artifactId>addons-exo-parent-pom</artifactId>
 		<groupId>org.exoplatform.addons</groupId>
-		<version>17-exo-M01</version>
+		<version>17-M01</version>
 	</parent>
 	<groupId>org.exoplatform.addons.digital-workplace</groupId>
 	<artifactId>digital-workplace</artifactId>
@@ -29,8 +29,8 @@
 		<module>digital-workplace-packaging</module>
 	</modules>
 	<properties>
-		<org.exoplatform.social.version>6.5.x-exo-SNAPSHOT</org.exoplatform.social.version>
-
+		<org.exoplatform.commons-exo.version>6.5.x-SNAPSHOT</org.exoplatform.commons-exo.version>
+		
 		<!-- Sonar properties -->
 		<sonar.organization>exoplatform</sonar.organization>
 	</properties>
@@ -38,9 +38,9 @@
 		<dependencies>
       <!-- Import versions from platform-ui project -->
       <dependency>
-        <groupId>org.exoplatform.social</groupId>
-        <artifactId>social</artifactId>
-        <version>${org.exoplatform.social.version}</version>
+        <groupId>org.exoplatform.commons-exo</groupId>
+        <artifactId>commons-exo</artifactId>
+        <version>${org.exoplatform.commons-exo.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
