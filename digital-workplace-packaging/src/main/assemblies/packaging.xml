@@ -42,7 +42,7 @@
       <useProjectArtifact>false</useProjectArtifact>
       <outputDirectory>/webapps</outputDirectory>
       <includes>
-        <include>org.exoplatform.gatein.portal:exo.portal.web.eXoResources:war</include>
+        <include>org.exoplatform.commons-exo:commons-exo.portal.web.eXoResources:war</include>
       </includes>
       <scope>provided</scope>
       <outputFileNameMapping>eXoResources.war</outputFileNameMapping>
@@ -51,7 +51,7 @@
       <useProjectArtifact>false</useProjectArtifact>
       <outputDirectory>/webapps</outputDirectory>
       <includes>
-        <include>org.exoplatform.gatein.portal:exo.portal.web.eXoSkin:war</include>
+        <include>org.exoplatform.commons-exo:commons-exo.portal.web.eXoSkin:war</include>
       </includes>
       <scope>provided</scope>
       <outputFileNameMapping>eXoSkin.war</outputFileNameMapping>
