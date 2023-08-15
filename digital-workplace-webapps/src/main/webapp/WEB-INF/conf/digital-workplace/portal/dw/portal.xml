@@ -2,8 +2,8 @@
 <portal-config>
     <portal-name>dw</portal-name>
     <locale>en</locale>
-    <access-permissions>*:/platform/users;*:/platform/externals</access-permissions>
-    <edit-permission>*:/platform/administrators</edit-permission>
+    <access-permissions>member:/platform/users;member:/platform/externals</access-permissions>
+    <edit-permission>manager:platform/administrators</edit-permission>
     <properties>
         <entry key="sessionAlive">onDemand</entry>
         <entry key="showPortletInfo">0</entry>
@@ -11,4 +11,6 @@
     <portal-layout>
        <page-body> </page-body>
     </portal-layout>
+    <displayed>true</displayed>
+    <display-order>4</display-order>
 </portal-config>
