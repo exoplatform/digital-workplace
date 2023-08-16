@@ -19,6 +19,24 @@
       <label>#{portal.dw.overview}</label>
       <page-reference>portal::global::overview</page-reference>
     </node>
+    <node>
+      <name>stream</name>
+      <label>#{portal.dw.stream}</label>
+      <visibility>HIDDEN</visibility>
+      <page-reference>portal::global::stream</page-reference>
+    </node>
+    <node>
+      <name>spaces</name>
+      <label>#{portal.dw.spaces}</label>
+      <visibility>HIDDEN</visibility>
+      <page-reference>portal::global::all-spaces</page-reference>
+    </node>
+    <node>
+      <name>people</name>
+      <label>#{portal.dw.people}</label>
+      <visibility>HIDDEN</visibility>
+      <page-reference>portal::global::all-people</page-reference>
+    </node>
   </page-nodes>
 
 </node-navigation>
