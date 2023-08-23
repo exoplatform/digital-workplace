@@ -5,36 +5,26 @@
   <priority>4</priority>
   <page-nodes>
     <node>
-      <name>home</name>
-      <label>#{portal.dw.home}</label>
-      <page-reference>portal::dw::homepage</page-reference>
-    </node>
-    <node>
       <name>external-stream</name>
       <label>#{portal.dw.externalHome}</label>
       <page-reference>portal::dw::stream</page-reference>
     </node>
     <node>
-      <name>overview</name>
-      <label>#{portal.dw.overview}</label>
-      <page-reference>portal::global::overview</page-reference>
-    </node>
-    <node>
       <name>stream</name>
       <label>#{portal.dw.stream}</label>
-      <visibility>HIDDEN</visibility>
+      <visibility>DISPLAYED</visibility>
       <page-reference>portal::global::stream</page-reference>
     </node>
     <node>
       <name>spaces</name>
       <label>#{portal.dw.spaces}</label>
-      <visibility>HIDDEN</visibility>
+      <visibility>DISPLAYED</visibility>
       <page-reference>portal::global::all-spaces</page-reference>
     </node>
     <node>
       <name>people</name>
       <label>#{portal.dw.people}</label>
-      <visibility>HIDDEN</visibility>
+      <visibility>DISPLAYED</visibility>
       <page-reference>portal::global::all-people</page-reference>
     </node>
   </page-nodes>
