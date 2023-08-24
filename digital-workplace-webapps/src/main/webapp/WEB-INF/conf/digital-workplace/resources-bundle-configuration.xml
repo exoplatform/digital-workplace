@@ -13,6 +13,7 @@
         <values-param>
           <name>init.resources</name>
           <value>locale.navigation.portal.dw</value>
+          <value>locale.navigation.portal.mycraft</value>
         </values-param>
         <values-param>
           <name>portal.resource.names</name>

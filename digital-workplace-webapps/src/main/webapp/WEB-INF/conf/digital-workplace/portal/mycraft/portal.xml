@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portal-config>
+    <portal-name>mycraft</portal-name>
+    <label>My Craft</label>
+    <description>My personal workspace</description>
+    <locale>en</locale>
+    <access-permissions>member:/platform/users;member:/platform/externals</access-permissions>
+    <edit-permission>manager:platform/administrators</edit-permission>
+    <properties>
+        <entry key="sessionAlive">onDemand</entry>
+        <entry key="showPortletInfo">0</entry>
+    </properties>
+    <portal-layout>
+        <page-body> </page-body>
+    </portal-layout>
+    <displayed>true</displayed>
+    <display-order>3</display-order>
+</portal-config>
