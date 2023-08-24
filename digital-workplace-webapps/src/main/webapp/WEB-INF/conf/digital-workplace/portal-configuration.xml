@@ -54,7 +54,7 @@
         <value-param>
           <name>override</name>
           <description>The flag parameter to decide if portal metadata is overriden on restarting server</description>
-          <value>true</value>
+          <value>${exo.mycraft.portalConfig.metadata.override:true}</value>
         </value-param>
         <object-param>
           <name>group.configuration</name>
