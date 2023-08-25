@@ -26,7 +26,7 @@
       <node>
         <name>overview</name>
         <label>#{portal.engage.overview}</label>
-        <icon>fa-briefcase</icon>
+        <icon>fa-award</icon>
         <visibility>DISPLAYED</visibility>
         <page-reference>portal::global::overview</page-reference>
         <node>
@@ -37,18 +37,21 @@
           <node>
             <name>programs</name>
             <label>#{portal.engage.programs}</label>
+            <icon>fa-chalkboard</icon>
             <visibility>DISPLAYED</visibility>
             <page-reference>portal::global::programs</page-reference>
           </node>
           <node>
             <name>actions</name>
             <label>#{portal.engage.actions}</label>
+            <icon>fa-list-alt</icon>
             <visibility>DISPLAYED</visibility>
             <page-reference>portal::global::actions</page-reference>
           </node>
           <node>
             <name>achievements</name>
             <label>#{portal.engage.achievements}</label>
+            <icon>fa-chart-pie</icon>
             <visibility>DISPLAYED</visibility>
             <page-reference>portal::global::achievements</page-reference>
           </node>
@@ -56,6 +59,7 @@
         <node>
           <name>perkstore</name>
           <label>#{portal.engage.perkstore}</label>
+          <icon>fa-shopping-cart</icon>
           <visibility>DISPLAYED</visibility>
           <page-reference>portal::global::perkstore</page-reference>
         </node>
