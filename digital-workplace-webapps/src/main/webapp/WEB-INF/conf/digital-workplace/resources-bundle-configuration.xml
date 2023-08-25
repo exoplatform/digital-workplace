@@ -15,6 +15,7 @@
           <value>locale.navigation.portal.dw</value>
           <value>locale.navigation.portal.mycraft</value>
           <value>locale.navigation.portal.intranet</value>
+          <value>locale.navigation.portal.engage</value>
         </values-param>
         <values-param>
           <name>portal.resource.names</name>
