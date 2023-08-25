@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Copyright (C) 2023 eXo Platform SAS.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+-->
+<portal-config>
+    <portal-name>engage</portal-name>
+    <label>Engagement</label>
+    <description>Easily onboard contributors, drive initiatives, and keep everyone motivated.</description>
+    <locale>en</locale>
+    <access-permissions>member:/platform/users</access-permissions>
+    <edit-permission>manager:platform/administrators</edit-permission>
+    <properties>
+        <entry key="sessionAlive">onDemand</entry>
+        <entry key="showPortletInfo">0</entry>
+    </properties>
+    <portal-layout>
+        <page-body> </page-body>
+    </portal-layout>
+    <displayed>true</displayed>
+    <display-order>2</display-order>
+</portal-config>
