@@ -33,7 +33,6 @@
           <name>contributions</name>
           <label>#{portal.engage.contributions}</label>
           <visibility>DISPLAYED</visibility>
-          <page-reference>portal::global::programs</page-reference>
           <node>
             <name>programs</name>
             <label>#{portal.engage.programs}</label>
