@@ -26,20 +26,20 @@
       <node>
         <name>homepage</name>
         <label>#{portal.intranet.homepage}</label>
-        <icon>fa-newspaper</icon>
+        <icon>fas fa-newspaper</icon>
         <visibility>DISPLAYED</visibility>
         <page-reference>portal::dw::homepage</page-reference>
         <node>
           <name>spaces</name>
           <label>#{portal.intranet.spaces}</label>
-          <icon>fa-people-arrows</icon>
+          <icon>fas fa-people-arrows</icon>
           <visibility>DISPLAYED</visibility>
           <page-reference>portal::global::all-spaces</page-reference>
         </node>
         <node>
           <name>people</name>
           <label>#{portal.intranet.people}</label>
-          <icon>fa-users</icon>
+          <icon>fas fa-users</icon>
           <visibility>DISPLAYED</visibility>
           <page-reference>portal::global::all-people</page-reference>
         </node>
