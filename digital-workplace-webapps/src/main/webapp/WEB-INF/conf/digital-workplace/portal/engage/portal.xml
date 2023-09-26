@@ -22,7 +22,7 @@
     <description>Easily onboard contributors, drive initiatives, and keep everyone motivated.</description>
     <locale>en</locale>
     <access-permissions>member:/platform/users</access-permissions>
-    <edit-permission>manager:platform/administrators</edit-permission>
+    <edit-permission>manager:/platform/administrators</edit-permission>
     <properties>
         <entry key="sessionAlive">onDemand</entry>
         <entry key="showPortletInfo">0</entry>
