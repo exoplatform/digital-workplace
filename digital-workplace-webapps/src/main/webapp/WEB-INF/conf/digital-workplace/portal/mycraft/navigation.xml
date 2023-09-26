@@ -26,27 +26,27 @@
       <node>
         <name>dashboard</name>
         <label>#{portal.mycraft.drives}</label>
-        <icon>fa-briefcase</icon>
+        <icon>fas fa-briefcase</icon>
         <visibility>DISPLAYED</visibility>
         <page-reference>portal::global::drives</page-reference>
         <node>
           <name>tasks</name>
           <label>#{portal.mycraft.tasks}</label>
-          <icon>fa-tasks</icon>
+          <icon>fas fa-tasks</icon>
           <visibility>DISPLAYED</visibility>
           <page-reference>portal::global::tasks</page-reference>
         </node>
         <node>
           <name>agenda</name>
           <label>#{portal.mycraft.agenda}</label>
-          <icon>fa-calendar-alt</icon>
+          <icon>fas fa-calendar-alt</icon>
           <visibility>DISPLAYED</visibility>
           <page-reference>portal::global::agenda</page-reference>
           </node>
         <node>
           <name>processes</name>
           <label>#{portal.mycraft.processes}</label>
-          <icon>fa-file-invoice</icon>
+          <icon>fas fa-file-invoice</icon>
           <visibility>DISPLAYED</visibility>
           <page-reference>portal::global::processes</page-reference>
         </node>
