@@ -22,7 +22,7 @@
     <description>Develop your communication with a modern intranet</description>
     <locale>en</locale>
     <access-permissions>member:/platform/users;member:/platform/externals</access-permissions>
-    <edit-permission>manager:platform/administrators</edit-permission>
+    <edit-permission>manager:/platform/administrators</edit-permission>
     <properties>
         <entry key="sessionAlive">onDemand</entry>
         <entry key="showPortletInfo">0</entry>
