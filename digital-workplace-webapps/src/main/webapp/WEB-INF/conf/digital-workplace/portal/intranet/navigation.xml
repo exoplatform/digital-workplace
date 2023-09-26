@@ -30,11 +30,11 @@
         <visibility>DISPLAYED</visibility>
         <page-reference>portal::dw::homepage</page-reference>
         <node>
-          <name>spaces</name>
-          <label>#{portal.intranet.spaces}</label>
-          <icon>fas fa-people-arrows</icon>
+          <name>news</name>
+          <label>#{portal.intranet.news}</label>
+          <icon>far fa-newspaper</icon>
           <visibility>DISPLAYED</visibility>
-          <page-reference>portal::global::all-spaces</page-reference>
+          <page-reference>portal::intranet::news</page-reference>
         </node>
         <node>
           <name>people</name>
