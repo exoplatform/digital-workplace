@@ -16,10 +16,14 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
 -->
-<portal-config>
+<portal-config
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_10 http://www.gatein.org/xml/ns/gatein_objects_1_10"
+        xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_10">
     <portal-name>engage</portal-name>
     <label>Engagement</label>
     <description>Easily onboard contributors, drive initiatives, and keep everyone motivated.</description>
+    <display-order>2</display-order>
     <locale>en</locale>
     <access-permissions>member:/platform/users</access-permissions>
     <edit-permission>manager:/platform/administrators</edit-permission>
@@ -30,6 +34,4 @@
     <portal-layout>
         <page-body> </page-body>
     </portal-layout>
-    <displayed>true</displayed>
-    <display-order>2</display-order>
 </portal-config>
