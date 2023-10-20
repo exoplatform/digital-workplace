@@ -56,5 +56,14 @@
       <scope>provided</scope>
       <outputFileNameMapping>eXoSkin.war</outputFileNameMapping>
     </dependencySet>
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <outputDirectory>/webapps</outputDirectory>
+      <includes>
+        <include>org.exoplatform.commons-exo:commons-exo-extension:war</include>
+      </includes>
+      <scope>provided</scope>
+      <outputFileNameMapping>commons-exo-extension.war</outputFileNameMapping>
+    </dependencySet>
   </dependencySets>
 </assembly>
