@@ -81,6 +81,7 @@
               <compress>false</compress>
               <includes>
                 <include>digital-workplace.less</include>
+                <include>siteLayout.less</include>
               </includes>
             </configuration>
             <goals>
