@@ -8,5 +8,11 @@
     <css-path>/skin/css/digital-workplace.css</css-path>
     <css-priority>11</css-priority>
   </portal-skin>
+  <portal-skin>
+    <skin-name>Enterprise</skin-name>
+    <skin-module>siteLayout</skin-module>
+    <css-path>/skin/css/siteLayout.css</css-path>
+    <css-priority>11</css-priority>
+  </portal-skin>
   
 </gatein-resources>
