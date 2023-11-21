@@ -14,21 +14,18 @@
       <name>stream</name>
       <label>#{portal.dw.stream}</label>
       <icon>fas fa-stream</icon>
-      <visibility>DISPLAYED</visibility>
       <page-reference>portal::global::stream</page-reference>
     </node>
     <node>
       <name>spaces</name>
       <label>#{portal.dw.spaces}</label>
       <icon>fas fa-people-arrows</icon>
-      <visibility>DISPLAYED</visibility>
       <page-reference>portal::global::all-spaces</page-reference>
     </node>
     <node>
       <name>people</name>
       <label>#{portal.dw.people}</label>
       <icon>fas fa-users</icon>
-      <visibility>DISPLAYED</visibility>
       <page-reference>portal::global::all-people</page-reference>
     </node>
   </page-nodes>
