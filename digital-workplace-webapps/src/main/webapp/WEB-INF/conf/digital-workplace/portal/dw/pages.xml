@@ -4,52 +4,52 @@
   xmlns="http://www.exoplatform.org/xml/ns/gatein_objects_1_8">
 
   <page>
-      <name>homepage</name>
-      <title>Home Page</title>
+    <name>homepage</name>
+    <title>Home Page</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <container id="digitalWorkplaceHomePage" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
       <access-permissions>*:/platform/users</access-permissions>
-      <edit-permission>*:/platform/administrators</edit-permission>
-      <container id="digitalWorkplaceHomePage" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <access-permissions>*:/platform/users</access-permissions>
-          <portlet-application>
-            <portlet>
-              <application-ref>presentation</application-ref>
-              <portlet-ref>SingleContentViewer</portlet-ref>
-              <preferences>
-                <preference>
-                  <name>workspace</name>
-                  <value>collaboration</value>
-                  <read-only>false</read-only>
-                </preference>
-                <preference>
-                  <name>nodeIdentifier</name>
-                  <value>/sites/dw/web contents/site artifacts/homepage</value>
-                  <read-only>false</read-only>
-                </preference>
-                <preference>
-                  <name>ShowQuickEdit</name>
-                  <value>true</value>
-                  <read-only>false</read-only>
-                </preference>
-                <preference>
-                  <name>ShowPrintAction</name>
-                  <value>false</value>
-                  <read-only>false</read-only>
-                </preference>
-                <preference>
-                  <name>ShowTitle</name>
-                  <value>false</value>
-                  <read-only>false</read-only>
-                </preference>
-               </preferences>
-             </portlet>
-             <title>Homepage</title>
-             <access-permissions>Everyone</access-permissions>
-             <show-info-bar>false</show-info-bar>
-             <show-application-state>false</show-application-state>
-             <show-application-mode>false</show-application-mode>
-         </portlet-application>
-      </container>
-    </page>
+      <portlet-application>
+        <portlet>
+          <application-ref>presentation</application-ref>
+          <portlet-ref>SingleContentViewer</portlet-ref>
+          <preferences>
+            <preference>
+              <name>workspace</name>
+              <value>collaboration</value>
+              <read-only>false</read-only>
+            </preference>
+            <preference>
+              <name>nodeIdentifier</name>
+              <value>/sites/dw/web contents/site artifacts/homepage</value>
+              <read-only>false</read-only>
+            </preference>
+            <preference>
+              <name>ShowQuickEdit</name>
+              <value>true</value>
+              <read-only>false</read-only>
+            </preference>
+            <preference>
+              <name>ShowPrintAction</name>
+              <value>false</value>
+              <read-only>false</read-only>
+            </preference>
+            <preference>
+              <name>ShowTitle</name>
+              <value>false</value>
+              <read-only>false</read-only>
+            </preference>
+          </preferences>
+        </portlet>
+        <title>Homepage</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+        <show-application-state>false</show-application-state>
+        <show-application-mode>false</show-application-mode>
+      </portlet-application>
+    </container>
+  </page>
   
   <page>
     <name>stream</name>

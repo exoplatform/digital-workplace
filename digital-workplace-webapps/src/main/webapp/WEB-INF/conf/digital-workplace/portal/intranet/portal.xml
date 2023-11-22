@@ -25,7 +25,7 @@
   <description>Develop your communication with a modern intranet</description>
   <display-order>1</display-order>
   <locale>en</locale>
-  <access-permissions>member:/platform/users;member:/platform/externals</access-permissions>
+  <access-permissions>member:/platform/users</access-permissions>
   <edit-permission>manager:/platform/administrators</edit-permission>
   <properties>
     <entry key="sessionAlive">onDemand</entry>
