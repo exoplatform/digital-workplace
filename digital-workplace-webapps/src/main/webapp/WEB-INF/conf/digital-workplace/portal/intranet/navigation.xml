@@ -38,7 +38,6 @@
           <name>section</name>
           <label>#{portal.intranet.section}</label>
           <icon>fas fa-newspaper</icon>
-          <visibility>DISPLAYED</visibility>
           <page-reference>portal::intranet::section</page-reference>
         </node>
       </node>

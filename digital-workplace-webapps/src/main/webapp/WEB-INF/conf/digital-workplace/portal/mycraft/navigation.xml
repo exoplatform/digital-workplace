@@ -27,13 +27,11 @@
         <name>dashboard</name>
         <label>#{portal.mycraft.dashboard}</label>
         <icon>fas fa-briefcase</icon>
-        <visibility>DISPLAYED</visibility>
         <page-reference>portal::global::overview</page-reference>
         <node>
           <name>drives</name>
           <label>#{portal.mycraft.drives}</label>
           <icon>far fa-folder-open</icon>
-          <visibility>DISPLAYED</visibility>
           <page-reference>portal::global::drives</page-reference>
         </node>
         <node>
@@ -58,15 +56,13 @@
           <name>achievements</name>
           <label>#{portal.mycraft.achievements}</label>
           <icon>fas fa-chart-pie</icon>
-          <visibility>DISPLAYED</visibility>
           <page-reference>portal::global::achievements</page-reference>
         </node>
         <node>
           <name>wallet</name>
           <label>#{portal.mycraft.wallet}</label>
           <icon>fas fa-wallet</icon>
-          <visibility>DISPLAYED</visibility>
-          <page-reference>portal::mycraft::wallet</page-reference>
+          <page-reference>portal::global::wallet</page-reference>
         </node>
       </node>
     </page-nodes>

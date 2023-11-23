@@ -23,7 +23,7 @@
         <container template="system:/groovy/portal/webui/container/UIResponsiveColumnGroupContainer.gtmpl">
           <access-permissions>Everyone</access-permissions>
           <container template="system:/groovy/portal/webui/container/UISimpleColumnContainer.gtmpl">
-            <access-permissions>*:/platform/users</access-permissions>
+            <access-permissions>Everyone</access-permissions>
             <portlet-application>
               <portlet>
                 <application-ref>news</application-ref>
@@ -42,7 +42,7 @@
             </portlet-application>
           </container>
           <container template="system:/groovy/portal/webui/container/UISimpleColumnContainer.gtmpl" width="400px">
-            <access-permissions>*:/platform/users</access-permissions>
+            <access-permissions>Everyone</access-permissions>
             <portlet-application>
               <portlet>
                 <application-ref>news</application-ref>
@@ -66,6 +66,8 @@
   </page>
   <page>
     <name>section</name>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
     <container id="sectionPageSimpleTableContainer" template='system:/groovy/portal/webui/container/UISimpleTableContainer.gtmpl' cssClass="VuetifyApp">
       <access-permissions>Everyone</access-permissions>
       <container id="sectionPageSimpleRowContainer" template='system:/groovy/portal/webui/container/UISimpleRowContainer.gtmpl'>
