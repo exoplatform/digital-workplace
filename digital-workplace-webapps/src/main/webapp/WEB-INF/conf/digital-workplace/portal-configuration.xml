@@ -71,7 +71,7 @@
               <string>portal</string>
             </field>
             <field name="importMode">
-              <string>${exo.mycraft.portalConfig.metadata.importmode:insert}</string>
+              <string>${exo.mycraft.portalConfig.metadata.importmode:overwrite}</string>
             </field>
             <field name="templateLocation">
               <string>war:/conf/digital-workplace/</string>
@@ -106,7 +106,7 @@
               <string>portal</string>
             </field>
             <field name="importMode">
-              <string>${exo.intranet.portalConfig.metadata.importmode:insert}</string>
+              <string>${exo.intranet.portalConfig.metadata.importmode:overwrite}</string>
             </field>
             <field name="templateLocation">
               <string>war:/conf/digital-workplace/</string>
@@ -141,7 +141,7 @@
               <string>portal</string>
             </field>
             <field name="importMode">
-              <string>${exo.engage.portalConfig.metadata.importmode:insert}</string>
+              <string>${exo.engage.portalConfig.metadata.importmode:overwrite}</string>
             </field>
             <field name="templateLocation">
               <string>war:/conf/digital-workplace/</string>

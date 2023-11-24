@@ -27,20 +27,17 @@
         <name>homepage</name>
         <label>#{portal.intranet.homepage}</label>
         <icon>fas fa-newspaper</icon>
-        <visibility>DISPLAYED</visibility>
         <page-reference>portal::dw::homepage</page-reference>
         <node>
           <name>news</name>
           <label>#{portal.intranet.news}</label>
           <icon>far fa-newspaper</icon>
-          <visibility>DISPLAYED</visibility>
           <page-reference>portal::intranet::news</page-reference>
         </node>
         <node>
           <name>people</name>
           <label>#{portal.intranet.people}</label>
           <icon>fas fa-users</icon>
-          <visibility>DISPLAYED</visibility>
           <page-reference>portal::global::all-people</page-reference>
         </node>
       </node>
