@@ -33,7 +33,7 @@
   </properties>
   <portal-layout>
     <container id="UITopBarContainer" template="system:/groovy/portal/webui/container/UITopBarContainer.gtmpl">
-      <access-permissions>*:/platform/users;</access-permissions>
+      <access-permissions>*:/platform/users;*:/platform/externals</access-permissions>
       <container id="left-topBar-container" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
         <access-permissions>Everyone</access-permissions>
         <portlet-application>
