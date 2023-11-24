@@ -25,7 +25,7 @@
   <description>Easily onboard contributors, drive initiatives, and keep everyone motivated.</description>
   <display-order>2</display-order>
   <locale>en</locale>
-  <access-permissions>member:/platform/users</access-permissions>
+  <access-permissions>member:/platform/users;member:/platform/externals</access-permissions>
   <edit-permission>manager:/platform/administrators</edit-permission>
   <properties>
     <entry key="sessionAlive">onDemand</entry>
