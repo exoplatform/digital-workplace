@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Copyright (C) 2023 eXo Platform SAS.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+-->
+<page-set xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.exoplatform.org/xml/ns/gatein_objects_1_8 http://www.exoplatform.org/xml/ns/gatein_objects_1_8"
+          xmlns="http://www.exoplatform.org/xml/ns/gatein_objects_1_8">    
+  <page>
+    <name>membershipsManagement</name>
+    <title>Memberships Management</title>
+    <access-permissions>*:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
+      <access-permissions>Everyone</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>social-portlet</application-ref>
+          <portlet-ref>IDMMembershipTypesManagement</portlet-ref>
+        </portlet>
+        <title>Memberships Management</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+        <show-application-state>false</show-application-state>
+      </portlet-application>
+    </container>
+  </page>
+  
+  <page>
+    <name>siteManagement</name>
+    <title>Site Management</title>
+    <access-permissions>manager:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
+      <access-permissions>Everyone</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>layout-management</application-ref>
+          <portlet-ref>SiteManagementPortlet</portlet-ref>
+        </portlet>
+        <title>Site Management</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+    </container>
+  </page>
+  
+  <page>
+    <name>agendaAdminSettings</name>
+    <title>Agenda admin settings</title>
+    <access-permissions>*:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
+      <access-permissions>Everyone</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>agenda</application-ref>
+          <portlet-ref>agendaAdminSettings</portlet-ref>
+        </portlet>
+        <title>Agenda Admin Settings Portlet</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+    </container>
+  </page>
+  
+  <page>
+    <name>webconferencing</name>
+    <title>Web Conferencing Administration</title>
+    <access-permissions>*:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
+      <access-permissions>Everyone</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>webconferencing</application-ref>
+          <portlet-ref>WebConferencingAdminPortlet</portlet-ref>
+        </portlet>
+        <title>Web Conferencing Administration</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+    </container>
+  </page>
+  
+  <page>
+    <name>automatic-translation</name>
+    <title>Automatic Translation</title>
+    <access-permissions>*:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <show-max-window>false</show-max-window>
+    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
+      <portlet-application>
+        <portlet>
+          <application-ref>automatic-translation</application-ref>
+          <portlet-ref>automaticTranslationAdministration</portlet-ref>
+        </portlet>
+        <title>Automatic Translation</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+    </container>
+    <container
+            id="topAnalyticsPage"
+            template="system:/groovy/portal/webui/container/UIContainer.gtmpl"
+            cssClass="singlePageApplication">
+      <access-permissions>Everyone</access-permissions>
+      <container cssClass="analyticsPageRow" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+        <access-permissions>Everyone</access-permissions>
+        <portlet-application>
+          <portlet>
+            <application-ref>analytics</application-ref>
+            <portlet-ref>AnalyticsPortlet</portlet-ref>
+            <preferences>
+              <preference>
+                <name>settings</name>
+                <value>{
+                  "offset": 0,
+                  "filters": [
+                  {
+                  "valueString": "translate",
+                  "field": "operation",
+                  "type": "EQUAL",
+                  "range": null
+                  },
+                  {
+                  "valueString": "automatic-translation",
+                  "field": "module",
+                  "type": "EQUAL",
+                  "range": null
+                  }
+                  ],
+                  "lang": null,
+                  "aggregations": [
+                  {
+                  "field": "timestamp",
+                  "type": "DATE",
+                  "offset": null,
+                  "interval": "month",
+                  "useBounds": false,
+                  "minBound": 0,
+                  "maxBound": 0,
+                  "sortDirection": "asc",
+                  "limit": 0
+                  },
+                  {
+                  "field": "messageLength",
+                  "type": "SUM",
+                  "offset": null,
+                  "interval": null,
+                  "useBounds": false,
+                  "minBound": 0,
+                  "maxBound": 0,
+                  "sortDirection": "desc",
+                  "limit": 0
+                  }
+                  ],
+                  "yAxisAggregation": {
+                  "field": "messageLength",
+                  "type": "SUM",
+                  "offset": null,
+                  "interval": null,
+                  "useBounds": false,
+                  "minBound": 0,
+                  "maxBound": 0,
+                  "sortDirection": "desc",
+                  "limit": 0
+                  },
+                  "multipleChartsAggregation": null,
+                  "xAxisAggregations": [
+                  {
+                  "field": "timestamp",
+                  "type": "DATE",
+                  "offset": null,
+                  "interval": "month",
+                  "useBounds": false,
+                  "minBound": 0,
+                  "maxBound": 0,
+                  "sortDirection": "asc",
+                  "limit": 0
+                  }
+                  ],
+                  "multipleCharts": false,
+                  "chartType": "bar",
+                  "colors": null,
+                  "multipleChartsField": null,
+                  "limit": 0,
+                  "timeZone": null,
+                  "title": "automatic.translation.analytics.title.charTranslated"
+                  }
+                </value>
+              </preference>
+            </preferences>
+          </portlet>
+          <title>Characters Translated</title>
+          <access-permissions>Everyone</access-permissions>
+          <show-info-bar>false</show-info-bar>
+        </portlet-application>
+      </container>
+    </container>
+  </page>
+  
+  <page>
+    <name>cloudStorage</name>
+    <title>Cloud Storage</title>
+    <access-permissions>*:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
+      <access-permissions>Everyone</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>clouddrives</application-ref>
+          <portlet-ref>cloudStoragePortlet</portlet-ref>
+        </portlet>
+        <title>cloud Storage</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+    </container>
+  </page>
+  
+  <page>
+    <name>editors</name>
+    <title>Editors Administration</title>
+    <access-permissions>*:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
+      <access-permissions>Everyone</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>editors</application-ref>
+          <portlet-ref>EditorsAdminPortlet</portlet-ref>
+        </portlet>
+        <title>Document Editors Administration</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+    </container>
+  </page>
+  
+  <page>
+    <name>newsTargets</name>
+    <title>News targets</title>
+    <access-permissions>manager:/platform/web-contributors</access-permissions>
+    <edit-permission>manager:/platform/web-contributors</edit-permission>
+    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
+      <access-permissions>Everyone</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>news</application-ref>
+          <portlet-ref>newsPublishTargetsManagement</portlet-ref>
+        </portlet>
+        <title>News targets</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+        <show-application-state>false</show-application-state>
+        <show-application-mode>false</show-application-mode>
+      </portlet-application>
+    </container>
+  </page>
+  
+  <page>
+    <name>dlp-quarantine</name>
+    <title>Dlp Quarantine</title>
+    <access-permissions>*:/platform/dlp</access-permissions>
+    <edit-permission>manager:/platform/dlp</edit-permission>
+    <show-max-window>false</show-max-window>
+    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
+      <access-permissions>Everyone</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>dlp</application-ref>
+          <portlet-ref>dlpQuarantine</portlet-ref>
+        </portlet>
+        <title>Dlp Quarantine Administration</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+    </container>
+  </page>
+  
+  <page>
+    <name>transferRules</name>
+    <title>Transfer Rules</title>
+    <access-permissions>*:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
+      <portlet-application>
+        <portlet>
+          <application-ref>transfer-rules</application-ref>
+          <portlet-ref>transferRulesPortlet</portlet-ref>
+        </portlet>
+        <title>Transfer Rules Administration</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+    </container>
+  </page>
+  
+  <page>
+    <name>multifactor-authentication</name>
+    <title>Multifactor authentication</title>
+    <access-permissions>*:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <show-max-window>false</show-max-window>
+    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
+      <access-permissions>Everyone</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>multifactor-authentication</application-ref>
+          <portlet-ref>multifactorAuthentication</portlet-ref>
+        </portlet>
+        <title>Multifactor authentication</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+    </container>
+  </page>
+  
+  <page>
+    <name>SiteExplorer</name>
+    <title>Site Explorer</title>
+    <access-permissions>*:/platform/web-contributors</access-permissions>
+    <edit-permission>manager:/platform/web-contributors</edit-permission>
+    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
+      <access-permissions>Everyone</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>ecmexplorer</application-ref>
+          <portlet-ref>FileExplorerPortlet</portlet-ref>
+          <preferences>
+            <preference>
+              <name>driveName</name>
+              <value>Managed Sites</value>
+              <read-only>false</read-only>
+            </preference>
+          </preferences>
+        </portlet>
+        <title>Site Explorer</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+        <show-application-state>false</show-application-state>
+        <show-application-mode>false</show-application-mode>
+      </portlet-application>
+      <portlet-application>
+        <portlet>
+          <application-ref>authoring-apps</application-ref>
+          <portlet-ref>AuthoringDashboard</portlet-ref>
+        </portlet>
+        <title>Authoring Dashboard</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+        <show-application-state>false</show-application-state>
+        <show-application-mode>false</show-application-mode>
+      </portlet-application>
+    </container>
+  </page>
+  
+  <page>
+    <name>WcmAdmin</name>
+    <title>WCM Administration</title>
+    <access-permissions>manager:/platform/web-contributors</access-permissions>
+    <edit-permission>manager:/platform/web-contributors</edit-permission>
+    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
+      <access-permissions>Everyone</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>ecmadmin</application-ref>
+          <portlet-ref>ECMAdminPortlet</portlet-ref>
+          <preferences></preferences>
+        </portlet>
+        <title>WCM Administration</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+        <show-application-state>false</show-application-state>
+        <show-application-mode>false</show-application-mode>
+      </portlet-application>
+    </container>
+  </page>
+  
+  <page>
+    <name>registry</name>
+    <title>Registry</title>
+    <access-permissions>manager:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
+      <access-permissions>Everyone</access-permissions>
+      <portlet-application>
+        <portlet>
+          <application-ref>exoadmin</application-ref>
+          <portlet-ref>ApplicationRegistryPortlet</portlet-ref>
+          <preferences>
+            <preference>
+              <name>showImport</name>
+              <value>false</value>
+            </preference>
+          </preferences>
+        </portlet>
+        <title>Application Registry</title>
+        <access-permissions>Everyone</access-permissions>
+        <show-info-bar>false</show-info-bar>
+      </portlet-application>
+    </container>
+  </page>
+</page-set>
