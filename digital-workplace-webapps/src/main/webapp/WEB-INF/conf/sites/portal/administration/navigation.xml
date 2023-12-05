@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ * Copyright (C) 2023 eXo Platform SAS.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+-->
+<node-navigation
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_6 http://www.gatein.org/xml/ns/gatein_objects_1_6"
+        xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_6">
+  <priority>3</priority>
+
+  <page-nodes>
+    <node>
+      <name>home</name>
+      <label>#{portal.administration.home}</label>
+      <icon>fas fa-cog</icon>
+      <node>
+        <name>general</name>
+        <label>#{portal.administration.general}</label>
+        <icon>fas fa-cog</icon>
+        <node>
+          <name>mainsettings</name>
+          <label>#{portal.administration.mainsettings}</label>
+          <icon>fas fa-cogs</icon>
+          <page-reference>portal::administration::generalSettings</page-reference>
+        </node>
+        <node>
+          <name>notification</name>
+          <label>#{portal.administration.notification}</label>
+          <icon>fas fa-bell</icon>
+          <page-reference>portal::administration::notification</page-reference>
+        </node>
+        <node>
+          <name>applicationsCenter</name>
+          <label>#{portal.administration.appCenterAdminSetup}</label>
+          <icon>fas fa-list-alt</icon>
+          <page-reference>portal::administration::appCenterAdminSetup</page-reference>
+        </node>
+      </node>
+      <node>
+        <name>organisation</name>
+        <label>#{portal.administration.organisation}</label>
+        <icon>fas fa-building</icon>
+        <node>
+          <name>users</name>
+          <label>#{portal.administration.users}</label>
+          <icon>fas fa-users-cog</icon>
+          <page-reference>portal::administration::usersManagement</page-reference>
+        </node>
+        <node>
+          <name>groups</name>
+          <label>#{portal.administration.groups}</label>
+          <icon>fab fa-simplybuilt</icon>
+          <page-reference>portal::administration::groupsManagement</page-reference>
+        </node>
+        <node>
+          <name>profile</name>
+          <label>#{portal.administration.profile}</label>
+          <icon>fas fa-user-cog</icon>
+          <page-reference>portal::administration::profileManagement</page-reference>
+        </node>
+        <node>
+          <name>spaces</name>
+          <label>#{portal.administration.spaces}</label>
+          <icon>fas fa-people-arrows</icon>
+          <page-reference>portal::administration::spacesAdministration</page-reference>
+        </node>
+        <node>
+          <name>roles</name>
+          <label>#{portal.administration.roles}</label>
+          <icon>fas fa-diagnoses</icon>
+          <page-reference>portal::administration::membershipsManagement</page-reference>
+        </node>
+        <node>
+          <name>sites</name>
+          <label>#{portal.administration.sites}</label>
+          <icon>fas fa-sitemap</icon>
+          <page-reference>portal::administration::siteManagement</page-reference>
+        </node>
+      </node>
+      <node>
+        <name>recognition</name>
+        <label>#{portal.administration.recognition}</label>
+        <icon>fas fa-trophy</icon>
+        <node>
+          <name>connectors</name>
+          <label>#{portal.administration.connectors}</label>
+          <icon>fas fa-plug</icon>
+          <page-reference>portal::administration::gamificationConnectorsAdministration</page-reference>
+        </node>
+        <node>
+          <name>wallet</name>
+          <label>#{portal.administration.wallet}</label>
+          <icon>fas fa-wallet</icon>
+          <page-reference>portal::administration::walletAdministration</page-reference>
+        </node>
+        <node>
+          <name>reward</name>
+          <label>#{portal.administration.reward}</label>
+          <icon>fas fa-coins</icon>
+          <page-reference>portal::administration::rewardAdministration</page-reference>
+        </node>
+        <node>
+          <name>perks</name>
+          <label>#{portal.administration.perks}</label>
+          <icon>fas fa-shopping-cart</icon>
+          <page-reference>portal::administration::perkStoreAdministration</page-reference>
+        </node>
+        <node>
+          <name>kudos</name>
+          <label>#{portal.administration.kudos}</label>
+          <icon>fas fa-award</icon>
+          <page-reference>portal::administration::kudosAdministration</page-reference>
+        </node>
+        <node>
+          <name>badges</name>
+          <label>#{portal.administration.badges}</label>
+          <icon>fas fa-graduation-cap</icon>
+          <page-reference>portal::administration::gamificationBadgesAdministration</page-reference>
+        </node>
+      </node>
+      <node>
+        <name>applications</name>
+        <label>#{portal.administration.applications}</label>
+        <icon>fas fa-boxes</icon>
+        <node>
+          <name>agendaAdminSettings</name>
+          <label>#{portal.administration.agenda}</label>
+          <icon>fas fa-calendar-plus</icon>
+          <page-reference>portal::administration::agendaAdminSettings</page-reference>
+        </node>
+        <node>
+          <name>visio</name>
+          <label>#{portal.administration.visio}</label>
+          <icon>fas fa-phone-alt</icon>
+          <page-reference>portal::administration::webconferencing</page-reference>
+        </node>
+        <node>
+          <name>translation</name>
+          <label>#{portal.administration.translation}</label>
+          <icon>fas fa-language</icon>
+          <page-reference>portal::administration::automatic-translation</page-reference>
+        </node>
+        <node>
+          <name>documents-settings</name>
+          <label>#{portal.administration.documents-settings}</label>
+          <icon>fas fa-folder-open</icon>
+          <node>
+            <name>cloud-storage</name>
+            <label>#{portal.administration.cloud-storage}</label>
+            <icon>fas fa-cloud-download-alt</icon>
+            <page-reference>portal::administration::cloudStorage</page-reference>
+          </node>
+          <node>
+            <name>documents-editors</name>
+            <label>#{portal.administration.documents-editors}</label>
+            <icon>fas fa-edit</icon>
+            <page-reference>portal::administration::editors</page-reference>
+          </node>
+        </node>
+        <node>
+          <name>news-settings</name>
+          <label>#{portal.administration.news-settings}</label>
+          <icon>fas fa-newspaper</icon>
+          <node>
+            <name>newsTargets</name>
+            <label>#{portal.administration.newsTargets}</label>
+            <icon>fas fa-bullseye</icon>
+            <page-reference>portal::administration::newsTargets</page-reference>
+          </node>
+        </node>
+      </node>
+      <node>
+        <name>security</name>
+        <label>#{portal.administration.security}</label>
+        <icon>fas fa-shield-alt</icon>
+        <node>
+          <name>quarantine</name>
+          <label>#{portal.administration.quarantine}</label>
+          <icon>fas fa-dungeon</icon>
+          <page-reference>portal::administration::dlp-quarantine</page-reference>
+        </node>
+        <node>
+          <name>transfert-rules</name>
+          <label>#{portal.administration.transfert-rules}</label>
+          <icon>fas fa-exchange-alt</icon>
+          <page-reference>portal::administration::transferRules</page-reference>
+        </node>
+        <node>
+          <name>multifactor-authentication</name>
+          <label>#{portal.administration.multifactor-authentication}</label>
+          <icon>fab fa-keycdn</icon>
+          <page-reference>portal::administration::multifactor-authentication</page-reference>
+        </node>
+      </node>
+      <node>
+        <name>legacy</name>
+        <label>#{portal.administration.legacy}</label>
+        <icon>fas fa-archive</icon>
+        <node>
+          <name>wcm-backoffice</name>
+          <label>#{portal.administration.wcm-backoffice}</label>
+          <icon>fas fa-archive</icon>
+          <page-reference>portal::administration::SiteExplorer</page-reference>
+        </node>
+        <node>
+          <name>wcm-settings</name>
+          <label>#{portal.administration.wcm-settings}</label>
+          <icon>fas fa-archive</icon>
+          <page-reference>portal::administration::WcmAdmin</page-reference>
+        </node>
+        <node>
+          <name>wcm-components</name>
+          <label>#{portal.administration.wcm-components}</label>
+          <icon>fas fa-archive</icon>
+          <page-reference>portal::administration::registry</page-reference>
+        </node>
+      </node>
+    </node>
+  </page-nodes>
+</node-navigation>
