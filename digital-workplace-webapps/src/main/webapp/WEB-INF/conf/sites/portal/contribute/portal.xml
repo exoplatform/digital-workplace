@@ -18,15 +18,15 @@
 -->
 <portal-config
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_10 http://www.gatein.org/xml/ns/gatein_objects_1_10"
-  xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_10">
-  <portal-name>mycraft</portal-name>
-  <label>My Craft</label>
-  <description>My personal workspace</description>
-  <display-order>3</display-order>
+  xsi:schemaLocation="http://www.exoplatform.org/xml/ns/gatein_objects_1_11 http://www.exoplatform.org/xml/ns/gatein_objects_1_11"
+  xmlns="http://www.exoplatform.org/xml/ns/gatein_objects_1_11">
+  <portal-name>contribute</portal-name>
+  <label>Contribute</label>
+  <description>Easily onboard contributors, drive initiatives, and keep everyone motivated</description>
+  <display-order>10</display-order>
   <locale>en</locale>
-  <access-permissions>member:/platform/users;member:/platform/externals</access-permissions>
-  <edit-permission>manager:/platform/administrators</edit-permission>
+  <access-permissions>*:/platform/users;*:/platform/externals</access-permissions>
+  <edit-permission>*:/platform/administrators</edit-permission>
   <properties>
     <entry key="sessionAlive">onDemand</entry>
     <entry key="showPortletInfo">0</entry>
@@ -72,6 +72,6 @@
       <container id="right-topBar-container" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
       </container>
     </container>
-    <page-body> </page-body>
+    <page-body />
   </portal-layout>
 </portal-config>

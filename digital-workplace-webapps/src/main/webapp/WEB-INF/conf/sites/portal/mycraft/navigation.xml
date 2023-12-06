@@ -26,8 +26,8 @@
       <node>
         <name>dashboard</name>
         <label>#{portal.mycraft.dashboard}</label>
-        <icon>fas fa-briefcase</icon>
-        <page-reference>portal::global::overview</page-reference>
+        <icon>fa fa-briefcase</icon>
+        <page-reference>portal::mycraft::dashboard</page-reference>
         <node>
           <name>drives</name>
           <label>#{portal.mycraft.drives}</label>
@@ -37,8 +37,8 @@
         <node>
           <name>tasks</name>
           <label>#{portal.mycraft.tasks}</label>
-          <icon>fas fa-tasks</icon>
-          <page-reference>portal::global::tasks</page-reference>
+          <icon>fa fa-tasks</icon>
+          <page-reference>portal::mycraft::tasks</page-reference>
         </node>
         <node>
           <name>agenda</name>
@@ -55,14 +55,14 @@
         <node>
           <name>achievements</name>
           <label>#{portal.mycraft.achievements}</label>
-          <icon>fas fa-chart-pie</icon>
-          <page-reference>portal::global::achievements</page-reference>
+          <icon>fa fa-chart-pie</icon>
+          <page-reference>portal::mycraft::achievements</page-reference>
         </node>
         <node>
           <name>wallet</name>
           <label>#{portal.mycraft.wallet}</label>
-          <icon>fas fa-wallet</icon>
-          <page-reference>portal::global::wallet</page-reference>
+          <icon>fa fa-credit-card</icon>
+          <page-reference>portal::mycraft::wallet</page-reference>
         </node>
       </node>
     </page-nodes>
