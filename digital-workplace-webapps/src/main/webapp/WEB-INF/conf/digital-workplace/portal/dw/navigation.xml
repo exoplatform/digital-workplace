@@ -17,16 +17,16 @@
       <page-reference>portal::global::stream</page-reference>
     </node>
     <node>
-      <name>spaces</name>
-      <label>#{portal.dw.spaces}</label>
-      <icon>fas fa-people-arrows</icon>
-      <page-reference>portal::global::all-spaces</page-reference>
-    </node>
-    <node>
       <name>people</name>
       <label>#{portal.dw.people}</label>
       <icon>fas fa-users</icon>
       <page-reference>portal::global::all-people</page-reference>
+    </node>
+    <node>
+      <name>spaces</name>
+      <label>#{portal.dw.spaces}</label>
+      <icon>fas fa-people-arrows</icon>
+      <page-reference>portal::global::all-spaces</page-reference>
     </node>
   </page-nodes>
 
