@@ -16,11 +16,11 @@
 	<parent>
 		<artifactId>addons-exo-parent-pom</artifactId>
 		<groupId>org.exoplatform.addons</groupId>
-		<version>18-M06.1</version>
+		<version>18-mips-SNAPSHOT</version>
 	</parent>
 	<groupId>org.exoplatform.addons.digital-workplace</groupId>
 	<artifactId>digital-workplace</artifactId>
-	<version>7.0.x-SNAPSHOT</version>
+	<version>7.0.x-mips-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>eXo Add-on:: Digital Workplace - Parent POM</name>
 	<description>Digital Workplace Addon</description>
@@ -29,7 +29,7 @@
 		<module>digital-workplace-packaging</module>
 	</modules>
 	<properties>
-		<org.exoplatform.commons-exo.version>7.0.x-SNAPSHOT</org.exoplatform.commons-exo.version>
+		<org.exoplatform.commons-exo.version>7.0.x-mips-SNAPSHOT</org.exoplatform.commons-exo.version>
 		
 		<!-- Sonar properties -->
 		<sonar.organization>exoplatform</sonar.organization>
