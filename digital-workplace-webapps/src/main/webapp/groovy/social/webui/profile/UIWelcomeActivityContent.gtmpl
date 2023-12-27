@@ -21,7 +21,7 @@
 */
 %>
 <%
-import org.apache.commons.lang.StringEscapeUtils
+import org.apache.commons.lang3.StringEscapeUtils
 import org.exoplatform.services.security.ConversationState
 import org.exoplatform.social.core.identity.model.Identity
 import org.exoplatform.social.core.identity.provider.OrganizationIdentityProvider
@@ -36,7 +36,7 @@ Identity identity = org.exoplatform.social.webui.Utils.getIdentityManager().getO
 if(identity != null && identity.getProfile() != null) {
   profileFullName = identity.getProfile().getFullName();
 }
-ownerName = StringEscapeUtils.escapeHtml(profileFullName);
+ownerName = StringEscapeUtils.escapeHtml4(profileFullName);
 
 ownerUri = LinkProvider.getUserProfileUri(userId);
 
