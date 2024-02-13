@@ -19,7 +19,7 @@
 	</parent>
 	<groupId>org.exoplatform.addons.digital-workplace</groupId>
 	<artifactId>digital-workplace</artifactId>
-	<version>1.5.1</version>
+	<version>1.5.1-patched</version>
 	<packaging>pom</packaging>
 	<name>eXo Add-on:: Digital Workplace - Parent POM</name>
 	<description>Digital Workplace Addon</description>
