@@ -26,7 +26,7 @@
             <access-permissions>Everyone</access-permissions>
             <portlet-application>
               <portlet>
-                <application-ref>news</application-ref>
+                <application-ref>content</application-ref>
                 <portlet-ref>NewsListView</portlet-ref>
               </portlet>
               <access-permissions>Everyone</access-permissions>
@@ -34,7 +34,7 @@
             </portlet-application>
             <portlet-application>
               <portlet>
-                <application-ref>news</application-ref>
+                <application-ref>content</application-ref>
                 <portlet-ref>NewsListView</portlet-ref>
               </portlet>
               <access-permissions>Everyone</access-permissions>
@@ -45,7 +45,7 @@
             <access-permissions>Everyone</access-permissions>
             <portlet-application>
               <portlet>
-                <application-ref>news</application-ref>
+                <application-ref>content</application-ref>
                 <portlet-ref>NewsListView</portlet-ref>
               </portlet>
               <access-permissions>Everyone</access-permissions>
@@ -53,7 +53,7 @@
             </portlet-application>
             <portlet-application>
               <portlet>
-                <application-ref>news</application-ref>
+                <application-ref>content</application-ref>
                 <portlet-ref>NewsListView</portlet-ref>
               </portlet>
               <access-permissions>Everyone</access-permissions>
@@ -89,7 +89,7 @@
             <access-permissions>Everyone</access-permissions>
             <portlet-application>
               <portlet>
-                <application-ref>news</application-ref>
+                <application-ref>content</application-ref>
                 <portlet-ref>NewsListView</portlet-ref>
               </portlet>
               <access-permissions>Everyone</access-permissions>
