@@ -65,5 +65,14 @@
       <scope>provided</scope>
       <outputFileNameMapping>commons-exo-extension.war</outputFileNameMapping>
     </dependencySet>
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <outputDirectory>/webapps</outputDirectory>
+      <includes>
+        <include>org.exoplatform.gatein.portal:exo.portal.portlet.exoadmin:war</include>
+      </includes>
+      <scope>provided</scope>
+      <outputFileNameMapping>exoadmin.war</outputFileNameMapping>
+    </dependencySet>
   </dependencySets>
 </assembly>
