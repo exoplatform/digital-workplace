@@ -28,15 +28,15 @@
   <page-nodes>
     <node>
       <name>news-detail</name>
-      <label>#{portal.public.newsDetail}</label>
+      <label>#{portal.global.newsDetail}</label>
       <visibility>SYSTEM</visibility>
-      <page-reference>portal::public::newsDetail</page-reference>
+      <page-reference>portal::global::newsDetail</page-reference>
     </node>
     <node>
       <name>oeditor</name>
-      <label>#{portal.public.oeditor}</label>
+      <label>#{portal.global.oeditor}</label>
       <visibility>SYSTEM</visibility>
-      <page-reference>portal::public::oeditor</page-reference>
+      <page-reference>portal::global::oeditor</page-reference>
     </node>
   </page-nodes>
 </node-navigation>
