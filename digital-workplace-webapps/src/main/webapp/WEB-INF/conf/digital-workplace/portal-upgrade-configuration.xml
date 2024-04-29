@@ -245,7 +245,7 @@
               <string>administration</string>
             </field>
             <field name="importMode">
-              <string>overwrite</string>
+              <string>merge</string>
             </field>
             <field name="pageNames">
               <collection type="java.util.ArrayList" item-type="java.lang.String">
