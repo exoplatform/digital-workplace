@@ -178,6 +178,28 @@
         </node>
       </node>
       <node>
+        <name>development</name>
+        <label>#{portal.administration.development}</label>
+        <icon>fas fa-code</icon>
+        <node>
+          <name>sites</name>
+          <label>#{portal.administration.sites}</label>
+          <icon>fas fa-sitemap</icon>
+          <page-reference>portal::administration::siteManagement</page-reference>
+        </node>
+        <node>
+          <name>template</name>
+          <label>#{portal.administration.template}</label>
+          <icon>fas fa-columns</icon>
+          <node>
+            <name>pages</name>
+            <label>#{portal.administration.pages}</label>
+            <icon>fas fa-pager</icon>
+            <page-reference>portal::administration::pageTemplates</page-reference>
+          </node>
+        </node>
+      </node>
+      <node>
         <name>security</name>
         <label>#{portal.administration.security}</label>
         <icon>fas fa-shield-alt</icon>
