@@ -133,7 +133,7 @@
         <node>
           <name>visio</name>
           <label>#{portal.administration.visio}</label>
-          <icon>fas fa-phone-alt</icon>
+          <icon>fas fa-video</icon>
           <page-reference>portal::administration::webconferencing</page-reference>
         </node>
         <node>
