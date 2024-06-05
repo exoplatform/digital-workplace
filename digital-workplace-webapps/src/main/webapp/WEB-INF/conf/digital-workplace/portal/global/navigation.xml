@@ -27,12 +27,6 @@
   <priority>3</priority>
   <page-nodes>
     <node>
-      <name>news-detail</name>
-      <label>#{portal.global.newsDetail}</label>
-      <visibility>SYSTEM</visibility>
-      <page-reference>portal::global::newsDetail</page-reference>
-    </node>
-    <node>
       <name>oeditor</name>
       <label>#{portal.global.oeditor}</label>
       <visibility>SYSTEM</visibility>
