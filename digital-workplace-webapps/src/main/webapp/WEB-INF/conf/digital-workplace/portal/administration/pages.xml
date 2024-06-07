@@ -350,29 +350,5 @@
       </portlet-application>
     </container>
   </page>
-  
-  <page>
-    <name>registry</name>
-    <title>Registry</title>
-    <access-permissions>manager:/platform/administrators</access-permissions>
-    <edit-permission>manager:/platform/administrators</edit-permission>
-    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
-      <access-permissions>Everyone</access-permissions>
-      <portlet-application>
-        <portlet>
-          <application-ref>exoadmin</application-ref>
-          <portlet-ref>ApplicationRegistryPortlet</portlet-ref>
-          <preferences>
-            <preference>
-              <name>showImport</name>
-              <value>false</value>
-            </preference>
-          </preferences>
-        </portlet>
-        <title>Application Registry</title>
-        <access-permissions>Everyone</access-permissions>
-        <show-info-bar>false</show-info-bar>
-      </portlet-application>
-    </container>
-  </page>
+
 </page-set>

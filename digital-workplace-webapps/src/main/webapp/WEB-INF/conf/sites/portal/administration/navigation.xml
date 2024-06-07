@@ -188,6 +188,12 @@
           <page-reference>portal::administration::siteManagement</page-reference>
         </node>
         <node>
+          <name>portlets</name>
+          <label>#{portal.administration.portlets}</label>
+          <icon>fas fa-grip-horizontal</icon>
+          <page-reference>portal::administration::portlets</page-reference>
+        </node>
+        <node>
           <name>template</name>
           <label>#{portal.administration.template}</label>
           <icon>fas fa-columns</icon>
@@ -237,12 +243,6 @@
           <label>#{portal.administration.wcm-settings}</label>
           <icon>fas fa-archive</icon>
           <page-reference>portal::administration::WcmAdmin</page-reference>
-        </node>
-        <node>
-          <name>wcm-components</name>
-          <label>#{portal.administration.wcm-components}</label>
-          <icon>fas fa-archive</icon>
-          <page-reference>portal::administration::registry</page-reference>
         </node>
       </node>
     </node>
