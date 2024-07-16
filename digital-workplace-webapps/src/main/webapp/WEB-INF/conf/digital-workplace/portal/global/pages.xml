@@ -25,8 +25,20 @@
     <title>Onlyoffice Editor Page</title>
     <access-permissions>Everyone</access-permissions>
     <edit-permission>manager:/platform/administrators</edit-permission>
+    <show-max-window>true</show-max-window>
+    <hide-shared-layout>true</hide-shared-layout>
     <container id="OnlyofficeEditorPage" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
       <access-permissions>Everyone</access-permissions>
+      <portlet-application>
+         <portlet>
+           <application-ref>editors</application-ref>
+           <portlet-ref>EditorSupportPortlet</portlet-ref>
+         </portlet>
+         <title>EditorSupportPortlet</title>
+         <access-permissions>Everyone</access-permissions>
+         <show-info-bar>false</show-info-bar>
+         <show-application-state>true</show-application-state>
+       </portlet-application>
       <portlet-application>
         <portlet>
           <application-ref>onlyoffice</application-ref>
