@@ -68,8 +68,8 @@
         <value>${exo.branding.theme.primaryColor:primaryColor:#476A9C}</value>
         <value>${exo.branding.theme.secondaryColor:secondaryColor:#476a9c}</value>
         <value>${exo.branding.theme.tertiaryColor:tertiaryColor:#476A9C}</value>
-        <value>${exo.branding.theme.greyColorLighten1:greyColorLighten1:#5f708a}</value>
-        <value>${exo.branding.theme.textColor:textColor:#333333}</value>
+        <value>${exo.branding.theme.greyColorLighten1:greyColorLighten1:#707070}</value>
+        <value>${exo.branding.theme.textColor:textColor:#20282c}</value>
         <value>${exo.branding.theme.borderRadius:borderRadius:8px}</value>
       </values-param>
     </init-params>
