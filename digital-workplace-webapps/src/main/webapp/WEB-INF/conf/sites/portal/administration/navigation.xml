@@ -203,6 +203,12 @@
             <icon>fas fa-pager</icon>
             <page-reference>portal::administration::pageTemplates</page-reference>
           </node>
+          <node>
+            <name>spaceTemplates</name>
+            <label>#{portal.administration.spaceTemplates}</label>
+            <icon>fas fa-users-cog</icon>
+            <page-reference>portal::administration::spaceTemplates</page-reference>
+          </node>
         </node>
       </node>
       <node>
