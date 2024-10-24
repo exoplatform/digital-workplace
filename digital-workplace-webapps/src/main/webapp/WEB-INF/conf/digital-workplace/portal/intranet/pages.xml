@@ -14,7 +14,7 @@
         <access-permissions>Everyone</access-permissions>
         <portlet-application>
           <portlet>
-            <application-ref>social-portlet</application-ref>
+            <application-ref>social</application-ref>
             <portlet-ref>Image</portlet-ref>
           </portlet>
           <access-permissions>Everyone</access-permissions>
@@ -74,7 +74,7 @@
         <access-permissions>Everyone</access-permissions>
         <portlet-application>
           <portlet>
-            <application-ref>social-portlet</application-ref>
+            <application-ref>social</application-ref>
             <portlet-ref>Image</portlet-ref>
           </portlet>
           <access-permissions>Everyone</access-permissions>
@@ -127,7 +127,7 @@
                     cssClass="mb-5">
               <portlet-application>
                 <portlet>
-                  <application-ref>social-portlet</application-ref>
+                  <application-ref>social</application-ref>
                   <portlet-ref>Links</portlet-ref>
                 </portlet>
                 <access-permissions>Everyone</access-permissions>
