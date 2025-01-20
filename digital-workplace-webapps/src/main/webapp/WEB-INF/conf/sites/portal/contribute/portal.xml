@@ -21,15 +21,15 @@
   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/gatein_objects_1_11 http://www.exoplatform.org/xml/ns/gatein_objects_1_11"
   xmlns="http://www.exoplatform.org/xml/ns/gatein_objects_1_11">
   <portal-name>contribute</portal-name>
-  <label>Contribute</label>
-  <description>Easily onboard contributors, drive initiatives, and keep everyone motivated</description>
+  <label>#{portal.contribute.name}</label>
+  <description>#{portal.contribute.description}</description>
   <display-order>10</display-order>
   <locale>en</locale>
   <access-permissions>*:/platform/users;*:/platform/externals</access-permissions>
   <edit-permission>*:/platform/administrators</edit-permission>
   <properties>
-    <entry key="sessionAlive">onDemand</entry>
-    <entry key="showPortletInfo">0</entry>
+    <entry key="removable">false</entry>
+    <entry key="icon">fa-rocket</entry>
   </properties>
   <portal-layout>
     <container id="UITopBarContainer" template="system:/groovy/portal/webui/container/UITopBarContainer.gtmpl">
