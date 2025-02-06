@@ -23,6 +23,7 @@
   <portal-name>intranet</portal-name>
   <label>Intranet</label>
   <description>Develop your communication with a modern intranet</description>
+  <displayed>true</displayed>
   <display-order>1</display-order>
   <locale>en</locale>
   <access-permissions>member:/platform/users</access-permissions>
@@ -32,46 +33,6 @@
     <entry key="icon">fa-home</entry>
   </properties>
   <portal-layout>
-    <container id="UITopBarContainer" template="system:/groovy/portal/webui/container/UITopBarContainer.gtmpl">
-      <access-permissions>*:/platform/users</access-permissions>
-      <container id="left-topBar-container" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <access-permissions>Everyone</access-permissions>
-        <portlet-application>
-          <portlet>
-            <application-ref>social</application-ref>
-            <portlet-ref>TopBarLogo</portlet-ref>
-          </portlet>
-          <title>Company Logo</title>
-          <access-permissions>Everyone</access-permissions>
-          <show-info-bar>false</show-info-bar>
-          <show-application-state>false</show-application-state>
-        </portlet-application>
-        <portlet-application>
-          <portlet>
-            <application-ref>layout-management</application-ref>
-            <portlet-ref>SiteNavigation</portlet-ref>
-          </portlet>
-          <title>site navigation</title>
-          <access-permissions>Everyone</access-permissions>
-          <show-info-bar>false</show-info-bar>
-          <show-application-state>false</show-application-state>
-      </portlet-application>
-      </container>
-      <container id="middle-topBar-container" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <portlet-application>
-          <portlet>
-            <application-ref>social</application-ref>
-            <portlet-ref>TopBarMenu</portlet-ref>
-          </portlet>
-          <title>Top Bar Menu </title>
-          <access-permissions>Everyone</access-permissions>
-          <show-info-bar>false</show-info-bar>
-          <show-application-state>false</show-application-state>
-        </portlet-application>
-      </container>
-      <container id="right-topBar-container" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-      </container>
-    </container>
-    <page-body> </page-body>
+    <page-body />
   </portal-layout>
 </portal-config>

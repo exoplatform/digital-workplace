@@ -4,6 +4,7 @@
         xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_10 http://www.gatein.org/xml/ns/gatein_objects_1_10"
         xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_10">
   <portal-name>dw</portal-name>
+  <displayed>true</displayed>
   <display-order>40</display-order>
   <locale>en</locale>
   <access-permissions>member:/platform/users;member:/platform/externals</access-permissions>
@@ -13,6 +14,6 @@
     <entry key="icon">fa-dot-circle</entry>
   </properties>
   <portal-layout>
-    <page-body> </page-body>
+    <page-body />
   </portal-layout>
 </portal-config>
