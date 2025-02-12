@@ -21,8 +21,8 @@
   xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_10 http://www.gatein.org/xml/ns/gatein_objects_1_10"
   xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_10">
   <portal-name>intranet</portal-name>
-  <label>Intranet</label>
-  <description>Develop your communication with a modern intranet</description>
+  <label>#{portal.intranet.name}</label>
+  <description>#{portal.intranet.description}</description>
   <displayed>true</displayed>
   <display-order>1</display-order>
   <locale>en</locale>
