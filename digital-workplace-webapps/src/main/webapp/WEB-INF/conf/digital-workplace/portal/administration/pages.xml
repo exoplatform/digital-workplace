@@ -193,44 +193,6 @@
       </container>
     </container>
   </page>
-  
-  <page profiles="ecms">
-    <name>cloudStorage</name>
-    <title>Cloud Storage</title>
-    <access-permissions>*:/platform/administrators</access-permissions>
-    <edit-permission>manager:/platform/administrators</edit-permission>
-    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
-      <access-permissions>Everyone</access-permissions>
-      <portlet-application>
-        <portlet>
-          <application-ref>clouddrives</application-ref>
-          <portlet-ref>cloudStoragePortlet</portlet-ref>
-        </portlet>
-        <title>cloud Storage</title>
-        <access-permissions>Everyone</access-permissions>
-        <show-info-bar>false</show-info-bar>
-      </portlet-application>
-    </container>
-  </page>
-
-  <page profiles="ecms">
-    <name>editors</name>
-    <title>Editors Administration</title>
-    <access-permissions>*:/platform/administrators</access-permissions>
-    <edit-permission>manager:/platform/administrators</edit-permission>
-    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
-      <access-permissions>Everyone</access-permissions>
-      <portlet-application>
-        <portlet>
-          <application-ref>editors</application-ref>
-          <portlet-ref>EditorsAdminPortlet</portlet-ref>
-        </portlet>
-        <title>Document Editors Administration</title>
-        <access-permissions>Everyone</access-permissions>
-        <show-info-bar>false</show-info-bar>
-      </portlet-application>
-    </container>
-  </page>
 
   <page profiles="documents">
     <name>documentsTrashAdministration</name>
@@ -349,26 +311,4 @@
     </container>
   </page>
   
-  <page profiles="ecms">
-    <name>WcmAdmin</name>
-    <title>WCM Administration</title>
-    <access-permissions>manager:/platform/web-contributors</access-permissions>
-    <edit-permission>manager:/platform/web-contributors</edit-permission>
-    <container id="singlePageApplicationContainer" template="system:/groovy/portal/webui/container/UIContainer.gtmpl" cssClass="singlePageApplication">
-      <access-permissions>Everyone</access-permissions>
-      <portlet-application>
-        <portlet>
-          <application-ref>ecmadmin</application-ref>
-          <portlet-ref>ECMAdminPortlet</portlet-ref>
-          <preferences></preferences>
-        </portlet>
-        <title>WCM Administration</title>
-        <access-permissions>Everyone</access-permissions>
-        <show-info-bar>false</show-info-bar>
-        <show-application-state>false</show-application-state>
-        <show-application-mode>false</show-application-mode>
-      </portlet-application>
-    </container>
-  </page>
-
 </page-set>
