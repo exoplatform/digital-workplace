@@ -268,7 +268,18 @@
                         "field": "userId",
                         "type": "GREATER",
                         "valueString": "1"
-                      }
+                      },
+                    {
+                    "field": "operation",
+                    "type": "IN_SET",
+                    "valueString": "fileCreated,fileUpdated,fileMovedToTrash,taskCreated,taskUpdated,taskCommented,taskCompleted,taskStatusChanged,createActivity,createComment,likeActivity,likeComment,sendKudos,eventCreated,eventUpdated,contactSection,experienceSection,avatar,eventResponse,sendChatMessage,callJoined,createContent,updateContent,publishContent,commentContent,likeContent,shareContent",
+                    "range": null
+                    },
+                    {
+                    "field": "activityType",
+                    "type": "NOT_IN_SET",
+                    "valueString": "news"
+                    }
                     ],
                     "yAxisAggregation": {
                       "type": "COUNT"
@@ -297,7 +308,18 @@
                         "field": "userId",
                         "type": "GREATER",
                         "valueString": "1"
-                      }
+                      },
+                    {
+                    "field": "operation",
+                    "type": "IN_SET",
+                    "valueString": "fileCreated,fileUpdated,fileMovedToTrash,taskCreated,taskUpdated,taskCommented,taskCompleted,taskStatusChanged,createActivity,createComment,likeActivity,likeComment,sendKudos,eventCreated,eventUpdated,contactSection,experienceSection,avatar,eventResponse,sendChatMessage,callJoined,createContent,updateContent,publishContent,commentContent,likeContent,shareContent",
+                    "range": null
+                    },
+                    {
+                    "field": "activityType",
+                    "type": "NOT_IN_SET",
+                    "valueString": "news"
+                    }
                     ],
                     "yAxisAggregation": {
                       "type": "COUNT"
@@ -392,10 +414,15 @@
                   ],
                   "filters": [
                     {
-                      "field": "operation",
-                      "type": "IN_SET",
-                      "valueString": "fileCreated,fileUpdated,fileMovedToTrash,noteCreated,noteUpdated,taskCreated,taskUpdated,taskCommented,taskCompleted,taskStatusChanged,createActivity,createComment,likeActivity,likeComment,sendKudos,eventCreated,eventUpdated,contactSection,experienceSection,avatar,eventResponse,sendChatMessage,callJoined,documentUploadedNewApp,documentUploadedOldApp",
-                      "range": null
+                    "field": "operation",
+                    "type": "IN_SET",
+                    "valueString": "fileCreated,fileUpdated,fileMovedToTrash,taskCreated,taskUpdated,taskCommented,taskCompleted,taskStatusChanged,createActivity,createComment,likeActivity,likeComment,sendKudos,eventCreated,eventUpdated,contactSection,experienceSection,avatar,eventResponse,sendChatMessage,callJoined,createContent,updateContent,publishContent,commentContent,likeContent,shareContent",
+                    "range": null
+                    },
+                    {
+                    "field": "activityType",
+                    "type": "NOT_IN_SET",
+                    "valueString": "news"
                     }
                   ],
                   "xAxisAggregations": [
@@ -540,11 +567,17 @@
                          "previousPeriod":false,
                          "valueAggregation":{
                             "filters":[
-                               {
-                                  "valueString":"fileCreated,fileUpdated,fileMovedToTrash,noteCreated,noteUpdated,taskCreated,taskUpdated,taskCommented,taskCompleted,taskStatusChanged,createActivity,createComment,likeActivity,likeComment,sendKudos,eventCreated,eventUpdated,contactSection,experienceSection,avatar,eventResponse,sendChatMessage,callJoined",
-                                  "field":"operation",
-                                  "type":"IN_SET"
-                               }
+                            {
+                            "field": "operation",
+                            "type": "IN_SET",
+                            "valueString": "fileCreated,fileUpdated,fileMovedToTrash,taskCreated,taskUpdated,taskCommented,taskCompleted,taskStatusChanged,createActivity,createComment,likeActivity,likeComment,sendKudos,eventCreated,eventUpdated,contactSection,experienceSection,avatar,eventResponse,sendChatMessage,callJoined,createContent,updateContent,publishContent,commentContent,likeContent,shareContent",
+                            "range": null
+                            },
+                            {
+                            "field": "activityType",
+                            "type": "NOT_IN_SET",
+                            "valueString": "news"
+                            }
                             ],
                             "periodIndependent":false,
                             "aggregation":{
@@ -560,11 +593,17 @@
                          "previousPeriod":false,
                          "valueAggregation":{
                             "filters":[
-                               {
-                                  "valueString":"fileCreated,fileUpdated,fileMovedToTrash,noteCreated,noteUpdated,taskCreated,taskUpdated,taskCommented,taskCompleted,taskStatusChanged,createActivity,createComment,likeActivity,likeComment,sendKudos,eventCreated,eventUpdated,contactSection,experienceSection,avatar,eventResponse,sendChatMessage,callJoined",
-                                  "field":"operation",
-                                  "type":"IN_SET"
-                               }
+                            {
+                            "field": "operation",
+                            "type": "IN_SET",
+                            "valueString": "fileCreated,fileUpdated,fileMovedToTrash,taskCreated,taskUpdated,taskCommented,taskCompleted,taskStatusChanged,createActivity,createComment,likeActivity,likeComment,sendKudos,eventCreated,eventUpdated,contactSection,experienceSection,avatar,eventResponse,sendChatMessage,callJoined,createContent,updateContent,publishContent,commentContent,likeContent,shareContent",
+                            "range": null
+                            },
+                            {
+                            "field": "activityType",
+                            "type": "NOT_IN_SET",
+                            "valueString": "news"
+                            }
                             ],
                             "periodIndependent":false,
                             "aggregation":{
@@ -648,7 +687,7 @@
                                "aggregation":{
                                  "sortDirection":"desc",
                                  "field":"spaceCreatedTime",
-                                 "type":"MAX",
+                                 "type":"MAX"
                                },
                                "periodIndependent":true
                          },
@@ -678,11 +717,17 @@
                                   "field":"spaceId",
                                   "type":"GREATER"
                                },
-                               {
-                                  "valueString":"fileCreated,fileUpdated,fileMovedToTrash,noteCreated,noteUpdated,taskCreated,taskUpdated,taskCommented,taskCompleted,taskStatusChanged,createActivity,createComment,likeActivity,likeComment,sendKudos,eventCreated,eventUpdated,contactSection,experienceSection,avatar,eventResponse,sendChatMessage,callJoined",
-                                  "field":"operation",
-                                  "type":"IN_SET"
-                               }
+                            {
+                            "field": "operation",
+                            "type": "IN_SET",
+                            "valueString": "fileCreated,fileUpdated,fileMovedToTrash,taskCreated,taskUpdated,taskCommented,taskCompleted,taskStatusChanged,createActivity,createComment,likeActivity,likeComment,sendKudos,eventCreated,eventUpdated,contactSection,experienceSection,avatar,eventResponse,sendChatMessage,callJoined,createContent,updateContent,publishContent,commentContent,likeContent,shareContent",
+                            "range": null
+                            },
+                            {
+                            "field": "activityType",
+                            "type": "NOT_IN_SET",
+                            "valueString": "news"
+                            }
                             ],
                             "aggregation":{
                                "sortDirection":"desc",
@@ -705,11 +750,17 @@
                          "previousPeriod":true,
                          "valueAggregation":{
                             "filters":[
-                               {
-                                  "valueString":"fileCreated,fileUpdated,fileMovedToTrash,noteCreated,noteUpdated,taskCreated,taskUpdated,taskCommented,taskCompleted,taskStatusChanged,createActivity,createComment,likeActivity,likeComment,sendKudos,eventCreated,eventUpdated,contactSection,experienceSection,avatar,eventResponse,sendChatMessage,callJoined",
-                                  "field":"operation",
-                                  "type":"IN_SET"
-                               },
+                            {
+                            "field": "operation",
+                            "type": "IN_SET",
+                            "valueString": "fileCreated,fileUpdated,fileMovedToTrash,taskCreated,taskUpdated,taskCommented,taskCompleted,taskStatusChanged,createActivity,createComment,likeActivity,likeComment,sendKudos,eventCreated,eventUpdated,contactSection,experienceSection,avatar,eventResponse,sendChatMessage,callJoined,createContent,updateContent,publishContent,commentContent,likeContent,shareContent",
+                            "range": null
+                            },
+                            {
+                            "field": "activityType",
+                            "type": "NOT_IN_SET",
+                            "valueString": "news"
+                            },
                                {
                                   "valueString":"1",
                                   "field":"spaceId",
@@ -728,11 +779,17 @@
                          "title":"analytics.mainModule",
                          "valueAggregation":{
                             "filters":[
-                               {
-                                  "valueString":"fileCreated,fileUpdated,fileMovedToTrash,noteCreated,noteUpdated,taskCreated,taskUpdated,taskCommented,taskCompleted,taskStatusChanged,createActivity,createComment,likeActivity,likeComment,sendKudos,eventCreated,eventUpdated,contactSection,experienceSection,avatar,eventResponse,sendChatMessage,callJoined",
-                                  "field":"operation",
-                                  "type":"IN_SET"
-                               }
+                            {
+                            "field": "operation",
+                            "type": "IN_SET",
+                            "valueString": "fileCreated,fileUpdated,fileMovedToTrash,taskCreated,taskUpdated,taskCommented,taskCompleted,taskStatusChanged,createActivity,createComment,likeActivity,likeComment,sendKudos,eventCreated,eventUpdated,contactSection,experienceSection,avatar,eventResponse,sendChatMessage,callJoined,createContent,updateContent,publishContent,commentContent,likeContent,shareContent",
+                            "range": null
+                            },
+                            {
+                            "field": "activityType",
+                            "type": "NOT_IN_SET",
+                            "valueString": "news"
+                            }
                             ],
                             "aggregation":{
                                "sortDirection":"desc",
