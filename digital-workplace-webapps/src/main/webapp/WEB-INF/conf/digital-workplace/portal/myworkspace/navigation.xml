@@ -20,5 +20,56 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_6 http://www.gatein.org/xml/ns/gatein_objects_1_6"
         xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_6">
-   
+		
+    <priority>3</priority>
+
+    <page-nodes>
+      <node>
+        <name>dashboard</name>
+        <label>#{portal.myworkspace.dashboard}</label>
+        <icon>fa-dice-d6</icon>
+        <page-reference>portal::myworkspace::dashboard</page-reference>
+      </node>
+      <node>
+        <name>drive</name>
+        <label>#{portal.myworkspace.drive}</label>
+        <icon>far fa-folder-open</icon>
+        <page-reference>portal::global::drives</page-reference>
+      </node>
+      <node>
+        <name>tasks</name>
+        <label>#{portal.myworkspace.tasks}</label>
+        <icon>fa fa-tasks</icon>
+        <page-reference>portal::global::tasks</page-reference>
+      </node>
+      <node>
+        <name>agenda</name>
+        <label>#{portal.myworkspace.agenda}</label>
+        <icon>fas fa-calendar-alt</icon>
+        <page-reference>portal::global::agenda</page-reference>
+      </node>
+      <node>
+        <name>more</name>
+        <label>#{portal.myworkspace.more}</label>
+        <icon>fa-ellipsis-h</icon>
+        <node>
+          <name>process</name>
+          <label>#{portal.myworkspace.process}</label>
+          <icon>fas fa-file-invoice</icon>
+          <page-reference>portal::global::processes</page-reference>
+        </node>
+        <node>
+          <name>content</name>
+          <label>#{portal.myworkspace.content}</label>
+          <icon>far fa-newspaper</icon>
+          <page-reference>portal::global::news</page-reference>
+        </node>
+        <node>
+          <name>team</name>
+          <label>#{portal.myworkspace.team}</label>
+          <icon>fa fa-sitemap</icon>
+          <page-reference>portal::global::myteam</page-reference>
+        </node>
+      </node>
+    </page-nodes>
 </node-navigation>

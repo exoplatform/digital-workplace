@@ -3,5 +3,10 @@
   xsi:schemaLocation="http://www.exoplatform.org/xml/ns/gatein_objects_1_8 http://www.exoplatform.org/xml/ns/gatein_objects_1_8"
   xmlns="http://www.exoplatform.org/xml/ns/gatein_objects_1_8">
 
-  
+  <page>
+    <name>dashboard</name>
+    <title>DAshboard</title>
+    <access-permissions>*:/platform/users;*:/platform/externals</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+  </page>
 </page-set>
