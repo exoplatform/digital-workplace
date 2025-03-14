@@ -74,6 +74,39 @@
         </object-param>
       </init-params>
     </component-plugin>
+	<component-plugin>
+      <name>new.portal.config.user.listener</name>
+      <set-method>initListener</set-method>
+      <type>org.exoplatform.portal.config.NewPortalConfigListener</type>
+      <description>this listener init the portal configuration</description>
+      <init-params>
+        <object-param>
+          <name>portal.configuration</name>
+          <description>description</description>
+          <object type="org.exoplatform.portal.config.NewPortalConfig">
+            <field name="predefinedOwner">
+              <collection type="java.util.HashSet">
+                <value>
+                  <string>myworkspace</string>
+                </value>
+              </collection>
+            </field>
+            <field name="ownerType">
+              <string>portal</string>
+            </field>
+            <field name="override">
+              <boolean>${exo.myworkspace.portalConfig.metadata.override:true}</boolean>
+            </field>
+            <field name="importMode">
+              <string>${exo.myworkspace.portalConfig.metadata.importmode:insert}</string>
+            </field>
+            <field name="templateLocation">
+              <string>war:/conf/digital-workplace/</string>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
     <component-plugin>
       <name>new.portal.config.user.listener</name>
       <set-method>initListener</set-method>
