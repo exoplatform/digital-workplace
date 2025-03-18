@@ -5,8 +5,138 @@
 
   <page>
     <name>dashboard</name>
-    <title>DAshboard</title>
+    <title>Dashboard</title>
     <access-permissions>*:/platform/users;*:/platform/externals</access-permissions>
     <edit-permission>*:/platform/administrators</edit-permission>
+    <container template="system:/groovy/portal/webui/container/UIPageLayout.gtmpl">
+      <css-style>
+        <background-color>#F2F2F2FF</background-color>
+        <background-image>url("/digital-workplace/images/background/dashboard.jpg")</background-image>
+      </css-style>
+      <section-columns
+        sticky-beahvior="false"
+        mobile-columns-style="false">
+        <css-style>
+          <margin-top>24</margin-top>
+          <margin-bottom>0</margin-bottom>
+        </css-style>
+        <column col-span="12">
+        </column> 
+      </section-columns>
+      <section-columns
+        sticky-beahvior="true"
+        mobile-columns-style="false">
+        <css-style>
+          <margin-top>36</margin-top>
+          <margin-bottom>20</margin-bottom>
+        </css-style>
+        <column col-span="3">
+          <portlet-application profiles="notes">
+            <portlet>
+              <application-ref>notes</application-ref>
+              <portlet-ref>NotePageView</portlet-ref>
+            </portlet>
+            <title></title>
+            <css-style>
+              <background-color>#FFFFFFFF</background-color>
+            </css-style>
+          </portlet-application>
+        </column>        
+		<column col-span="3">
+          <portlet-application profiles="app-center">
+            <portlet>
+              <application-ref>app-center</application-ref>
+              <portlet-ref>AppCenterMyApplicationsPortlet</portlet-ref>
+            </portlet>
+            <title>My apps</title>
+            <height>428</height>
+          </portlet-application>
+        </column>
+        <column col-span="3">
+          <portlet-application profiles="task">
+            <portlet>
+              <application-ref>task-management</application-ref>
+              <portlet-ref>tasks</portlet-ref>
+            </portlet>
+            <title>My Tasks</title>
+            <height>428</height>
+            <css-style>
+		      <background-color>#FFFFFFF0</background-color>
+            </css-style>
+          </portlet-application>
+        </column>
+		<column col-span="3">
+          <portlet-application profiles="agenda">
+            <portlet>
+              <application-ref>agenda</application-ref>
+              <portlet-ref>AgendaTimeline</portlet-ref>
+            </portlet>
+            <title>Agenda Timeline</title>
+            <height>428</height>
+            <css-style>
+		      <background-color>#FFFFFFF0</background-color>
+            </css-style>
+          </portlet-application>
+        </column>
+      </section-columns>
+      <section-columns
+        sticky-beahvior="false"
+        mobile-columns-style="false">
+        <css-style>
+          <background-color>#4D87C7FF</background-color>
+        </css-style>
+        <column col-span="12">
+        </column> 
+      </section-columns>
+      <section-columns
+        sticky-beahvior="true"
+        mobile-columns-style="false">
+        <css-style>
+          <background-image>url("/digital-workplace/images/background/traitsBlancs.png"),linear-gradient(#4D87C7FF, #FFFFFFFF)</background-image>
+		  <background-position>top left</background-position>
+		  <background-repeat>no-repeat</background-repeat>
+        </css-style>
+        <column col-span="8">
+          <portlet-application>
+            <portlet>
+              <application-ref>social</application-ref>
+              <portlet-ref>UserActivityStreamPortlet</portlet-ref>
+            </portlet>
+            <title>User Feed</title>
+          </portlet-application>
+        </column>
+        <column col-span="4">
+          <portlet-application profiles="gamification">
+            <portlet>
+              <application-ref>gamification-portlets</application-ref>
+              <portlet-ref>myContributions</portlet-ref>
+            </portlet>
+            <title>Current Contributions</title>
+          </portlet-application>
+          <container template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+            <name>stream-top-widgets-container</name>
+            <factory-id>addonContainer</factory-id>
+          </container>
+          <portlet-application profiles="documents">
+            <portlet>
+              <application-ref>documents-portlet</application-ref>
+              <portlet-ref>DocumentsSizeGadget</portlet-ref>
+            </portlet>
+            <title>Documents Size Gadget</title>
+          </portlet-application>
+          <portlet-application profiles="analytics">
+            <portlet>
+              <application-ref>analytics</application-ref>
+              <portlet-ref>SpacesListWidget</portlet-ref>
+            </portlet>
+            <title>Space list</title>
+          </portlet-application>
+          <container template="system:/groovy/portal/webui/container/UIAddOnContainer.gtmpl">
+            <name>stream-bottom-widgets-container</name>
+            <factory-id>addonContainer</factory-id>
+          </container>
+        </column>
+      </section-columns>
+    </container>
   </page>
 </page-set>
