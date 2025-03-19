@@ -4,7 +4,7 @@
         xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_10 http://www.gatein.org/xml/ns/gatein_objects_1_10"
         xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_10">
   <portal-name>dw</portal-name>
-  <label>#{portal.dw.home}</label>
+  <label>#{portal.dw.name}</label>
   <description>#{portal.dw.description}</description>
   <displayed>true</displayed>
   <display-order>40</display-order>
