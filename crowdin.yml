@@ -36,11 +36,11 @@ files: [
     "escape_quotes" : 0,
   },
   {
-    "source" : "/digital-workplace-webapps/src/main/resources/locale/navigation/portal/mycraft_en.properties",
+    "source" : "/digital-workplace-webapps/src/main/resources/locale/navigation/portal/myworkspace_en.properties",
 
     "translation" : "%original_path%/%file_name%!_%locale_with_underscore%.%file_extension%",
     "translation_replace" : {YML_CROWDIN_LANGUAGES_ARG},
-    "dest" : "add__ons/digital__workplace/MyCraft.properties",
+    "dest" : "add__ons/digital__workplace/MyWorkspace.properties",
     "update_option" : "update_as_unapproved",
     "escape_special_characters": 0,
     "escape_quotes" : 0,
