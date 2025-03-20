@@ -5,8 +5,164 @@
 
   <page>
     <name>dashboard</name>
-    <title>DAshboard</title>
+    <title>Dashboard</title>
     <access-permissions>*:/platform/users;*:/platform/externals</access-permissions>
     <edit-permission>*:/platform/administrators</edit-permission>
+    <container template="system:/groovy/portal/webui/container/UIPageLayout.gtmpl">
+      <css-style>
+        <background-color>#F2F2F2FF</background-color>
+        <background-image>/digital-workplace/images/background/myWorkspace/top.webp</background-image>
+        <background-position>top left</background-position>
+        <background-size>contain</background-size>
+      </css-style>
+      <section-columns
+        sticky-beahvior="false"
+        mobile-columns-style="false">
+        <css-style>
+          <margin-top>60</margin-top>
+          <margin-bottom>20</margin-bottom>
+        </css-style>
+        <column col-span="3">
+          <portlet-application profiles="notes">
+            <portlet>
+              <application-ref>notes</application-ref>
+              <portlet-ref>NotePageView</portlet-ref>
+            </portlet>
+            <title></title>
+            <height>428</height>
+            <cssClass>hidden-sm-and-down</cssClass>
+            <css-style>
+              <margin-top>40</margin-top>
+              <margin-bottom>20</margin-bottom>
+              <margin-right>20</margin-right>
+              <margin-left>20</margin-left>
+              <background-color>#FFFFFFF0</background-color>
+            </css-style>
+          </portlet-application>
+        </column>        
+		<column col-span="3">
+          <portlet-application profiles="app-center">
+            <portlet>
+              <application-ref>app-center</application-ref>
+              <portlet-ref>AppCenterMyApplicationsPortlet</portlet-ref>
+            </portlet>
+            <title>My apps</title>
+            <height>428</height>
+            <cssClass>hidden-sm-and-down</cssClass>
+            <css-style>
+              <margin-top>40</margin-top>
+              <margin-bottom>20</margin-bottom>
+              <margin-right>20</margin-right>
+              <margin-left>20</margin-left>
+              <background-color>#FFFFFFF0</background-color>
+            </css-style>
+          </portlet-application>
+        </column>
+        <column col-span="3">
+          <portlet-application profiles="task">
+            <portlet>
+              <application-ref>task-management</application-ref>
+              <portlet-ref>tasks</portlet-ref>
+            </portlet>
+            <title>My Tasks</title>
+            <height>428</height>
+            <cssClass>hidden-sm-and-down</cssClass>
+            <css-style>
+              <margin-top>40</margin-top>
+              <margin-bottom>20</margin-bottom>
+              <margin-right>20</margin-right>
+              <margin-left>20</margin-left>
+              <background-color>#FFFFFFF0</background-color>
+            </css-style>
+          </portlet-application>
+        </column>
+		<column col-span="3">
+          <portlet-application profiles="agenda">
+            <portlet>
+              <application-ref>agenda</application-ref>
+              <portlet-ref>AgendaTimeline</portlet-ref>
+            </portlet>
+            <title>Agenda Timeline</title>
+            <height>428</height>
+            <cssClass>hidden-sm-and-down</cssClass>
+            <css-style>
+              <margin-top>40</margin-top>
+              <margin-bottom>20</margin-bottom>
+              <margin-right>20</margin-right>
+              <margin-left>20</margin-left>
+              <background-color>#FFFFFFF0</background-color>
+            </css-style>
+          </portlet-application>
+        </column>
+      </section-columns>
+      <section-columns
+        sticky-beahvior="true"
+        mobile-columns-style="true">
+        <css-style>
+          <margin-top>20</margin-top>
+          <margin-bottom>20</margin-bottom>
+          <background-image>/digital-workplace/images/background/myWorkspace/bottom.webp</background-image>
+          <background-effect>linear-gradient(#4D87C7FF, #FFFFFFFF)</background-effect>
+          <background-position>top left</background-position>
+          <background-repeat>no-repeat</background-repeat>
+        </css-style>
+        <column col-span="8">
+          <portlet-application>
+            <portlet>
+              <application-ref>social</application-ref>
+              <portlet-ref>UserActivityStreamPortlet</portlet-ref>
+            </portlet>
+            <title>User Feed</title>
+          </portlet-application>
+        </column>
+        <column col-span="4">
+          <portlet-application profiles="gamification">
+            <portlet>
+              <application-ref>gamification-portlets</application-ref>
+              <portlet-ref>myContributions</portlet-ref>
+              <preferences>
+                <preference>
+                  <name>myContributionsPeriod</name>
+                  <value>quarter</value>
+                </preference>
+                <preference>
+                  <name>myContributionsDisplayLegend</name>
+                  <value>true</value>
+                </preference>
+                <preference>
+                  <name>myContributionsProgramLimit</name>
+                  <value>3</value>
+                </preference>
+              </preferences>
+            </portlet>
+            <title>Current Contributions</title>
+          </portlet-application>
+          <portlet-application profiles="documents">
+            <portlet>
+              <application-ref>documents-portlet</application-ref>
+              <portlet-ref>DocumentsSizeGadget</portlet-ref>
+            </portlet>
+            <title>Documents Size Gadget</title>
+          </portlet-application>
+          <portlet-application profiles="analytics">
+            <portlet>
+              <application-ref>analytics</application-ref>
+              <portlet-ref>SpacesListWidget</portlet-ref>
+              <preferences>
+                <preference>
+                  <name>userSpacesLimit</name>
+                  <value>1</value>
+                </preference>
+                <preference>
+                  <name>spacesRecentlyVisitedLimit</name>
+                  <value>1</value>
+                </preference>
+              </preferences>
+            </portlet>
+            <title>Space list</title>
+          </portlet-application>
+        </column>
+      </section-columns>
+    </container>
   </page>
 </page-set>
