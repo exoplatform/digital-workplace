@@ -102,7 +102,7 @@
               <portlet-ref>AppCenterMyApplicationsPortlet</portlet-ref>
             </portlet>
             <title>My apps</title>
-            <height>428</height>
+            <height>425</height>
             <cssClass>hidden-sm-and-down</cssClass>
             <css-style>
               <margin-top>40</margin-top>
@@ -120,7 +120,7 @@
               <portlet-ref>tasks</portlet-ref>
             </portlet>
             <title>My Tasks</title>
-            <height>428</height>
+            <height>425</height>
             <cssClass>hidden-sm-and-down</cssClass>
             <css-style>
               <margin-top>40</margin-top>
@@ -138,7 +138,7 @@
               <portlet-ref>AgendaTimeline</portlet-ref>
             </portlet>
             <title>Agenda Timeline</title>
-            <height>428</height>
+            <height>425</height>
             <cssClass>hidden-sm-and-down</cssClass>
             <css-style>
               <margin-top>40</margin-top>
