@@ -23,20 +23,75 @@
           <margin-bottom>20</margin-bottom>
         </css-style>
         <column col-span="3">
+          <portlet-application>
+            <portlet>
+              <application-ref>social</application-ref>
+              <portlet-ref>ProfileHeader</portlet-ref>
+              <preferences>
+                <preference>
+                  <name>avatarMinSize</name>
+                  <value>40</value>
+                </preference>
+                <preference>
+                  <name>avatarMaxSize</name>
+                  <value>80</value>
+                </preference>
+                <preference>
+                  <name>bannerHeight</name>
+                  <value>100</value>
+                </preference>
+                <preference>
+                  <name>bannerMaxHeight</name>
+                  <value>175</value>
+                </preference>
+                <preference>
+                  <name>displayOption</name>
+                  <value>welcome</value>
+                </preference>
+              </preferences>
+            </portlet>
+            <title></title>
+            <css-style>
+              <margin-top>40</margin-top>
+              <margin-bottom>16</margin-bottom>
+              <margin-right>20</margin-right>
+              <margin-left>20</margin-left>
+              <radius-top-right>8</radius-top-right>
+              <radius-top-left>8</radius-top-left>
+              <radius-bottom-right>0</radius-bottom-right>
+              <radius-bottom-left>0</radius-bottom-left>
+            </css-style>
+          </portlet-application>
           <portlet-application profiles="notes">
             <portlet>
               <application-ref>notes</application-ref>
               <portlet-ref>NotePageView</portlet-ref>
+              <preferences>
+                <preference>
+                  <name>data.init</name>
+                  <value>
+                    <![CDATA[
+                      {
+                         "pages":{
+                            "":"<p>Your personal dashboard gives you quick and centralized access to your apps and tools:&nbsp;</p><p>💼 Your work apps</p><p>📑 Your requests</p><p>📁 Your files</p><p>📅 Your agenda &amp; tasks</p>"
+                         }
+                      }
+                    ]]>
+                  </value>
+                </preference> 
+              </preferences>
             </portlet>
             <title></title>
-            <height>428</height>
-            <cssClass>hidden-sm-and-down</cssClass>
+            <height>250</height>
             <css-style>
-              <margin-top>40</margin-top>
+              <margin-top>0</margin-top>
               <margin-bottom>20</margin-bottom>
               <margin-right>20</margin-right>
               <margin-left>20</margin-left>
-              <background-color>#FFFFFFF0</background-color>
+              <radius-top-right>0</radius-top-right>
+              <radius-top-left>0</radius-top-left>
+              <radius-bottom-right>8</radius-bottom-right>
+              <radius-bottom-left>8</radius-bottom-left>
             </css-style>
           </portlet-application>
         </column>        
