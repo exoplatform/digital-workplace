@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- * Copyright (C) 2023 eXo Platform SAS.
+ * Copyright (C) 2025 eXo Platform SAS.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -213,6 +213,26 @@
       </section-columns>
     </container>
   </page>
+  
+  <page profiles="email-connector">
+    <name>email-connector</name>
+    <title>E-mail</title>
+    <access-permissions>*:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <show-max-window>false</show-max-window>
+    <container template="system:/groovy/portal/webui/container/UIPageLayout.gtmpl">
+      <section-columns>
+        <column col-span="12">
+          <portlet-application>
+            <portlet>
+              <application-ref>email-connector</application-ref>
+              <portlet-ref>emailConnectorAdministration</portlet-ref>
+            </portlet>
+          </portlet-application>
+        </column>
+      </section-columns>
+    </container>
+  </page>
     
   <page profiles="dlp">
     <name>dlp-quarantine</name>
@@ -271,5 +291,6 @@
       </portlet-application>
     </container>
   </page>
+  
 
 </page-set>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!--
- * Copyright (C) 2023 eXo Platform SAS.
+ * Copyright (C) 2025 eXo Platform SAS.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -70,6 +70,12 @@
             <icon>fa fa-trash</icon>
             <page-reference>portal::administration::documentsTrashAdministration</page-reference>
           </node>
+        </node>
+        <node>
+          <name>email-connector</name>
+          <label>#{portal.administration.email-connector}</label>
+          <icon>fas fa-envelope</icon>
+		  <page-reference>portal::administration::email-connector</page-reference>
         </node>
       </node>
       <node>
