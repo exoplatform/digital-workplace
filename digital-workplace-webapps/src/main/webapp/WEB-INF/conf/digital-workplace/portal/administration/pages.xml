@@ -226,7 +226,7 @@
           <portlet-application>
             <portlet>
               <application-ref>email-connector</application-ref>
-              <portlet-ref>emailConnectorAdministration</portlet-ref>
+              <portlet-ref>EmailConnectorAdministration</portlet-ref>
             </portlet>
           </portlet-application>
         </column>
