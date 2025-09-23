@@ -76,7 +76,8 @@
                       {
                          "pages":{
                             "":"<p>Your personal dashboard gives you quick and centralized access to your apps and tools:&nbsp;</p><p>💼 Your work apps</p><p>📁 Your files</p><p>📅 Your agenda &amp; tasks</p>",
-                            "fr":"<p>Votre tableau de bord personnel vous donne un accès rapide à vos outils:&nbsp;</p><p>💼 Vos applications pro</p><p>📁 Vos fichiers</p><p>📅 Votre agenda et vos tâches</p>"
+                            "fr":"<p>Votre tableau de bord personnel vous donne un accès rapide à vos outils:&nbsp;</p><p>💼 Vos applications pro</p><p>📁 Vos fichiers</p><p>📅 Votre agenda et vos tâches</p>",
+                            "ar": "<p>توفر لك لوحة التحكم الشخصية وصولاً سريعًا إلى أدواتك:</p><p>💼 تطبيقاتك المهنية</p><p>📁 ملفاتك</p><p>📅 جدولك ومهامك</p>"
                          }
                       }
                     ]]>
