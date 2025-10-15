@@ -33,19 +33,19 @@
           <name>drive</name>
           <label>#{portal.myworkspace.drive}</label>
           <icon>far fa-folder-open</icon>
-          <page-reference>portal::global::drives</page-reference>
+          <page-reference>portal::myworkspace::drives</page-reference>
         </node>
         <node>
           <name>tasks</name>
           <label>#{portal.myworkspace.tasks}</label>
           <icon>fa fa-tasks</icon>
-          <page-reference>portal::global::tasks</page-reference>
+          <page-reference>portal::myworkspace::tasks</page-reference>
         </node>
         <node>
           <name>agenda</name>
           <label>#{portal.myworkspace.agenda}</label>
           <icon>fas fa-calendar-alt</icon>
-          <page-reference>portal::global::agenda</page-reference>
+          <page-reference>portal::myworkspace::agenda</page-reference>
         </node>
         <node>
           <name>more</name>
@@ -55,19 +55,19 @@
             <name>process</name>
             <label>#{portal.myworkspace.process}</label>
             <icon>fas fa-file-invoice</icon>
-            <page-reference>portal::global::processes</page-reference>
+            <page-reference>portal::myworkspace::processes</page-reference>
           </node>
           <node>
             <name>content</name>
             <label>#{portal.myworkspace.content}</label>
             <icon>far fa-newspaper</icon>
-            <page-reference>portal::global::news</page-reference>
+            <page-reference>portal::myworkspace::news</page-reference>
           </node>
           <node>
             <name>team</name>
             <label>#{portal.myworkspace.team}</label>
             <icon>fa fa-sitemap</icon>
-            <page-reference>portal::global::myteam</page-reference>
+            <page-reference>portal::myworkspace::myteam</page-reference>
           </node>
         </node>
       </node>

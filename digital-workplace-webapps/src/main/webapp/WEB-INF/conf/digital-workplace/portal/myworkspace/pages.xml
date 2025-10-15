@@ -225,4 +225,197 @@
       </section-columns>
     </container>
   </page>
+  <page>
+    <name>drives</name>
+    <title>Drive</title>
+    <access-permissions>*:/platform/users;*:/platform/externals</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <container template="system:/groovy/portal/webui/container/UIPageLayout.gtmpl">
+      <section-columns
+        sticky-beahvior="false"
+        mobile-columns-style="true">
+        <column col-span="8">
+          <portlet-application>
+            <portlet>
+              <application-ref>documents-portlet</application-ref>
+              <portlet-ref>DocumentGadget</portlet-ref>
+              <preferences>
+                <preference>
+                  <name>viewOptions</name>
+                  <value>cards</value>
+                </preference>
+                <preference>
+                  <name>customHeader</name>
+                  <value>false</value>
+                </preference>
+                <preference>
+                  <name>displaySeeMore</name>
+                  <value>true</value>
+                </preference>
+                <preference>
+                  <name>maxDocumentsToList</name>
+                  <value>4</value>
+                </preference>
+                <preference>
+                  <name>documentType</name>
+                  <value>recentDocument</value>
+                </preference>
+              </preferences>
+            </portlet>
+          </portlet-application>
+        </column>
+        <column col-span="4">
+          <portlet-application>
+            <portlet>
+              <application-ref>documents-portlet</application-ref>
+              <portlet-ref>DocumentGadget</portlet-ref>
+              <preferences>
+                <preference>
+                  <name>viewOptions</name>
+                  <value>list</value>
+                </preference>
+                <preference>
+                  <name>customHeader</name>
+                  <value>false</value>
+                </preference>
+                <preference>
+                  <name>displaySeeMore</name>
+                  <value>true</value>
+                </preference>
+                <preference>
+                  <name>maxDocumentsToList</name>
+                  <value>4</value>
+                </preference>
+                <preference>
+                  <name>documentType</name>
+                  <value>sharedWithMe</value>
+                </preference>
+              </preferences>
+            </portlet>
+            <height>300</height>
+          </portlet-application>
+        </column>
+      </section-columns>
+      <section-columns
+        sticky-beahvior="false"
+        mobile-columns-style="true">
+        <column col-span="12">
+          <portlet-application>
+            <portlet>
+              <application-ref>documents-portlet</application-ref>
+              <portlet-ref>Documents</portlet-ref>
+            </portlet>
+            <title>Documents Application</title>
+          </portlet-application>
+        </column>
+      </section-columns>
+    </container>
+  </page>
+  <page>
+    <name>tasks</name>
+    <title>Tasks</title>
+    <access-permissions>*:/platform/users;*:/platform/externals</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <container template="system:/groovy/portal/webui/container/UIPageLayout.gtmpl">
+      <section-columns>
+        <column col-span="12">
+          <portlet-application>
+            <portlet>
+              <application-ref>task-management</application-ref>
+              <portlet-ref>TasksManagement</portlet-ref>
+            </portlet>
+            <title>Tasks</title>
+          </portlet-application>
+        </column>
+      </section-columns>
+    </container>
+  </page>
+  <page>
+    <name>agenda</name>
+    <title>Agenda</title>
+    <access-permissions>*:/platform/users;*:/platform/externals</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <container template="system:/groovy/portal/webui/container/UIPageLayout.gtmpl">
+      <section-columns>
+        <column col-span="12">
+          <portlet-application>
+            <portlet>
+              <application-ref>agenda</application-ref>
+              <portlet-ref>Agenda</portlet-ref>
+            </portlet>
+            <title>Agenda</title>
+          </portlet-application>
+        </column>
+      </section-columns>
+    </container>
+  </page>
+  <page>
+    <name>processes</name>
+    <title>Processes</title>
+    <access-permissions>*:/platform/users;*:/platform/externals</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <container template="system:/groovy/portal/webui/container/UIPageLayout.gtmpl">
+      <section-columns>
+        <column col-span="12">
+          <portlet-application>
+            <portlet>
+              <application-ref>processes</application-ref>
+              <portlet-ref>Processes</portlet-ref>
+            </portlet>
+            <title>Processes</title>
+          </portlet-application>
+        </column>
+      </section-columns>
+    </container>
+  </page>
+  <page>
+    <name>news</name>
+    <title>News</title>
+    <access-permissions>*:/platform/users;*:/platform/externals</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <container template="system:/groovy/portal/webui/container/UIPageLayout.gtmpl">
+      <section-columns>
+        <column col-span="12">
+          <portlet-application>
+            <portlet>
+              <application-ref>content</application-ref>
+              <portlet-ref>News</portlet-ref>
+            </portlet>
+            <title>News</title>
+          </portlet-application>
+        </column>
+      </section-columns>
+    </container>
+  </page>
+  <page>
+    <name>myteam</name>
+    <title>My Team</title>
+    <access-permissions>*:/platform/users;*:/platform/externals</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <container template="system:/groovy/portal/webui/container/UIPageLayout.gtmpl">
+      <section-columns>
+        <column col-span="12">
+          <portlet-application>
+            <portlet>
+              <application-ref>social</application-ref>
+              <portlet-ref>OrganizationalChart</portlet-ref>
+              <preferences>
+                <preference>
+                  <name>centerUser</name>
+                  <value>@connected@</value>
+                  <read-only>true</read-only>
+                </preference>
+                <preference>
+                  <name>headerTitle</name>
+                  <value>organizationalChart.header.myTeam</value>
+                  <read-only>true</read-only>
+                </preference>
+              </preferences>
+            </portlet>
+            <title>Organizational Chart</title>
+          </portlet-application>
+        </column>
+      </section-columns>
+    </container>
+  </page>
 </page-set>
