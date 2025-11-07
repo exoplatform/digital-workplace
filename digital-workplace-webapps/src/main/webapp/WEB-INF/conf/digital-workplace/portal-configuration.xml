@@ -25,7 +25,7 @@
               <boolean>${exo.dw.portalConfig.metadata.override:true}</boolean>
             </field>
             <field name="importMode">
-              <string>${exo.dw.portalConfig.metadata.importmode:insert}</string>
+              <string>${exo.dw.portalConfig.metadata.importmode:conserve}</string>
             </field>
             <field name="predefinedOwner">
               <collection type="java.util.HashSet">
@@ -65,7 +65,7 @@
               <boolean>${exo.myworkspace.portalConfig.metadata.override:true}</boolean>
             </field>
             <field name="importMode">
-              <string>${exo.myworkspace.portalConfig.metadata.importmode:insert}</string>
+              <string>${exo.myworkspace.portalConfig.metadata.importmode:conserve}</string>
             </field>
             <field name="templateLocation">
               <string>war:/conf/digital-workplace/</string>
@@ -181,7 +181,7 @@
               <boolean>${exo.spaceTemplates.portalConfig.metadata.override:true}</boolean>
             </field>
             <field name="importMode">
-              <string>${exo.spaceTemplates.portalConfig.metadata.importmode:insert}</string>
+              <string>${exo.spaceTemplates.portalConfig.metadata.importmode:conserve}</string>
             </field>
           </object>
         </object-param>
