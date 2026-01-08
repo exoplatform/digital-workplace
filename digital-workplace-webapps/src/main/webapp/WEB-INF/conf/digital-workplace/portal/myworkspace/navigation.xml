@@ -48,6 +48,12 @@
           <page-reference>portal::global::agenda</page-reference>
         </node>
         <node>
+          <name>notes</name>
+          <label>#{portal.myworkspace.notes}</label>
+          <icon>far fa-clipboard</icon>
+          <page-reference>portal::global::notes</page-reference>
+        </node>
+        <node>
           <name>more</name>
           <label>#{portal.myworkspace.more}</label>
           <icon>fa-ellipsis-h</icon>
