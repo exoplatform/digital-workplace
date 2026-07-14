@@ -77,6 +77,12 @@
           <icon>fas fa-envelope</icon>
 		  <page-reference>portal::administration::email-connector</page-reference>
         </node>
+        <node>
+          <name>chat</name>
+          <label>#{portal.administration.chat-administration}</label>
+          <icon>fas fa-comments</icon>
+          <page-reference>portal::administration::matrix-administration</page-reference>
+        </node>
       </node>
       <node>
         <name>security</name>
