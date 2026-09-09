@@ -65,5 +65,14 @@
       <scope>provided</scope>
       <outputFileNameMapping>commons-exo-extension.war</outputFileNameMapping>
     </dependencySet>
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <outputDirectory>/lib</outputDirectory>
+      <includes>
+        <include>org.exoplatform.commons-exo:exo.core.component.connector.credentials:jar</include>
+      </includes>
+      <scope>provided</scope>
+      <outputFileNameMapping>exo.core.component.connector.credentials.jar</outputFileNameMapping>
+    </dependencySet>
   </dependencySets>
 </assembly>
