@@ -47,6 +47,15 @@
       <type>war</type>
       <scope>provided</scope>
     </dependency>
+    <!-- The credentials contract the WAR above wires: connectors declare it provided,
+         and a provided-scope dependency carries no transitives, so nothing would put
+         it in lib/ and every resolution would fail at runtime. Shipped here, with the
+         WAR that owns its Spring context. -->
+    <dependency>
+      <groupId>org.exoplatform.commons-exo</groupId>
+      <artifactId>exo.core.component.connector.credentials</artifactId>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
   <build>
     <finalName>digital-workplace-addon</finalName>
