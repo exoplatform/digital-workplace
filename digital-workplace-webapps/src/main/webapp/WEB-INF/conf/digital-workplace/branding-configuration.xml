@@ -130,7 +130,7 @@
         <value>drawerBackgroundImage=${exo.branding.theme.drawerBackgroundImage:none}</value>
         <value>drawerBackgroundRepeat=${exo.branding.theme.drawerBackgroundRepeat:no-repeat}</value>
 
-        <!-- eXIP 7.3.0.30 - Same declarations as the portal's branding-configuration.xml (this component redefinition replaces the
+        <!-- Same declarations as the portal's branding-configuration.xml (this component redefinition replaces the
              portal's init-params, so every platform theme variable must be repeated). Format: <name>=${exo.branding.theme.<name>:<default>},
              empty = not set (the skin's built-in default applies). -->
         <value>pageMarginTop=${exo.branding.theme.pageMarginTop:}</value>
