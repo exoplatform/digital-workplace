@@ -16,7 +16,7 @@
   <parent>
     <groupId>org.exoplatform.addons.digital-workplace</groupId>
     <artifactId>digital-workplace</artifactId>
-    <version>7.3.x-ai-contribution-SNAPSHOT</version>
+    <version>7.3.x-rtd-SNAPSHOT</version>
   </parent>
   <artifactId>digital-workplace-packaging</artifactId>
   <packaging>pom</packaging>
