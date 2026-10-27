@@ -100,11 +100,11 @@
               <boolean>${exo.administration.portalConfig.metadata.override:true}</boolean>
             </field>
             <!--
-              we create here a different property from io.meeds.administration.portalConfig.metadata.importmode
-              If you need to reload exo part of administration configuration, you need to reload all the administration configuration.
-              Else, the PageImporter will REMOVE meeds administration pages.
-              So, to reload administration portal (meeds part or exo part), use
-              io.meeds.administration.portalConfig.metadata.importmode=overwrite
+              A property distinct from io.meeds.administration.portalConfig.metadata.importmode.
+              With overwrite, either property reloads the pages and the navigation of all the administration
+              declarations, Meeds' included, and removes the pages and nodes none of them defines.
+              io.meeds.administration.portalConfig.metadata.importmode also sets the mode of the global
+              declaration below, so it reloads global as well.
             -->
             <field name="importMode">
               <string>${exo.administration.portalConfig.metadata.importmode:insert}</string>
