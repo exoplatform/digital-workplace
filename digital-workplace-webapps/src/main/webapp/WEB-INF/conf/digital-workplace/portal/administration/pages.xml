@@ -195,8 +195,8 @@
   </page>
 
   <page profiles="documents">
-    <name>documentsTrashAdministration</name>
-    <title>Documents Trash Administration</title>
+    <name>documentSettings</name>
+    <title>Document Settings</title>
     <access-permissions>*:/platform/administrators</access-permissions>
     <edit-permission>manager:/platform/administrators</edit-permission>
     <show-max-window>false</show-max-window>
@@ -205,8 +205,8 @@
         <column col-span="12">
           <portlet-application>
             <portlet>
-              <application-ref>documents</application-ref>
-              <portlet-ref>TrashManagement</portlet-ref>
+              <application-ref>documents-portlet</application-ref>
+              <portlet-ref>DocumentSettings</portlet-ref>
             </portlet>
           </portlet-application>
         </column>
