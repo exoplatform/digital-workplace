@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Copyright (C) 2026 eXo Platform SAS.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+-->
+<node-navigation
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_6 http://www.gatein.org/xml/ns/gatein_objects_1_6"
+        xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_6">
+  <priority>3</priority>
+
+  <page-nodes>
+    <parent-uri>home/applications</parent-uri>
+    <!-- Imported in insert mode: a stored translation node is left as it is and only places documents-settings
+         right after it; a missing one is added back at the end of the menu, with documents-settings after it -->
+    <node>
+      <name>translation</name>
+      <label>#{portal.administration.translation}</label>
+      <icon>fas fa-language</icon>
+      <page-reference>portal::administration::automatic-translation</page-reference>
+    </node>
+    <node>
+      <name>documents-settings</name>
+      <label>#{portal.administration.documentSettings}</label>
+      <icon>fas fa-folder-open</icon>
+      <page-reference>portal::administration::documentSettings</page-reference>
+    </node>
+  </page-nodes>
+</node-navigation>

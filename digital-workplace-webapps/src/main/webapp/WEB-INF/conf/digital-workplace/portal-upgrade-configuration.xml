@@ -502,6 +502,110 @@
         </object-param>
       </init-params>
     </component-plugin>
+    <!--
+      The Document Settings entry replaces the former Trash entry of the administration menu.
+      -01 removes documents-settings with its Trash child, then -02 inserts it again right after
+      translation, with its page: a navigation import in merge mode would move the node to the top
+      of the Applications menu and keep its Trash child, and one in insert mode would not update it.
+      They are two plugins because the entries of one plugin do not run in a set order.
+    -->
+    <component-plugin>
+      <name>DocumentSettingsAdminUpgrade-7.3-01</name>
+      <set-method>addUpgradePlugin</set-method>
+      <type>io.meeds.social.upgrade.LayoutUpgradePlugin</type>
+      <init-params>
+        <value-param>
+          <name>product.group.id</name>
+          <value>org.exoplatform.social</value>
+        </value-param>
+        <value-param>
+          <name>plugin.execution.order</name>
+          <value>120</value>
+        </value-param>
+        <value-param>
+          <name>plugin.upgrade.execute.once</name>
+          <value>true</value>
+        </value-param>
+        <value-param>
+          <name>enabled</name>
+          <value>true</value>
+        </value-param>
+        <object-param>
+          <name>documentSettings.upgrade</name>
+          <object type="io.meeds.social.upgrade.model.LayoutUpgrade">
+            <field name="updateNavigation">
+              <boolean>true</boolean>
+            </field>
+            <field name="portalType">
+              <string>portal</string>
+            </field>
+            <field name="portalName">
+              <string>administration</string>
+            </field>
+            <field name="deleteNavigations">
+              <collection type="java.util.ArrayList" item-type="java.lang.String">
+                <value>
+                  <string>home/applications/documents-settings</string>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+    <component-plugin>
+      <name>DocumentSettingsAdminUpgrade-7.3-02</name>
+      <set-method>addUpgradePlugin</set-method>
+      <type>io.meeds.social.upgrade.LayoutUpgradePlugin</type>
+      <init-params>
+        <value-param>
+          <name>product.group.id</name>
+          <value>org.exoplatform.social</value>
+        </value-param>
+        <value-param>
+          <name>plugin.execution.order</name>
+          <value>121</value>
+        </value-param>
+        <value-param>
+          <name>plugin.upgrade.execute.once</name>
+          <value>true</value>
+        </value-param>
+        <value-param>
+          <name>enabled</name>
+          <value>true</value>
+        </value-param>
+        <object-param>
+          <name>documentSettings.upgrade</name>
+          <object type="io.meeds.social.upgrade.model.LayoutUpgrade">
+            <field name="updatePageLayout">
+              <boolean>true</boolean>
+            </field>
+            <field name="updateNavigation">
+              <boolean>true</boolean>
+            </field>
+            <field name="configPath">
+              <string>war:/conf/digital-workplace/upgrades/</string>
+            </field>
+            <field name="portalType">
+              <string>portal</string>
+            </field>
+            <field name="portalName">
+              <string>administration</string>
+            </field>
+            <field name="pageNames">
+              <collection type="java.util.ArrayList" item-type="java.lang.String">
+                <value>
+                  <string>documentSettings</string>
+                </value>
+              </collection>
+            </field>
+            <field name="importMode">
+              <string>insert</string>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
   </external-component-plugins>
 
 </configuration>
